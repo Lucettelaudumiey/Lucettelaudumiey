@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les Histoires de Mamie — Contes personnalisés</title>
+  <meta name="description" content="Créez de jolies histoires personnalisées avec le prénom de vos petits-enfants." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>📖 Les Histoires de Mamie</h1>
+    <p class="tagline">Des contes magiques avec le prénom de vos petits-enfants</p>
+  </header>
+
+  <main>
+    <!-- Étape 1 : Réglages de l'histoire -->
+    <section id="setup" class="card" aria-labelledby="setup-title">
+      <h2 id="setup-title">1. Qui est le héros de l'histoire ?</h2>
+
+      <form id="story-form" autocomplete="off">
+        <div class="field">
+          <label for="child-name">Prénom de l'enfant</label>
+          <input
+            type="text"
+            id="child-name"
+            name="child-name"
+            placeholder="Ex : Léa, Tom, Jade…"
+            maxlength="20"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <span class="field-label">L'enfant est…</span>
+          <div class="radio-group" role="radiogroup" aria-label="Genre de l'enfant">
+            <label class="chip">
+              <input type="radio" name="gender" value="f" checked />
+              <span>👧 Une fille</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="gender" value="m" />
+              <span>👦 Un garçon</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="animal">Son animal préféré</label>
+          <select id="animal" name="animal">
+            <option value="petit chat">Le chat 🐱</option>
+            <option value="petit chien">Le chien 🐶</option>
+            <option value="lapin">Le lapin 🐰</option>
+            <option value="poney">Le poney 🐴</option>
+            <option value="renard">Le renard 🦊</option>
+            <option value="ourson">L'ourson 🐻</option>
+            <option value="petit dragon">Le dragon 🐲</option>
+            <option value="dauphin">Le dauphin 🐬</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="story-select">Choisis une histoire</label>
+          <select id="story-select" name="story"></select>
+          <p id="story-desc" class="story-desc"></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">✨ Créer l'histoire</button>
+      </form>
+    </section>
+
+    <!-- Étape 2 : Histoire générée -->
+    <section id="story-output" class="card hidden" aria-labelledby="story-title">
+      <div class="story-toolbar no-print">
+        <button type="button" id="read-btn" class="btn btn-tool">🔊 Lire à voix haute</button>
+        <button type="button" id="stop-btn" class="btn btn-tool hidden">⏹ Arrêter</button>
+        <div class="font-controls">
+          <button type="button" id="font-smaller" class="btn btn-tool" aria-label="Réduire le texte">A−</button>
+          <button type="button" id="font-bigger" class="btn btn-tool" aria-label="Agrandir le texte">A+</button>
+        </div>
+        <button type="button" id="print-btn" class="btn btn-tool">🖨 Imprimer</button>
+        <button type="button" id="new-btn" class="btn btn-tool">↩ Nouvelle histoire</button>
+      </div>
+
+      <article id="story-content">
+        <h2 id="story-title"></h2>
+        <div id="story-text"></div>
+        <p class="the-end">✦ Fin ✦</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer no-print">
+    <p>Fait avec ❤️ pour les petits-enfants.</p>
+  </footer>
+
+  <script src="stories.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
