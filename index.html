@@ -19,33 +19,28 @@
   <main>
     <!-- Étape 1 : Réglages de l'histoire -->
     <section id="setup" class="card" aria-labelledby="setup-title">
-      <h2 id="setup-title">1. Qui est le héros de l'histoire ?</h2>
+      <h2 id="setup-title">1. Qui sont les héros de l'histoire ?</h2>
 
       <form id="story-form" autocomplete="off">
         <div class="field">
-          <label for="child-name">Prénom de l'enfant</label>
-          <input
-            type="text"
-            id="child-name"
-            name="child-name"
-            placeholder="Ex : Léa, Tom, Jade…"
-            maxlength="20"
-            required
-          />
+          <span class="field-label">Les prénoms des enfants</span>
+          <p class="field-hint">Ajoutez un ou plusieurs enfants. Avec deux enfants ou plus,
+            ils vivent l'aventure tous ensemble !</p>
+          <div id="children-list"></div>
+          <button type="button" id="add-child" class="btn btn-add">＋ Ajouter un enfant</button>
         </div>
 
-        <div class="field">
-          <span class="field-label">L'enfant est…</span>
-          <div class="radio-group" role="radiogroup" aria-label="Genre de l'enfant">
-            <label class="chip">
-              <input type="radio" name="gender" value="f" checked />
-              <span>👧 Une fille</span>
-            </label>
-            <label class="chip">
-              <input type="radio" name="gender" value="m" />
-              <span>👦 Un garçon</span>
-            </label>
-          </div>
+        <div class="field" id="lien-field">
+          <label for="lien">Entre eux, ce sont des…</label>
+          <select id="lien" name="lien">
+            <option value="cousines">cousines 👭</option>
+            <option value="sœurs">sœurs 👯‍♀️</option>
+            <option value="amies">amies 🤝</option>
+            <option value="cousins">cousins 👬</option>
+            <option value="frères">frères 👦👦</option>
+            <option value="amis">amis 🧒🧒</option>
+            <option value="petits aventuriers">petits aventuriers 🧭</option>
+          </select>
         </div>
 
         <div class="field">

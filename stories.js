@@ -85,7 +85,79 @@ const STORIES = [
   }
 ];
 
-// Permet d'utiliser STORIES depuis app.js
+/*
+ * Histoires "de groupe" : pour plusieurs enfants ensemble (sœurs, cousines, amis…).
+ *
+ * Marqueurs disponibles :
+ *   {prenoms}   → la liste des prénoms ("Maddy, Alba, Lou-Ann et Léonie")
+ *   {prenom1}   → le 1er enfant   (les numéros tournent en boucle s'il y a
+ *   {prenom2}   → le 2e enfant     moins d'enfants que de marqueurs)
+ *   {prenom3}   → le 3e enfant
+ *   {prenom4}   → le 4e enfant
+ *   {lien}      → le lien choisi ("cousines", "sœurs", "amies"…)
+ *   {animal}    → l'animal préféré
+ *   {elles}/{Elles} → "elles / ils" (selon le groupe)
+ *   {toutes}/{Toutes} → "toutes / tous"
+ *   {es}        → accord pluriel : "fatigué{es}" → fatiguées / fatigués
+ *   {ses}       → accord pluriel : "heureu{ses}" → heureuses / heureux
+ */
+
+const GROUP_STORIES = [
+  {
+    id: "cabane",
+    title: "La cabane secrète de {prenoms}",
+    description: "Toute la bande construit la plus belle des cabanes. 🏡",
+    paragraphs: [
+      "Un grand soleil brillait sur le jardin, et {prenoms} avaient une idée formidable : construire la plus belle cabane du monde !",
+      "{prenom1} ramassa de jolies branches bien solides, pendant que {prenom2} cherchait des feuilles toutes larges pour faire le toit.",
+      "{prenom3} apporta une vieille couverture toute douce, et {prenom4} décora l'entrée avec des fleurs de mille couleurs.",
+      "Leur {animal} les observait en remuant la tête, très impressionné par tout ce remue-ménage.",
+      "Quand la cabane fut enfin prête, les {lien} se serrèrent à l'intérieur, bien au chaud. « C'est notre cabane secrète, rien qu'à nous ! » dirent-{elles} en éclatant de rire.",
+      "{Elles} y partagèrent des biscuits, se racontèrent mille histoires, et se promirent de revenir jouer ensemble dès le lendemain. Car rien n'est plus précieux que des {lien} qui s'aiment très fort."
+    ]
+  },
+  {
+    id: "tresor",
+    title: "{prenoms} et la chasse au trésor",
+    description: "Une vraie chasse au trésor dans le jardin. 🗺️",
+    paragraphs: [
+      "Ce matin-là, {prenom1} trouva une vieille carte toute froissée, cachée sous un caillou du jardin. « Un trésor ! Il y a un trésor caché tout près ! »",
+      "Aussitôt, {prenom2} attrapa une loupe, {prenom3} enfila un grand chapeau, et {prenom4} prit la tête de l'expédition en suivant les flèches de la carte.",
+      "Les {lien} comptèrent leurs pas à voix haute : un, deux, trois… jusqu'au vieux pommier, puis tournèrent près du rosier piquant.",
+      "Leur fidèle {animal} reniflait le sol et, soudain, se mit à gratter la terre avec entrain. « Par ici ! Il a trouvé quelque chose ! »",
+      "{Toutes} ensemble, {elles} creusèrent doucement… et une petite boîte dorée apparut, brillant au soleil comme un vrai trésor de pirates !",
+      "À l'intérieur les attendaient des pièces en chocolat pour tout le monde. {prenoms} les partagèrent en parts bien égales, car entre {lien}, on partage toujours tout."
+    ]
+  },
+  {
+    id: "piquenique",
+    title: "Le pique-nique magique de {prenoms}",
+    description: "Un goûter au parc avec une petite surprise à poils. 🧺",
+    paragraphs: [
+      "Par une belle après-midi, {prenoms} préparèrent un grand pique-nique sous le plus grand arbre du parc.",
+      "{prenom1} étala une nappe à carreaux, {prenom2} sortit les sandwichs, {prenom3} versa le jus de fruits, et {prenom4} disposa des fraises bien rouges dans un joli panier.",
+      "Mais voilà qu'un {animal} curieux s'approcha sur la pointe des pattes, attiré par toutes ces bonnes odeurs.",
+      "« Viens, n'aie pas peur ! » dit doucement {prenom1}. Et le {animal} vint s'asseoir au beau milieu des {lien}, tout content d'être invité.",
+      "{Elles} partagèrent leur goûter avec lui, puis jouèrent à chat perché, firent des rondes et cueillirent des pâquerettes jusqu'au soir.",
+      "Quand le soleil se coucha, {prenoms} rentrèrent main dans la main, fatigué{es} mais heureu{ses}, le cœur rempli de jolis souvenirs."
+    ]
+  },
+  {
+    id: "lucioles",
+    title: "{prenoms} et la nuit des lucioles",
+    description: "Une douce histoire du soir sous les étoiles. ✨",
+    paragraphs: [
+      "La nuit était douce et le ciel tout étoilé. Blotti{es} ensemble dans le jardin, {prenoms} regardaient briller les premières lucioles.",
+      "« Regardez comme elles dansent ! » chuchota {prenom1}. Une luciole se posa délicatement sur le nez de {prenom2}, qui éclata de rire tout doucement.",
+      "{prenom3} tendit la main, et une autre petite lumière vint s'y poser, comme une minuscule étoile tombée du ciel. {prenom4}, les yeux grands ouverts, n'osait plus bouger.",
+      "Leur {animal} bâillait paisiblement, roulé en boule tout près d'elles, prêt à s'endormir.",
+      "Les lucioles formaient comme une guirlande magique au-dessus des {lien}, veillant sur elles telles de gentilles petites gardiennes de la nuit.",
+      "Peu à peu, les yeux des {lien} se fermèrent. Et {toutes} ensemble, {elles} s'endormirent en rêvant de lumières dansantes. Bonne nuit, {prenoms}."
+    ]
+  }
+];
+
+// Permet d'utiliser les histoires depuis app.js
 if (typeof module !== "undefined") {
-  module.exports = STORIES;
+  module.exports = { STORIES: STORIES, GROUP_STORIES: GROUP_STORIES };
 }

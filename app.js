@@ -3,9 +3,20 @@
 (function () {
   "use strict";
 
+  // Prénoms pré-remplis par défaut (modifiable librement par l'utilisateur)
+  const DEFAULT_CHILDREN = [
+    { name: "Maddy", gender: "f" },
+    { name: "Alba", gender: "f" },
+    { name: "Lou-Ann", gender: "f" },
+    { name: "Léonie", gender: "f" }
+  ];
+
   // --- Récupération des éléments de la page ---
   const form = document.getElementById("story-form");
-  const nameInput = document.getElementById("child-name");
+  const childrenList = document.getElementById("children-list");
+  const addChildBtn = document.getElementById("add-child");
+  const lienSelect = document.getElementById("lien");
+  const lienField = document.getElementById("lien-field");
   const animalSelect = document.getElementById("animal");
   const storySelect = document.getElementById("story-select");
   const storyDesc = document.getElementById("story-desc");
@@ -23,30 +34,126 @@
   const newBtn = document.getElementById("new-btn");
 
   let currentFontSize = 1.25; // en rem
+  let currentList = STORIES;  // liste d'histoires affichée selon le mode
 
-  // --- Remplit la liste déroulante des histoires ---
-  STORIES.forEach(function (story, index) {
-    const option = document.createElement("option");
-    option.value = index;
-    // On enlève les marqueurs pour le titre du menu
-    option.textContent = clean(story.title);
-    storySelect.appendChild(option);
+  // =========================================================
+  //  Liste dynamique des enfants
+  // =========================================================
+  function addChildRow(child) {
+    child = child || { name: "", gender: "f" };
+
+    const row = document.createElement("div");
+    row.className = "child-row";
+
+    const nameInput = document.createElement("input");
+    nameInput.type = "text";
+    nameInput.className = "child-name";
+    nameInput.placeholder = "Prénom…";
+    nameInput.maxLength = 20;
+    nameInput.value = child.name;
+
+    const genderSelect = document.createElement("select");
+    genderSelect.className = "child-gender";
+    genderSelect.innerHTML =
+      '<option value="f">👧 fille</option><option value="m">👦 garçon</option>';
+    genderSelect.value = child.gender;
+
+    const removeBtn = document.createElement("button");
+    removeBtn.type = "button";
+    removeBtn.className = "remove-child";
+    removeBtn.setAttribute("aria-label", "Retirer cet enfant");
+    removeBtn.textContent = "✕";
+    removeBtn.addEventListener("click", function () {
+      row.remove();
+      refreshStoryOptions();
+    });
+
+    nameInput.addEventListener("input", refreshStoryOptions);
+    genderSelect.addEventListener("change", refreshStoryOptions);
+
+    row.appendChild(nameInput);
+    row.appendChild(genderSelect);
+    row.appendChild(removeBtn);
+    childrenList.appendChild(row);
+  }
+
+  // Lit les enfants dont le prénom n'est pas vide
+  function getChildren() {
+    const rows = childrenList.querySelectorAll(".child-row");
+    const children = [];
+    rows.forEach(function (row) {
+      const name = row.querySelector(".child-name").value.trim();
+      if (name) {
+        children.push({
+          name: capitalizeName(name),
+          gender: row.querySelector(".child-gender").value
+        });
+      }
+    });
+    return children;
+  }
+
+  // Met une majuscule à chaque morceau du prénom : "lou-ann" → "Lou-Ann"
+  function capitalizeName(name) {
+    return name.replace(/(^|[\s'-])([a-zàâäéèêëïîôöùûüç])/g, function (m, sep, letter) {
+      return sep + letter.toUpperCase();
+    });
+  }
+
+  // Joint les prénoms : ["A","B","C"] → "A, B et C"
+  function joinNames(names) {
+    if (names.length === 0) return "";
+    if (names.length === 1) return names[0];
+    return names.slice(0, -1).join(", ") + " et " + names[names.length - 1];
+  }
+
+  addChildBtn.addEventListener("click", function () {
+    addChildRow();
+    refreshStoryOptions();
   });
 
+  // =========================================================
+  //  Choix des histoires selon le nombre d'enfants
+  // =========================================================
+  function refreshStoryOptions() {
+    const children = getChildren();
+    const isGroup = children.length >= 2;
+    currentList = isGroup ? GROUP_STORIES : STORIES;
+
+    // Le lien de parenté n'a de sens qu'à plusieurs
+    lienField.classList.toggle("hidden", !isGroup);
+
+    const previous = storySelect.value;
+    storySelect.innerHTML = "";
+    currentList.forEach(function (story, index) {
+      const option = document.createElement("option");
+      option.value = index;
+      option.textContent = clean(story.title);
+      storySelect.appendChild(option);
+    });
+    // On essaie de conserver le choix précédent si possible
+    if (previous && currentList[previous]) {
+      storySelect.value = previous;
+    }
+    updateDescription();
+  }
+
   function updateDescription() {
-    const story = STORIES[storySelect.value];
+    const story = currentList[storySelect.value];
     storyDesc.textContent = story ? story.description : "";
   }
   storySelect.addEventListener("change", updateDescription);
-  updateDescription();
 
-  // --- Remplacement des marqueurs par les bonnes valeurs ---
-  function personalize(text, data) {
-    const isGirl = data.gender === "f";
+  // =========================================================
+  //  Remplacement des marqueurs
+  // =========================================================
 
+  // Histoire à un seul héros
+  function personalizeSingle(text, child) {
+    const isGirl = child.gender === "f";
     const map = {
-      "{prenom}": data.name,
-      "{animal}": data.animal,
+      "{prenom}": child.name,
+      "{animal}": animalSelect.value,
       "{un}": isGirl ? "une" : "un",
       "{il}": isGirl ? "elle" : "il",
       "{Il}": isGirl ? "Elle" : "Il",
@@ -57,7 +164,35 @@
       "{ami}": isGirl ? "amie" : "ami",
       "{héros}": isGirl ? "héroïne" : "héros"
     };
+    return replaceMarkers(text, map);
+  }
 
+  // Histoire de groupe (plusieurs enfants)
+  function personalizeGroup(text, children) {
+    const names = children.map(function (c) { return c.name; });
+    // En français, le pluriel est masculin dès qu'il y a un garçon
+    const allGirls = children.every(function (c) { return c.gender === "f"; });
+    const pick = function (i) { return names[i % names.length]; };
+
+    const map = {
+      "{prenoms}": joinNames(names),
+      "{prenom1}": pick(0),
+      "{prenom2}": pick(1),
+      "{prenom3}": pick(2),
+      "{prenom4}": pick(3),
+      "{lien}": lienSelect.value,
+      "{animal}": animalSelect.value,
+      "{elles}": allGirls ? "elles" : "ils",
+      "{Elles}": allGirls ? "Elles" : "Ils",
+      "{toutes}": allGirls ? "toutes" : "tous",
+      "{Toutes}": allGirls ? "Toutes" : "Tous",
+      "{es}": allGirls ? "es" : "s",
+      "{ses}": allGirls ? "ses" : "x"
+    };
+    return replaceMarkers(text, map);
+  }
+
+  function replaceMarkers(text, map) {
     let result = text;
     Object.keys(map).forEach(function (marker) {
       result = result.split(marker).join(map[marker]);
@@ -65,54 +200,50 @@
     return result;
   }
 
-  // Enlève simplement tous les marqueurs (pour les menus)
+  // Enlève tous les marqueurs (pour les titres des menus)
   function clean(text) {
     return text.replace(/\{[^}]+\}/g, "").replace(/\s+/g, " ").trim();
   }
 
-  // Met une majuscule à la première lettre (le prénom commence parfois la phrase)
+  // Majuscule en début de phrase
   function fixCapitals(text) {
-    // Majuscule en début de paragraphe et après . ! ? :
     return text.replace(/(^|[.!?]\s+|: )([a-zàâäéèêëïîôöùûüç])/g, function (m, p1, p2) {
       return p1 + p2.toUpperCase();
     });
   }
 
-  // --- Génération de l'histoire ---
+  // =========================================================
+  //  Génération de l'histoire
+  // =========================================================
   function generateStory(event) {
     event.preventDefault();
 
-    const rawName = nameInput.value.trim();
-    if (!rawName) {
-      nameInput.focus();
+    const children = getChildren();
+    if (children.length === 0) {
+      const first = childrenList.querySelector(".child-name");
+      if (first) first.focus();
       return;
     }
 
-    // Première lettre du prénom en majuscule
-    const name = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+    const isGroup = children.length >= 2;
+    const story = currentList[storySelect.value] || currentList[0];
 
-    const data = {
-      name: name,
-      animal: animalSelect.value,
-      gender: form.elements["gender"].value
+    const transform = function (text) {
+      const filled = isGroup
+        ? personalizeGroup(text, children)
+        : personalizeSingle(text, children[0]);
+      return fixCapitals(filled);
     };
 
-    const story = STORIES[storySelect.value];
-
-    // Titre
-    storyTitle.textContent = fixCapitals(personalize(story.title, data));
-
-    // Paragraphes
+    storyTitle.textContent = transform(story.title);
     storyTextEl.innerHTML = "";
     story.paragraphs.forEach(function (para) {
       const p = document.createElement("p");
-      p.textContent = fixCapitals(personalize(para, data));
+      p.textContent = transform(para);
       storyTextEl.appendChild(p);
     });
 
     applyFontSize();
-
-    // Affichage
     setupSection.classList.add("hidden");
     outputSection.classList.remove("hidden");
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -127,8 +258,6 @@
     outputSection.classList.add("hidden");
     setupSection.classList.remove("hidden");
     window.scrollTo({ top: 0, behavior: "smooth" });
-    nameInput.focus();
-    nameInput.select();
   });
 
   // --- Taille du texte ---
@@ -149,7 +278,9 @@
     window.print();
   });
 
-  // --- Lecture à voix haute (synthèse vocale) ---
+  // =========================================================
+  //  Lecture à voix haute
+  // =========================================================
   const synth = window.speechSynthesis;
 
   function getFrenchVoice() {
@@ -176,7 +307,7 @@
 
     const utterance = new SpeechSynthesisUtterance(fullText);
     utterance.lang = "fr-FR";
-    utterance.rate = 0.9;   // un peu plus lent, pour les enfants
+    utterance.rate = 0.9;
     utterance.pitch = 1.05;
     const voice = getFrenchVoice();
     if (voice) utterance.voice = voice;
@@ -202,8 +333,13 @@
   readBtn.addEventListener("click", readAloud);
   stopBtn.addEventListener("click", stopReading);
 
-  // Certains navigateurs chargent les voix de façon asynchrone
   if (synth && typeof synth.onvoiceschanged !== "undefined") {
     synth.onvoiceschanged = getFrenchVoice;
   }
+
+  // =========================================================
+  //  Démarrage : on pré-remplit les quatre prénoms
+  // =========================================================
+  DEFAULT_CHILDREN.forEach(addChildRow);
+  refreshStoryOptions();
 })();

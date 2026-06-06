@@ -6,11 +6,21 @@ petits-enfants… avec **leur prénom à l'intérieur** !
 ## Comment l'utiliser
 
 1. Ouvrez le fichier **`index.html`** dans votre navigateur (double-cliquez dessus).
-2. Tapez le **prénom** de l'enfant.
-3. Choisissez si c'est une fille ou un garçon, son **animal préféré** et **l'histoire**.
-4. Cliquez sur **« ✨ Créer l'histoire »**.
+2. Entrez le ou les **prénoms** des enfants (le bouton **« ＋ Ajouter un enfant »**
+   permet d'en mettre autant que vous voulez). Les prénoms de Maddy, Alba, Lou-Ann
+   et Léonie sont déjà pré-remplis.
+3. Pour chaque enfant, indiquez si c'est une fille ou un garçon.
+4. Choisissez l'**animal préféré** et **l'histoire**.
+5. Cliquez sur **« ✨ Créer l'histoire »**.
 
-Et voilà, l'histoire apparaît, écrite spécialement pour l'enfant 💛
+Et voilà, l'histoire apparaît, écrite spécialement pour les enfants 💛
+
+### Une seule enfant ou toute la bande ?
+
+- Avec **un seul prénom**, l'enfant est la vedette de sa propre histoire.
+- Avec **deux prénoms ou plus**, tout le monde vit l'aventure **ensemble** ! Vous
+  pouvez alors préciser si ce sont des *sœurs*, des *cousines*, des *amis*…
+  Chaque enfant a son petit moment dans l'histoire.
 
 ## Les petits boutons pratiques
 
@@ -21,11 +31,20 @@ Et voilà, l'histoire apparaît, écrite spécialement pour l'enfant 💛
 
 ## Les histoires disponibles
 
+**Pour une seule enfant :**
+
 - 🌙 *… et l'étoile qui ne voulait pas dormir* (histoire du soir)
 - 🌳 *… et le secret de la forêt enchantée*
 - 🌊 *… et le voyage au fond de la mer*
 - 🎂 *Le merveilleux anniversaire de …*
 - ☁️ *… et le château dans les nuages*
+
+**Pour plusieurs enfants ensemble :**
+
+- 🏡 *La cabane secrète de …*
+- 🗺️ *… et la chasse au trésor*
+- 🧺 *Le pique-nique magique de …*
+- ✨ *… et la nuit des lucioles* (histoire du soir)
 
 ## Pour les curieux : ajouter ses propres histoires
 

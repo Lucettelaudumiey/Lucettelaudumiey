@@ -95,6 +95,59 @@ select:focus {
   box-shadow: 0 0 0 4px rgba(255, 143, 171, 0.25);
 }
 
+.field-hint {
+  margin: 0 0 0.7rem;
+  font-size: 0.98rem;
+  color: var(--violet);
+  opacity: 0.85;
+}
+
+/* --- Lignes d'enfants --- */
+.child-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  align-items: center;
+}
+.child-row .child-name {
+  flex: 1 1 auto;
+}
+.child-row .child-gender {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 7.5rem;
+}
+.remove-child {
+  flex: 0 0 auto;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 3px solid var(--rose-clair);
+  background: #fff;
+  color: var(--rose);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.remove-child:hover {
+  background: var(--rose-clair);
+}
+.remove-child:active {
+  transform: scale(0.9);
+}
+
+.btn-add {
+  margin-top: 0.3rem;
+  padding: 0.6rem 1.1rem;
+  font-size: 1.05rem;
+  background: var(--violet-clair);
+  color: var(--violet);
+}
+.btn-add:hover {
+  background: #ddd0ff;
+}
+
 .story-desc {
   margin: 0.6rem 0 0;
   font-style: italic;
