@@ -9,9 +9,12 @@ petits-enfants… avec **leur prénom à l'intérieur** !
 2. Entrez le ou les **prénoms** des enfants (le bouton **« ＋ Ajouter un enfant »**
    permet d'en mettre autant que vous voulez). Les prénoms de Maddy, Alba, Lou-Ann
    et Léonie sont déjà pré-remplis.
-3. Pour chaque enfant, indiquez si c'est une fille ou un garçon.
+3. Pour chaque enfant, indiquez si c'est une fille ou un garçon, et éventuellement sa **ville**.
 4. Choisissez l'**animal préféré** et **l'histoire**.
 5. Cliquez sur **« ✨ Créer l'histoire »**.
+
+Chaque histoire a sa propre **couleur d'ambiance**. Les villes, quand elles sont
+renseignées, peuvent apparaître dans certaines histoires (comme *Le grand voyage*).
 
 Et voilà, l'histoire apparaît, écrite spécialement pour les enfants 💛
 
@@ -45,6 +48,10 @@ Et voilà, l'histoire apparaît, écrite spécialement pour les enfants 💛
 - 🗺️ *… et la chasse au trésor*
 - 🧺 *Le pique-nique magique de …*
 - ✨ *… et la nuit des lucioles* (histoire du soir)
+- 🚗 *Le grand voyage de …* (les cousines se retrouvent entre leurs deux villages)
+- 🎄 *Le Noël magique de …*
+- 🏰 *… au royaume enchanté*
+- 🏖️ *… et la journée à la plage*
 
 ## Pour les curieux : ajouter ses propres histoires
 
@@ -55,6 +62,7 @@ petits « marqueurs » qui seront remplacés automatiquement :
 | Marqueur | Devient… |
 |----------|----------|
 | `{prenom}` | le prénom de l'enfant |
+| `{ville}` | la ville de l'enfant |
 | `{animal}` | l'animal choisi |
 | `{il}` / `{Il}` | « il / elle » (ou « Il / Elle ») |
 | `{e}` | « e » pour une fille, rien pour un garçon (ex. `content{e}`) |

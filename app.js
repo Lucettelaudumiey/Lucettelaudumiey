@@ -5,10 +5,10 @@
 
   // Prénoms pré-remplis par défaut (modifiable librement par l'utilisateur)
   const DEFAULT_CHILDREN = [
-    { name: "Maddy", gender: "f" },
-    { name: "Alba", gender: "f" },
-    { name: "Lou-Ann", gender: "f" },
-    { name: "Léonie", gender: "f" }
+    { name: "Maddy", gender: "f", town: "Balansun" },
+    { name: "Alba", gender: "f", town: "Balansun" },
+    { name: "Lou-Ann", gender: "f", town: "Castétis" },
+    { name: "Léonie", gender: "f", town: "Castétis" }
   ];
 
   // --- Récupération des éléments de la page ---
@@ -40,7 +40,7 @@
   //  Liste dynamique des enfants
   // =========================================================
   function addChildRow(child) {
-    child = child || { name: "", gender: "f" };
+    child = child || { name: "", gender: "f", town: "" };
 
     const row = document.createElement("div");
     row.className = "child-row";
@@ -51,6 +51,13 @@
     nameInput.placeholder = "Prénom…";
     nameInput.maxLength = 20;
     nameInput.value = child.name;
+
+    const townInput = document.createElement("input");
+    townInput.type = "text";
+    townInput.className = "child-town";
+    townInput.placeholder = "Ville (facultatif)";
+    townInput.maxLength = 30;
+    townInput.value = child.town || "";
 
     const genderSelect = document.createElement("select");
     genderSelect.className = "child-gender";
@@ -72,6 +79,7 @@
     genderSelect.addEventListener("change", refreshStoryOptions);
 
     row.appendChild(nameInput);
+    row.appendChild(townInput);
     row.appendChild(genderSelect);
     row.appendChild(removeBtn);
     childrenList.appendChild(row);
@@ -84,9 +92,11 @@
     rows.forEach(function (row) {
       const name = row.querySelector(".child-name").value.trim();
       if (name) {
+        const town = row.querySelector(".child-town").value.trim();
         children.push({
           name: capitalizeName(name),
-          gender: row.querySelector(".child-gender").value
+          gender: row.querySelector(".child-gender").value,
+          town: town ? capitalizeName(town) : ""
         });
       }
     });
@@ -153,6 +163,7 @@
     const isGirl = child.gender === "f";
     const map = {
       "{prenom}": child.name,
+      "{ville}": child.town,
       "{animal}": animalSelect.value,
       "{un}": isGirl ? "une" : "un",
       "{il}": isGirl ? "elle" : "il",
@@ -170,22 +181,28 @@
   // Histoire de groupe (plusieurs enfants)
   function personalizeGroup(text, children) {
     const names = children.map(function (c) { return c.name; });
+    const towns = children.map(function (c) { return c.town; });
     // En français, le pluriel est masculin dès qu'il y a un garçon
     const allGirls = children.every(function (c) { return c.gender === "f"; });
-    const pick = function (i) { return names[i % names.length]; };
+    const pick = function (arr, i) { return arr[i % arr.length]; };
 
     const map = {
       "{prenoms}": joinNames(names),
-      "{prenom1}": pick(0),
-      "{prenom2}": pick(1),
-      "{prenom3}": pick(2),
-      "{prenom4}": pick(3),
+      "{prenom1}": pick(names, 0),
+      "{prenom2}": pick(names, 1),
+      "{prenom3}": pick(names, 2),
+      "{prenom4}": pick(names, 3),
+      "{ville1}": pick(towns, 0),
+      "{ville2}": pick(towns, 1),
+      "{ville3}": pick(towns, 2),
+      "{ville4}": pick(towns, 3),
       "{lien}": lienSelect.value,
       "{animal}": animalSelect.value,
       "{elles}": allGirls ? "elles" : "ils",
       "{Elles}": allGirls ? "Elles" : "Ils",
       "{toutes}": allGirls ? "toutes" : "tous",
       "{Toutes}": allGirls ? "Toutes" : "Tous",
+      "{e}": allGirls ? "e" : "",
       "{es}": allGirls ? "es" : "s",
       "{ses}": allGirls ? "ses" : "x"
     };
@@ -234,6 +251,9 @@
         : personalizeSingle(text, children[0]);
       return fixCapitals(filled);
     };
+
+    // Couleur d'ambiance de l'histoire
+    outputSection.style.setProperty("--story-accent", story.color || "#ff8fab");
 
     storyTitle.textContent = transform(story.title);
     storyTextEl.innerHTML = "";
