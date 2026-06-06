@@ -17,8 +17,24 @@ ou entre amis dans les Pyrénées-Atlantiques !
   - 🟢 **Carton plein** (les 15 numéros)
 - **Nom du joueur** modifiable sur chaque carton
 - **Téléchargement** de tous les cartons en une **image PNG** (noms + numéros), même hors-ligne
+- **Export CSV** (Excel) de tous les cartons
+- **Mode deux écrans** : un écran de tirage + un *écran de suivi* synchronisé en direct
 - **Impression** des cartons
 - **Sauvegarde automatique** de la partie (reprend où vous en étiez)
+
+## 🖥️ Mode deux écrans
+
+Pour animer une vraie partie : gardez le **tirage** sur un écran et affichez les
+**cartons (les bingos)** sur l'écran d'à côté.
+
+1. Ouvrez l'onglet **Mes cartons** puis cliquez sur **🖥️ Écran de suivi**.
+2. Une nouvelle fenêtre s'ouvre : déplacez-la sur le second écran (plein écran
+   conseillé).
+3. Tirez les numéros depuis l'écran principal : la fenêtre de suivi se met à jour
+   toute seule (numéros cochés, quines, double quines, cartons pleins).
+
+La synchronisation passe par le navigateur (aucun réseau requis) et fonctionne
+même en ouvrant le fichier en local. L'écran de suivi est en lecture seule.
 
 ## ▶️ Utilisation
 

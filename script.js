@@ -28,6 +28,10 @@ const state = {
   auto: null       // timer du tirage auto
 };
 
+/* ---------- Mode « écran de suivi » (deux écrans) ---------- */
+// Une fenêtre ouverte avec ?ecran=suivi ne fait que refléter la partie en direct.
+const FOLLOW = new URLSearchParams(location.search).get("ecran") === "suivi";
+
 /* ---------- Raccourcis DOM ---------- */
 const $ = (sel) => document.querySelector(sel);
 const el = {
@@ -49,10 +53,14 @@ const el = {
   downloadBtn: $("#downloadBtn"),
   csvBtn: $("#csvBtn"),
   printBtn: $("#printBtn"),
+  screenBtn: $("#screenBtn"),
   winBanner: $("#winBanner"),
   winTitle: $("#winTitle"),
   winText: $("#winText"),
-  winClose: $("#winClose")
+  winClose: $("#winClose"),
+  followBar: $("#followBar"),
+  followLast: $("#followLast"),
+  followCount: $("#followCount")
 };
 
 /* ============================================================
@@ -131,7 +139,7 @@ function updateStats() {
 
 /* ---------- Annonce vocale (français) ---------- */
 function announce(n, nick) {
-  if (!el.voice.checked || !("speechSynthesis" in window)) return;
+  if (FOLLOW || !el.voice.checked || !("speechSynthesis" in window)) return;
   const phrase = nick ? `${n}, ${nick}` : `${n}`;
   const u = new SpeechSynthesisUtterance(phrase);
   u.lang = "fr-FR";
@@ -390,7 +398,11 @@ function cartonNode(c) {
     `<span class="carton-badge">en jeu</span>`;
   const nameInput = head.querySelector(".carton-name");
   nameInput.value = c.name || "";
-  nameInput.addEventListener("input", () => { c.name = nameInput.value; save(); });
+  if (FOLLOW) {
+    nameInput.readOnly = true; // l'écran de suivi ne modifie rien
+  } else {
+    nameInput.addEventListener("input", () => { c.name = nameInput.value; save(); });
+  }
   wrap.appendChild(head);
 
   const grid = document.createElement("div");
@@ -486,7 +498,7 @@ function celebrate(level, id) {
   el.winTitle.textContent = titles[level];
   el.winText.textContent = `Carton n°${id}`;
   el.winBanner.hidden = false;
-  if (el.voice.checked && "speechSynthesis" in window) {
+  if (!FOLLOW && el.voice.checked && "speechSynthesis" in window) {
     const txt = level === "plein" ? "Carton plein !" : level === "double" ? "Double quine !" : "Quine !";
     const u = new SpeechSynthesisUtterance(txt);
     u.lang = "fr-FR"; u.rate = 0.95;
@@ -498,9 +510,10 @@ function celebrate(level, id) {
    SAUVEGARDE LOCALE
    ============================================================ */
 function save() {
+  if (FOLLOW) return; // l'écran de suivi ne fait que lire, jamais écrire
   try {
     localStorage.setItem("loto64", JSON.stringify({
-      drawn: state.drawn, pool: state.pool, cartons: state.cartons
+      drawn: state.drawn, pool: state.pool, cartons: state.cartons, ts: Date.now()
     }));
   } catch (e) { /* stockage indisponible : on ignore */ }
 }
@@ -521,15 +534,97 @@ function load() {
 /* ============================================================
    NAVIGATION ENTRE LES VUES
    ============================================================ */
+function activateView(name) {
+  document.querySelectorAll(".tab").forEach((t) =>
+    t.classList.toggle("is-active", t.dataset.view === name));
+  document.querySelectorAll(".view").forEach((v) => v.classList.remove("is-active"));
+  $("#view-" + name).classList.add("is-active");
+}
+
 function setupTabs() {
   document.querySelectorAll(".tab").forEach((tab) => {
-    tab.addEventListener("click", () => {
-      document.querySelectorAll(".tab").forEach((t) => t.classList.remove("is-active"));
-      document.querySelectorAll(".view").forEach((v) => v.classList.remove("is-active"));
-      tab.classList.add("is-active");
-      $("#view-" + tab.dataset.view).classList.add("is-active");
-    });
+    tab.addEventListener("click", () => activateView(tab.dataset.view));
   });
+}
+
+/* ============================================================
+   AFFICHAGE GLOBAL
+   ============================================================ */
+// Met à jour la grosse boule, le libellé et l'historique
+function refreshHeadline() {
+  if (state.drawn.length) {
+    const last = state.drawn[state.drawn.length - 1];
+    el.ball.classList.remove("empty");
+    el.ball.textContent = last;
+    const nick = NICKNAMES[last] ? ` — ${NICKNAMES[last]}` : "";
+    el.label.textContent = `Le ${last}${nick}`;
+    pushHistory(last);
+  } else {
+    el.ball.classList.add("empty");
+    el.ball.textContent = "--";
+    el.label.textContent = "Prêt à jouer ?";
+    el.history.innerHTML = "";
+  }
+}
+
+// Rafraîchit tout l'affichage à partir de l'état courant
+function renderAll() {
+  updateStats();
+  refreshBoard();
+  refreshHeadline();
+  renderCartons();
+  markCartons(true);
+}
+
+/* ============================================================
+   MODE DEUX ÉCRANS (synchronisation entre fenêtres)
+   ============================================================ */
+// Ouvre une fenêtre « écran de suivi » (à placer sur l'écran d'à côté)
+function openFollowScreen() {
+  const url = location.pathname + "?ecran=suivi" + location.hash;
+  window.open(url, "loto_suivi", "width=1000,height=760");
+}
+
+function updateFollowBar() {
+  const last = state.drawn[state.drawn.length - 1];
+  el.followLast.textContent = last != null ? last : "--";
+  el.followCount.textContent = state.drawn.length;
+}
+
+// Recharge l'état depuis localStorage si l'écran de tirage a changé quelque chose
+function syncFromStorage() {
+  let data;
+  try { data = JSON.parse(localStorage.getItem("loto64")); } catch (e) { return; }
+  if (!data || data.ts === state._ts) return;
+  state._ts = data.ts;
+
+  const rank = { none: 0, quine: 1, double: 2, plein: 3 };
+  const old = {};
+  state.cartons.forEach((c) => (old[c.id] = c.achieved));
+
+  state.drawn = data.drawn || [];
+  state.pool = data.pool || [];
+  state.cartons = data.cartons || [];
+
+  renderAll();
+  updateFollowBar();
+
+  // célèbre les nouvelles quines détectées sur l'écran de suivi
+  state.cartons.forEach((c) => {
+    if (rank[c.achieved] > rank[old[c.id] || "none"]) celebrate(c.achieved, c.id);
+  });
+}
+
+function startFollowMode() {
+  document.body.classList.add("follow-mode");
+  el.followBar.hidden = false;
+  activateView("cartons"); // par défaut on suit les cartons (les bingos)
+  state._ts = null;
+  syncFromStorage();
+  // mise à jour instantanée quand c'est possible…
+  window.addEventListener("storage", (e) => { if (e.key === "loto64") syncFromStorage(); });
+  // …et sondage régulier (fonctionne aussi en local file:// et hors-ligne)
+  setInterval(syncFromStorage, 500);
 }
 
 /* ============================================================
@@ -540,22 +635,21 @@ function init() {
   setupTabs();
 
   if (!load()) resetPool();
+  renderAll();
 
-  // restaure l'affichage
-  if (state.drawn.length) {
-    const last = state.drawn[state.drawn.length - 1];
-    el.ball.classList.remove("empty");
-    el.ball.textContent = last;
-    const nick = NICKNAMES[last] ? ` — ${NICKNAMES[last]}` : "";
-    el.label.textContent = `Le ${last}${nick}`;
-    pushHistory(last);
+  // La fenêtre peut toujours fermer la bannière de victoire
+  el.winClose.addEventListener("click", () => (el.winBanner.hidden = true));
+  el.winBanner.addEventListener("click", (e) => {
+    if (e.target === el.winBanner) el.winBanner.hidden = true;
+  });
+
+  // ----- Écran de suivi : on ne fait que refléter la partie -----
+  if (FOLLOW) {
+    startFollowMode();
+    return;
   }
-  updateStats();
-  refreshBoard();
-  renderCartons();
-  markCartons(true);
 
-  // écouteurs
+  // ----- Écran de tirage (commandes du jeu) -----
   el.drawBtn.addEventListener("click", drawNumber);
   el.autoBtn.addEventListener("click", toggleAuto);
   el.resetBtn.addEventListener("click", newGame);
@@ -566,10 +660,7 @@ function init() {
   el.downloadBtn.addEventListener("click", downloadCartons);
   el.csvBtn.addEventListener("click", downloadCSV);
   el.printBtn.addEventListener("click", () => window.print());
-  el.winClose.addEventListener("click", () => (el.winBanner.hidden = true));
-  el.winBanner.addEventListener("click", (e) => {
-    if (e.target === el.winBanner) el.winBanner.hidden = true;
-  });
+  el.screenBtn.addEventListener("click", openFollowScreen);
 
   // précharge les voix de synthèse
   if ("speechSynthesis" in window) speechSynthesis.getVoices();

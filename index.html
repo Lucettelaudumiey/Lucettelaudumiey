@@ -23,6 +23,14 @@
     </nav>
   </header>
 
+  <!-- Bandeau « écran de suivi » (mode deux écrans) -->
+  <div id="followBar" class="follow-bar" hidden>
+    <span class="follow-dot"></span>
+    Écran de suivi — Dernier numéro&nbsp;:
+    <strong id="followLast">--</strong>
+    <span class="follow-count"><span id="followCount">0</span>/90 tirés</span>
+  </div>
+
   <!-- ====================== VUE TIRAGE ====================== -->
   <main id="view-tirage" class="view is-active">
     <section class="draw-stage">
@@ -92,12 +100,18 @@
         <button id="downloadBtn" class="btn btn-ghost">📥 Télécharger (image)</button>
         <button id="csvBtn" class="btn btn-ghost">📄 CSV (Excel)</button>
         <button id="printBtn" class="btn btn-ghost">🖨️ Imprimer</button>
+        <button id="screenBtn" class="btn btn-ghost">🖥️ Écran de suivi</button>
       </div>
       <p class="cartons-hint">
         Les numéros tirés se cochent tout seuls. La ligne se colore en
         <span class="legend quine">Quine</span>,
         <span class="legend double">Double quine</span>,
         <span class="legend plein">Carton plein</span>.
+      </p>
+      <p class="cartons-hint">
+        🖥️ <strong>Deux écrans&nbsp;:</strong> laissez le tirage sur cet écran et
+        ouvrez l'<em>Écran de suivi</em> sur l'écran d'à côté — il affiche les
+        cartons qui se cochent en direct, automatiquement synchronisés.
       </p>
     </section>
     <div id="cartons" class="cartons-grid"></div>
