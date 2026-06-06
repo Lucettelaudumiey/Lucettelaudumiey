@@ -46,6 +46,7 @@ const el = {
   cartons: $("#cartons"),
   cartonCount: $("#cartonCount"),
   genBtn: $("#genCartonsBtn"),
+  downloadBtn: $("#downloadBtn"),
   printBtn: $("#printBtn"),
   winBanner: $("#winBanner"),
   winTitle: $("#winTitle"),
@@ -244,7 +245,7 @@ function makeCarton(id) {
       if (matrix[r][j]) grid[r][j] = picked[p++];
     }
   }
-  return { id, grid, achieved: "none" };
+  return { id, grid, achieved: "none", name: "" };
 }
 
 function generateCartons() {
@@ -261,6 +262,96 @@ function renderCartons() {
   state.cartons.forEach((c) => el.cartons.appendChild(cartonNode(c)));
 }
 
+/* ---------- Téléchargement des cartons en image PNG ---------- */
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+function drawCarton(ctx, x, y, w, h, c, d) {
+  const { CELL, GAP, PAD, HEAD } = d;
+  // carte
+  ctx.fillStyle = "#fff8e6";
+  roundRect(ctx, x, y, w, h, 16); ctx.fill();
+  // nom du joueur
+  ctx.fillStyle = "#3a2400"; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+  ctx.font = "700 22px 'Baloo 2', Arial, sans-serif";
+  const nom = (c.name && c.name.trim()) ? c.name.trim() : "Joueur";
+  ctx.fillText(nom, x + PAD, y + PAD + 13);
+  // numéro du carton
+  ctx.textAlign = "right";
+  ctx.font = "600 16px 'Fredoka', Arial, sans-serif";
+  ctx.fillStyle = "#8a6a2a";
+  ctx.fillText("Carton n°" + c.id, x + w - PAD, y + PAD + 13);
+  // grille des numéros
+  const gx = x + PAD, gy = y + PAD + HEAD;
+  for (let r = 0; r < 3; r++) {
+    for (let j = 0; j < 9; j++) {
+      const v = c.grid[r][j];
+      if (v === null) continue;
+      const cellX = gx + j * (CELL + GAP), cellY = gy + r * (CELL + GAP);
+      ctx.fillStyle = "#fffdf7";
+      roundRect(ctx, cellX, cellY, CELL, CELL, 8); ctx.fill();
+      ctx.strokeStyle = "#e3cf9e"; ctx.lineWidth = 1;
+      roundRect(ctx, cellX, cellY, CELL, CELL, 8); ctx.stroke();
+      ctx.fillStyle = "#3a2400"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.font = "700 24px 'Baloo 2', Arial, sans-serif";
+      ctx.fillText(String(v), cellX + CELL / 2, cellY + CELL / 2 + 1);
+    }
+  }
+}
+
+function downloadCartons() {
+  if (!state.cartons.length) {
+    alert("Générez d'abord vos cartons !");
+    return;
+  }
+  const D = { CELL: 54, GAP: 4, PAD: 16, HEAD: 46 };
+  const TITLE = 60, MARGIN = 20;
+  const cols = state.cartons.length === 1 ? 1 : 2;
+  const rows = Math.ceil(state.cartons.length / cols);
+  const cartonW = D.PAD * 2 + 9 * D.CELL + 8 * D.GAP;
+  const gridH = 3 * D.CELL + 2 * D.GAP;
+  const cartonH = D.PAD * 2 + D.HEAD + gridH;
+  const W = MARGIN + cols * (cartonW + MARGIN);
+  const H = TITLE + MARGIN + rows * (cartonH + MARGIN);
+
+  const scale = 2; // image bien nette
+  const cv = document.createElement("canvas");
+  cv.width = W * scale; cv.height = H * scale;
+  const ctx = cv.getContext("2d");
+  ctx.scale(scale, scale);
+
+  // fond + titre
+  ctx.fillStyle = "#0f1437"; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = "#ffd23f"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  ctx.font = "700 30px 'Baloo 2', Arial, sans-serif";
+  ctx.fillText("Loto Quine — Lulu & Titine du 64", W / 2, TITLE / 2);
+
+  // cartons
+  state.cartons.forEach((c, i) => {
+    const cx = MARGIN + (i % cols) * (cartonW + MARGIN);
+    const cy = TITLE + MARGIN + Math.floor(i / cols) * (cartonH + MARGIN);
+    drawCarton(ctx, cx, cy, cartonW, cartonH, c, D);
+  });
+
+  cv.toBlob((blob) => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "cartons-loto-64.png";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+}
+
 function cartonNode(c) {
   const wrap = document.createElement("div");
   wrap.className = "carton";
@@ -269,8 +360,12 @@ function cartonNode(c) {
   const head = document.createElement("div");
   head.className = "carton-head";
   head.innerHTML =
-    `<span class="carton-title">🎟️ Carton n°${c.id}</span>` +
+    `<input class="carton-name" type="text" placeholder="Nom du joueur" maxlength="24" />` +
+    `<span class="carton-no">n°${c.id}</span>` +
     `<span class="carton-badge">en jeu</span>`;
+  const nameInput = head.querySelector(".carton-name");
+  nameInput.value = c.name || "";
+  nameInput.addEventListener("input", () => { c.name = nameInput.value; save(); });
   wrap.appendChild(head);
 
   const grid = document.createElement("div");
@@ -443,6 +538,7 @@ function init() {
     if (state.auto) { stopAuto(); toggleAuto(); }
   });
   el.genBtn.addEventListener("click", generateCartons);
+  el.downloadBtn.addEventListener("click", downloadCartons);
   el.printBtn.addEventListener("click", () => window.print());
   el.winClose.addEventListener("click", () => (el.winBanner.hidden = true));
   el.winBanner.addEventListener("click", (e) => {

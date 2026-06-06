@@ -15,6 +15,8 @@ ou entre amis dans les Pyrénées-Atlantiques !
   - 🔵 **Quine** (une ligne complète)
   - 🟣 **Double quine** (deux lignes)
   - 🟢 **Carton plein** (les 15 numéros)
+- **Nom du joueur** modifiable sur chaque carton
+- **Téléchargement** de tous les cartons en une **image PNG** (noms + numéros), même hors-ligne
 - **Impression** des cartons
 - **Sauvegarde automatique** de la partie (reprend où vous en étiez)
 
