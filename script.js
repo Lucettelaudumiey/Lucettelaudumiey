@@ -47,6 +47,7 @@ const el = {
   cartonCount: $("#cartonCount"),
   genBtn: $("#genCartonsBtn"),
   downloadBtn: $("#downloadBtn"),
+  csvBtn: $("#csvBtn"),
   printBtn: $("#printBtn"),
   winBanner: $("#winBanner"),
   winTitle: $("#winTitle"),
@@ -340,16 +341,40 @@ function downloadCartons() {
     drawCarton(ctx, cx, cy, cartonW, cartonH, c, D);
   });
 
-  cv.toBlob((blob) => {
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "cartons-loto-64.png";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
+  cv.toBlob((blob) => downloadBlob(blob, "cartons-loto-64.png"));
+}
+
+/* ---------- Téléchargement des cartons en CSV (Excel) ---------- */
+function downloadCSV() {
+  if (!state.cartons.length) {
+    alert("Générez d'abord vos cartons !");
+    return;
+  }
+  const SEP = ";"; // séparateur attendu par Excel en français
+  const lines = [];
+  state.cartons.forEach((c) => {
+    const nom = (c.name && c.name.trim()) ? c.name.trim() : "Joueur";
+    lines.push([`Carton n°${c.id}`, nom].join(SEP));
+    c.grid.forEach((row) => {
+      lines.push(row.map((v) => (v === null ? "" : v)).join(SEP));
+    });
+    lines.push(""); // ligne vide entre deux cartons
   });
+  // BOM UTF-8 pour qu'Excel affiche bien les accents
+  const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/csv;charset=utf-8" });
+  downloadBlob(blob, "cartons-loto-64.csv");
+}
+
+/* ---------- Utilitaire de téléchargement ---------- */
+function downloadBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
 }
 
 function cartonNode(c) {
@@ -539,6 +564,7 @@ function init() {
   });
   el.genBtn.addEventListener("click", generateCartons);
   el.downloadBtn.addEventListener("click", downloadCartons);
+  el.csvBtn.addEventListener("click", downloadCSV);
   el.printBtn.addEventListener("click", () => window.print());
   el.winClose.addEventListener("click", () => (el.winBanner.hidden = true));
   el.winBanner.addEventListener("click", (e) => {
