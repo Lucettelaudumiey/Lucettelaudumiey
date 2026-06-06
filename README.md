@@ -36,6 +36,30 @@ Pour animer une vraie partie : gardez le **tirage** sur un écran et affichez le
 La synchronisation passe par le navigateur (aucun réseau requis) et fonctionne
 même en ouvrant le fichier en local. L'écran de suivi est en lecture seule.
 
+## 📱 Suivre un loto sur tablette / téléphone
+
+L'application sert aussi à **suivre un loto animé par quelqu'un d'autre** : vous
+pointez les numéros annoncés et l'appli surveille vos plaques.
+
+1. Onglet **Tirage** → **tapez sur un numéro du tableau** pour le cocher quand
+   l'animateur l'annonce (tapez à nouveau pour corriger une erreur).
+2. Onglet **Mes cartons** → **➕ Saisir une plaque achetée** : recopiez les
+   numéros de chaque plaque que vous avez achetée.
+3. L'appli vous prévient automatiquement : **Quine**, **Double quine**,
+   **Carton plein**.
+
+### Ouvrir l'appli sur la tablette (lien internet)
+
+Le plus simple est de publier le site avec **GitHub Pages** :
+
+1. Sur GitHub, ouvrez le dépôt → **Settings** → **Pages**.
+2. *Source* : **Deploy from a branch**.
+3. *Branch* : `claude/loto-quine-lulu-titine-xNogo`, dossier `/ (root)`, puis
+   **Save**.
+4. Au bout d'une minute, GitHub affiche une **adresse** (du type
+   `https://<votre-compte>.github.io/<dépôt>/`). Ouvrez-la dans le navigateur de
+   la tablette — vous pouvez l'ajouter à l'écran d'accueil.
+
 ## ▶️ Utilisation
 
 Aucune installation, aucune dépendance. Il suffit d'ouvrir le fichier

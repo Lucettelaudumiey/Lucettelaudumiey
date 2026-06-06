@@ -128,15 +128,19 @@ body {
 
 /* ---------- Board ---------- */
 .section-title { font-family: "Baloo 2", sans-serif; margin: 8px 0 14px; }
+.board-hint { color: var(--ink-soft); font-size: .9rem; margin: -6px 0 12px; }
 .board {
   display: grid; grid-template-columns: repeat(10, 1fr); gap: 7px;
   background: var(--card); padding: 16px; border-radius: var(--radius); box-shadow: var(--shadow);
 }
+.board { touch-action: manipulation; }
 .cell {
   aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
   border-radius: 10px; background: var(--card-2); color: var(--ink-soft);
   font-weight: 600; font-size: clamp(.8rem, 2vw, 1.1rem); transition: .25s;
+  cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
 }
+.cell:active { transform: scale(.92); }
 .cell.hit {
   background: radial-gradient(circle at 32% 28%, #fff, var(--accent) 45%, var(--accent-2));
   color: #2a1a00; transform: scale(1.04); box-shadow: 0 4px 12px rgba(255,138,61,.4);
@@ -198,6 +202,28 @@ body {
 .win-emoji { font-size: 4rem; }
 .win-card h2 { font-family: "Baloo 2", sans-serif; margin: 8px 0; font-size: 2.2rem; color: var(--accent); }
 .win-card p { color: var(--ink-soft); margin: 0 0 20px; font-size: 1.1rem; }
+
+/* ---------- Fenêtre de saisie d'une plaque ---------- */
+.modal {
+  position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center;
+  background: rgba(6, 9, 30, .7); backdrop-filter: blur(4px); padding: 16px;
+}
+.modal[hidden] { display: none; }
+.modal-card {
+  background: linear-gradient(160deg, var(--card), var(--bg-2)); border-radius: 20px;
+  padding: 26px; box-shadow: var(--shadow); width: min(440px, 96vw);
+  max-height: 92vh; overflow: auto; animation: pop .35s cubic-bezier(.2,1.4,.4,1);
+}
+.modal-card h2 { font-family: "Baloo 2", sans-serif; margin: 0 0 8px; }
+.modal-hint { color: var(--ink-soft); margin: 0 0 16px; font-size: .95rem; }
+.modal-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; color: var(--ink-soft); font-size: .9rem; }
+.modal-field input {
+  font-family: inherit; font-size: 1.15rem; padding: 12px 14px; border-radius: 12px;
+  background: var(--card-2); color: var(--ink); border: 1px solid rgba(255,255,255,.15);
+}
+.modal-field input:focus { outline: none; border-color: var(--accent); }
+.modal-error { color: var(--danger); min-height: 1.2em; margin: 4px 0 12px; font-weight: 600; }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
 
 /* ---------- Mode deux écrans / suivi ---------- */
 .follow-bar {

@@ -50,10 +50,19 @@ const el = {
   cartons: $("#cartons"),
   cartonCount: $("#cartonCount"),
   genBtn: $("#genCartonsBtn"),
+  addPlaqueBtn: $("#addPlaqueBtn"),
   downloadBtn: $("#downloadBtn"),
   csvBtn: $("#csvBtn"),
   printBtn: $("#printBtn"),
   screenBtn: $("#screenBtn"),
+  plaqueModal: $("#plaqueModal"),
+  pmName: $("#pmName"),
+  pmRow1: $("#pmRow1"),
+  pmRow2: $("#pmRow2"),
+  pmRow3: $("#pmRow3"),
+  pmError: $("#pmError"),
+  pmCancel: $("#pmCancel"),
+  pmSave: $("#pmSave"),
   winBanner: $("#winBanner"),
   winTitle: $("#winTitle"),
   winText: $("#winText"),
@@ -73,8 +82,34 @@ function buildBoard() {
     c.className = "cell";
     c.dataset.n = n;
     c.textContent = n;
+    // sur l'écran de suivi, le tableau est en lecture seule
+    if (!FOLLOW) c.addEventListener("click", () => toggleMark(n));
     el.board.appendChild(c);
   }
+}
+
+// Pointe (ou retire) un numéro à la main — pour suivre un loto annoncé par autrui
+function toggleMark(n) {
+  const i = state.drawn.indexOf(n);
+  if (i >= 0) {
+    state.drawn.splice(i, 1);
+    if (!state.pool.includes(n)) state.pool.push(n);
+  } else {
+    state.drawn.push(n);
+    const p = state.pool.indexOf(n);
+    if (p >= 0) state.pool.splice(p, 1);
+    // petite boule + libellé comme pour un tirage
+    el.ball.classList.remove("empty", "pop");
+    void el.ball.offsetWidth;
+    el.ball.classList.add("pop");
+    el.ball.textContent = n;
+    const nick = el.nick.checked && NICKNAMES[n] ? ` — ${NICKNAMES[n]}` : "";
+    el.label.textContent = `Le ${n}${nick}`;
+  }
+  refreshHeadline();
+  updateStats();
+  refreshBoard();
+  markCartons();
 }
 
 function refreshBoard() {
@@ -269,6 +304,58 @@ function generateCartons() {
 function renderCartons() {
   el.cartons.innerHTML = "";
   state.cartons.forEach((c) => el.cartons.appendChild(cartonNode(c)));
+}
+
+/* ---------- Saisie manuelle d'une plaque achetée ---------- */
+function openPlaqueModal() {
+  el.pmName.value = "";
+  el.pmRow1.value = el.pmRow2.value = el.pmRow3.value = "";
+  el.pmError.textContent = "";
+  el.plaqueModal.hidden = false;
+  el.pmRow1.focus();
+}
+function closePlaqueModal() { el.plaqueModal.hidden = true; }
+
+// extrait les nombres 1..90 d'une chaîne saisie
+function parseRow(str) {
+  return (str.match(/\d+/g) || []).map(Number).filter((n) => n >= 1 && n <= 90);
+}
+
+// place 5 numéros dans une ligne 9 colonnes (colonne = dizaine)
+function rowToCells(nums) {
+  const cells = Array(9).fill(null);
+  for (const n of nums) {
+    const col = Math.min(8, Math.floor(n / 10));
+    if (cells[col] !== null) return null; // deux numéros dans la même colonne : impossible
+    cells[col] = n;
+  }
+  return cells;
+}
+
+function savePlaque() {
+  const rows = [parseRow(el.pmRow1.value), parseRow(el.pmRow2.value), parseRow(el.pmRow3.value)];
+  const all = rows.flat();
+
+  if (rows.some((r) => r.length !== 5)) {
+    el.pmError.textContent = "Chaque ligne doit contenir exactement 5 numéros.";
+    return;
+  }
+  if (new Set(all).size !== 15) {
+    el.pmError.textContent = "Un numéro est en double sur la plaque.";
+    return;
+  }
+  const grid = rows.map(rowToCells);
+  if (grid.some((g) => g === null)) {
+    el.pmError.textContent = "Deux numéros de la même dizaine sur une ligne : vérifiez la saisie.";
+    return;
+  }
+
+  const id = state.cartons.reduce((m, c) => Math.max(m, c.id), 0) + 1;
+  state.cartons.push({ id, grid, achieved: "none", name: el.pmName.value.trim() });
+  renderCartons();
+  markCartons(true);
+  save();
+  closePlaqueModal();
 }
 
 /* ---------- Téléchargement des cartons en image PNG ---------- */
@@ -657,6 +744,12 @@ function init() {
     if (state.auto) { stopAuto(); toggleAuto(); }
   });
   el.genBtn.addEventListener("click", generateCartons);
+  el.addPlaqueBtn.addEventListener("click", openPlaqueModal);
+  el.pmSave.addEventListener("click", savePlaque);
+  el.pmCancel.addEventListener("click", closePlaqueModal);
+  el.plaqueModal.addEventListener("click", (e) => {
+    if (e.target === el.plaqueModal) closePlaqueModal();
+  });
   el.downloadBtn.addEventListener("click", downloadCartons);
   el.csvBtn.addEventListener("click", downloadCSV);
   el.printBtn.addEventListener("click", () => window.print());

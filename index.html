@@ -84,6 +84,7 @@
 
     <section class="board-wrap">
       <h2 class="section-title">Tableau des 90 numéros</h2>
+      <p class="board-hint">👆 Vous suivez un loto&nbsp;? Tapez un numéro pour le pointer quand il est annoncé (re-tapez pour corriger).</p>
       <div id="board" class="board" aria-label="Tableau des numéros tirés"></div>
     </section>
   </main>
@@ -96,7 +97,8 @@
           Nombre de cartons
           <input type="number" id="cartonCount" min="1" max="12" value="2" />
         </label>
-        <button id="genCartonsBtn" class="btn btn-primary">🎟️ Générer mes cartons</button>
+        <button id="addPlaqueBtn" class="btn btn-primary">➕ Saisir une plaque achetée</button>
+        <button id="genCartonsBtn" class="btn btn-ghost">🎟️ Générer des cartons</button>
         <button id="downloadBtn" class="btn btn-ghost">📥 Télécharger (image)</button>
         <button id="csvBtn" class="btn btn-ghost">📄 CSV (Excel)</button>
         <button id="printBtn" class="btn btn-ghost">🖨️ Imprimer</button>
@@ -116,6 +118,35 @@
     </section>
     <div id="cartons" class="cartons-grid"></div>
   </main>
+
+  <!-- Saisie d'une plaque achetée -->
+  <div id="plaqueModal" class="modal" hidden>
+    <div class="modal-card">
+      <h2>➕ Saisir une plaque</h2>
+      <p class="modal-hint">
+        Recopiez les numéros de votre plaque, <strong>5 par ligne</strong>,
+        séparés par un espace.
+      </p>
+      <label class="modal-field">
+        Nom du joueur
+        <input id="pmName" type="text" maxlength="24" placeholder="ex. Lulu" />
+      </label>
+      <label class="modal-field">Ligne 1
+        <input id="pmRow1" inputmode="numeric" placeholder="ex. 4 12 27 38 81" />
+      </label>
+      <label class="modal-field">Ligne 2
+        <input id="pmRow2" inputmode="numeric" placeholder="ex. 7 25 40 56 79" />
+      </label>
+      <label class="modal-field">Ligne 3
+        <input id="pmRow3" inputmode="numeric" placeholder="ex. 9 31 48 63 90" />
+      </label>
+      <p id="pmError" class="modal-error"></p>
+      <div class="modal-actions">
+        <button id="pmCancel" class="btn btn-ghost">Annuler</button>
+        <button id="pmSave" class="btn btn-primary">Ajouter la plaque</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Bannière de victoire -->
   <div id="winBanner" class="win-banner" hidden>
