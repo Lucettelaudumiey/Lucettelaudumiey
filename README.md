@@ -60,6 +60,12 @@ Le plus simple est de publier le site avec **GitHub Pages** :
    `https://<votre-compte>.github.io/<dépôt>/`). Ouvrez-la dans le navigateur de
    la tablette — vous pouvez l'ajouter à l'écran d'accueil.
 
+### Icône sur l'écran d'accueil
+
+L'appli fournit une **icône** (boule de loto « 64 ») et un manifeste, donc en
+faisant **« Ajouter à l'écran d'accueil »** sur la tablette, elle s'installe
+comme une vraie application (icône dédiée, ouverture en plein écran).
+
 ## ▶️ Utilisation
 
 Aucune installation, aucune dépendance. Il suffit d'ouvrir le fichier
