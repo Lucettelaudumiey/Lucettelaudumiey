@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loto Quine — Lulu et Titine du 64</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-emoji">🎱</span>
+      <div class="brand-text">
+        <h1>Loto Quine</h1>
+        <p>Lulu &amp; Titine du <strong>64</strong></p>
+      </div>
+    </div>
+    <nav class="tabs">
+      <button class="tab is-active" data-view="tirage">Tirage</button>
+      <button class="tab" data-view="cartons">Mes cartons</button>
+    </nav>
+  </header>
+
+  <!-- ====================== VUE TIRAGE ====================== -->
+  <main id="view-tirage" class="view is-active">
+    <section class="draw-stage">
+      <div class="current-ball-wrap">
+        <div id="currentBall" class="ball big empty">--</div>
+        <p id="currentLabel" class="current-label">Prêt à jouer&nbsp;?</p>
+      </div>
+
+      <div class="controls">
+        <button id="drawBtn" class="btn btn-primary">
+          <span class="btn-icon">🎤</span> Tirer un numéro
+        </button>
+        <button id="autoBtn" class="btn btn-ghost">▶︎ Tirage auto</button>
+        <button id="resetBtn" class="btn btn-ghost danger">↺ Nouvelle partie</button>
+      </div>
+
+      <div class="options">
+        <label class="switch">
+          <input type="checkbox" id="voiceToggle" checked />
+          <span>🔊 Annonce vocale</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="nicknameToggle" checked />
+          <span>😄 Surnoms rigolos</span>
+        </label>
+        <label class="speed">
+          Vitesse auto
+          <select id="speedSelect">
+            <option value="5000">Lente (5 s)</option>
+            <option value="3500" selected>Normale (3,5 s)</option>
+            <option value="2000">Rapide (2 s)</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <span class="stat-num" id="countDrawn">0</span>
+        <span class="stat-label">tirés</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="countLeft">90</span>
+        <span class="stat-label">restants</span>
+      </div>
+      <div class="history">
+        <span class="history-label">Derniers tirés&nbsp;:</span>
+        <div id="history" class="history-list"></div>
+      </div>
+    </section>
+
+    <section class="board-wrap">
+      <h2 class="section-title">Tableau des 90 numéros</h2>
+      <div id="board" class="board" aria-label="Tableau des numéros tirés"></div>
+    </section>
+  </main>
+
+  <!-- ====================== VUE CARTONS ====================== -->
+  <main id="view-cartons" class="view">
+    <section class="cartons-bar">
+      <div class="cartons-actions">
+        <label class="count-field">
+          Nombre de cartons
+          <input type="number" id="cartonCount" min="1" max="12" value="2" />
+        </label>
+        <button id="genCartonsBtn" class="btn btn-primary">🎟️ Générer mes cartons</button>
+        <button id="printBtn" class="btn btn-ghost">🖨️ Imprimer</button>
+      </div>
+      <p class="cartons-hint">
+        Les numéros tirés se cochent tout seuls. La ligne se colore en
+        <span class="legend quine">Quine</span>,
+        <span class="legend double">Double quine</span>,
+        <span class="legend plein">Carton plein</span>.
+      </p>
+    </section>
+    <div id="cartons" class="cartons-grid"></div>
+  </main>
+
+  <!-- Bannière de victoire -->
+  <div id="winBanner" class="win-banner" hidden>
+    <div class="win-card">
+      <div class="win-emoji">🎉</div>
+      <h2 id="winTitle">Quine&nbsp;!</h2>
+      <p id="winText">Carton n°1</p>
+      <button id="winClose" class="btn btn-primary">Continuer</button>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <p>Fait avec ❤️ pour Lulu &amp; Titine — Pyrénées-Atlantiques (64)</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
