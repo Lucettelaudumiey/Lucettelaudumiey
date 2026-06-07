@@ -229,6 +229,81 @@ textarea {
 .verify-result .ok { color: var(--green); font-weight: 700; }
 .verify-result .pending { color: var(--accent); }
 
+/* Plaques de cartons */
+.plaque-output { margin-top: 16px; }
+
+.plaque-header {
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+
+.plaque-sheet {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.carton {
+  background: #fff;
+  color: #1a1a2e;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid var(--accent-2);
+}
+
+.carton.full { border-color: var(--green); box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.4); }
+
+.carton-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: var(--accent-2);
+}
+
+.carton.full .carton-title::after { content: ' — CARTON PLEIN'; color: var(--green); }
+
+.carton-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 2px;
+}
+
+.carton-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d4d7e6;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.carton-cell.empty { background: #f1f2f8; border-color: #e6e8f2; }
+
+.carton-cell.marked {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  color: #1a1300;
+}
+
+@media (max-width: 640px) {
+  .plaque-sheet { grid-template-columns: 1fr; }
+  .carton-cell { font-size: 0.8rem; }
+}
+
+/* Impression : on n'imprime que la plaque de cartons */
+@media print {
+  body { background: #fff; color: #000; }
+  header, footer, .draw-panel, .announce-panel, .grid-panel, .verify-panel,
+  .plaque-panel .controls, .plaque-panel .hint, .plaque-panel h2 {
+    display: none !important;
+  }
+  .panel { box-shadow: none; background: #fff; padding: 0; }
+  .plaque-sheet { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .carton { break-inside: avoid; border-color: #333; }
+  .carton-cell.marked { background: #fff !important; color: #000 !important; }
+}
+
 footer {
   text-align: center;
   color: var(--muted);

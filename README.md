@@ -11,6 +11,7 @@ Fonctionne entièrement dans le navigateur, **hors-ligne**, sans aucune installa
 - **Grille des 90 numéros** mise à jour en temps réel ; clic possible pour corriger un tirage manuel.
 - **Journal des annonces** : quine, double quine, carton plein (avec l'heure et le rang du tirage).
 - **Vérification d'un carton** : collez les numéros d'un carton pour savoir s'il a la quine / le carton plein et quels numéros manquent.
+- **Générateur de plaques** : crée une **plaque de 6 cartons** (les 90 numéros, chacun une fois) ou une **plaque de 12 cartons** (chaque numéro deux fois). Cartons numérotés, marqués automatiquement au fil du tirage, mise en évidence du carton plein, et **impression** sur une feuille.
 - **Sauvegarde automatique** de la partie en cours (reprise après rechargement de la page).
 - Raccourci clavier : **Espace** pour tirer un numéro.
 
@@ -32,6 +33,7 @@ python3 -m http.server 8000
 | `index.html` | Structure de la page                   |
 | `style.css`  | Mise en forme (thème sombre, responsive) |
 | `app.js`     | Logique de tirage, annonces, vérification |
+| `carton.js`  | Générateur de plaques de cartons valides |
 
 ## Règles rappelées
 

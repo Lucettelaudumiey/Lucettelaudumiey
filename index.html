@@ -45,6 +45,19 @@
     <div class="number-grid" id="numberGrid" role="grid"></div>
   </section>
 
+  <!-- Génération de plaques -->
+  <section class="panel plaque-panel">
+    <h2>Générer une plaque de cartons</h2>
+    <p class="hint">Une plaque de 6 cartons contient les 90 numéros (chacun une fois). Une plaque de 12 = chaque numéro deux fois. Les cartons se marquent automatiquement au fil du tirage.</p>
+    <div class="controls">
+      <button id="plaque6Btn" class="btn btn-primary">Plaque de 6</button>
+      <button id="plaque12Btn" class="btn btn-primary">Plaque de 12</button>
+      <button id="plaquePrintBtn" class="btn">Imprimer</button>
+      <button id="plaqueClearBtn" class="btn btn-ghost">Effacer</button>
+    </div>
+    <div id="plaqueOutput" class="plaque-output"></div>
+  </section>
+
   <!-- Vérification de carton -->
   <section class="panel verify-panel">
     <h2>Vérifier un carton</h2>
@@ -59,6 +72,7 @@
   <p>Fonctionne hors-ligne · Tirage 100% aléatoire · Aucune donnée envoyée</p>
 </footer>
 
+<script src="carton.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

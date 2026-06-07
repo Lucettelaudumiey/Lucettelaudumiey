@@ -9,6 +9,9 @@ const state = {
   announces: [],    // { type, n, time }
 };
 
+// Exposé pour le module de cartons (marquage en temps réel).
+window.LotoState = state;
+
 let autoTimer = null;
 
 /* ---------- Persistance ---------- */
@@ -192,6 +195,9 @@ function render() {
   const done = state.drawn.length >= TOTAL;
   document.getElementById('drawBtn').disabled = done;
   if (done) stopAuto();
+
+  // Marque les cartons de la plaque générée.
+  if (window.LotoCartons) LotoCartons.renderMarks(drawnSet);
 }
 
 function renderAnnounces() {
@@ -243,6 +249,7 @@ function reset() {
 function init() {
   load();
   buildGrid();
+  if (window.LotoCartons) { LotoCartons.load(); LotoCartons.renderPlaque(); }
   render();
   renderAnnounces();
 
@@ -254,6 +261,20 @@ function init() {
 
   document.querySelectorAll('[data-announce]').forEach(btn => {
     btn.addEventListener('click', () => logAnnounce(btn.dataset.announce));
+  });
+
+  // Génération de plaques
+  const onGenerate = size => {
+    if (!LotoCartons.generate(size)) {
+      alert('Impossible de générer la plaque, réessayez.');
+    }
+  };
+  document.getElementById('plaque6Btn').addEventListener('click', () => onGenerate(6));
+  document.getElementById('plaque12Btn').addEventListener('click', () => onGenerate(12));
+  document.getElementById('plaquePrintBtn').addEventListener('click', () => LotoCartons.print());
+  document.getElementById('plaqueClearBtn').addEventListener('click', () => {
+    if (LotoCartons.current && !confirm('Effacer la plaque générée ?')) return;
+    LotoCartons.clear();
   });
 
   document.getElementById('verifyBtn').addEventListener('click', () => {
