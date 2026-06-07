@@ -50,17 +50,23 @@ pointez les numéros annoncés et l'appli surveille vos plaques.
 3. L'appli vous prévient automatiquement : **Quine**, **Double quine**,
    **Carton plein**.
 
-### Ouvrir l'appli sur la tablette (lien internet)
+### 👉 Lien pour essayer sur la tablette
 
-Le plus simple est de publier le site avec **GitHub Pages** :
+**https://lucettelaudumiey.github.io/**
+
+Ouvrez ce lien dans le navigateur de la tablette, puis ajoutez-le à l'écran
+d'accueil pour l'utiliser comme une vraie application.
+
+> ⚠️ Ce lien fonctionne une fois la mise en ligne activée (voir ci-dessous).
+
+### Activer la mise en ligne (une seule fois)
 
 1. Sur GitHub, ouvrez le dépôt → **Settings** → **Pages**.
 2. *Source* : **Deploy from a branch**.
-3. *Branch* : `claude/loto-quine-lulu-titine-xNogo`, dossier `/ (root)`, puis
-   **Save**.
-4. Au bout d'une minute, GitHub affiche une **adresse** (du type
-   `https://<votre-compte>.github.io/<dépôt>/`). Ouvrez-la dans le navigateur de
-   la tablette — vous pouvez l'ajouter à l'écran d'accueil.
+3. *Branch* : laissez la **branche par défaut** déjà proposée, dossier
+   `/ (root)`, puis **Save**.
+4. Au bout d'une minute, le lien ci-dessus s'ouvre dans n'importe quel
+   navigateur (ordinateur, tablette ou téléphone).
 
 ### Icône sur l'écran d'accueil
 
