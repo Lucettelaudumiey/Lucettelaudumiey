@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loto Quine — Assistant de tirage</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>🎱 Loto Quine</h1>
+  <p class="tagline">Assistant de tirage pour le loto traditionnel (90 numéros)</p>
+</header>
+
+<main>
+  <!-- Tirage en cours -->
+  <section class="panel draw-panel" aria-label="Tirage">
+    <div class="current-number" id="currentNumber" aria-live="polite">—</div>
+    <div class="last-numbers" id="lastNumbers" aria-label="Derniers numéros"></div>
+    <div class="controls">
+      <button id="drawBtn" class="btn btn-primary">Tirer un numéro</button>
+      <button id="autoBtn" class="btn">Tirage auto</button>
+      <button id="resetBtn" class="btn btn-ghost">Nouvelle partie</button>
+    </div>
+    <div class="stats">
+      <span><strong id="countDrawn">0</strong> tirés</span>
+      <span><strong id="countRemaining">90</strong> restants</span>
+    </div>
+  </section>
+
+  <!-- Annonces quine / carton plein -->
+  <section class="panel announce-panel">
+    <h2>Annonces</h2>
+    <div class="announce-buttons">
+      <button class="btn btn-announce" data-announce="quine">Quine ! (une ligne)</button>
+      <button class="btn btn-announce" data-announce="double">Double quine</button>
+      <button class="btn btn-announce" data-announce="carton">Carton plein !</button>
+    </div>
+    <ul class="announce-log" id="announceLog"></ul>
+  </section>
+
+  <!-- Grille de tous les numéros -->
+  <section class="panel grid-panel">
+    <h2>Grille des numéros</h2>
+    <div class="number-grid" id="numberGrid" role="grid"></div>
+  </section>
+
+  <!-- Vérification de carton -->
+  <section class="panel verify-panel">
+    <h2>Vérifier un carton</h2>
+    <p class="hint">Saisissez les numéros du carton (séparés par des espaces ou virgules) pour vérifier la quine / le carton plein.</p>
+    <textarea id="cardInput" rows="2" placeholder="Ex : 4 12 23 45 67 78 81 9 90 ..."></textarea>
+    <button id="verifyBtn" class="btn">Vérifier</button>
+    <div id="verifyResult" class="verify-result" aria-live="polite"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Fonctionne hors-ligne · Tirage 100% aléatoire · Aucune donnée envoyée</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
