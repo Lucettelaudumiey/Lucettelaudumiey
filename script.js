@@ -293,7 +293,7 @@ function makeCarton(id) {
 }
 
 function generateCartons() {
-  const n = Math.min(12, Math.max(1, Number(el.cartonCount.value) || 1));
+  const n = Math.min(24, Math.max(1, Number(el.cartonCount.value) || 1));
   state.cartons = [];
   for (let i = 1; i <= n; i++) state.cartons.push(makeCarton(i));
   renderCartons();
@@ -558,6 +558,8 @@ function markCartons(silent = false) {
     }
     c.achieved = level;
   });
+  // en vue Tout-en-un, on garde les mieux placés en tête
+  if (currentView === "regie") rankCartons();
   save();
 }
 
@@ -628,6 +630,7 @@ let currentView = "tirage";
 function enterRegie() {
   $("#regieDraw").append($(".draw-stage"), $(".stats"), $(".board-wrap"));
   $("#regieCartons").append($("#cartons"));
+  rankCartons();
 }
 function exitRegie() {
   const tv = $("#view-tirage");
@@ -635,6 +638,41 @@ function exitRegie() {
   tv.prepend($(".draw-stage"));
   tv.append($(".board-wrap"));
   $("#view-cartons").append($("#cartons"));
+  restoreCartonOrder();            // remet les cartons dans l'ordre normal
+}
+
+// Réordonne les cartons dans le DOM selon un comparateur
+function orderCartons(cmp) {
+  const cont = $("#cartons");
+  [...cont.children].sort(cmp).forEach((n) => cont.appendChild(n));
+}
+
+// Score d'un carton : d'abord la ligne la plus avancée (proche de la quine),
+// puis le total de numéros cochés (proche du carton plein)
+function cartonScore(id) {
+  const c = state.cartons.find((c) => c.id === Number(id));
+  if (!c) return { best: 0, total: 0 };
+  const drawn = new Set(state.drawn);
+  let best = 0, total = 0;
+  c.grid.forEach((row) => {
+    let hits = 0;
+    row.forEach((v) => { if (v !== null && drawn.has(v)) hits++; });
+    total += hits;
+    if (hits > best) best = hits;
+  });
+  return { best, total };
+}
+
+// Classe les cartons du mieux placé au moins avancé (pour la vue Tout-en-un)
+function rankCartons() {
+  orderCartons((x, y) => {
+    const a = cartonScore(x.dataset.id), b = cartonScore(y.dataset.id);
+    return b.best - a.best || b.total - a.total || Number(x.dataset.id) - Number(y.dataset.id);
+  });
+}
+
+function restoreCartonOrder() {
+  orderCartons((x, y) => Number(x.dataset.id) - Number(y.dataset.id));
 }
 
 function activateView(name) {

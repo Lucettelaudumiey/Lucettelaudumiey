@@ -229,8 +229,8 @@ body {
 /* cartons plus petits, en grille compacte */
 .regie-slot .cartons-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
 .regie-slot .carton { padding: 10px; }
-/* on n'affiche que les 6 premiers cartons */
-#regieCartons .carton:nth-child(n+7) { display: none; }
+/* on n'affiche que les 12 cartons les mieux placés */
+#regieCartons .carton:nth-child(n+13) { display: none; }
 
 @media (max-width: 860px) {
   .regie-layout { grid-template-columns: 1fr; }
