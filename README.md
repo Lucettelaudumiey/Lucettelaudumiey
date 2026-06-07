@@ -18,6 +18,8 @@ ou entre amis dans les Pyrénées-Atlantiques !
 - **Nom du joueur** modifiable sur chaque carton
 - **Téléchargement** de tous les cartons en une **image PNG** (noms + numéros), même hors-ligne
 - **Export CSV** (Excel) de tous les cartons
+- **Vue « Tout-en-un »** : sur un seul écran, le tirage compact + le tableau des
+  90 numéros à gauche et les 6 premiers cartons à droite
 - **Mode deux écrans** : un écran de tirage + un *écran de suivi* synchronisé en direct
 - **Impression** des cartons
 - **Sauvegarde automatique** de la partie (reprend où vous en étiez)

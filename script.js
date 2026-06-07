@@ -621,11 +621,31 @@ function load() {
 /* ============================================================
    NAVIGATION ENTRE LES VUES
    ============================================================ */
+let currentView = "tirage";
+
+// La vue « Tout-en-un » réutilise les vrais blocs (tirage + tableau + cartons)
+// en les déplaçant : on les sort de leur vue d'origine, puis on les y remet.
+function enterRegie() {
+  $("#regieDraw").append($(".draw-stage"), $(".stats"), $(".board-wrap"));
+  $("#regieCartons").append($("#cartons"));
+}
+function exitRegie() {
+  const tv = $("#view-tirage");
+  tv.prepend($(".stats"));         // ordre rétabli : tirage, stats, tableau
+  tv.prepend($(".draw-stage"));
+  tv.append($(".board-wrap"));
+  $("#view-cartons").append($("#cartons"));
+}
+
 function activateView(name) {
+  if (name === "regie" && currentView !== "regie") enterRegie();
+  else if (name !== "regie" && currentView === "regie") exitRegie();
+
   document.querySelectorAll(".tab").forEach((t) =>
     t.classList.toggle("is-active", t.dataset.view === name));
   document.querySelectorAll(".view").forEach((v) => v.classList.remove("is-active"));
   $("#view-" + name).classList.add("is-active");
+  currentView = name;
 }
 
 function setupTabs() {

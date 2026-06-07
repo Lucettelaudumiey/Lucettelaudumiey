@@ -203,6 +203,40 @@ body {
 .win-card h2 { font-family: "Baloo 2", sans-serif; margin: 8px 0; font-size: 2.2rem; color: var(--accent); }
 .win-card p { color: var(--ink-soft); margin: 0 0 20px; font-size: 1.1rem; }
 
+/* ---------- Vue Tout-en-un (régie) ---------- */
+#view-regie { max-width: 1280px; }
+.regie-layout {
+  display: grid; grid-template-columns: minmax(280px, 360px) 1fr; gap: 22px; align-items: start;
+}
+.regie-col { min-width: 0; }
+.regie-col-draw { max-width: 380px; }
+
+/* tirage compact dans la régie */
+.regie-slot .draw-stage { padding: 18px; }
+.regie-slot .ball.big { width: 104px; height: 104px; font-size: 2.6rem; }
+.regie-slot .ball.big.empty { font-size: 1.6rem; }
+.regie-slot .current-label { font-size: 1rem; }
+.regie-slot .controls { margin-top: 16px; gap: 8px; }
+.regie-slot .btn { padding: 11px 16px; font-size: .95rem; }
+.regie-slot .options { margin-top: 14px; gap: 12px; font-size: .85rem; }
+.regie-slot .stats { margin: 14px 0 0; }
+
+/* tableau des 90 numéros, compact, sous le tirage */
+.regie-slot .board-wrap { margin-top: 16px; }
+.regie-slot .board { padding: 10px; gap: 5px; }
+.regie-slot .board-hint { display: none; }
+
+/* cartons plus petits, en grille compacte */
+.regie-slot .cartons-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.regie-slot .carton { padding: 10px; }
+/* on n'affiche que les 6 premiers cartons */
+#regieCartons .carton:nth-child(n+7) { display: none; }
+
+@media (max-width: 860px) {
+  .regie-layout { grid-template-columns: 1fr; }
+  .regie-col-draw { max-width: none; }
+}
+
 /* ---------- Fenêtre de saisie d'une plaque ---------- */
 .modal {
   position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center;

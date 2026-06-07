@@ -29,6 +29,7 @@
     <nav class="tabs">
       <button class="tab is-active" data-view="tirage">Tirage</button>
       <button class="tab" data-view="cartons">Mes cartons</button>
+      <button class="tab" data-view="regie">Tout-en-un</button>
     </nav>
   </header>
 
@@ -126,6 +127,20 @@
       </p>
     </section>
     <div id="cartons" class="cartons-grid"></div>
+  </main>
+
+  <!-- ====================== VUE TOUT-EN-UN (régie) ====================== -->
+  <main id="view-regie" class="view">
+    <div class="regie-layout">
+      <section class="regie-col regie-col-draw">
+        <h2 class="section-title">🎤 Tirage</h2>
+        <div id="regieDraw" class="regie-slot"></div>
+      </section>
+      <section class="regie-col">
+        <h2 class="section-title">🎟️ Cartons — les 6 premiers</h2>
+        <div id="regieCartons" class="regie-slot"></div>
+      </section>
+    </div>
   </main>
 
   <!-- Saisie d'une plaque achetée -->
