@@ -14,21 +14,26 @@
   <!-- fond arrondi (compatible icônes "maskable") -->
   <rect width="512" height="512" rx="104" fill="url(#bg)"/>
 
-  <!-- petite étoile / éclat décoratif -->
-  <circle cx="120" cy="110" r="10" fill="#ffffff" opacity="0.5"/>
-  <circle cx="402" cy="138" r="7" fill="#ffffff" opacity="0.4"/>
+  <!-- éclats décoratifs -->
+  <circle cx="92" cy="120" r="9" fill="#ffffff" opacity="0.5"/>
+  <circle cx="420" cy="150" r="6" fill="#ffffff" opacity="0.4"/>
+
+  <!-- LOTO BINGO -->
+  <text x="256" y="74" text-anchor="middle"
+        font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
+        font-size="46" letter-spacing="4" fill="#ffd23f">LOTO BINGO</text>
 
   <!-- boule de loto -->
-  <circle cx="256" cy="262" r="150" fill="url(#ball)"/>
-  <ellipse cx="212" cy="208" rx="46" ry="30" fill="#ffffff" opacity="0.55"/>
+  <circle cx="256" cy="268" r="138" fill="url(#ball)"/>
+  <ellipse cx="216" cy="220" rx="42" ry="27" fill="#ffffff" opacity="0.55"/>
 
   <!-- numéro 64 -->
-  <text x="256" y="262" text-anchor="middle" dominant-baseline="central"
+  <text x="256" y="270" text-anchor="middle" dominant-baseline="central"
         font-family="'Baloo 2','Arial Rounded MT Bold',Arial,sans-serif"
-        font-weight="700" font-size="150" fill="#3a2400">64</text>
+        font-weight="700" font-size="140" fill="#3a2400">64</text>
 
-  <!-- libellé LOTO -->
-  <text x="256" y="452" text-anchor="middle"
+  <!-- LUCETTE LAUDUMIEY -->
+  <text x="256" y="470" text-anchor="middle"
         font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
-        font-size="58" letter-spacing="6" fill="#ffd23f">LOTO</text>
+        font-size="40" letter-spacing="1" fill="#ffffff">LUCETTE LAUDUMIEY</text>
 </svg>
