@@ -1,7 +1,7 @@
 {
-  "name": "Loto Quine — Lulu & Titine du 64",
-  "short_name": "Loto 64",
-  "description": "Loto traditionnel français : tirage, cartons, quine et carton plein.",
+  "name": "Loto Bingo Automatique — Lucette Laudumiey du 64",
+  "short_name": "Loto Bingo",
+  "description": "Loto bingo automatique de Lucette Laudumiey (64) : tirage, cartons, quine et carton plein.",
   "lang": "fr",
   "start_url": ".",
   "scope": ".",

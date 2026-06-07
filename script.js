@@ -1,5 +1,5 @@
 /* ============================================================
-   Loto Quine — Lulu & Titine du 64
+   Loto Bingo Automatique — Lucette Laudumiey du 64
    Jeu de loto traditionnel français (numéros 1 à 90)
    ============================================================ */
 
@@ -11,8 +11,8 @@ const NICKNAMES = {
   7: "le râteau", 8: "le bonhomme de neige", 9: "le pruneau d'Agen",
   10: "les commandements", 11: "les jambes de mémé", 12: "la douzaine",
   13: "ça porte bonheur !", 18: "la majorité", 21: "le bel âge",
-  22: "v'là les flics", 25: "Noël", 30: "le bel âge de Titine",
-  31: "le réveillon", 33: "les bougies de Lulu", 40: "les voleurs",
+  22: "v'là les flics", 25: "Noël", 30: "la trentaine",
+  31: "le réveillon", 33: "les bougies de Lucette", 40: "les voleurs",
   44: "les bretelles", 45: "milieu de partie", 49: "le rugby (Section 64 !)",
   50: "le demi-siècle", 55: "les frites", 64: "notre beau département",
   66: "la nationale 7", 69: "l'année érotique", 75: "Paris",
@@ -427,7 +427,7 @@ function downloadCartons() {
   ctx.fillStyle = "#0f1437"; ctx.fillRect(0, 0, W, H);
   ctx.fillStyle = "#ffd23f"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
   ctx.font = "700 30px 'Baloo 2', Arial, sans-serif";
-  ctx.fillText("Loto Quine — Lulu & Titine du 64", W / 2, TITLE / 2);
+  ctx.fillText("Loto Bingo Automatique — Lucette Laudumiey du 64", W / 2, TITLE / 2);
 
   // cartons
   state.cartons.forEach((c, i) => {

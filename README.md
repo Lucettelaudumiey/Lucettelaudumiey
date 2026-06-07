@@ -1,4 +1,4 @@
-# 🎱 Loto Quine — Lulu & Titine du 64
+# 🎱 Loto Bingo Automatique — Lucette Laudumiey du 64
 
 Une application web de **loto traditionnel français** (numéros 1 à 90), simple,
 colorée et sans installation. Parfaite pour animer une partie de loto en famille
@@ -94,4 +94,4 @@ style.css    → le thème et la mise en page
 script.js    → la logique du jeu (tirage, cartons, détection des quines)
 ```
 
-Fait avec ❤️ pour Lulu & Titine — département **64**.
+Fait avec ❤️ par Lucette Laudumiey — département **64**.
