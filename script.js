@@ -298,6 +298,7 @@ function generateCartons() {
   for (let i = 1; i <= n; i++) state.cartons.push(makeCarton(i));
   renderCartons();
   markCartons(true); // applique l'état courant sans bannière
+  if (currentView === "regie") requestAnimationFrame(fitRegie);
   save();
 }
 
@@ -354,6 +355,7 @@ function savePlaque() {
   state.cartons.push({ id, grid, achieved: "none", name: el.pmName.value.trim() });
   renderCartons();
   markCartons(true);
+  if (currentView === "regie") requestAnimationFrame(fitRegie);
   save();
   closePlaqueModal();
 }
@@ -482,6 +484,7 @@ function cartonNode(c) {
   head.innerHTML =
     `<input class="carton-name" type="text" placeholder="Nom du joueur" maxlength="24" />` +
     `<span class="carton-no">n°${c.id}</span>` +
+    `<span class="carton-score">·</span>` +
     `<span class="carton-badge">en jeu</span>`;
   const nameInput = head.querySelector(".carton-name");
   nameInput.value = c.name || "";
@@ -525,11 +528,13 @@ function markCartons(silent = false) {
 
     let completedRows = 0;
     let totalMarked = 0;
+    let bestRow = 0;
 
     c.grid.forEach((row, r) => {
       const nums = row.filter((v) => v !== null);
       const hits = nums.filter((v) => drawnSet.has(v)).length;
       totalMarked += hits;
+      if (hits > bestRow) bestRow = hits;
       const rowComplete = hits === nums.length;
       if (rowComplete) completedRows++;
 
@@ -550,6 +555,10 @@ function markCartons(silent = false) {
     else if (completedRows >= 1) level = "quine";
 
     applyCartonLevel(node, level);
+
+    // score affiché : meilleure ligne /5 (ou total /15 si carton plein)
+    const scoreEl = node.querySelector(".carton-score");
+    if (scoreEl) scoreEl.textContent = isPlein ? "15/15" : bestRow + "/5";
 
     // bannière si nouveau palier atteint
     const rank = { none: 0, quine: 1, double: 2, plein: 3 };
@@ -631,6 +640,7 @@ function enterRegie() {
   $("#regieDraw").append($(".draw-stage"), $(".stats"), $(".board-wrap"));
   $("#regieCartons").append($("#cartons"));
   rankCartons();
+  requestAnimationFrame(fitRegie);
 }
 function exitRegie() {
   const tv = $("#view-tirage");
@@ -639,6 +649,24 @@ function exitRegie() {
   tv.append($(".board-wrap"));
   $("#view-cartons").append($("#cartons"));
   restoreCartonOrder();            // remet les cartons dans l'ordre normal
+  const view = $("#view-regie");
+  if (view) view.style.height = "";
+}
+
+// Redimensionne la « scène » pour que tout tienne sur l'écran, sans scroll
+function fitRegie() {
+  if (currentView !== "regie") return;
+  const view = $("#view-regie"), stage = $("#regieStage");
+  if (!view || !stage) return;
+  stage.style.transform = "none";
+  const natW = stage.offsetWidth, natH = stage.offsetHeight;
+  if (!natW || !natH) return;
+  const availW = view.clientWidth - 4;
+  const availH = window.innerHeight - view.getBoundingClientRect().top - 12;
+  const scale = Math.min(availW / natW, availH / natH, 1);
+  stage.style.transform = `scale(${scale})`;
+  stage.style.marginLeft = Math.max(0, (availW - natW * scale) / 2) + "px";
+  view.style.height = natH * scale + "px";
 }
 
 // Réordonne les cartons dans le DOM selon un comparateur
@@ -812,6 +840,9 @@ function init() {
   el.csvBtn.addEventListener("click", downloadCSV);
   el.printBtn.addEventListener("click", () => window.print());
   el.screenBtn.addEventListener("click", openFollowScreen);
+
+  // redimensionne la vue Tout-en-un quand la fenêtre change de taille
+  window.addEventListener("resize", fitRegie);
 
   // précharge les voix de synthèse
   if ("speechSynthesis" in window) speechSynthesis.getVoices();

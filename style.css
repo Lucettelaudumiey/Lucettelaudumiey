@@ -204,12 +204,14 @@ body {
 .win-card p { color: var(--ink-soft); margin: 0 0 20px; font-size: 1.1rem; }
 
 /* ---------- Vue Tout-en-un (régie) ---------- */
-#view-regie { max-width: 1280px; }
+/* la scène a une taille fixe ; le JS la redimensionne pour remplir l'écran */
+#view-regie { max-width: none; padding: 8px; overflow: hidden; }
+.regie-stage { width: 1280px; transform-origin: top left; }
 .regie-layout {
-  display: grid; grid-template-columns: minmax(280px, 360px) 1fr; gap: 22px; align-items: start;
+  display: grid; grid-template-columns: 332px 1fr; gap: 18px; align-items: start;
 }
 .regie-col { min-width: 0; }
-.regie-col-draw { max-width: 380px; }
+.regie-col .section-title { margin: 4px 0 10px; }
 
 /* tirage compact dans la régie */
 .regie-slot .draw-stage { padding: 18px; }
@@ -226,16 +228,24 @@ body {
 .regie-slot .board { padding: 10px; gap: 5px; }
 .regie-slot .board-hint { display: none; }
 
-/* cartons plus petits, en grille compacte */
-.regie-slot .cartons-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
-.regie-slot .carton { padding: 10px; }
+/* 12 cartons en grille 4×3, compacts */
+.regie-slot .cartons-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.regie-slot .carton { padding: 7px; border-radius: 12px; }
+.regie-slot .carton-head { margin-bottom: 6px; gap: 4px; }
+.regie-slot .carton-name { font-size: .72rem; padding: 3px 6px; }
+.regie-slot .carton-no { font-size: .6rem; }
+.regie-slot .carton-badge { font-size: .55rem; padding: 2px 6px; }
+.regie-slot .carton-grid { gap: 3px; }
+.regie-slot .carton-cell { font-size: 13px; border-radius: 5px; }
 /* on n'affiche que les 12 cartons les mieux placés */
 #regieCartons .carton:nth-child(n+13) { display: none; }
 
-@media (max-width: 860px) {
-  .regie-layout { grid-template-columns: 1fr; }
-  .regie-col-draw { max-width: none; }
+/* score « 4/5 » sur chaque carton */
+.carton-score {
+  font-size: .72rem; font-weight: 700; color: #7a3f6e;
+  background: #ffe9c7; border-radius: 999px; padding: 2px 8px; white-space: nowrap;
 }
+.regie-slot .carton-score { font-size: .6rem; padding: 1px 6px; }
 
 /* ---------- Fenêtre de saisie d'une plaque ---------- */
 .modal {
