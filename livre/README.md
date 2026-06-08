@@ -29,6 +29,12 @@ contrôles et on y gagne des batailles bien plus importantes. C'est surtout une
 histoire sur la jeunesse : cet âge où l'on comprend, soudain, que le monde
 n'est pas juste — et où l'on décide, ensemble, de le rendre un peu meilleur.
 
+## Au début du livre
+
+- **[Remerciements](Remerciements.md)** — la dédicace de l'autrice aux Transports
+  Bidegain, à Pierre et Martine Bidegain, à tous les collègues chauffeurs et à
+  Monsieur Jean-Pierre Bidegain.
+
 ## Les deux tomes
 
 - **Tome 1 — La rentrée des différences** (20 chapitres)
