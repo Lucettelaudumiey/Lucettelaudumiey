@@ -159,6 +159,43 @@ def toc_block(headings, pages, st, avail, scale):
     t = Table(rows, colWidths=[avail - pcol, pcol]); t.setStyle(TableStyle(cmds))
     return [Paragraph("Table des matières", st["toch"]), t]
 
+BLURB1 = ("À Orthez, au cœur du Béarn, une rentrée de quatrième pas comme les "
+          "autres. Le jour où Adam arrive en fauteuil roulant devant un collège "
+          "plein d'escaliers, toute une classe va devoir apprendre à regarder "
+          "autrement.")
+BLURB2 = ("De la cour de récréation au car de Lucette — la chauffeuse que "
+          "personne ne remarque —, c'est l'histoire d'une bande d'adolescents "
+          "qui découvrent que les murs les plus hauts ne sont pas de pierre, "
+          "mais de regards. Et qu'ensemble, on peut les faire tomber.")
+BLURB_Q = ("« La maladie a été plus forte que ma force physique. "
+           "Mais jamais plus forte que ma force mentale. »")
+BLURB_INFO = ("Un roman en deux tomes sur la jeunesse, le respect, l'éducation "
+              "et le handicap. · Dès 10 ans.")
+
+def make_back(scale, PH):
+    cream = "#f2ead6"
+    return [
+        Spacer(1, PH*0.12),
+        Paragraph("PLUS HAUT QUE LES MURS", ParagraphStyle(
+            "bt", fontName="Times-Bold", fontSize=15*scale, alignment=TA_CENTER,
+            textColor=GOLD, leading=19*scale)),
+        Paragraph("roman", ParagraphStyle(
+            "bsr", fontName="Times-Italic", fontSize=11*scale, alignment=TA_CENTER,
+            textColor=cream, spaceAfter=16*scale)),
+        Paragraph(BLURB1, ParagraphStyle("bl1", fontName="Times-Roman", fontSize=11*scale,
+            alignment=TA_CENTER, textColor=cream, leading=16*scale, spaceAfter=10*scale)),
+        Paragraph(BLURB2, ParagraphStyle("bl2", fontName="Times-Roman", fontSize=11*scale,
+            alignment=TA_CENTER, textColor=cream, leading=16*scale, spaceAfter=20*scale)),
+        Paragraph(BLURB_Q, ParagraphStyle("bq", fontName="Times-Italic", fontSize=11.5*scale,
+            alignment=TA_CENTER, textColor=GOLD, leading=16*scale, spaceAfter=22*scale,
+            leftIndent=10*scale, rightIndent=10*scale)),
+        Paragraph(BLURB_INFO, ParagraphStyle("bi", fontName="Times-Roman", fontSize=9.8*scale,
+            alignment=TA_CENTER, textColor=cream, leading=14*scale)),
+        Spacer(1, PH*0.04),
+        Paragraph("Lucette Laudumiey", ParagraphStyle("ba", fontName="Times-Italic",
+            fontSize=11*scale, alignment=TA_CENTER, textColor=cream)),
+    ]
+
 def build(outfile, pagesize, scale, margin):
     PW, PH = pagesize
     st = make_styles(scale)
@@ -188,6 +225,19 @@ def build(outfile, pagesize, scale, margin):
         canvas.drawCentredString(PW/2, PH*0.135, "— Au cœur du Béarn, à Orthez —")
         canvas.restoreState()
 
+    back_stars = [(0.18,0.93),(0.34,0.90),(0.50,0.94),(0.66,0.90),(0.82,0.93),
+                  (0.12,0.88),(0.88,0.88),(0.28,0.10),(0.50,0.07),(0.72,0.10),(0.40,0.13),(0.60,0.13)]
+    def draw_back(canvas, doc):
+        canvas.saveState()
+        canvas.setFillColor(NAVY); canvas.rect(0, 0, PW, PH, fill=1, stroke=0)
+        canvas.setFillColor(CREAM)
+        for fx, fy in back_stars:
+            canvas.circle(PW*fx, PH*fy, 1.1*scale, fill=1, stroke=0)
+        m = margin*0.55
+        canvas.setStrokeColor(GOLD); canvas.setLineWidth(1.6*scale)
+        canvas.rect(m, m, PW-2*m, PH-2*m, fill=0, stroke=1)
+        canvas.restoreState()
+
     def footer(canvas, doc):
         if doc.page > 1:
             canvas.saveState(); canvas.setFont("Times-Roman", 9); canvas.setFillColor(HexColor("#555555"))
@@ -196,22 +246,29 @@ def build(outfile, pagesize, scale, margin):
     def make_doc():
         cover_f = Frame(0, 0, PW, PH, id="cover")
         text_f = Frame(margin, margin, PW-2*margin, PH-2*margin, id="text")
+        back_f = Frame(margin, margin, PW-2*margin, PH-2*margin, id="back")
         tmpls = [PageTemplate(id="cover", frames=[cover_f], onPage=draw_cover),
-                 PageTemplate(id="normal", frames=[text_f], onPage=footer)]
+                 PageTemplate(id="normal", frames=[text_f], onPage=footer),
+                 PageTemplate(id="back", frames=[back_f], onPage=draw_back)]
         d = BookDoc(str(BASE / outfile), pagesize=pagesize, pageTemplates=tmpls,
                     title="Plus haut que les murs", author="Lucette Laudumiey")
         d.headings = headings
         return d
 
+    def back():
+        return [NextPageTemplate("back"), PageBreak()] + make_back(scale, PH)
+
     # Passe 1 : mesurer les pages réelles des titres (TdM avec numéros provisoires)
     d1 = make_doc()
-    s1 = [NextPageTemplate("normal"), PageBreak()] + toc_block(headings, {}, st, avail, scale) + content_story(st, PH)
+    s1 = ([NextPageTemplate("normal"), PageBreak()] + toc_block(headings, {}, st, avail, scale)
+          + content_story(st, PH) + back())
     d1.build(s1)
     pages = dict(d1.pages)
 
     # Passe 2 : TdM finale avec les vrais numéros (mise en page identique -> stable)
     d2 = make_doc()
-    s2 = [NextPageTemplate("normal"), PageBreak()] + toc_block(headings, pages, st, avail, scale) + content_story(st, PH)
+    s2 = ([NextPageTemplate("normal"), PageBreak()] + toc_block(headings, pages, st, avail, scale)
+          + content_story(st, PH) + back())
     d2.build(s2)
     print("PDF écrit :", outfile)
 

@@ -40,9 +40,9 @@ Trois éditions sont générées par le script `build_pdf.py` :
 | `Plus-haut-que-les-murs-GrosCaracteres-A4.pdf` | A4, grande police | lecture pour vue fatiguée / malvoyants |
 
 Chaque PDF comporte une **couverture colorée** (page de garde bleu nuit étoilée),
-une **table des matières cliquable** (liens internes + signets PDF), un **interligne
-aéré** et la **césure française** (texte justifié sans grands blancs) pour le confort
-de lecture.
+une **4ᵉ de couverture** (résumé au dos), une **table des matières cliquable**
+(liens internes + signets PDF), un **interligne aéré** et la **césure française**
+(texte justifié sans grands blancs) pour le confort de lecture.
 
 Pour les régénérer après une modification du texte : `python3 build_pdf.py`.
 
