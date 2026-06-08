@@ -1339,18 +1339,150 @@ avoir empruntée à une classe particulièrement bornée et particulièrement g�
 
 ---
 
-## Chapitre 19 — Plus haut que les murs
+## Chapitre 19 — Les clés de Lucette
+
+Il faut que je vous raconte encore une chose. La plus difficile, peut-être. Mais
+celle sans laquelle ce livre ne serait pas tout à fait vrai.
+
+Cela s'est passé deux ans plus tard. Nous étions en troisième, sur le point de
+quitter le collège. Adam avait grandi ; sa voix avait mué, ses épaules s'étaient
+élargies, et il parlait déjà des lycées accessibles qu'il allait viser pour
+devenir, un jour, ingénieur des fusées. Manon dessinait toujours ses trains, mais
+on l'écoutait. Killian préparait son entrée dans une formation d'éducateur. Et
+moi, je prenais toujours le car de sept heures douze, près de l'église — et,
+chaque matin, je lançais mon *« Adishatz, Lucette ! »* avec, désormais, presque
+tout l'avant du car qui répondait en chœur.
+
+Et puis, un lundi de mars, le car n'a pas été conduit par Lucette.
+
+À sa place, il y avait un remplaçant, un jeune homme poli que nous ne
+connaissions pas. Il faisait bien son travail, mais ce n'était pas pareil. Pas de
+*« Adishatz »* roulant les « r ». Pas de petit mot pour Manon sur le numéro du
+car. Le siège de Lucette était là, et Lucette n'y était plus.
+
+On a cru, d'abord, à une grippe. Une semaine, peut-être deux. Mais les semaines
+ont passé, et le siège est resté occupé par d'autres. Alors un mercredi, on est
+allés tous les quatre — Adam, Manon, Killian et moi — frapper à la porte de
+Lucette.
+
+Elle nous a ouvert assise.
+
+Assise dans un fauteuil roulant.
+
+La maladie était entrée chez elle sans frapper, et elle s'en était prise à ce
+qu'elle avait de plus précieux : ses jambes. Ces jambes qui, pendant trente ans,
+avaient pressé l'embrayage et le frein avec la précision d'une horloge, ne lui
+obéissaient plus. Elles ne répondaient plus assez vite. Et un chauffeur dont les
+jambes hésitent, ne serait-ce qu'une fraction de seconde, c'est un danger — pour
+les enfants à bord, pour les autres sur la route.
+
+— J'ai rendu mes clés, nous a-t-elle dit, et sa voix, d'habitude si pleine,
+s'était fêlée. Toute seule. Avant qu'on me les demande. Parce que je l'ai senti,
+vous comprenez ? J'ai senti qu'un jour je ne freinerais pas à temps. Et ce
+jour-là, je ne me le serais jamais pardonné. Aimer ce métier, à la fin, c'était
+savoir m'arrêter. Pour ne mettre personne en danger. Mais mon Dieu, ce que ça
+fait mal.
+
+Elle a regardé ses mains, posées, inutiles, sur les roues du fauteuil.
+
+— J'ai conduit toute ma vie. C'était plus qu'un métier, vous savez. C'était moi.
+Vos parents, je les ai transportés enfants. Vous, je vous ai transportés. Et
+maintenant… maintenant je reste là. À la fenêtre. À regarder passer les cars des
+autres.
+
+Il y a eu un silence terrible. Manon fixait le sol. Killian serrait les
+mâchoires. Moi, j'avais la gorge si nouée que je ne pouvais rien dire.
+
+C'est Adam qui a parlé.
+
+Adam, qui avait roulé jusqu'à elle, fauteuil contre fauteuil, jusqu'à ce que leurs
+roues se touchent presque. Adam, qui savait, mieux que quiconque sur cette terre,
+ce que c'était que de découvrir un matin que ses jambes ne vous porteraient pas
+où vous vouliez aller.
+
+— Lucette, a-t-il dit doucement. Tu te souviens du premier matin où tu m'as fait
+monter dans ton car ?
+
+Elle a hoché la tête, sans le regarder.
+
+— Je t'avais dit « désolé », tu te souviens ? « Désolé de vous mettre en retard. »
+Et tu m'as répondu une phrase que je n'ai jamais oubliée. Tu m'as dit : « Désolé
+de quoi ? On dit bonjour avant de s'excuser, dans mon car. » Tu m'as appris ça.
+Que je n'avais pas à m'excuser d'exister. Que ma place, elle était dans le car
+comme tout le monde. Alors aujourd'hui, c'est à mon tour. Et je vais te le dire
+avec tes mots à toi : tu n'as pas à t'excuser, Lucette. Pas d'être malade. Pas
+d'être assise. Pas de rien.
+
+Lucette a relevé les yeux vers lui. Ils étaient pleins de larmes.
+
+— Mais je ne sers plus à rien, mon petit. Un chauffeur qui ne peut plus
+conduire…
+
+— Tu te trompes, l'a coupée Adam, avec une fermeté que je ne lui connaissais pas.
+Et tu le sais. C'est toi-même qui me l'as appris. Tu te rappelles ce que tu me
+disais, quand je croyais que ma vie était finie parce que je ne marcherais
+jamais ? La cage, ce n'est pas le fauteuil, Lucette. La cage, ça n'a jamais été le
+fauteuil. C'est l'escalier. C'est le regard des autres. C'est ce qu'on n'a pas
+encore inventé pour te faire de la place. Tes jambes se sont tues. Et alors ? Tu
+crois que ta valeur était dans tes jambes ? Tout ce que tu sais des routes, des
+horaires, du métier, des gens — tout ça, c'est dans ta tête et dans ton cœur. Et
+ça, la maladie ne te l'a pas pris.
+
+Et là, Lucette a redressé le menton. Lentement. Et elle a prononcé, d'une voix qui
+peu à peu retrouvait sa force, une phrase que je n'ai jamais oubliée — une phrase
+que, depuis, je me répète chaque fois que la vie me semble trop lourde :
+
+— Tu as raison, petit. La maladie a été plus forte que ma force physique. Mais
+elle ne sera jamais plus forte que ma force mentale.
+
+On était tous en larmes. Mais c'étaient, déjà, d'autres larmes.
+
+Le plus beau, c'est ce qui s'est passé après. Parce que cette histoire ne s'arrête
+pas devant une fenêtre.
+
+Quelques semaines plus tard, Lucette a recommencé à venir au dépôt des Transports
+Bidegain. Pas pour conduire — ça, c'était fini, et elle l'avait accepté. Mais pour
+être là. Chaque matin, dans son fauteuil, elle franchissait la porte du dépôt à
+l'heure du café, et elle retrouvait les collègues. Elle, qui connaissait chaque
+route du Béarn par cœur, donnait les informations du jour : le pont en travaux,
+l'accident signalé sur la départementale, le brouillard annoncé dans la vallée,
+le détour à prévoir. Ces renseignements précieux, utiles à tous, qui font qu'un
+car arrive à l'heure et qu'un enfant rentre chez lui en sécurité.
+
+Elle nous avait raconté, un jour, qu'un ancien chauffeur, un certain monsieur qui
+l'avait conduite à l'école quarante ans plus tôt, faisait exactement la même
+chose : il passait chaque matin dire un petit coucou, partager le café, échanger
+les nouvelles de la route. À l'époque, elle ne comprenait pas bien pourquoi.
+Maintenant, elle savait. On ne quitte jamais vraiment ce métier-là. Le volant,
+on le lâche. Mais la famille des routes, le lien, le service rendu aux autres —
+ça, on le garde toute sa vie. Et c'est ainsi que Lucette, à son tour, est devenue
+la mémoire et le cœur du dépôt. Celle qui n'avait plus de jambes pour conduire,
+mais qui veillait, chaque matin, sur tous ceux qui conduisaient encore.
+
+Le respect, je vous l'ai dit dès le début, ça commence par un bonjour. Mais ça va
+beaucoup plus loin. C'est de savoir qu'une personne ne se résume jamais à ce que
+son corps peut faire. Que celle qui ne marche plus, celle qui ne conduit plus,
+celle qu'on croit « finie », est peut-être, au-dedans, la plus solide de toutes.
+
+Lucette avait passé sa vie à transporter les autres. Il aura suffi d'un garçon en
+fauteuil, qu'elle avait un jour fait monter dans son car sans le faire se sentir
+de trop, pour la transporter, elle, à son tour — non plus sur une route, mais
+par-dessus le plus haut des murs.
+
+---
+
+## Chapitre 20 — Plus haut que les murs
 
 Voilà. C'est presque la fin de mon histoire. Pas la fin de l'histoire — celle-là
 continue, elle continue encore aujourd'hui, dans tous les collèges où il reste
 des escaliers, et il en reste beaucoup. Mais la fin de ce que je voulais
 raconter.
 
-Je m'appelle toujours Lina Bertrand. J'ai un an de plus que quand j'ai commencé
-ce récit, et pourtant j'ai l'impression d'avoir grandi de dix ans. Parce que
-c'est ça, peut-être, la jeunesse : ce n'est pas un âge. C'est le moment où on
-découvre que le monde n'est pas juste — et où on décide, pour la première fois,
-de faire quelque chose.
+Je m'appelle toujours Lina Bertrand. J'ai quelques années de plus que quand j'ai
+commencé ce récit, et pourtant j'ai l'impression d'avoir grandi de toute une vie.
+Parce que c'est ça, peut-être, la jeunesse : ce n'est pas un âge. C'est le moment
+où on découvre que le monde n'est pas juste — et où on décide, pour la première
+fois, de faire quelque chose.
 
 Mes parents sont toujours séparés. La vie n'a pas tout réparé. Mais j'ai appris,
 cette année-là, qu'on n'a pas besoin que tout soit parfait pour faire quelque
@@ -1368,6 +1500,13 @@ qu'on a oublié de remplacer par une rampe. Adam n'a jamais été « moins » qu
 autres. C'est le monde qui était mal construit pour lui. Et un monde mal
 construit, ça se reconstruit. À condition de le vouloir. À condition d'être
 plusieurs.
+
+J'ai appris, grâce à Lucette, que la force d'une personne ne se mesure pas à ce
+que peut son corps. Qu'on peut perdre ses jambes et rester debout. Que la maladie
+peut être plus forte que nos muscles — mais jamais, au grand jamais, plus forte
+que notre tête et notre cœur, dès lors qu'on décide qu'il en sera ainsi. Le corps
+flanche, parfois. L'esprit, lui, on choisit de le tenir droit. Et ce choix-là, il
+n'appartient qu'à nous.
 
 J'ai appris que l'éducation, la vraie, ce n'est pas remplir des têtes de dates et
 de fleuves — même si les dates et les fleuves, c'est important aussi, monsieur

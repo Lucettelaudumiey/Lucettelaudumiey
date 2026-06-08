@@ -45,15 +45,16 @@ n'est pas juste — et où l'on décide, ensemble, de le rendre un peu meilleur.
   (ceux du collège et ceux des cœurs), la naissance d'une amitié, et un événement
   qui va tout faire basculer.
 
-- **Tome 2 — Plus haut que les murs** (19 chapitres + épilogue)
+- **Tome 2 — Plus haut que les murs** (20 chapitres + épilogue)
   La classe se relève et se rassemble. Un grand projet, un combat pour rendre le
   collège accessible à tous — et pour faire respecter les « invisibles » comme
-  Lucette —, des secrets qui se dévoilent, un voyage, et un spectacle où chacun
-  trouve enfin sa lumière.
+  Lucette —, des secrets qui se dévoilent, un voyage, un spectacle où chacun trouve
+  enfin sa lumière, et le jour où Lucette, à son tour, devra apprendre que la force
+  d'une personne ne se mesure pas à ce que peut son corps.
 
-L'ensemble fait environ **24 000 mots**, soit, selon la mise en page choisie
+L'ensemble fait environ **26 000 mots**, soit, selon la mise en page choisie
 (roman jeunesse en gros caractères, marges généreuses, illustrations), de l'ordre
-de **150 à 200 pages imprimées**.
+de **160 à 200 pages imprimées**.
 
 ## Les grands thèmes
 
