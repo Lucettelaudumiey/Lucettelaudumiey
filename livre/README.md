@@ -29,6 +29,18 @@ contrôles et on y gagne des batailles bien plus importantes. C'est surtout une
 histoire sur la jeunesse : cet âge où l'on comprend, soudain, que le monde
 n'est pas juste — et où l'on décide, ensemble, de le rendre un peu meilleur.
 
+## Le livre en PDF (prêt à imprimer)
+
+Trois éditions sont générées par le script `build_pdf.py` :
+
+| Fichier | Format | Police | Usage |
+|---------|--------|--------|-------|
+| `Plus-haut-que-les-murs-Roman-6x9.pdf` | 6×9 pouces | standard | édition « roman » classique |
+| `Plus-haut-que-les-murs-GrosCaracteres-A4.pdf` | A4 | grande | lecture confort / gros caractères |
+| `Plus-haut-que-les-murs.pdf` | A5 | standard | format poche |
+
+Pour les régénérer après une modification du texte : `python3 build_pdf.py`.
+
 ## Au début du livre
 
 - **[Le mot de l'autrice](Le-mot-de-l-autrice.md)** — pourquoi ce livre est né :
