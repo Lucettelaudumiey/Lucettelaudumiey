@@ -15,13 +15,13 @@ veulent dire les grands mots : le respect, la différence, le courage, et le dro
 de chacun à apprendre et à avoir sa place.
 
 Le récit fait aussi une place de choix à un personnage que l'on ne voit jamais
-dans les histoires : **Bernard, le chauffeur du car scolaire des Transports
-Bidegain**. Chaque matin, sur les routes du Béarn, il se plie en quatre pour être
-à l'heure malgré les travaux, les bouchons, les accidents et l'incivilité des
-autres conducteurs — et chaque jour, des élèves montent sans le regarder, salissent
-son car, ne paient pas, ne disent pas bonjour, le prennent pour un robot. Le livre
-rend visible cet « invisible » du quotidien, et fait de lui l'un des cœurs de son
-message sur le respect.
+dans les histoires : **Lucette, la chauffeuse du car scolaire des Transports
+Bidegain**. Chaque matin, sur les routes du Béarn, elle se plie en quatre pour
+être à l'heure malgré les travaux, les bouchons, les accidents et l'incivilité
+des autres conducteurs — et chaque jour, des élèves montent sans la regarder,
+salissent son car, ne paient pas, ne disent pas bonjour, la prennent pour un
+robot. Le livre rend visible cette « invisible » du quotidien, et fait d'elle
+l'un des cœurs de son message sur le respect.
 
 C'est une histoire sur le handicap, mais ce n'est pas une histoire triste. On y
 rit, on s'y dispute, on y tombe amoureux pour la première fois, on y rate des
@@ -39,7 +39,7 @@ n'est pas juste — et où l'on décide, ensemble, de le rendre un peu meilleur.
 - **Tome 2 — Plus haut que les murs** (19 chapitres + épilogue)
   La classe se relève et se rassemble. Un grand projet, un combat pour rendre le
   collège accessible à tous — et pour faire respecter les « invisibles » comme
-  Bernard —, des secrets qui se dévoilent, un voyage, et un spectacle où chacun
+  Lucette —, des secrets qui se dévoilent, un voyage, et un spectacle où chacun
   trouve enfin sa lumière.
 
 L'ensemble fait environ **24 000 mots**, soit, selon la mise en page choisie

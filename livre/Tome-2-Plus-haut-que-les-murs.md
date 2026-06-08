@@ -773,7 +773,7 @@ Il a marqué une pause, puis a ajouté, l'air de rien :
 c'est aussi lui qui organise tous les transports scolaires du Béarn. Les cars.
 Les lignes. Les contrats avec les compagnies, comme les Transports Bidegain.
 Autrement dit, cette dame-là tient entre ses mains à la fois l'escalier d'Adam…
-et le car de votre ami Bernard. Réfléchissez à ce que vous pourriez en faire.
+et le car de votre amie Lucette. Réfléchissez à ce que vous pourriez en faire.
 
 ---
 
@@ -832,7 +832,7 @@ un mur d'épaules serrées, debout, ensemble, face à l'injustice.
 ## Chapitre 13 — Les invisibles d'Orthez
 
 Quand monsieur Lemoine nous a appris que la présidente du Département tenait
-entre ses mains à la fois l'escalier d'Adam et le car de Bernard, quelque chose
+entre ses mains à la fois l'escalier d'Adam et le car de Lucette, quelque chose
 a fait « tilt » dans nos têtes. Toutes en même temps.
 
 C'est Adam qui a posé des mots dessus, le soir, dans l'atelier où on construisait
@@ -848,8 +848,8 @@ du collège. Des escaliers. C'est bien. Mais le vrai sujet, il est plus grand. L
 vrai sujet, c'est : qui est-ce qu'on ne voit pas ? Moi, on m'a pas vu pendant des
 mois — jusqu'à ce que vous me regardiez. Manon, on l'a pas vue pendant des
 années — on la prenait pour « la lune ». Killian, on a pas vu ce qu'il cachait
-derrière sa méchanceté. Et Bernard… Bernard, ça fait quinze ans qu'on le regarde
-à travers comme s'il était en verre.
+derrière sa méchanceté. Et Lucette… Lucette, ça fait quinze ans qu'on la regarde
+à travers comme si elle était en verre.
 
 Il a roulé jusqu'au milieu de la pièce.
 
@@ -864,7 +864,7 @@ nous.
 
 On a fait la liste. Elle était longue, et elle nous a fait honte.
 
-Bernard et les chauffeurs des Transports Bidegain, d'abord, qui nous
+Lucette et les chauffeurs des Transports Bidegain, d'abord, qui nous
 transportaient matin et soir sur les routes du Béarn. Mais aussi les dames de la
 cantine, qu'on appelait « les cantinières » sans même connaître leurs prénoms, et
 qui se levaient à cinq heures pour qu'on ait un repas chaud. Les agents
@@ -875,13 +875,13 @@ un monde, et qu'on ne remercie jamais parce qu'on ne les voit même pas.
 
 On a décidé d'aller les rencontrer. Pour de vrai. Pour les écouter.
 
-Le plus important, pour nous, c'était Bernard. Alors un mercredi après-midi, on
-est allés au dépôt des Transports Bidegain, Adam, Manon, Killian et moi. Bernard
-nous a fait visiter son car. Il était fier, on voyait. Personne ne lui avait
+Le plus important, pour nous, c'était Lucette. Alors un mercredi après-midi, on
+est allés au dépôt des Transports Bidegain, Adam, Manon, Killian et moi. Lucette
+nous a fait visiter son car. Elle était fière, on voyait. Personne ne lui avait
 jamais demandé de parler de son métier.
 
-Il nous a montré la plateforme pour le fauteuil d'Adam, les ceintures, les
-rétroviseurs, le carnet où il notait les incidents. Et puis il nous a parlé. De
+Elle nous a montré la plateforme pour le fauteuil d'Adam, les ceintures, les
+rétroviseurs, le carnet où elle notait les incidents. Et puis elle nous a parlé. De
 ses journées qui commençaient à cinq heures et demie. Des routes verglacées
 l'hiver, du brouillard du gave qui montait et qui bouchait tout. Des travaux
 éternels sur les ponts. Des autres conducteurs pressés et agressifs. De la
@@ -896,10 +896,10 @@ qui jettent les papiers, qui crachent, qui disent pas bonjour… ça vous fait q
 
 Je savais pourquoi Killian demandait ça. Parce que Killian, lui-même, avant, il
 avait été de ceux-là. Le fond du car, les pieds sur les sièges. Il le savait. Et
-il avait besoin de savoir ce que ça faisait, à Bernard.
+il avait besoin de savoir ce que ça faisait, à Lucette.
 
-Bernard a réfléchi longtemps. Et il a répondu, sans colère, ce qui était encore
-plus fort que s'il avait crié :
+Lucette a réfléchi longtemps. Et elle a répondu, sans colère, ce qui était encore
+plus fort que si elle avait crié :
 
 — Tu sais, petit, le pire, c'est pas la saleté. La saleté, je la nettoie. C'est
 pas l'argent du trajet pas payé non plus, même si bon, ça compte, c'est mon
@@ -914,24 +914,24 @@ enfants depuis quinze ans. Je mérite au moins un bonjour.
 Le silence, dans le dépôt, était total. Killian avait les yeux brillants. Et
 soudain, ce grand gaillard a dit, d'une voix nouée :
 
-— Pardon, monsieur. Avant… avant j'étais comme ça. Les pieds sur les sièges, tout
+— Pardon, madame. Avant… avant j'étais comme ça. Les pieds sur les sièges, tout
 ça. Je vous demande pardon.
 
-Bernard l'a regardé. Puis il a souri, de son grand sourire large comme le gave,
-et il a posé sa main de battoir sur l'épaule de Killian.
+Lucette l'a regardé. Puis elle a souri, de son grand sourire large comme le gave,
+et elle a posé sa main sur l'épaule de Killian.
 
 — Eh ben tu vois, petit, t'as déjà changé. Parce que pour demander pardon, il
 faut d'abord avoir appris à voir. Et toi, ça y est, tu vois. *Adishatz.*
 
 En repartant du dépôt, on savait tous ce qu'on avait à faire. On allait raconter
-Bernard. On allait raconter les invisibles. On allait, le jour de la Fête des
-talents, mettre une chaise vide au premier rang, réservée — et inviter Bernard à
-s'y asseoir, lui qui n'avait jamais été invité nulle part, pour qu'il voie, enfin,
-qu'on l'avait vu.
+Lucette. On allait raconter les invisibles. On allait, le jour de la Fête des
+talents, mettre une chaise vide au premier rang, réservée — et inviter Lucette à
+s'y asseoir, elle qui n'avait jamais été invitée nulle part, pour qu'elle voie,
+enfin, qu'on l'avait vue.
 
 Et puisque la présidente du Département — celle qui décidait des cars autant que
 des collèges — serait dans la salle, on allait faire en sorte qu'elle entende,
-elle aussi, l'histoire de Bernard. Parce qu'un chauffeur qu'on respecte, ça
+elle aussi, l'histoire de Lucette. Parce qu'un chauffeur qu'on respecte, ça
 commence par des enfants qui disent bonjour. Mais ça continue par des horaires
 tenables, des routes entretenues, des moyens pour faire ce métier dignement. Et
 ça, ce n'était pas à nous de le décider. C'était à elle.
@@ -967,16 +967,16 @@ questions qu'on ne pouvait entendre que dans le noir total. Impossible de triche
 
 Et puis il y avait la dernière salle, la plus importante à nos yeux : *la salle
 des invisibles*. On y avait reconstitué l'intérieur d'un car scolaire, avec de
-vrais sièges qu'on avait récupérés à la casse — Bernard nous avait aidés à les
+vrais sièges qu'on avait récupérés à la casse — Lucette nous avait aidés à les
 trouver. Les visiteurs s'asseyaient là, dans le noir, et un écran diffusait un
 trajet filmé depuis le pare-brise d'un car : la pluie, le brouillard du gave, les
 travaux du pont, la route qui serpente. Et par-dessus, la voix de Killian
-racontait une journée de Bernard. Cinq heures et demie du matin. Le verglas.
-L'accident qui bloque la vallée. Les quarante enfants dont il est responsable. Et
-les pieds sur les sièges, les papiers par terre, les crachats, les bonjours qu'on
-ne dit pas. À la fin, l'écran affichait une seule phrase, blanche sur fond noir,
-que tout le monde lisait en silence : *« Il est là. Tous les jours. Pour vous.
-L'avez-vous seulement déjà regardé ? »* C'est cette salle, je crois, qui a fait
+racontait une journée de Lucette. Cinq heures et demie du matin. Le verglas.
+L'accident qui bloque la vallée. Les quarante enfants dont elle est responsable.
+Et les pieds sur les sièges, les papiers par terre, les crachats, les bonjours
+qu'on ne dit pas. À la fin, l'écran affichait une seule phrase, blanche sur fond
+noir, que tout le monde lisait en silence : *« Elle est là. Tous les jours. Pour
+vous. L'avez-vous seulement déjà regardée ? »* C'est cette salle, je crois, qui a fait
 pleurer le plus de parents. Parce que des escaliers, tout le monde n'en croise
 pas. Mais un chauffeur de car qu'on n'a jamais remercié, ça, tout le monde en a
 un dans sa mémoire.
@@ -1146,8 +1146,8 @@ l'ampleur du travail. Je m'engage à le faire.
 
 Puis elle a fait une chose à laquelle on ne s'attendait pas. Elle a regardé, au
 premier rang, la chaise que nous avions réservée — celle où nous avions installé,
-ce soir-là, un homme intimidé dans sa veste du dimanche, qui n'avait jamais été
-invité d'honneur de quoi que ce soit de toute sa vie : Bernard.
+ce soir-là, une femme intimidée, endimanchée, qui n'avait jamais été invitée
+d'honneur de quoi que ce soit de toute sa vie : Lucette.
 
 — Et puis il y a cette dernière salle, a-t-elle repris d'une voix plus basse. Ce
 car. Ce chauffeur. Je gère, au Département, tous les transports scolaires de ce
@@ -1157,24 +1157,24 @@ les conduisent. Aux horaires qu'on leur impose. Aux routes qu'on n'entretient
 pas. Au respect qu'on ne leur apprend pas. Eux aussi, on les a rendus invisibles.
 Eux aussi, ça va changer. Vous avez ma parole.
 
-Elle s'est tournée vers Bernard, et, devant sept cents personnes, la présidente du
+Elle s'est tournée vers Lucette, et, devant sept cents personnes, la présidente du
 Conseil départemental a dit :
 
-— Monsieur, au nom de tous ces enfants que vous transportez depuis quinze ans, et
+— Madame, au nom de tous ces enfants que vous transportez depuis quinze ans, et
 au nom d'une administration qui ne vous a jamais dit merci : merci.
 
-Bernard s'est levé, gauche, les yeux noyés, ne sachant que faire de ses grandes
-mains. Et c'est là que Killian, au micro, a lancé d'une voix qui portait jusqu'au
+Lucette s'est levée, gauche, les yeux noyés, ne sachant que faire de ses mains.
+Et c'est là que Killian, au micro, a lancé d'une voix qui portait jusqu'au
 fond du gymnase :
 
-— *Adishatz*, Bernard !
+— *Adishatz*, Lucette !
 
-Et sept cents personnes, d'un seul cœur, ont répondu : « *ADISHATZ*, BERNARD ! »
+Et sept cents personnes, d'un seul cœur, ont répondu : « *ADISHATZ*, LUCETTE ! »
 
 Ce vieux mot béarnais, ce simple bonjour que presque personne ne lui disait
-jamais, a déferlé sur lui comme une vague. Et ce grand costaud aux mains de
-battoir, qui en avait tant vu sur les routes du Béarn, s'est mis à pleurer comme
-un enfant, debout, au milieu de tous, enfin vu.
+jamais, a déferlé sur elle comme une vague. Et cette femme solide, qui en avait
+tant vu sur les routes du Béarn, s'est mise à pleurer comme une enfant, debout,
+au milieu de tous, enfin vue.
 
 Le gymnase a explosé.
 
@@ -1315,17 +1315,17 @@ autour de lui. Monsieur Lemoine. L'infirmière. Et nous.
 
 Et puis il y avait le car. Notre car de Bidegain, à sept heures douze, près de
 l'église. Quelque chose y avait changé, doucement, sans qu'on le décrète. Le
-matin, maintenant, presque tout le monde lançait son « *Adishatz*, Bernard ! » en
+matin, maintenant, presque tout le monde lançait son « *Adishatz*, Lucette ! » en
 montant. Le fond du car était propre, ou presque ; les pieds restaient par terre,
 ou presque ; et quand un petit nouveau de sixième jetait un papier, c'étaient les
 grands, désormais, qui lui disaient de le ramasser. Le Département, de son côté,
 avait tenu parole : on avait revu les horaires des lignes scolaires pour qu'elles
 soient tenables, lancé une campagne dans tous les collèges du Béarn sur le respect
 des transports, et — Manon avait vérifié le chiffre, évidemment — commandé six
-nouveaux cars accessibles aux fauteuils. Bernard, lui, conduisait toujours. Mais
-il ne montait plus dans un car de fantômes. Il montait dans un car d'enfants qui
-le voyaient. Et ça, m'a-t-il dit un matin de septembre en bouclant la sangle
-d'Adam, « ça, ma grande, ça vaut tous les ascenseurs du monde. »
+nouveaux cars accessibles aux fauteuils. Lucette, elle, conduisait toujours. Mais
+elle ne montait plus dans un car de fantômes. Elle montait dans un car d'enfants
+qui la voyaient. Et ça, m'a-t-elle dit un matin de septembre en bouclant la
+sangle d'Adam, « ça, ma grande, ça vaut tous les ascenseurs du monde. »
 
 Quant à monsieur Lemoine, il a continué d'écrire, chaque année, au tableau, le
 premier jour, la même phrase :
@@ -1421,7 +1421,7 @@ Une Manon. Quelqu'un que les autres rangent dans une case. Quelqu'un devant qui 
 y a un escalier — un vrai, ou un escalier qu'on ne voit pas, dans la tête, dans le
 cœur.
 
-Et il y a sûrement, aussi, un Bernard. Quelqu'un qui est là tous les jours, pour
+Et il y a sûrement, aussi, une Lucette. Quelqu'un qui est là tous les jours, pour
 toi, et que tu ne regardes jamais : le chauffeur du car, la dame de la cantine,
 la personne qui nettoie ta classe, celle qui te rend la monnaie. Quelqu'un que tu
 traites comme un meuble, comme un robot, comme s'il n'était rien — alors qu'il est

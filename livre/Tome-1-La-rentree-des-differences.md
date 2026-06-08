@@ -301,16 +301,17 @@ prend le car scolaire. Tous les matins. Tous les soirs.
 
 Le nôtre, c'était un car des **Transports Bidegain**. Un grand car blanc et bleu
 qui passait à sept heures douze précises à l'arrêt près de l'église. Et au
-volant, depuis des années, il y avait Bernard.
+volant, depuis des années, il y avait Lucette.
 
-Bernard Lassègue. Un homme d'une cinquantaine d'années, costaud, le visage tanné
-par le soleil, des mains larges comme des battoirs posées sur le grand volant.
-Tous les matins, quand la porte s'ouvrait dans un soupir d'air comprimé, il
-lançait, de sa voix grave roulant les « r » à la mode de chez nous :
+Lucette. Une femme d'une cinquantaine d'années, solide et vive, le visage tanné
+par le soleil et le vent du gave, des mains sûres et patientes posées sur le
+grand volant. Tous les matins, quand la porte s'ouvrait dans un soupir d'air
+comprimé, elle lançait, de sa voix chaude qui roulait les « r » à la mode de chez
+nous :
 
 — *Adishatz* ! Allez, montez, montez, on n'a pas toute la journée !
 
-*Adishatz*, c'est « bonjour » en béarnais. Bernard le disait à chacun. À
+*Adishatz*, c'est « bonjour » en béarnais. Lucette le disait à chacun. À
 chacun. Tous les matins. Trois cents fois par semaine.
 
 Et vous savez combien d'élèves lui répondaient ?
@@ -320,10 +321,10 @@ Presque aucun.
 C'est ça que je n'avais jamais remarqué, avant cette année. Avant qu'Adam
 m'apprenne à regarder deux fois. On montait dans ce car comme on monte dans un
 ascenseur, comme on appuie sur un interrupteur — sans un mot, sans un regard,
-comme si le car se conduisait tout seul, comme si Bernard faisait partie du
+comme si le car se conduisait tout seul, comme si Lucette faisait partie du
 moteur. On lui tendait notre carte de transport sans lever les yeux, quand on la
 tendait, parce que certains « oubliaient » la leur exprès, semaine après
-semaine, et montaient sans payer, l'air de rien, en sachant très bien que Bernard
+semaine, et montaient sans payer, l'air de rien, en sachant très bien que Lucette
 n'allait pas laisser un gamin sur le bord de la route à sept heures du matin sous
 la pluie.
 
@@ -331,13 +332,13 @@ la pluie.
 leur royaume, comme le mur du fond avait le sien dans la cour. Ils mettaient les
 pieds sur les sièges, salissant le tissu de leurs semelles pleines de boue. Ils
 jetaient leurs papiers de gâteaux par terre, leurs canettes, leurs mouchoirs,
-si bien que chaque soir Bernard retrouvait son car transformé en poubelle. Un
+si bien que chaque soir Lucette retrouvait son car transformé en poubelle. Un
 matin, j'ai même vu l'un d'eux cracher par terre, dans l'allée, comme ça, pour
 faire le malin. Et personne n'a rien dit.
 
 Personne ne disait jamais rien.
 
-Pour nous, Bernard n'était rien. Un meuble. Un robot. Un type qu'on payait —
+Pour nous, Lucette n'était rien. Un meuble. Un robot. Quelqu'un qu'on payait —
 quand on payait — pour nous transporter, et qui n'avait pas plus d'existence que
 le distributeur de billets. On ne lui disait pas bonjour. On ne lui disait pas
 merci. On ne lui disait pas au revoir. On descendait, et c'est tout.
@@ -351,13 +352,13 @@ La première, c'était Manon. Oui, Manon. Forcément. Elle, qui connaissait par 
 tous les horaires de tous les trains du monde, elle connaissait aussi, sans avoir
 jamais eu besoin de l'apprendre, toutes les lignes des Transports Bidegain. Les
 horaires, les arrêts, les numéros des cars, l'année de leur mise en circulation.
-Elle montait chaque matin et disait à Bernard, de sa voix plate, sans le regarder
-dans les yeux mais en lui parlant à lui, vraiment à lui :
+Elle montait chaque matin et disait à Lucette, de sa voix plate, sans la regarder
+dans les yeux mais en lui parlant à elle, vraiment à elle :
 
-— Bonjour Bernard. Aujourd'hui c'est le car numéro quatre. Le sept est à la
+— Bonjour Lucette. Aujourd'hui c'est le car numéro quatre. Le sept est à la
 révision. Tu as deux minutes d'avance sur l'horaire.
 
-Et Bernard, chaque fois, éclatait de son grand rire :
+Et Lucette, chaque fois, éclatait de son grand rire :
 
 — Eh ben dis donc, Manon, t'es meilleure que mon tableau de bord ! Garde-moi à
 l'œil, hein !
@@ -372,7 +373,7 @@ La deuxième exception, à partir du mois d'octobre, ce fut Adam.
 Parce qu'Adam aussi prenait ce car. Le car de Bidegain était l'un des rares,
 dans toute la flotte, à être équipé d'une plateforme élévatrice — une rampe
 électrique qui se déployait à l'arrière pour faire monter un fauteuil. C'est même
-pour ça qu'on avait affecté Bernard à notre ligne : parce que son car était
+pour ça qu'on avait affecté Lucette à notre ligne : parce que son car était
 accessible.
 
 Et là, il faut que je vous raconte quelque chose qui m'a frappée. Vous vous
@@ -380,25 +381,25 @@ souvenez du collège, de l'escalier, du monte-charge en panne, de toute cette
 peine qu'Adam avait à entrer simplement dans son école ? Eh bien le car, lui,
 était accessible. Le car d'une compagnie privée, conduit par un homme qui n'avait
 fait aucune étude d'architecte. Là où le collège — un bâtiment public, payé par
-tout le monde — avait oublié Adam, le car de Bernard, lui, l'attendait.
+tout le monde — avait oublié Adam, le car de Lucette, lui, l'attendait.
 
-Chaque matin, Bernard descendait de son siège, faisait le tour, dépliait la
+Chaque matin, Lucette descendait de son siège, faisait le tour, dépliait la
 rampe, guidait le fauteuil d'Adam avec des gestes précis et tranquilles, sans
-jamais le brusquer, sans jamais le porter comme un paquet. Il l'attachait avec
+jamais le brusquer, sans jamais le porter comme un paquet. Elle l'attachait avec
 les sangles de sécurité en plaisantant — « allez, on te boucle, capitaine, faut
-pas que tu t'envoles dans les virages » — et il prenait, à cause de ça, deux ou
-trois minutes de retard chaque matin. Deux ou trois minutes qu'il devait
+pas que tu t'envoles dans les virages » — et elle prenait, à cause de ça, deux ou
+trois minutes de retard chaque matin. Deux ou trois minutes qu'elle devait
 rattraper ensuite sur la route, en se pliant en quatre, pour être quand même à
 l'heure devant le collège.
 
-Jamais il ne s'est plaint. Jamais il n'a fait sentir à Adam qu'il était une
+Jamais elle ne s'est plainte. Jamais elle n'a fait sentir à Adam qu'il était une
 gêne.
 
 Le premier matin, Adam, habitué à être traité comme un problème, avait commencé,
-par réflexe : « Désolé, monsieur, je sais que je vous mets en retard, je suis
+par réflexe : « Désolé, madame, je sais que je vous mets en retard, je suis
 désolé… »
 
-Et Bernard l'avait coupé, gentiment, en bouclant la dernière sangle :
+Et Lucette l'avait coupé, gentiment, en bouclant la dernière sangle :
 
 — Désolé de quoi, fiston ? C'est mon métier de transporter les gens. *Tous* les
 gens. Toi, le premier de la classe, le dernier, celui qui marche, celui qui
@@ -407,7 +408,7 @@ roule. Y a pas de « désolé » qui tienne. Tu montes, je t'emmène, point. Et 
 
 Adam m'a raconté ça le soir même, encore tout retourné.
 
-— Tu te rends compte, Lina ? Un type qui descend de son siège tous les matins,
+— Tu te rends compte, Lina ? Une dame qui descend de son siège tous les matins,
 qui prend du retard, qui se débrouille pour le rattraper, juste pour que je puisse
 monter dans un car comme tout le monde — et qui me dit que c'est *normal*. Et à
 côté, mon collège, avec ses millions d'euros de budget, qui me laisse en bas d'un
@@ -417,15 +418,15 @@ question de gens.
 Cette phrase m'a poursuivie longtemps. *Le respect, c'est une question de gens.*
 
 Et j'ai eu honte. Honte de tous ces matins où j'étais montée dans le car de
-Bernard sans le regarder. Où j'avais laissé les autres mettre leurs pieds sur les
+Lucette sans le regarder. Où j'avais laissé les autres mettre leurs pieds sur les
 sièges, jeter leurs papiers, sans rien dire. Honte d'avoir été, moi aussi, de
-ceux pour qui Bernard n'était qu'un meuble.
+ceux pour qui Lucette n'était qu'un meuble.
 
 Le lendemain matin, à sept heures douze, la porte s'est ouverte dans son soupir
-d'air comprimé. Et avant que Bernard ait dit quoi que ce soit, j'ai lancé, fort,
+d'air comprimé. Et avant que Lucette ait dit quoi que ce soit, j'ai lancé, fort,
 pour que tout le car entende :
 
-— *Adishatz*, Bernard !
+— *Adishatz*, Lucette !
 
 Il a eu un instant de surprise. Puis son visage tanné s'est fendu d'un sourire
 large comme le gave.
@@ -1129,7 +1130,7 @@ lui-même.
 ## Chapitre 16 — Le jour où le car est arrivé en retard
 
 Il y a un jour de novembre que je n'oublierai jamais. Le jour où j'ai compris ce
-que c'était, vraiment, le métier de Bernard.
+que c'était, vraiment, le métier de Lucette.
 
 Ce matin-là, le car n'est pas passé à sept heures douze. Ni à sept heures quinze.
 Ni à sept heures vingt. On était une dizaine à l'arrêt, près de l'église, à
@@ -1142,8 +1143,8 @@ J'ai senti la colère monter en moi, mais je n'ai rien dit. Pas encore.
 
 Le car est arrivé à sept heures vingt-huit. Seize minutes de retard. Et quand la
 porte s'est ouverte, j'ai vu tout de suite que quelque chose n'allait pas.
-Bernard était pâle. Ses mains tremblaient un peu sur le volant. Il n'a pas lancé
-son « *Adishatz* ! » habituel. Il a juste dit, d'une voix sourde :
+Lucette était pâle. Ses mains tremblaient un peu sur le volant. Elle n'a pas lancé
+son « *Adishatz* ! » habituel. Elle a juste dit, d'une voix sourde :
 
 — Montez vite, les enfants. On a du retard. Je vais essayer de rattraper.
 
@@ -1151,13 +1152,13 @@ Le grand de troisième a soufflé en passant : « Ouais, bah faudrait voir à se
 réveiller, hein. » Et il est allé s'avachir au fond, les pieds sur le siège
 d'en face, comme tous les jours.
 
-Moi, je me suis assise devant, juste derrière Bernard. Et c'est là, de près, que
-j'ai vu. J'ai vu qu'il était bouleversé. Qu'il conduisait en serrant les
+Moi, je me suis assise devant, juste derrière Lucette. Et c'est là, de près, que
+j'ai vu. J'ai vu qu'elle était bouleversée. Qu'elle conduisait en serrant les
 mâchoires. Et au premier feu rouge, j'ai osé :
 
-— Bernard… ça va ? Il s'est passé quelque chose ?
+— Lucette… ça va ? Il s'est passé quelque chose ?
 
-Il a soupiré. Un long soupir qui semblait venir de très loin.
+Elle a soupiré. Un long soupir qui semblait venir de très loin.
 
 — Y a eu un accident, Lina. Sur la départementale, à l'entrée de la vallée. Une
 voiture qui a glissé, ce matin, avec l'humidité. Personne de grave, Dieu merci.
@@ -1167,7 +1168,7 @@ sur le pont — ça fait trois semaines qu'ils refont le pont, alors tous les ma
 c'est un goulot, une seule file, on attend. Et ce matin, par-dessus le marché,
 un camion en panne dans la côte. Trois galères en un seul trajet.
 
-Il a redémarré au vert, doucement.
+Elle a redémarré au vert, doucement.
 
 — Tu vois, Lina, c'est ça, mon métier, que personne comprend. Les gens croient
 que je décide. Que si le car est en retard, c'est que je traîne, que je me lève
@@ -1183,38 +1184,38 @@ Jamais l'accident. Jamais les travaux. Moi.
 
 Je l'écoutais, le cœur serré. Je n'avais jamais pensé à tout ça. Jamais une
 seule seconde. Pour moi, le car arrivait ou n'arrivait pas, comme la pluie tombe
-ou ne tombe pas. Je n'avais jamais imaginé qu'il y avait, derrière le volant, un
-homme qui se battait chaque matin contre la terre entière pour me déposer à
+ou ne tombe pas. Je n'avais jamais imaginé qu'il y avait, derrière le volant, une
+femme qui se battait chaque matin contre la terre entière pour me déposer à
 l'heure devant ma grille.
 
-— Alors je me plie en quatre, a-t-il continué. Je pars plus tôt, je guette la
+— Alors je me plie en quatre, a-t-elle continué. Je pars plus tôt, je guette la
 radio pour les bouchons, je connais tous les chemins de traverse du Béarn par
 cœur. Le soir, à la sortie, je suis là à l'heure pile, toujours, beau temps
 mauvais temps, parce que je sais que vos parents vous attendent et qu'ils
-s'inquiètent. Et en échange de tout ça… — il a eu un petit rire triste, en
+s'inquiètent. Et en échange de tout ça… — elle a eu un petit rire triste, en
 regardant dans son rétroviseur le grand de troisième vautré les pieds sur les
 sièges — en échange, j'ai des gamins qui me prennent pour un robot. Qui salissent
 mon car. Qui ne disent pas bonjour. Qui ne paient même pas leur trajet. Qui me
 regardent comme si j'étais rien.
 
-Il s'est tu. La route défilait, grise, sous la pluie fine du Béarn.
+Elle s'est tue. La route défilait, grise, sous la pluie fine du Béarn.
 
-— Mais je suis là, Lina, a-t-il dit tout bas, comme pour lui-même. Tous les
+— Mais je suis là, Lina, a-t-elle dit tout bas, comme pour elle-même. Tous les
 jours, je suis là. Qu'on me voie ou pas. Qu'on me dise bonjour ou pas. Je suis
 là, et je les transporte. Parce que c'est mon métier. Et un métier, on le fait
 bien, même quand personne ne vous regarde le faire.
 
-Ce matin-là, on est arrivés au collège avec dix-neuf minutes de retard. Bernard
+Ce matin-là, on est arrivés au collège avec dix-neuf minutes de retard. Lucette
 s'est confondu en excuses auprès de la vie scolaire, alors que ce n'était pas sa
 faute, pas du tout. Et les élèves sont descendus en bougonnant, sans un mot pour
 lui, en enjambant les papiers qu'ils avaient eux-mêmes laissés par terre.
 
 Moi, avant de descendre, je me suis arrêtée à sa hauteur.
 
-— Merci, Bernard. Pour ce matin. Pour tous les matins.
+— Merci, Lucette. Pour ce matin. Pour tous les matins.
 
-Il m'a regardée, et j'ai cru qu'il allait pleurer, ce grand costaud aux mains de
-battoir.
+Elle m'a regardée, et j'ai cru qu'elle allait pleurer, cette femme solide aux
+mains usées par le volant.
 
 — De rien, ma grande. De rien.
 
@@ -1222,10 +1223,10 @@ battoir.
 personne ce que c'est d'être traité comme un objet, comme un meuble, comme « la
 chaise », Adam a serré les poings.
 
-— Tu vois, a-t-il dit. C'est exactement la même chose que moi. Bernard, c'est un
-invisible. Les gens regardent à travers lui. Ils le voient pas. Comme ils me
+— Tu vois, a-t-il dit. C'est exactement la même chose que moi. Lucette, c'est une
+invisible. Les gens regardent à travers elle. Ils la voient pas. Comme ils me
 voyaient pas, moi, au début. La seule différence, c'est que moi, mon invisibilité,
-elle a un fauteuil, alors on finit par la remarquer. Lui, son invisibilité, elle
+elle a un fauteuil, alors on finit par la remarquer. Elle, son invisibilité, elle
 conduit un car. Et personne la remarque jamais.
 
 Manon, elle, a dit une chose toute simple, à sa façon, qui nous a tous cloués :
@@ -1245,12 +1246,12 @@ qui nous transportent, nous nourrissent, nous soignent, nettoient nos écoles, e
 qu'on regarde à travers comme s'ils étaient en verre.
 
 *Respecter, c'est regarder deux fois.* La première fois, on voit un car en retard.
-La deuxième fois, on voit Bernard, qui s'est plié en quatre, sur des routes
+La deuxième fois, on voit Lucette, qui s'est pliée en quatre, sur des routes
 défoncées, pour être là. Pour nous.
 
 Le lendemain, sans nous être donné le mot, on est montés à trois — Adam par la
 rampe, Manon, moi — et on a lancé tous ensemble, à pleine voix : « *Adishatz*,
-Bernard ! » Le surlendemain, on était cinq. La semaine d'après, presque tout
+Lucette ! » Le surlendemain, on était cinq. La semaine d'après, presque tout
 l'avant du car répondait. Ça n'a pas tout changé d'un coup — les grands du fond
 ont mis plus longtemps. Mais une graine était plantée. Et les graines, dans le
 Béarn, ça finit toujours par pousser.
