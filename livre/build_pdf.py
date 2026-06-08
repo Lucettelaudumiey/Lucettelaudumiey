@@ -220,5 +220,6 @@ ROMAN_6x9 = (6*inch, 9*inch)
 if __name__ == "__main__":
     # Édition recommandée pour la lecture : format roman 6x9, texte aéré, césure
     build("Plus-haut-que-les-murs-Confort-6x9.pdf", ROMAN_6x9, scale=1.13, margin=2.05*cm)
+    # A5 confort : format poche, même confort de lecture (texte aéré, césure)
+    build("Plus-haut-que-les-murs-A5-Confort.pdf", A5, scale=1.05, margin=1.8*cm)
     build("Plus-haut-que-les-murs-GrosCaracteres-A4.pdf", A4, scale=1.5, margin=2.3*cm)
-    build("Plus-haut-que-les-murs.pdf", A5, scale=1.0, margin=1.9*cm)

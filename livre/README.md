@@ -35,9 +35,9 @@ Trois éditions sont générées par le script `build_pdf.py` :
 
 | Fichier | Format | Usage |
 |---------|--------|-------|
-| `Plus-haut-que-les-murs-Confort-6x9.pdf` | 6×9 pouces, texte aéré | **édition recommandée pour la lecture** |
+| `Plus-haut-que-les-murs-Confort-6x9.pdf` | 6×9 pouces, texte aéré | **édition recommandée** pour la lecture |
+| `Plus-haut-que-les-murs-A5-Confort.pdf` | A5, texte aéré | format poche, même confort de lecture |
 | `Plus-haut-que-les-murs-GrosCaracteres-A4.pdf` | A4, grande police | lecture pour vue fatiguée / malvoyants |
-| `Plus-haut-que-les-murs.pdf` | A5 | format poche compact |
 
 Chaque PDF comporte une **couverture colorée** (page de garde bleu nuit étoilée),
 une **table des matières cliquable** (liens internes + signets PDF), un **interligne
