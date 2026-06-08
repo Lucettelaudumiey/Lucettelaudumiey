@@ -7,12 +7,21 @@
 ## Présentation
 
 *Plus haut que les murs* raconte une année dans la vie d'une classe de
-quatrième, au collège Jean-Moulin. Tout commence le jour où un nouvel élève,
-Adam, arrive en fauteuil roulant dans un collège qui n'était pas prêt à
-l'accueillir. À travers les yeux de Lina, treize ans, on découvre comment une
-bande d'adolescents apprend, parfois maladroitement, ce que veulent dire les
-grands mots : le respect, la différence, le courage, et le droit de chacun à
-apprendre et à avoir sa place.
+quatrième, au collège Jean-Moulin, à **Orthez, au cœur du Béarn**. Tout commence
+le jour où un nouvel élève, Adam, arrive en fauteuil roulant dans un collège qui
+n'était pas prêt à l'accueillir. À travers les yeux de Lina, treize ans, on
+découvre comment une bande d'adolescents apprend, parfois maladroitement, ce que
+veulent dire les grands mots : le respect, la différence, le courage, et le droit
+de chacun à apprendre et à avoir sa place.
+
+Le récit fait aussi une place de choix à un personnage que l'on ne voit jamais
+dans les histoires : **Bernard, le chauffeur du car scolaire des Transports
+Bidegain**. Chaque matin, sur les routes du Béarn, il se plie en quatre pour être
+à l'heure malgré les travaux, les bouchons, les accidents et l'incivilité des
+autres conducteurs — et chaque jour, des élèves montent sans le regarder, salissent
+son car, ne paient pas, ne disent pas bonjour, le prennent pour un robot. Le livre
+rend visible cet « invisible » du quotidien, et fait de lui l'un des cœurs de son
+message sur le respect.
 
 C'est une histoire sur le handicap, mais ce n'est pas une histoire triste. On y
 rit, on s'y dispute, on y tombe amoureux pour la première fois, on y rate des
@@ -22,18 +31,20 @@ n'est pas juste — et où l'on décide, ensemble, de le rendre un peu meilleur.
 
 ## Les deux tomes
 
-- **Tome 1 — La rentrée des différences** (18 chapitres)
-  L'arrivée d'Adam, les moqueries, les murs (ceux du collège et ceux des
-  cœurs), la naissance d'une amitié, et un événement qui va tout faire basculer.
+- **Tome 1 — La rentrée des différences** (20 chapitres)
+  L'arrivée d'Adam, le car de Bidegain et son chauffeur, les moqueries, les murs
+  (ceux du collège et ceux des cœurs), la naissance d'une amitié, et un événement
+  qui va tout faire basculer.
 
-- **Tome 2 — Plus haut que les murs** (18 chapitres + épilogue)
+- **Tome 2 — Plus haut que les murs** (19 chapitres + épilogue)
   La classe se relève et se rassemble. Un grand projet, un combat pour rendre le
-  collège accessible à tous, des secrets qui se dévoilent, un voyage, et un
-  spectacle où chacun trouve enfin sa lumière.
+  collège accessible à tous — et pour faire respecter les « invisibles » comme
+  Bernard —, des secrets qui se dévoilent, un voyage, et un spectacle où chacun
+  trouve enfin sa lumière.
 
-L'ensemble fait environ **20 000 mots**, soit, selon la mise en page choisie
+L'ensemble fait environ **24 000 mots**, soit, selon la mise en page choisie
 (roman jeunesse en gros caractères, marges généreuses, illustrations), de l'ordre
-de **130 à 200 pages imprimées**.
+de **150 à 200 pages imprimées**.
 
 ## Les grands thèmes
 
@@ -43,6 +54,10 @@ de **130 à 200 pages imprimées**.
   l'on reçoit.
 - **Le handicap** : non pas comme un manque, mais comme une manière différente
   d'être au monde — et le devoir, pour la société, de faire de la place à tous.
+- **Les « invisibles »** : ces femmes et ces hommes (chauffeurs de car, personnel
+  de cantine, agents d'entretien…) qui sont là tous les jours, pour nous, et qu'on
+  regarde sans voir. Respecter le chauffeur du car, c'est la même chose que
+  respecter la différence : *regarder deux fois*.
 
 ## Pour qui ?
 

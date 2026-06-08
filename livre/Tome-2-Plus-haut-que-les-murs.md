@@ -486,8 +486,11 @@ toujours grave et sérieux. Des fois, c'est juste se marrer ensemble.
 
 En mai, le professeur d'EPS, monsieur Da Silva, a organisé un tournoi de
 basket-fauteuil pour toutes les classes de quatrième. Du basket en fauteuil
-roulant. Pour tout le monde. Les valides comme les autres. Il avait emprunté une
-dizaine de fauteuils de sport à un club de la ville.
+roulant. Pour tout le monde. Les valides comme les autres. Et le basket, à
+Orthez, ce n'est pas rien : c'est presque une religion. Ici, dans le pays de
+l'Élan Béarnais, les gamins connaissent les paniers à trois points avant de
+savoir lire l'heure. Monsieur Da Silva avait emprunté une dizaine de fauteuils de
+sport à un club de handisport de la région.
 
 L'idée était simple et géniale : tout le monde joue dans les mêmes conditions.
 Tout le monde en fauteuil. Et là, surprise : Adam, qui ne pouvait pas courir au
@@ -549,7 +552,8 @@ au-dessus de la foule, plus haut que tout le monde.
 Au mois d'avril, il y a eu le voyage scolaire.
 
 Tous les ans, les quatrièmes partaient une semaine. Cette année, la destination
-était une cité de l'espace, dans le sud — un grand musée avec une vraie fusée
+était la Cité de l'espace, à Toulouse, à deux bonnes heures de route d'Orthez —
+un grand musée avec une vraie fusée
 dehors, des planétariums, des simulateurs. Quand monsieur Lemoine l'a annoncé,
 Adam a eu, l'espace d'une seconde, le visage le plus lumineux que j'avais jamais
 vu. La cité de l'espace. Son rêve. Là où on construisait, pour de vrai, les
@@ -759,9 +763,17 @@ aura, dans le public, quelqu'un que vous aimeriez peut-être convaincre.
 
 Monsieur Lemoine a souri.
 
-— La présidente du conseil départemental. Celle qui a dit non. Je l'invite
-chaque année. Chaque année elle décline. Mais cette année, je crois qu'elle va
-venir. J'ai été… insistant.
+— La présidente du Conseil départemental des Pyrénées-Atlantiques. Celle qui a
+dit non pour l'ascenseur. Je l'invite chaque année. Chaque année elle décline.
+Mais cette année, je crois qu'elle va venir. J'ai été… insistant.
+
+Il a marqué une pause, puis a ajouté, l'air de rien :
+
+— Et figurez-vous qu'elle ne décide pas seulement des collèges. Le Département,
+c'est aussi lui qui organise tous les transports scolaires du Béarn. Les cars.
+Les lignes. Les contrats avec les compagnies, comme les Transports Bidegain.
+Autrement dit, cette dame-là tient entre ses mains à la fois l'escalier d'Adam…
+et le car de votre ami Bernard. Réfléchissez à ce que vous pourriez en faire.
 
 ---
 
@@ -817,7 +829,119 @@ un mur d'épaules serrées, debout, ensemble, face à l'injustice.
 
 ---
 
-## Chapitre 13 — Les répétitions
+## Chapitre 13 — Les invisibles d'Orthez
+
+Quand monsieur Lemoine nous a appris que la présidente du Département tenait
+entre ses mains à la fois l'escalier d'Adam et le car de Bernard, quelque chose
+a fait « tilt » dans nos têtes. Toutes en même temps.
+
+C'est Adam qui a posé des mots dessus, le soir, dans l'atelier où on construisait
+le Parcours.
+
+— On s'est trompés sur notre projet, a-t-il dit.
+
+On a tous levé la tête, inquiets. À un mois de la Fête des talents, on n'avait pas
+le temps de se tromper.
+
+— Enfin, pas trompés, s'est-il repris. Mais c'est trop petit. On parle des murs
+du collège. Des escaliers. C'est bien. Mais le vrai sujet, il est plus grand. Le
+vrai sujet, c'est : qui est-ce qu'on ne voit pas ? Moi, on m'a pas vu pendant des
+mois — jusqu'à ce que vous me regardiez. Manon, on l'a pas vue pendant des
+années — on la prenait pour « la lune ». Killian, on a pas vu ce qu'il cachait
+derrière sa méchanceté. Et Bernard… Bernard, ça fait quinze ans qu'on le regarde
+à travers comme s'il était en verre.
+
+Il a roulé jusqu'au milieu de la pièce.
+
+— Les murs du collège, c'est juste un exemple. Le vrai mur, le plus dur à
+démolir, c'est celui qu'on a dans les yeux. Celui qui nous fait pas voir les
+gens. Tous les gens qui sont là, tous les jours, pour nous, et qu'on regarde
+jamais. Notre projet, il doit parler d'eux aussi.
+
+Et c'est comme ça qu'on a décidé d'ajouter, au Parcours, une partie entière sur
+*les invisibles*. Ceux qu'on ne voit pas, mais qui sont là. Tous les jours. Pour
+nous.
+
+On a fait la liste. Elle était longue, et elle nous a fait honte.
+
+Bernard et les chauffeurs des Transports Bidegain, d'abord, qui nous
+transportaient matin et soir sur les routes du Béarn. Mais aussi les dames de la
+cantine, qu'on appelait « les cantinières » sans même connaître leurs prénoms, et
+qui se levaient à cinq heures pour qu'on ait un repas chaud. Les agents
+d'entretien, qui nettoyaient derrière nous nos saletés sans qu'on leur dise jamais
+merci. Madame Roy, la documentaliste. Monsieur Bakary, le surveillant qui portait
+Adam dans le monte-charge. Tous ces gens qui font tourner un collège, une ville,
+un monde, et qu'on ne remercie jamais parce qu'on ne les voit même pas.
+
+On a décidé d'aller les rencontrer. Pour de vrai. Pour les écouter.
+
+Le plus important, pour nous, c'était Bernard. Alors un mercredi après-midi, on
+est allés au dépôt des Transports Bidegain, Adam, Manon, Killian et moi. Bernard
+nous a fait visiter son car. Il était fier, on voyait. Personne ne lui avait
+jamais demandé de parler de son métier.
+
+Il nous a montré la plateforme pour le fauteuil d'Adam, les ceintures, les
+rétroviseurs, le carnet où il notait les incidents. Et puis il nous a parlé. De
+ses journées qui commençaient à cinq heures et demie. Des routes verglacées
+l'hiver, du brouillard du gave qui montait et qui bouchait tout. Des travaux
+éternels sur les ponts. Des autres conducteurs pressés et agressifs. De la
+responsabilité, écrasante, de porter quarante enfants sur ces routes — « tu sais,
+quand il pleut et qu'un gamin de sixième traverse devant le car sans regarder,
+mon cœur, il s'arrête. Chaque fois. »
+
+Killian, qui était resté silencieux, a fini par demander, d'une voix bizarre :
+
+— Et… les élèves qui sont pénibles ? Ceux qui mettent les pieds sur les sièges,
+qui jettent les papiers, qui crachent, qui disent pas bonjour… ça vous fait quoi ?
+
+Je savais pourquoi Killian demandait ça. Parce que Killian, lui-même, avant, il
+avait été de ceux-là. Le fond du car, les pieds sur les sièges. Il le savait. Et
+il avait besoin de savoir ce que ça faisait, à Bernard.
+
+Bernard a réfléchi longtemps. Et il a répondu, sans colère, ce qui était encore
+plus fort que s'il avait crié :
+
+— Tu sais, petit, le pire, c'est pas la saleté. La saleté, je la nettoie. C'est
+pas l'argent du trajet pas payé non plus, même si bon, ça compte, c'est mon
+patron qui trinque. Non. Le pire, c'est quand un gamin monte le matin et qu'il
+me regarde pas. Qu'il me dit pas bonjour. Qu'il passe devant moi comme si j'étais
+pas là. Comme si j'étais le moteur, ou le volant, ou un bout du car. Tu vois,
+être sale, c'est un manque d'éducation. Mais regarder quelqu'un comme s'il
+existait pas… ça, c'est un manque de respect. Et le respect, c'est pas une
+question de propreté. C'est une question de dignité. La mienne. Je transporte vos
+enfants depuis quinze ans. Je mérite au moins un bonjour.
+
+Le silence, dans le dépôt, était total. Killian avait les yeux brillants. Et
+soudain, ce grand gaillard a dit, d'une voix nouée :
+
+— Pardon, monsieur. Avant… avant j'étais comme ça. Les pieds sur les sièges, tout
+ça. Je vous demande pardon.
+
+Bernard l'a regardé. Puis il a souri, de son grand sourire large comme le gave,
+et il a posé sa main de battoir sur l'épaule de Killian.
+
+— Eh ben tu vois, petit, t'as déjà changé. Parce que pour demander pardon, il
+faut d'abord avoir appris à voir. Et toi, ça y est, tu vois. *Adishatz.*
+
+En repartant du dépôt, on savait tous ce qu'on avait à faire. On allait raconter
+Bernard. On allait raconter les invisibles. On allait, le jour de la Fête des
+talents, mettre une chaise vide au premier rang, réservée — et inviter Bernard à
+s'y asseoir, lui qui n'avait jamais été invité nulle part, pour qu'il voie, enfin,
+qu'on l'avait vu.
+
+Et puisque la présidente du Département — celle qui décidait des cars autant que
+des collèges — serait dans la salle, on allait faire en sorte qu'elle entende,
+elle aussi, l'histoire de Bernard. Parce qu'un chauffeur qu'on respecte, ça
+commence par des enfants qui disent bonjour. Mais ça continue par des horaires
+tenables, des routes entretenues, des moyens pour faire ce métier dignement. Et
+ça, ce n'était pas à nous de le décider. C'était à elle.
+
+On avait commencé l'année en voulant démolir un escalier. On finissait en voulant
+démolir quelque chose de bien plus grand : l'habitude de ne pas voir les gens.
+
+---
+
+## Chapitre 14 — Les répétitions
 
 Construire *Le Parcours* a été le mois le plus épuisant et le plus heureux de
 l'année.
@@ -840,6 +964,22 @@ La station des yeux bandés a failli ne jamais marcher, parce que les gens
 trichaient, soulevaient le bandeau. Manon a résolu le problème, naturellement,
 avec une rigueur d'ingénieur : un parcours sonore où il fallait répondre à des
 questions qu'on ne pouvait entendre que dans le noir total. Impossible de tricher.
+
+Et puis il y avait la dernière salle, la plus importante à nos yeux : *la salle
+des invisibles*. On y avait reconstitué l'intérieur d'un car scolaire, avec de
+vrais sièges qu'on avait récupérés à la casse — Bernard nous avait aidés à les
+trouver. Les visiteurs s'asseyaient là, dans le noir, et un écran diffusait un
+trajet filmé depuis le pare-brise d'un car : la pluie, le brouillard du gave, les
+travaux du pont, la route qui serpente. Et par-dessus, la voix de Killian
+racontait une journée de Bernard. Cinq heures et demie du matin. Le verglas.
+L'accident qui bloque la vallée. Les quarante enfants dont il est responsable. Et
+les pieds sur les sièges, les papiers par terre, les crachats, les bonjours qu'on
+ne dit pas. À la fin, l'écran affichait une seule phrase, blanche sur fond noir,
+que tout le monde lisait en silence : *« Il est là. Tous les jours. Pour vous.
+L'avez-vous seulement déjà regardé ? »* C'est cette salle, je crois, qui a fait
+pleurer le plus de parents. Parce que des escaliers, tout le monde n'en croise
+pas. Mais un chauffeur de car qu'on n'a jamais remercié, ça, tout le monde en a
+un dans sa mémoire.
 
 Et puis il y a eu les disputes. Parce que oui, dans une équipe, même soudée, on se
 dispute. Sofia et Inès se sont accrochées pendant trois jours sur la couleur des
@@ -902,7 +1042,7 @@ Le reste, le spectacle, l'ascenseur, ce n'était que la cerise.
 
 ---
 
-## Chapitre 14 — Le Parcours
+## Chapitre 15 — Le Parcours
 
 Le jour de la Fête des talents, le gymnase était plein à craquer.
 
@@ -967,7 +1107,7 @@ sur son visage, s'est brisé.
 
 ---
 
-## Chapitre 15 — Ce qui tombe
+## Chapitre 16 — Ce qui tombe
 
 Il y a eu un long silence dans le gymnase.
 
@@ -1004,6 +1144,38 @@ ce ne sera que le début, parce que ce collège n'est pas le seul, dans ce
 département, à avoir des escaliers et pas de rampes. Ces enfants m'ont montré
 l'ampleur du travail. Je m'engage à le faire.
 
+Puis elle a fait une chose à laquelle on ne s'attendait pas. Elle a regardé, au
+premier rang, la chaise que nous avions réservée — celle où nous avions installé,
+ce soir-là, un homme intimidé dans sa veste du dimanche, qui n'avait jamais été
+invité d'honneur de quoi que ce soit de toute sa vie : Bernard.
+
+— Et puis il y a cette dernière salle, a-t-elle repris d'une voix plus basse. Ce
+car. Ce chauffeur. Je gère, au Département, tous les transports scolaires de ce
+territoire. Des milliers d'enfants, chaque jour, sur nos routes. Et jusqu'à ce
+soir, je n'avais jamais pensé, pas une seule fois, aux femmes et aux hommes qui
+les conduisent. Aux horaires qu'on leur impose. Aux routes qu'on n'entretient
+pas. Au respect qu'on ne leur apprend pas. Eux aussi, on les a rendus invisibles.
+Eux aussi, ça va changer. Vous avez ma parole.
+
+Elle s'est tournée vers Bernard, et, devant sept cents personnes, la présidente du
+Conseil départemental a dit :
+
+— Monsieur, au nom de tous ces enfants que vous transportez depuis quinze ans, et
+au nom d'une administration qui ne vous a jamais dit merci : merci.
+
+Bernard s'est levé, gauche, les yeux noyés, ne sachant que faire de ses grandes
+mains. Et c'est là que Killian, au micro, a lancé d'une voix qui portait jusqu'au
+fond du gymnase :
+
+— *Adishatz*, Bernard !
+
+Et sept cents personnes, d'un seul cœur, ont répondu : « *ADISHATZ*, BERNARD ! »
+
+Ce vieux mot béarnais, ce simple bonjour que presque personne ne lui disait
+jamais, a déferlé sur lui comme une vague. Et ce grand costaud aux mains de
+battoir, qui en avait tant vu sur les routes du Béarn, s'est mis à pleurer comme
+un enfant, debout, au milieu de tous, enfin vu.
+
 Le gymnase a explosé.
 
 Je ne sais pas décrire ce moment. Sept cents personnes debout, qui hurlaient, qui
@@ -1033,7 +1205,7 @@ plus tôt :
 
 ---
 
-## Chapitre 16 — Ce qu'on devient ce soir-là
+## Chapitre 17 — Ce qu'on devient ce soir-là
 
 Le soir de la Fête des talents, après le départ des derniers visiteurs, on est
 restés dans le gymnase, tous, à ranger. Mais on ne rangeait pas vraiment. On
@@ -1109,7 +1281,7 @@ C'est peut-être toujours dans cet ordre que ça marche.
 
 ---
 
-## Chapitre 17 — La rentrée d'après
+## Chapitre 18 — La rentrée d'après
 
 L'ascenseur a été installé pendant l'été.
 
@@ -1141,6 +1313,20 @@ perdus. On est juste mal regardés. » Son père et lui, ce n'était pas réglé
 choses-là ne se règlent pas. Mais Killian avait, maintenant, d'autres adultes
 autour de lui. Monsieur Lemoine. L'infirmière. Et nous.
 
+Et puis il y avait le car. Notre car de Bidegain, à sept heures douze, près de
+l'église. Quelque chose y avait changé, doucement, sans qu'on le décrète. Le
+matin, maintenant, presque tout le monde lançait son « *Adishatz*, Bernard ! » en
+montant. Le fond du car était propre, ou presque ; les pieds restaient par terre,
+ou presque ; et quand un petit nouveau de sixième jetait un papier, c'étaient les
+grands, désormais, qui lui disaient de le ramasser. Le Département, de son côté,
+avait tenu parole : on avait revu les horaires des lignes scolaires pour qu'elles
+soient tenables, lancé une campagne dans tous les collèges du Béarn sur le respect
+des transports, et — Manon avait vérifié le chiffre, évidemment — commandé six
+nouveaux cars accessibles aux fauteuils. Bernard, lui, conduisait toujours. Mais
+il ne montait plus dans un car de fantômes. Il montait dans un car d'enfants qui
+le voyaient. Et ça, m'a-t-il dit un matin de septembre en bouclant la sangle
+d'Adam, « ça, ma grande, ça vaut tous les ascenseurs du monde. »
+
 Quant à monsieur Lemoine, il a continué d'écrire, chaque année, au tableau, le
 premier jour, la même phrase :
 
@@ -1153,7 +1339,7 @@ avoir empruntée à une classe particulièrement bornée et particulièrement g�
 
 ---
 
-## Chapitre 18 — Plus haut que les murs
+## Chapitre 19 — Plus haut que les murs
 
 Voilà. C'est presque la fin de mon histoire. Pas la fin de l'histoire — celle-là
 continue, elle continue encore aujourd'hui, dans tous les collèges où il reste
@@ -1235,11 +1421,18 @@ Une Manon. Quelqu'un que les autres rangent dans une case. Quelqu'un devant qui 
 y a un escalier — un vrai, ou un escalier qu'on ne voit pas, dans la tête, dans le
 cœur.
 
+Et il y a sûrement, aussi, un Bernard. Quelqu'un qui est là tous les jours, pour
+toi, et que tu ne regardes jamais : le chauffeur du car, la dame de la cantine,
+la personne qui nettoie ta classe, celle qui te rend la monnaie. Quelqu'un que tu
+traites comme un meuble, comme un robot, comme s'il n'était rien — alors qu'il est
+bien là, lui, fidèle au poste, par tous les temps.
+
 Tu n'as pas besoin d'être un héros. Tu n'as pas besoin de tout réparer. Adam le
 disait : on ne franchit pas un mur tout seul, mais à plusieurs, on peut faire bien
 plus qu'on ne croit. Il suffit parfois de s'asseoir à côté. De tendre une paire
 d'écouteurs. De poser une question — « c'est quoi, le train le plus rapide du
-monde ? ». De regarder deux fois.
+monde ? ». De dire bonjour au chauffeur, et de le penser vraiment. De regarder
+deux fois.
 
 La première fois, on voit ce qui saute aux yeux.
 

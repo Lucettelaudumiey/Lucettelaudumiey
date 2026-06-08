@@ -19,14 +19,17 @@ c'est facile de tout comprendre quand on regarde en arrière. Sur le moment, je
 ne pensais qu'à une seule chose : retrouver ma meilleure amie, Sofia, et lui
 raconter mes vacances.
 
-Le collège Jean-Moulin était un grand bâtiment de briques rouges, posé au bout
-d'une avenue bordée de platanes, dans une ville moyenne qui n'avait rien de
-spécial. Trois étages, un escalier central tout en pierre usée par cent ans de
-semelles, une cour avec un préau, un marronnier, et des cages de but rouillées.
-Au fond de la cour, il y avait un mur. Un grand mur gris, couvert de tags à
-moitié effacés, où les grands venaient s'adosser pour avoir l'air importants.
-On l'appelait « le mur du fond ». C'était le territoire de ceux qui voulaient
-qu'on les laisse tranquilles.
+Le collège Jean-Moulin était un grand bâtiment de briques et de galets du gave,
+posé au bout d'une avenue bordée de platanes, à Orthez, au cœur du Béarn. Une
+petite ville comme on les aime : le vieux pont fortifié qui enjambe le gave de
+Pau, la tour Moncade de Gaston Fébus qui veille sur les toits, et, les jours
+clairs, la ligne bleue des Pyrénées posée tout au fond, comme un décor peint qui
+ne bougerait jamais. Le collège, lui, avait trois étages, un escalier central
+tout en pierre usée par cent ans de semelles, une cour avec un préau, un
+marronnier, et des cages de but rouillées. Au fond de la cour, il y avait un mur.
+Un grand mur gris, couvert de tags à moitié effacés, où les grands venaient
+s'adosser pour avoir l'air importants. On l'appelait « le mur du fond ». C'était
+le territoire de ceux qui voulaient qu'on les laisse tranquilles.
 
 Je me souviens de l'odeur : la peinture fraîche des couloirs repeints pendant
 l'été, le café de la salle des profs, et cette odeur particulière de cartable
@@ -284,7 +287,159 @@ de tourner autour de son propre malheur, et lever les yeux vers celui d'à côt�
 
 ---
 
-## Chapitre 4 — Ce qu'on ne voit pas
+## Chapitre 4 — Le car de Bidegain
+
+J'ai oublié de vous dire le plus important sur mes journées : elles ne commencent
+pas au collège. Elles commencent bien avant, à l'arrêt de car, au bout de mon
+village, à une douzaine de kilomètres d'Orthez.
+
+Parce que j'habite à la campagne, comme beaucoup d'élèves du collège. Le Béarn,
+autour d'Orthez, c'est des coteaux, des champs de maïs, des fermes, des petits
+villages reliés à la ville par des routes étroites qui serpentent le long du gave
+et des vallons. Et nous, les gamins de ces villages, pour aller au collège, on
+prend le car scolaire. Tous les matins. Tous les soirs.
+
+Le nôtre, c'était un car des **Transports Bidegain**. Un grand car blanc et bleu
+qui passait à sept heures douze précises à l'arrêt près de l'église. Et au
+volant, depuis des années, il y avait Bernard.
+
+Bernard Lassègue. Un homme d'une cinquantaine d'années, costaud, le visage tanné
+par le soleil, des mains larges comme des battoirs posées sur le grand volant.
+Tous les matins, quand la porte s'ouvrait dans un soupir d'air comprimé, il
+lançait, de sa voix grave roulant les « r » à la mode de chez nous :
+
+— *Adishatz* ! Allez, montez, montez, on n'a pas toute la journée !
+
+*Adishatz*, c'est « bonjour » en béarnais. Bernard le disait à chacun. À
+chacun. Tous les matins. Trois cents fois par semaine.
+
+Et vous savez combien d'élèves lui répondaient ?
+
+Presque aucun.
+
+C'est ça que je n'avais jamais remarqué, avant cette année. Avant qu'Adam
+m'apprenne à regarder deux fois. On montait dans ce car comme on monte dans un
+ascenseur, comme on appuie sur un interrupteur — sans un mot, sans un regard,
+comme si le car se conduisait tout seul, comme si Bernard faisait partie du
+moteur. On lui tendait notre carte de transport sans lever les yeux, quand on la
+tendait, parce que certains « oubliaient » la leur exprès, semaine après
+semaine, et montaient sans payer, l'air de rien, en sachant très bien que Bernard
+n'allait pas laisser un gamin sur le bord de la route à sept heures du matin sous
+la pluie.
+
+À l'arrière, c'était pire. Les grands de troisième avaient fait du fond du car
+leur royaume, comme le mur du fond avait le sien dans la cour. Ils mettaient les
+pieds sur les sièges, salissant le tissu de leurs semelles pleines de boue. Ils
+jetaient leurs papiers de gâteaux par terre, leurs canettes, leurs mouchoirs,
+si bien que chaque soir Bernard retrouvait son car transformé en poubelle. Un
+matin, j'ai même vu l'un d'eux cracher par terre, dans l'allée, comme ça, pour
+faire le malin. Et personne n'a rien dit.
+
+Personne ne disait jamais rien.
+
+Pour nous, Bernard n'était rien. Un meuble. Un robot. Un type qu'on payait —
+quand on payait — pour nous transporter, et qui n'avait pas plus d'existence que
+le distributeur de billets. On ne lui disait pas bonjour. On ne lui disait pas
+merci. On ne lui disait pas au revoir. On descendait, et c'est tout.
+
+Et lui, chaque matin : « *Adishatz* ! » Chaque soir : « Allez, à demain, faites
+attention en traversant ! » À des gamins qui ne le regardaient même pas.
+
+Il y avait deux exceptions dans ce car. Deux seulement.
+
+La première, c'était Manon. Oui, Manon. Forcément. Elle, qui connaissait par cœur
+tous les horaires de tous les trains du monde, elle connaissait aussi, sans avoir
+jamais eu besoin de l'apprendre, toutes les lignes des Transports Bidegain. Les
+horaires, les arrêts, les numéros des cars, l'année de leur mise en circulation.
+Elle montait chaque matin et disait à Bernard, de sa voix plate, sans le regarder
+dans les yeux mais en lui parlant à lui, vraiment à lui :
+
+— Bonjour Bernard. Aujourd'hui c'est le car numéro quatre. Le sept est à la
+révision. Tu as deux minutes d'avance sur l'horaire.
+
+Et Bernard, chaque fois, éclatait de son grand rire :
+
+— Eh ben dis donc, Manon, t'es meilleure que mon tableau de bord ! Garde-moi à
+l'œil, hein !
+
+C'était, je crois, un des seuls moments de sa journée où quelqu'un le traitait en
+être humain. Et c'était Manon — celle que tout le monde appelait « la lune »,
+celle qu'on croyait incapable de s'intéresser aux autres — qui le lui offrait.
+Comme quoi.
+
+La deuxième exception, à partir du mois d'octobre, ce fut Adam.
+
+Parce qu'Adam aussi prenait ce car. Le car de Bidegain était l'un des rares,
+dans toute la flotte, à être équipé d'une plateforme élévatrice — une rampe
+électrique qui se déployait à l'arrière pour faire monter un fauteuil. C'est même
+pour ça qu'on avait affecté Bernard à notre ligne : parce que son car était
+accessible.
+
+Et là, il faut que je vous raconte quelque chose qui m'a frappée. Vous vous
+souvenez du collège, de l'escalier, du monte-charge en panne, de toute cette
+peine qu'Adam avait à entrer simplement dans son école ? Eh bien le car, lui,
+était accessible. Le car d'une compagnie privée, conduit par un homme qui n'avait
+fait aucune étude d'architecte. Là où le collège — un bâtiment public, payé par
+tout le monde — avait oublié Adam, le car de Bernard, lui, l'attendait.
+
+Chaque matin, Bernard descendait de son siège, faisait le tour, dépliait la
+rampe, guidait le fauteuil d'Adam avec des gestes précis et tranquilles, sans
+jamais le brusquer, sans jamais le porter comme un paquet. Il l'attachait avec
+les sangles de sécurité en plaisantant — « allez, on te boucle, capitaine, faut
+pas que tu t'envoles dans les virages » — et il prenait, à cause de ça, deux ou
+trois minutes de retard chaque matin. Deux ou trois minutes qu'il devait
+rattraper ensuite sur la route, en se pliant en quatre, pour être quand même à
+l'heure devant le collège.
+
+Jamais il ne s'est plaint. Jamais il n'a fait sentir à Adam qu'il était une
+gêne.
+
+Le premier matin, Adam, habitué à être traité comme un problème, avait commencé,
+par réflexe : « Désolé, monsieur, je sais que je vous mets en retard, je suis
+désolé… »
+
+Et Bernard l'avait coupé, gentiment, en bouclant la dernière sangle :
+
+— Désolé de quoi, fiston ? C'est mon métier de transporter les gens. *Tous* les
+gens. Toi, le premier de la classe, le dernier, celui qui marche, celui qui
+roule. Y a pas de « désolé » qui tienne. Tu montes, je t'emmène, point. Et puis
+*adishatz*, on dit bonjour avant de s'excuser, dans mon car.
+
+Adam m'a raconté ça le soir même, encore tout retourné.
+
+— Tu te rends compte, Lina ? Un type qui descend de son siège tous les matins,
+qui prend du retard, qui se débrouille pour le rattraper, juste pour que je puisse
+monter dans un car comme tout le monde — et qui me dit que c'est *normal*. Et à
+côté, mon collège, avec ses millions d'euros de budget, qui me laisse en bas d'un
+escalier. Le respect, des fois, c'est pas une question de moyens. C'est une
+question de gens.
+
+Cette phrase m'a poursuivie longtemps. *Le respect, c'est une question de gens.*
+
+Et j'ai eu honte. Honte de tous ces matins où j'étais montée dans le car de
+Bernard sans le regarder. Où j'avais laissé les autres mettre leurs pieds sur les
+sièges, jeter leurs papiers, sans rien dire. Honte d'avoir été, moi aussi, de
+ceux pour qui Bernard n'était qu'un meuble.
+
+Le lendemain matin, à sept heures douze, la porte s'est ouverte dans son soupir
+d'air comprimé. Et avant que Bernard ait dit quoi que ce soit, j'ai lancé, fort,
+pour que tout le car entende :
+
+— *Adishatz*, Bernard !
+
+Il a eu un instant de surprise. Puis son visage tanné s'est fendu d'un sourire
+large comme le gave.
+
+— *Adishatz*, Lina ! Eh ben voilà. Ça fait plaisir.
+
+Ce n'était rien. Un bonjour. Deux syllabes. Mais quelque chose, ce matin-là, avait
+commencé à changer dans le car de Bidegain. Et ce quelque chose allait grandir
+tout au long de l'année, jusqu'à devenir, vous verrez, l'une des plus belles
+choses de cette histoire.
+
+---
+
+## Chapitre 5 — Ce qu'on ne voit pas
 
 Pendant les jours qui ont suivi, le collège Jean-Moulin a découvert qu'un
 escalier n'était que le premier de ses problèmes.
@@ -359,7 +514,7 @@ du monde.
 
 ---
 
-## Chapitre 5 — La récré la plus longue
+## Chapitre 6 — La récré la plus longue
 
 Il y a un mot que j'ai appris à détester, cette année-là, en regardant vivre
 Adam. Un petit mot de rien du tout, qu'on emploie cent fois par jour sans y
@@ -426,7 +581,7 @@ La cloche a sonné. La plus longue récré de l'année venait de passer en un é
 
 ---
 
-## Chapitre 6 — Manon ne parle pas fort
+## Chapitre 7 — Manon ne parle pas fort
 
 Il n'y avait pas qu'Adam, dans notre classe, qui n'était pas « comme les
 autres ». Il y avait aussi Manon.
@@ -501,7 +656,7 @@ largement suffisant.
 
 ---
 
-## Chapitre 7 — Le binôme
+## Chapitre 8 — Le binôme
 
 En octobre, monsieur Lemoine a annoncé un grand projet.
 
@@ -559,7 +714,7 @@ chose derrière son mur.
 
 ---
 
-## Chapitre 8 — Chez Adam
+## Chapitre 9 — Chez Adam
 
 C'est à ce moment-là qu'Adam m'a invitée chez lui, pour travailler sur notre
 projet.
@@ -617,7 +772,7 @@ Adam a regardé ses étoiles au plafond. Il a souri.
 
 ---
 
-## Chapitre 9 — L'histoire d'Adam
+## Chapitre 10 — L'histoire d'Adam
 
 Un soir, chez lui, pendant qu'on travaillait sur le projet, j'ai osé poser la
 question que je gardais depuis le premier jour. Celle qu'on n'ose jamais poser,
@@ -696,7 +851,7 @@ C'était aussi les siens. Et un peu les miens.
 
 ---
 
-## Chapitre 10 — La carte des murs
+## Chapitre 11 — La carte des murs
 
 On a passé l'automne à arpenter le collège, Adam et moi, avec un carnet, un
 mètre ruban et l'appareil photo de mon téléphone.
@@ -744,7 +899,7 @@ celui que je croyais.
 
 ---
 
-## Chapitre 11 — Madame Auclair et les mots qui sauvent
+## Chapitre 12 — Madame Auclair et les mots qui sauvent
 
 Je n'ai pas encore parlé de madame Auclair, et c'est une faute, parce qu'elle a
 compté plus que je ne le croyais à l'époque.
@@ -798,7 +953,7 @@ moins ça pour lui : deux adultes qui croyaient que l'école sert à fabriquer d
 
 ---
 
-## Chapitre 12 — Le secret de Killian
+## Chapitre 13 — Le secret de Killian
 
 C'est Manon, sans le vouloir, qui m'a mis sur la piste.
 
@@ -850,7 +1005,7 @@ strictement rien produit.
 
 ---
 
-## Chapitre 13 — Ce que les chiffres savent faire
+## Chapitre 14 — Ce que les chiffres savent faire
 
 Mon idée, c'était simple. Manon était nulle en français — les rédactions, les
 analyses de texte, tout ce qui demandait de comprendre les sentiments des
@@ -903,7 +1058,7 @@ quelque chose de beau. Je ne savais pas que le pire était encore devant nous.
 
 ---
 
-## Chapitre 14 — Le carnet de Manon
+## Chapitre 15 — Le carnet de Manon
 
 Quelque chose d'inattendu était en train de se passer entre Killian et Manon, et
 je voudrais le raconter, parce que c'est sans doute ce qui m'a le plus émue de
@@ -971,10 +1126,144 @@ lui-même.
 
 ---
 
-## Chapitre 15 — La chute
+## Chapitre 16 — Le jour où le car est arrivé en retard
 
-C'est arrivé un jeudi de décembre. Il avait neigé pendant la nuit, et la cour
-était couverte d'un manteau blanc que personne n'osait salir.
+Il y a un jour de novembre que je n'oublierai jamais. Le jour où j'ai compris ce
+que c'était, vraiment, le métier de Bernard.
+
+Ce matin-là, le car n'est pas passé à sept heures douze. Ni à sept heures quinze.
+Ni à sept heures vingt. On était une dizaine à l'arrêt, près de l'église, à
+trépigner dans le froid, à râler.
+
+— Il est encore en retard, ce car de malheur, a grogné un grand de troisième. On
+va se prendre une heure de colle à cause de lui. Il fout rien, ce mec.
+
+J'ai senti la colère monter en moi, mais je n'ai rien dit. Pas encore.
+
+Le car est arrivé à sept heures vingt-huit. Seize minutes de retard. Et quand la
+porte s'est ouverte, j'ai vu tout de suite que quelque chose n'allait pas.
+Bernard était pâle. Ses mains tremblaient un peu sur le volant. Il n'a pas lancé
+son « *Adishatz* ! » habituel. Il a juste dit, d'une voix sourde :
+
+— Montez vite, les enfants. On a du retard. Je vais essayer de rattraper.
+
+Le grand de troisième a soufflé en passant : « Ouais, bah faudrait voir à se
+réveiller, hein. » Et il est allé s'avachir au fond, les pieds sur le siège
+d'en face, comme tous les jours.
+
+Moi, je me suis assise devant, juste derrière Bernard. Et c'est là, de près, que
+j'ai vu. J'ai vu qu'il était bouleversé. Qu'il conduisait en serrant les
+mâchoires. Et au premier feu rouge, j'ai osé :
+
+— Bernard… ça va ? Il s'est passé quelque chose ?
+
+Il a soupiré. Un long soupir qui semblait venir de très loin.
+
+— Y a eu un accident, Lina. Sur la départementale, à l'entrée de la vallée. Une
+voiture qui a glissé, ce matin, avec l'humidité. Personne de grave, Dieu merci.
+Mais la route était bloquée. J'ai dû faire le grand tour par les coteaux, des
+petites routes pas faites pour un car. Et avant ça, déjà, il y avait les travaux
+sur le pont — ça fait trois semaines qu'ils refont le pont, alors tous les matins
+c'est un goulot, une seule file, on attend. Et ce matin, par-dessus le marché,
+un camion en panne dans la côte. Trois galères en un seul trajet.
+
+Il a redémarré au vert, doucement.
+
+— Tu vois, Lina, c'est ça, mon métier, que personne comprend. Les gens croient
+que je décide. Que si le car est en retard, c'est que je traîne, que je me lève
+pas, que je m'en fous. Mais moi, je décide rien. Je suis *tributaire*. Tributaire
+de tout. Des travaux. Des bouchons. Des accidents. De la pluie, du verglas, du
+brouillard du gave qui te bouche la route à dix mètres. Des autres conducteurs
+aussi — ceux qui te collent au pare-chocs, ceux qui te doublent dans les virages,
+ceux qui te font une queue de poisson avec quarante gamins derrière toi dont tu
+es responsable. Je porte la vie de quarante enfants, tous les matins, sur ces
+routes. Et je dois être à l'heure. Quoi qu'il arrive. Parce que si j'ai cinq
+minutes de retard à la sortie des classes, le soir, c'est moi qu'on engueule.
+Jamais l'accident. Jamais les travaux. Moi.
+
+Je l'écoutais, le cœur serré. Je n'avais jamais pensé à tout ça. Jamais une
+seule seconde. Pour moi, le car arrivait ou n'arrivait pas, comme la pluie tombe
+ou ne tombe pas. Je n'avais jamais imaginé qu'il y avait, derrière le volant, un
+homme qui se battait chaque matin contre la terre entière pour me déposer à
+l'heure devant ma grille.
+
+— Alors je me plie en quatre, a-t-il continué. Je pars plus tôt, je guette la
+radio pour les bouchons, je connais tous les chemins de traverse du Béarn par
+cœur. Le soir, à la sortie, je suis là à l'heure pile, toujours, beau temps
+mauvais temps, parce que je sais que vos parents vous attendent et qu'ils
+s'inquiètent. Et en échange de tout ça… — il a eu un petit rire triste, en
+regardant dans son rétroviseur le grand de troisième vautré les pieds sur les
+sièges — en échange, j'ai des gamins qui me prennent pour un robot. Qui salissent
+mon car. Qui ne disent pas bonjour. Qui ne paient même pas leur trajet. Qui me
+regardent comme si j'étais rien.
+
+Il s'est tu. La route défilait, grise, sous la pluie fine du Béarn.
+
+— Mais je suis là, Lina, a-t-il dit tout bas, comme pour lui-même. Tous les
+jours, je suis là. Qu'on me voie ou pas. Qu'on me dise bonjour ou pas. Je suis
+là, et je les transporte. Parce que c'est mon métier. Et un métier, on le fait
+bien, même quand personne ne vous regarde le faire.
+
+Ce matin-là, on est arrivés au collège avec dix-neuf minutes de retard. Bernard
+s'est confondu en excuses auprès de la vie scolaire, alors que ce n'était pas sa
+faute, pas du tout. Et les élèves sont descendus en bougonnant, sans un mot pour
+lui, en enjambant les papiers qu'ils avaient eux-mêmes laissés par terre.
+
+Moi, avant de descendre, je me suis arrêtée à sa hauteur.
+
+— Merci, Bernard. Pour ce matin. Pour tous les matins.
+
+Il m'a regardée, et j'ai cru qu'il allait pleurer, ce grand costaud aux mains de
+battoir.
+
+— De rien, ma grande. De rien.
+
+À midi, j'ai tout raconté à Adam, à Manon, à Sofia. Et Adam, qui savait mieux que
+personne ce que c'est d'être traité comme un objet, comme un meuble, comme « la
+chaise », Adam a serré les poings.
+
+— Tu vois, a-t-il dit. C'est exactement la même chose que moi. Bernard, c'est un
+invisible. Les gens regardent à travers lui. Ils le voient pas. Comme ils me
+voyaient pas, moi, au début. La seule différence, c'est que moi, mon invisibilité,
+elle a un fauteuil, alors on finit par la remarquer. Lui, son invisibilité, elle
+conduit un car. Et personne la remarque jamais.
+
+Manon, elle, a dit une chose toute simple, à sa façon, qui nous a tous cloués :
+
+— Il y a, dans le Béarn, soixante-deux chauffeurs de car scolaire. Ils
+transportent environ quatre mille élèves chaque jour. Si on les enlevait, quatre
+mille enfants ne pourraient plus aller à l'école. Ce sont les gens les plus
+importants du système, et ce sont ceux qu'on respecte le moins. C'est illogique.
+
+*C'est illogique.* Venant de Manon, c'était la plus sévère des condamnations.
+
+Et c'est là, ce jour de novembre, à la table de la cantine, qu'une idée a commencé
+à germer. Une idée qui allait, bien plus tard, prendre toute sa place dans notre
+grand projet. L'idée que les murs qu'on ne voit pas — ceux qui empêchent un
+fauteuil de monter un escalier — sont les frères des gens qu'on ne voit pas — ceux
+qui nous transportent, nous nourrissent, nous soignent, nettoient nos écoles, et
+qu'on regarde à travers comme s'ils étaient en verre.
+
+*Respecter, c'est regarder deux fois.* La première fois, on voit un car en retard.
+La deuxième fois, on voit Bernard, qui s'est plié en quatre, sur des routes
+défoncées, pour être là. Pour nous.
+
+Le lendemain, sans nous être donné le mot, on est montés à trois — Adam par la
+rampe, Manon, moi — et on a lancé tous ensemble, à pleine voix : « *Adishatz*,
+Bernard ! » Le surlendemain, on était cinq. La semaine d'après, presque tout
+l'avant du car répondait. Ça n'a pas tout changé d'un coup — les grands du fond
+ont mis plus longtemps. Mais une graine était plantée. Et les graines, dans le
+Béarn, ça finit toujours par pousser.
+
+---
+
+## Chapitre 17 — La chute
+
+C'est arrivé un jeudi de décembre. Il avait neigé pendant la nuit — ce qui
+n'arrive presque jamais à Orthez, où l'hiver est d'ordinaire fait de pluie et de
+brouillard montant du gave — et la cour était couverte d'un manteau blanc que
+personne n'osait salir. Ce matin-là, justement, le car de Bidegain était arrivé
+avec vingt minutes de retard, à cause du verglas sur la route de la vallée.
 
 Le monte-charge était encore en panne — la troisième fois cette semaine-là. Adam
 attendait, en bas de l'escalier central, que monsieur Bakary vienne le chercher.
@@ -1026,7 +1315,7 @@ dépassait un dessin de fusée.
 
 ---
 
-## Chapitre 16 — La salle d'attente
+## Chapitre 18 — La salle d'attente
 
 À l'hôpital, on était quatre à attendre des nouvelles, serrés sur des chaises en
 plastique orange, sous une lumière froide qui faisait mal aux yeux : la mère
@@ -1091,7 +1380,7 @@ soulagement, dans les bras les uns des autres.
 
 ---
 
-## Chapitre 17 — La nuit la plus longue
+## Chapitre 19 — La nuit la plus longue
 
 Les jours qui ont suivi l'accident ont été les plus étranges de ma vie.
 
@@ -1160,7 +1449,7 @@ croit trop bêtes pour être vraies, jusqu'au jour où on en a besoin.
 
 ---
 
-## Chapitre 18 — Ce qu'on décide de devenir
+## Chapitre 20 — Ce qu'on décide de devenir
 
 Adam a eu un traumatisme crânien, une commotion sérieuse, et il est resté trois
 semaines à l'hôpital puis à la maison. Je suis allée le voir presque tous les
