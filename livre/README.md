@@ -33,15 +33,16 @@ n'est pas juste — et où l'on décide, ensemble, de le rendre un peu meilleur.
 
 Trois éditions sont générées par le script `build_pdf.py` :
 
-| Fichier | Format | Police | Usage |
-|---------|--------|--------|-------|
-| `Plus-haut-que-les-murs-Roman-6x9.pdf` | 6×9 pouces | standard | édition « roman » classique |
-| `Plus-haut-que-les-murs-GrosCaracteres-A4.pdf` | A4 | grande | lecture confort / gros caractères |
-| `Plus-haut-que-les-murs.pdf` | A5 | standard | format poche |
+| Fichier | Format | Usage |
+|---------|--------|-------|
+| `Plus-haut-que-les-murs-Confort-6x9.pdf` | 6×9 pouces, texte aéré | **édition recommandée pour la lecture** |
+| `Plus-haut-que-les-murs-GrosCaracteres-A4.pdf` | A4, grande police | lecture pour vue fatiguée / malvoyants |
+| `Plus-haut-que-les-murs.pdf` | A5 | format poche compact |
 
-Chaque PDF comporte une **couverture colorée** (page de garde bleu nuit étoilée)
-et une **table des matières cliquable** (liens internes + signets/marque-pages PDF
-pour naviguer d'un chapitre à l'autre).
+Chaque PDF comporte une **couverture colorée** (page de garde bleu nuit étoilée),
+une **table des matières cliquable** (liens internes + signets PDF), un **interligne
+aéré** et la **césure française** (texte justifié sans grands blancs) pour le confort
+de lecture.
 
 Pour les régénérer après une modification du texte : `python3 build_pdf.py`.
 

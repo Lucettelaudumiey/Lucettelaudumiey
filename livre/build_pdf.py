@@ -32,8 +32,10 @@ def inline(text):
     return text
 
 def make_styles(s):
-    body = ParagraphStyle("body", fontName="Times-Roman", fontSize=11*s, leading=15.8*s,
-                          alignment=TA_JUSTIFY, firstLineIndent=14*s, spaceAfter=2*s)
+    # interligne aéré (~1,5) + césure française : confort de lecture optimal
+    body = ParagraphStyle("body", fontName="Times-Roman", fontSize=11*s, leading=16.6*s,
+                          alignment=TA_JUSTIFY, firstLineIndent=14*s, spaceAfter=2*s,
+                          hyphenationLang="fr_FR", embeddedHyphenation=1)
     return dict(
         body=body,
         body0=ParagraphStyle("body0", parent=body, firstLineIndent=0),
@@ -216,6 +218,7 @@ def build(outfile, pagesize, scale, margin):
 ROMAN_6x9 = (6*inch, 9*inch)
 
 if __name__ == "__main__":
-    build("Plus-haut-que-les-murs-Roman-6x9.pdf", ROMAN_6x9, scale=1.06, margin=2.0*cm)
+    # Édition recommandée pour la lecture : format roman 6x9, texte aéré, césure
+    build("Plus-haut-que-les-murs-Confort-6x9.pdf", ROMAN_6x9, scale=1.13, margin=2.05*cm)
     build("Plus-haut-que-les-murs-GrosCaracteres-A4.pdf", A4, scale=1.5, margin=2.3*cm)
     build("Plus-haut-que-les-murs.pdf", A5, scale=1.0, margin=1.9*cm)
