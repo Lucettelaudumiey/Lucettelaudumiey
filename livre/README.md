@@ -22,14 +22,18 @@ n'est pas juste — et où l'on décide, ensemble, de le rendre un peu meilleur.
 
 ## Les deux tomes
 
-- **Tome 1 — La rentrée des différences**
+- **Tome 1 — La rentrée des différences** (18 chapitres)
   L'arrivée d'Adam, les moqueries, les murs (ceux du collège et ceux des
   cœurs), la naissance d'une amitié, et un événement qui va tout faire basculer.
 
-- **Tome 2 — Plus haut que les murs**
+- **Tome 2 — Plus haut que les murs** (18 chapitres + épilogue)
   La classe se relève et se rassemble. Un grand projet, un combat pour rendre le
   collège accessible à tous, des secrets qui se dévoilent, un voyage, et un
   spectacle où chacun trouve enfin sa lumière.
+
+L'ensemble fait environ **20 000 mots**, soit, selon la mise en page choisie
+(roman jeunesse en gros caractères, marges généreuses, illustrations), de l'ordre
+de **130 à 200 pages imprimées**.
 
 ## Les grands thèmes
 

@@ -209,7 +209,82 @@ trompe. Peut-être qu'il nous regardait tous.
 
 ---
 
-## Chapitre 3 — Ce qu'on ne voit pas
+## Chapitre 3 — La maison coupée en deux
+
+Si je veux être honnête — et puisque j'ai décidé de raconter cette histoire pour
+de vrai, autant l'être —, je dois parler de chez moi. Parce qu'on ne comprend pas
+quelqu'un si on ne sait pas d'où il revient chaque soir.
+
+Cette année-là, ma maison était coupée en deux.
+
+Mes parents s'étaient séparés au mois de juin, juste avant les grandes vacances.
+Ça ne s'était pas fait dans les cris — j'aurais presque préféré. Ça s'était fait
+dans le silence. Un silence qui s'était installé à table, entre eux, comme un
+invité qui ne part jamais. Et un matin, mon père avait fait une valise, et il
+était parti vivre dans un appartement de l'autre côté de la ville, avec un canapé
+qui se déplie et un frigo presque vide.
+
+Depuis, ma vie ressemblait à un aller-retour permanent. Une semaine chez maman,
+une semaine chez papa. Deux brosses à dents. Deux chambres. Deux listes de règles.
+J'avais toujours l'impression d'oublier quelque chose quelque part — mon cahier de
+maths chez l'un, mon pull préféré chez l'autre. Comme si moi aussi, j'étais coupée
+en deux.
+
+Maman pleurait, le soir, quand elle croyait que je dormais. Je l'entendais, à
+travers la cloison. Papa, lui, faisait semblant que tout allait bien, il en
+faisait même trop, il riait trop fort, il proposait des sorties trop joyeuses,
+et ça sonnait creux, comme une cloche fêlée.
+
+Moi, au milieu, je ne savais pas où me mettre. Je n'avais le droit d'être triste
+nulle part. Chez maman, il fallait que je la console. Chez papa, il fallait que je
+fasse semblant que sa nouvelle vie était formidable. Personne ne me demandait,
+à moi, comment j'allais. Comme si une fille de treize ans, c'était trop grand pour
+avoir de la peine, et trop petit pour qu'on s'en occupe.
+
+Je dis tout ça parce que c'est important pour la suite. Quand Adam est arrivé,
+devant son escalier, et qu'une colère m'a prise contre Killian, cette colère, en
+vérité, je la portais depuis juin. Je ne savais juste pas où la mettre. Et quand
+j'ai vu un garçon qu'on traitait comme un problème, qu'on portait comme un paquet,
+à qui personne ne demandait s'il allait bien — j'ai reconnu quelque chose. Sans
+pouvoir le dire avec des mots, à l'époque, j'ai reconnu une solitude qui
+ressemblait à la mienne.
+
+C'est peut-être ça qui m'a poussée vers lui. Pas la pitié, comme je l'ai cru
+d'abord. La ressemblance. On était deux enfants à qui le monde avait oublié de
+demander comment ça allait.
+
+Le soir du premier jour, je suis rentrée chez maman. Elle m'a demandé, sans
+vraiment écouter, en remuant une casserole :
+
+— Alors, cette rentrée ?
+
+J'ai failli répondre « bien », comme d'habitude, le mot qui ne veut rien dire.
+Mais je me suis entendue dire, à la place :
+
+— Il y a un nouveau. Il est en fauteuil roulant. Et le collège a oublié de mettre
+un ascenseur. Alors il est resté coincé en bas de l'escalier devant tout le monde.
+
+Maman a posé sa cuillère. Pour la première fois depuis des semaines, elle m'a
+vraiment regardée.
+
+— C'est affreux, a-t-elle dit. Et… toi, tu as fait quoi ?
+
+— Rien, j'ai avoué. Je n'ai rien fait. Comme tout le monde.
+
+Elle s'est essuyé les mains, est venue s'asseoir en face de moi, et elle a dit
+une phrase que je n'attendais pas, une phrase qui m'a fait du bien comme un
+pansement :
+
+— Eh bien, tu as toute l'année pour faire mieux que rien.
+
+Cette nuit-là, je n'ai pas entendu maman pleurer. Peut-être qu'elle n'a pas
+pleuré. Peut-être qu'il suffit, parfois, de parler de la peine d'un autre pour
+oublier un peu la sienne. Et peut-être que c'est ça, le début de tout : arrêter
+de tourner autour de son propre malheur, et lever les yeux vers celui d'à côté.
+
+---
+
+## Chapitre 4 — Ce qu'on ne voit pas
 
 Pendant les jours qui ont suivi, le collège Jean-Moulin a découvert qu'un
 escalier n'était que le premier de ses problèmes.
@@ -284,7 +359,74 @@ du monde.
 
 ---
 
-## Chapitre 4 — Manon ne parle pas fort
+## Chapitre 5 — La récré la plus longue
+
+Il y a un mot que j'ai appris à détester, cette année-là, en regardant vivre
+Adam. Un petit mot de rien du tout, qu'on emploie cent fois par jour sans y
+penser : *attendre.*
+
+Pour nous, attendre, c'était patienter cinq minutes devant la salle pendant que
+le prof finissait son café. Une broutille. Pour Adam, attendre, c'était un métier
+à plein temps.
+
+Il attendait le matin qu'on vienne le chercher pour le monte-charge. Il attendait
+à la récré, parce que le temps que monsieur Bakary le redescende, la cloche
+sonnait déjà la fin. Il attendait à midi, seul dans un couloir, pendant que la
+classe dévalait l'escalier vers la cantine. Il attendait, et il attendait, et le
+plus terrible, c'est qu'il avait appris à le faire sans se plaindre, ce qui était
+encore plus injuste, parce que du coup personne ne voyait à quel point c'était
+révoltant.
+
+Un mercredi, le monte-charge est tombé en panne pile à la récré du matin. Adam
+était coincé au premier étage. Monsieur Bakary était parti chercher le
+réparateur. Et nous, on était tous en bas, dans la cour, au soleil.
+
+Alors j'ai fait quelque chose de tout bête. Au lieu de descendre, je suis restée
+en haut. Je me suis assise par terre dans le couloir, à côté de son fauteuil, et
+j'ai sorti mon goûter.
+
+— Qu'est-ce que tu fais ? a demandé Adam.
+— La récré.
+— En haut ? Toute seule ? Dans un couloir qui pue le désinfectant ?
+— Je suis pas toute seule. T'es là.
+
+Il m'a regardée bizarrement. Puis Sofia est arrivée, essoufflée d'avoir remonté
+les marches, et elle s'est assise aussi. Puis, à ma grande surprise, deux autres
+filles de la classe, Inès et Jade, qui jusque-là ne s'étaient jamais beaucoup
+occupées d'Adam. Elles avaient vu, par la fenêtre de la cour, qu'on était là.
+Elles sont montées.
+
+À la fin, on était sept ou huit, assis en cercle dans ce couloir moche, à
+partager des paquets de gâteaux et à rire. Adam au milieu. Pour une fois, ce
+n'était pas lui qui était « en haut, tout seul, à attendre ». C'était nous qui
+étions montés. La différence, elle est minuscule, et elle change tout.
+
+Monsieur Lemoine est passé par là, son éternel café à la main. Il s'est arrêté.
+Il nous a regardés, ce petit groupe assis par terre autour d'un fauteuil. Il n'a
+rien dit. Mais j'ai vu, sur son visage, quelque chose se détendre, comme quand on
+voit enfin marcher un truc qu'on essaie d'apprendre depuis longtemps.
+
+Plus tard, il m'a confié — bien plus tard, à la fin de l'année — que c'est ce
+jour-là qu'il avait su que « ça allait marcher, cette classe ». Pas à cause d'un
+discours. Pas à cause d'une leçon de morale. À cause de huit gamins qui avaient
+choisi de monter un escalier pour ne pas laisser un copain seul en haut.
+
+— Vous savez ce que vous venez de faire ? nous a-t-il dit ce jour-là, avant de
+repartir avec son café.
+
+On a secoué la tête.
+
+— Vous venez de comprendre que l'accessibilité, ce n'est pas seulement une
+histoire d'ascenseurs et de rampes. C'est aussi une histoire de qui on décide de
+ne pas laisser tout seul. Les ingénieurs s'occuperont des rampes. Mais ça — il a
+montré notre petit cercle —, ça, aucun ingénieur ne sait le construire. Il n'y a
+que vous.
+
+La cloche a sonné. La plus longue récré de l'année venait de passer en un éclair.
+
+---
+
+## Chapitre 6 — Manon ne parle pas fort
 
 Il n'y avait pas qu'Adam, dans notre classe, qui n'était pas « comme les
 autres ». Il y avait aussi Manon.
@@ -359,7 +501,7 @@ largement suffisant.
 
 ---
 
-## Chapitre 5 — Le binôme
+## Chapitre 7 — Le binôme
 
 En octobre, monsieur Lemoine a annoncé un grand projet.
 
@@ -417,7 +559,7 @@ chose derrière son mur.
 
 ---
 
-## Chapitre 6 — Chez Adam
+## Chapitre 8 — Chez Adam
 
 C'est à ce moment-là qu'Adam m'a invitée chez lui, pour travailler sur notre
 projet.
@@ -475,7 +617,86 @@ Adam a regardé ses étoiles au plafond. Il a souri.
 
 ---
 
-## Chapitre 7 — La carte des murs
+## Chapitre 9 — L'histoire d'Adam
+
+Un soir, chez lui, pendant qu'on travaillait sur le projet, j'ai osé poser la
+question que je gardais depuis le premier jour. Celle qu'on n'ose jamais poser,
+parce qu'on a peur que ce soit indélicat. J'ai pris mon courage à deux mains :
+
+— Adam… je peux te demander pourquoi tu es en fauteuil ? Tu n'es pas obligé de
+répondre.
+
+Il a posé son crayon. Il n'a pas eu l'air fâché. Au contraire, il a même eu l'air
+soulagé.
+
+— Tu sais, a-t-il dit, ce qui est le plus dur, c'est pas qu'on me pose la
+question. C'est que personne ose la poser. Les gens préfèrent imaginer des trucs
+dans leur tête plutôt que demander. Du coup je deviens un mystère ambulant. Merci
+de demander pour de vrai.
+
+Il s'est calé dans son fauteuil et il a regardé ses étoiles au plafond.
+
+— Je suis né comme ça. Spina bifida, ça s'appelle. C'est un truc qui se passe
+avant la naissance, dans la colonne vertébrale, qui fait que les jambes ne
+reçoivent pas bien les messages du cerveau. Donc je n'ai jamais marché. Pour moi,
+le fauteuil, c'est pas une prison, comme les gens croient. C'est l'inverse. C'est
+mes jambes. C'est ce qui me permet d'aller partout — enfin, partout où on a pensé
+à faire de la place pour moi.
+
+Il a souri.
+
+— Les gens disent « cloué dans un fauteuil ». J'aime pas cette expression. On dit
+pas « cloué dans des baskets » pour quelqu'un qui marche. Mon fauteuil, c'est ma
+liberté, pas ma cage. La cage, c'est les escaliers. C'est pas pareil.
+
+J'ai retenu ça toute ma vie. *La cage, ce n'est pas le fauteuil. C'est
+l'escalier.* C'est une phrase qui change la façon de voir le monde entier.
+
+— Et les autres collèges ? j'ai demandé. Tu en as fait quatre, tu m'as dit.
+
+Son visage s'est assombri un peu.
+
+— Le premier, en sixième, c'était pas trop mal. Y avait un ascenseur. Mais on a
+déménagé. Le deuxième, c'était une catastrophe. Pas d'accès, pas d'aide, et une
+classe… une classe pas comme la vôtre. On m'avait surnommé « la chaise ». Pas
+Adam. « La chaise ». Comme si j'étais devenu l'objet. Tu sais ce que ça fait, de
+plus avoir de prénom ? De n'être plus qu'un meuble qui gêne dans le couloir ?
+
+Je n'ai rien dit. Il y a des questions auxquelles on ne répond pas. On écoute,
+c'est tout.
+
+— Le troisième, on m'a mis dans une classe « spéciale ». À part. Avec des
+intentions gentilles, soi-disant. Mais à part quand même. Loin des autres. Pour
+mon « bien ». Sauf que mon bien, c'était pas d'être à part. Mon bien, c'était
+d'être avec les autres, comme les autres. Tu vois, des fois, les gens te font du
+mal en croyant te protéger. Ils construisent des murs en pensant te faire un
+cadeau.
+
+Il a repris son crayon, a dessiné un trait de fusée.
+
+— Alors quand mon père a encore changé de boulot et qu'on a atterri ici, je me
+suis dit : encore un. Encore un collège, encore un escalier, encore des gens qui
+vont m'appeler « la chaise ». J'étais prêt. J'avais mes murs. Je m'étais blindé.
+
+Il m'a regardée.
+
+— Et puis y a eu une fille qui s'est engueulée avec le caïd le premier jour pour
+me défendre. Qui s'est assise à côté de moi sans que personne lui demande. Qui est
+montée faire la récré dans un couloir qui pue juste pour pas que je sois seul.
+
+J'ai rougi jusqu'aux oreilles.
+
+— Tu sais ce que ça fait, ça, Lina ? Après quatre collèges ? Ça fait que pour la
+première fois, j'ai eu envie de baisser mes murs. Juste un peu. Pour voir.
+
+On n'a plus rien dit pendant un moment. Les étoiles brillaient au plafond. En bas,
+on entendait Naïma chantonner en cuisinant. Et moi, j'ai compris que ce projet
+qu'on faisait, *Plus haut que les murs*, ce n'était pas que les murs du collège.
+C'était aussi les siens. Et un peu les miens.
+
+---
+
+## Chapitre 10 — La carte des murs
 
 On a passé l'automne à arpenter le collège, Adam et moi, avec un carnet, un
 mètre ruban et l'appareil photo de mon téléphone.
@@ -523,7 +744,61 @@ celui que je croyais.
 
 ---
 
-## Chapitre 8 — Le secret de Killian
+## Chapitre 11 — Madame Auclair et les mots qui sauvent
+
+Je n'ai pas encore parlé de madame Auclair, et c'est une faute, parce qu'elle a
+compté plus que je ne le croyais à l'époque.
+
+Madame Auclair était notre professeure de français. Elle était petite, ronde,
+avec des lunettes rouges et des écharpes de toutes les couleurs qui semblaient
+ne jamais finir. Elle parlait des livres comme d'autres parlent de leur famille,
+avec amour et avec colère. Et elle animait, le jeudi midi, un club de théâtre
+auquel presque personne n'allait, parce que le théâtre, au collège, « c'est un
+truc de bouffon », pour reprendre les mots élégants de Killian.
+
+C'est Manon qui m'y a entraînée. Oui, Manon. Ça peut surprendre, une fille qui
+déteste le contact, le bruit, le regard des autres, dans un club de théâtre. Mais
+madame Auclair avait compris quelque chose : pour quelqu'un comme Manon, jouer un
+rôle, c'était parfois plus facile que d'être soi-même. Quand elle était un
+personnage, Manon avait le droit de dire des choses, de bouger, de regarder les
+gens. Le masque la libérait.
+
+— Le théâtre, nous a dit madame Auclair le premier jeudi, ça sert à une seule
+chose : à se mettre dans la peau de quelqu'un d'autre. Et savez-vous comment on
+appelle ça, dans la vraie vie, quand on arrive à se mettre dans la peau d'un
+autre ?
+
+Personne n'a répondu.
+
+— L'empathie, a-t-elle dit. Le plus beau mot de la langue française. Le seul qui
+puisse, à lui tout seul, empêcher toutes les guerres.
+
+J'ai amené Adam au club, un jeudi. Il a hésité — « le théâtre, c'est de la marche,
+des déplacements, c'est pas pour moi » —, mais madame Auclair l'a regardé
+par-dessus ses lunettes rouges et elle a dit :
+
+— Monsieur Hadji, le théâtre n'est pas dans les jambes. Il est dans la voix et
+dans le regard. Et vous, vous avez la plus belle voix grave de cette classe et le
+regard le plus intense. Vous serez mon meilleur récitant. Asseyez-vous — vous
+êtes déjà assis, parfait, vous avez de l'avance.
+
+Adam a éclaté de rire. C'était la première fois que je l'entendais rire comme ça,
+franchement, sans son armure. Madame Auclair avait fait, en une phrase, ce que des
+mois de gentillesse maladroite n'avaient pas réussi : elle l'avait traité non pas
+comme un handicapé qu'on inclut, mais comme un talent dont on a besoin.
+
+Ce club de théâtre, j'en reparlerai. Parce que c'est là qu'a germé, sans qu'on le
+sache encore, l'idée qui changerait tout, au Tome de notre histoire qui n'était
+pas encore écrit. Mais déjà, ce jeudi-là, j'avais compris une chose sur madame
+Auclair : il y a des professeurs qui vous apprennent des leçons, et il y en a, plus
+rares, qui vous apprennent à être quelqu'un. Elle était de la deuxième sorte. Comme
+monsieur Lemoine. Le collège Jean-Moulin, avec ses escaliers impossibles, avait au
+moins ça pour lui : deux adultes qui croyaient que l'école sert à fabriquer des
+êtres humains, pas seulement des bulletins.
+
+---
+
+## Chapitre 12 — Le secret de Killian
 
 C'est Manon, sans le vouloir, qui m'a mis sur la piste.
 
@@ -575,7 +850,7 @@ strictement rien produit.
 
 ---
 
-## Chapitre 9 — Ce que les chiffres savent faire
+## Chapitre 13 — Ce que les chiffres savent faire
 
 Mon idée, c'était simple. Manon était nulle en français — les rédactions, les
 analyses de texte, tout ce qui demandait de comprendre les sentiments des
@@ -628,7 +903,75 @@ quelque chose de beau. Je ne savais pas que le pire était encore devant nous.
 
 ---
 
-## Chapitre 10 — La chute
+## Chapitre 14 — Le carnet de Manon
+
+Quelque chose d'inattendu était en train de se passer entre Killian et Manon, et
+je voudrais le raconter, parce que c'est sans doute ce qui m'a le plus émue de
+toute cette année.
+
+Au début, leur binôme imposé par monsieur Lemoine n'avançait pas. Killian ne
+voulait pas. Manon ne savait pas comment faire. Ils restaient assis l'un à côté de
+l'autre, en silence, comme deux planètes sur des orbites qui ne se croisent jamais.
+
+Et puis il y a eu le carnet.
+
+Manon avait un carnet. Un petit carnet à spirale qu'elle gardait toujours sur
+elle, et dans lequel elle notait — non, *dessinait* — des trains. Des centaines de
+trains. Avec une précision hallucinante : le TGV, l'ICE allemand, le Shinkansen
+japonais, le maglev de Shanghai, chacun avec ses proportions exactes, ses
+couleurs, son numéro de série. C'était magnifique. C'était de l'art, en vrai, même
+si personne ne lui avait jamais dit.
+
+Un jour, Killian a jeté un œil par-dessus son épaule. Par hasard. Et au lieu de se
+moquer, comme l'ancien Killian l'aurait fait, il est resté bouche bée.
+
+— C'est toi qui as dessiné ça ?
+
+Manon s'est crispée, prête à se faire moquer.
+
+— Oui.
+— Mais… c'est ouf. C'est super beau. T'as appris où ?
+— Nulle part. Je regarde, et je sais.
+
+Killian a tourné les pages, lentement, émerveillé. Et il a dit une chose qui a
+tout débloqué :
+
+— Moi, les mots, ils dansent. Je peux pas les fixer. Mais ça — il a montré un
+dessin de TGV —, ça, je comprends direct. C'est clair. T'expliques mieux avec un
+dessin que tous les profs avec leurs pavés de texte.
+
+Manon l'a regardé. Une demi-seconde dans les yeux, ce qui, pour elle, valait une
+heure pour n'importe qui d'autre.
+
+— Toi aussi, les mots te font ça ? elle a demandé. Ils bougent ?
+— Ouais. Tout le temps.
+— Moi, c'est les bruits et les lumières qui me font ça. Trop fort. Trop partout.
+
+Et là, ces deux-là, que tout le monde avait rangés dans la case « problème », se
+sont reconnus. Pas pareils — leurs difficultés n'avaient rien à voir. Mais ils
+avaient compris la même chose : qu'avoir un cerveau qui marche autrement, ce
+n'est pas être bête. C'est juste être seul à comprendre ce que les autres ne
+comprennent pas.
+
+À partir de ce jour, leur projet a décollé. Manon dessinait, Killian racontait.
+Elle lui faisait des fiches en dessins qu'il pouvait « lire » d'un coup d'œil ;
+il transformait ses chiffres en histoires que tout le monde voulait écouter. Le
+carnet de trains est devenu le cœur de leur exposé. Et quand Manon, un midi, a
+arraché une page de son précieux carnet — un dessin de Shinkansen qu'elle avait
+mis des heures à faire — pour l'offrir à Killian, j'ai compris que quelque chose
+de rare venait de naître.
+
+Killian a scotché ce dessin dans son casier. Il y est resté toute l'année. Le caïd
+du collège, celui qui faisait baisser les yeux à tout le monde, avait, dans son
+casier, un train dessiné par « la lune ». Et il en était fier.
+
+Personne ne pouvait le savoir encore, mais cette amitié-là allait, quelques
+semaines plus tard, sauver bien plus qu'un exposé. Elle allait sauver Killian
+lui-même.
+
+---
+
+## Chapitre 15 — La chute
 
 C'est arrivé un jeudi de décembre. Il avait neigé pendant la nuit, et la cour
 était couverte d'un manteau blanc que personne n'osait salir.
@@ -683,7 +1026,7 @@ dépassait un dessin de fusée.
 
 ---
 
-## Chapitre 11 — La salle d'attente
+## Chapitre 16 — La salle d'attente
 
 À l'hôpital, on était quatre à attendre des nouvelles, serrés sur des chaises en
 plastique orange, sous une lumière froide qui faisait mal aux yeux : la mère
@@ -748,7 +1091,76 @@ soulagement, dans les bras les uns des autres.
 
 ---
 
-## Chapitre 12 — Ce qu'on décide de devenir
+## Chapitre 17 — La nuit la plus longue
+
+Les jours qui ont suivi l'accident ont été les plus étranges de ma vie.
+
+Adam était à l'hôpital, dans le coma — un coma léger, disaient les médecins, mais
+quand on a treize ans, il n'y a pas de coma léger, il y a juste le mot « coma »
+qui résonne dans ta tête comme une porte qui claque.
+
+Le collège, lui, ressemblait à un corps en état de choc. Les couloirs étaient
+silencieux. Les rires s'étaient éteints. Même Killian, même les troisièmes du mur
+du fond, tout le monde marchait sur la pointe des pieds, comme dans une maison où
+quelqu'un est très malade.
+
+Le soir, chez maman, je n'arrivais pas à dormir. Je revoyais la neige rouge. Je
+m'en voulais. Je m'en voulais tellement. *Si j'étais restée. Si je n'étais pas
+montée à ce contrôle stupide. Si, si, si.* Le mot « si » est le mot le plus
+cruel de la langue française, pire encore que tous ceux que connaissait madame
+Auclair. Il te ronge de l'intérieur.
+
+Maman l'a vu. Pour une fois, elle a laissé sa propre tristesse de côté, et elle
+est venue s'asseoir au bord de mon lit, comme quand j'étais petite.
+
+— Ce n'est pas ta faute, Lina.
+— Si. J'aurais dû rester.
+— Et si tu étais restée, ils l'auraient peut-être quand même porté, et tu
+n'aurais rien pu faire, sinon te faire mal toi aussi. Lina, regarde-moi. Tu ne
+peux pas être à côté de tout le monde tout le temps. Personne ne peut. Ce qui est
+arrivé, c'est la faute d'un escalier qui n'aurait jamais dû exister, et de trois
+garçons qui ont fait une bêtise terrible. Pas la tienne. La tienne, c'est d'avoir
+été, toute l'année, la seule à t'asseoir à côté de lui. Et ça, ce n'est pas une
+faute. C'est ce qui fait de toi quelqu'un de bien.
+
+Je me suis mise à pleurer, pour de bon, comme je n'avais pas pleuré depuis le
+départ de papa, depuis des mois. Toute la peine qui s'était accumulée — la maison
+coupée en deux, la peur, la culpabilité — est sortie d'un coup. Et maman m'a tenue
+dans ses bras jusqu'à ce que je m'endorme.
+
+Le lendemain, papa est venu me chercher au collège, bien que ce ne soit pas sa
+semaine. Il avait appris, par maman. On a marché un peu, dans le parc, sans rien
+dire. Et puis il a posé sa main sur mon épaule, maladroitement, et il a dit :
+
+— Je sais que je suis pas très là, en ce moment. Avec le déménagement, et tout.
+Mais ton copain, là, Adam… je voulais te dire que je suis fier de toi. De ce que
+tu fais pour lui. De la fille que tu deviens.
+
+C'était peut-être la première vraie phrase qu'on se disait, lui et moi, depuis
+juin. L'accident d'Adam, qui avait failli tout casser, était en train, sans qu'on
+le veuille, de recoller des morceaux. Pas tout. Mais des morceaux.
+
+Le téléphone a sonné le quatrième soir. C'était Sofia, la voix tremblante
+d'excitation :
+
+— Lina ! Il s'est réveillé ! Adam s'est réveillé ! Sa mère vient d'appeler
+monsieur Lemoine, qui a appelé toute la classe ! Il va bien ! Il a demandé… tu
+sais ce qu'il a demandé en premier en se réveillant ?
+
+— Quoi ?
+
+— Il a demandé si le projet avançait. *Plus haut que les murs.* C'est la première
+chose qu'il a dite. « Et le projet, il avance ? »
+
+J'ai ri et pleuré en même temps. Évidemment qu'il avait dit ça. Évidemment.
+
+Cette nuit-là, la plus longue de l'année venait enfin de finir. Et au bout, il y
+avait de la lumière. Comme toujours, finalement. Comme dans les chansons qu'on
+croit trop bêtes pour être vraies, jusqu'au jour où on en a besoin.
+
+---
+
+## Chapitre 18 — Ce qu'on décide de devenir
 
 Adam a eu un traumatisme crânien, une commotion sérieuse, et il est resté trois
 semaines à l'hôpital puis à la maison. Je suis allée le voir presque tous les

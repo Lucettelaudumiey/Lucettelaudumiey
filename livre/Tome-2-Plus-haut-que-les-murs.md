@@ -77,7 +77,79 @@ Trois semaines. On s'est regardés. Le compte à rebours venait de commencer.
 
 ---
 
-## Chapitre 2 — Apprendre à parler
+## Chapitre 2 — Les premiers non
+
+Avant de vous raconter la suite, il faut que je vous prépare à quelque chose :
+on a entendu beaucoup de « non » avant le premier « oui ».
+
+Je le dis parce que, dans les histoires, on saute souvent cette partie-là. On
+montre le héros qui a une belle idée, puis tout de suite la grande victoire.
+Entre les deux, il y a un montage rapide avec une musique entraînante. Mais dans
+la vraie vie, entre l'idée et la victoire, il y a les « non ». Des dizaines. Et
+c'est là, dans les « non », que se gagnent ou se perdent les combats.
+
+Notre premier « non » est venu de madame Carvalho elle-même, la principale,
+pourtant plutôt de notre côté.
+
+— Les enfants, je comprends votre démarche, nous a-t-elle dit en feuilletant
+notre dossier. Mais l'accessibilité d'un bâtiment, ça coûte des centaines de
+milliers d'euros. Ce n'est pas moi qui décide. Et franchement, avec tout ce qu'on
+me demande déjà… Je ne veux pas vous décourager, mais ne vous faites pas trop
+d'illusions.
+
+Adam n'a pas baissé les bras. Il a juste demandé, poliment :
+
+— Madame, si ce n'est pas vous qui décidez, c'est qui ?
+
+Et il a noté la réponse. Le conseil d'administration. Puis le département. Adam
+notait toujours. Chaque « non » lui apprenait à qui poser le « oui » suivant.
+
+Le deuxième « non » est venu d'un parent d'élève, croisé par hasard, qui a haussé
+les épaules en disant : « Tout ça pour un seul gamin ? On va pas refaire tout le
+collège pour une personne. » Cette phrase m'a mise hors de moi. *Pour une
+personne.* Comme si une personne, ça ne valait pas la peine. J'allais répondre,
+mais Adam m'a retenue par la manche.
+
+— Laisse, m'a-t-il dit calmement. Tu sais, cette rampe qu'on demande, elle servira
+pas qu'à moi. Elle servira aux mamans avec des poussettes. Aux papis avec des
+cannes. Au livreur avec son chariot. À la prof enceinte. Au gamin qui se casse la
+jambe au foot. À tout le monde, un jour ou l'autre. C'est ça que les gens
+comprennent pas : ce qui est indispensable pour quelques-uns est utile à tous.
+On dit que c'est « pour les handicapés ». Mais une marche en moins, c'est mieux
+pour tout le monde.
+
+Il avait raison, et j'ai retenu l'argument. Plus tard, il nous a beaucoup servi.
+
+Le troisième « non » a été le plus dur, parce qu'il venait de l'intérieur. Un
+soir, fatiguée, découragée, j'ai dit à Adam :
+
+— Et si on n'y arrivait pas ? Si c'était trop gros pour nous ? On n'est que des
+gamins de quatrième.
+
+Adam a réfléchi, puis il a dit une chose que monsieur Lemoine aurait pu signer :
+
+— Tu sais qui a fait changer les lois sur le handicap, en France ? Pas des
+ministres, au début. Des gens en fauteuil qui se sont enchaînés devant des bus
+auxquels ils ne pouvaient pas monter. Des parents qui se sont battus pendant des
+années pour que leur enfant ait le droit d'aller à l'école normale. Personne ne
+leur a fait de cadeau. Ils ont arraché chaque marche, chaque rampe, chaque droit.
+Alors oui, on n'est que des gamins. Mais les gamins d'aujourd'hui, c'est les
+emmerdeurs de demain. Et les emmerdeurs, c'est eux qui font avancer le monde.
+
+J'ai ri. « Les emmerdeurs qui font avancer le monde. » C'est devenu, entre nous,
+une sorte de mot de passe. Quand l'un de nous était découragé, l'autre disait :
+« Allez, emmerdeur. » Et on repartait.
+
+Parce que c'est ça, la vérité que personne ne dit aux enfants : changer les
+choses, ce n'est pas magique. C'est long, c'est lent, c'est plein de « non ». Mais
+chaque « non » encaissé sans abandonner, c'est un pas vers le « oui ». Il suffit
+d'être un peu plus têtu que les murs.
+
+Et nous, on était très, très têtus.
+
+---
+
+## Chapitre 3 — Apprendre à parler
 
 Présenter un dossier devant un conseil d'administration, ce n'était pas rien. Il
 y aurait là les profs, des parents, des élus de la mairie, le gestionnaire du
@@ -136,7 +208,7 @@ garçon de quatorze ans qui découvrait qu'il valait quelque chose.
 
 ---
 
-## Chapitre 3 — Le conseil
+## Chapitre 4 — Le conseil
 
 Le jour du conseil d'administration, Killian portait une chemise. Je ne l'avais
 jamais vu en chemise. Il était blanc comme un linge.
@@ -218,7 +290,78 @@ calme habituel, son armure, son mur. Non. De l'espoir. Du vrai. Sans mur autour.
 
 ---
 
-## Chapitre 4 — Le mur du fond, encore
+## Chapitre 5 — La rampe
+
+La rampe a été construite pendant les vacances de février.
+
+Ça paraît peu, une rampe. Un plan incliné de béton avec une main courante. Mais le
+jour où Adam est arrivé, à la rentrée des vacances, et qu'il a vu, à la place des
+trois marches de l'entrée principale, une belle rampe douce qui montait jusqu'à la
+porte, il s'est arrêté net.
+
+Il est resté là, devant, sans bouger, pendant un long moment. Je me suis approchée.
+
+— Ça va ?
+
+Il ne répondait pas. Il regardait la rampe. Et j'ai vu, sur sa joue, une larme
+qu'il n'essuyait pas.
+
+— Pendant un an, a-t-il dit d'une voix rauque, je suis entré dans ce collège par
+la porte de derrière. La porte de service. Celle des poubelles et des livraisons.
+Parce que c'était la seule sans marche. Tous les matins, par les poubelles. Et là…
+
+Il n'a pas fini. Il a posé ses mains sur les roues, et il a monté la rampe. Tout
+seul. Sans effort. Sans demander. Par la grande porte. La porte de devant. Celle
+des autres.
+
+En haut, il s'est retourné vers moi, et il souriait à travers ses larmes.
+
+— Tu vois, Lina ? C'est pas qu'une rampe. C'est une porte. La grande. Celle où on
+entre la tête haute, comme tout le monde.
+
+Toute la classe est arrivée derrière, et quand ils ont compris ce qui se passait,
+ils se sont mis à applaudir. Là, dans la cour, devant la rampe toute neuve. Killian
+a même crié « Et d'un mur ! Plus que dix mille ! », ce qui a fait rire tout le
+monde.
+
+Mais la vraie victoire est venue quelques jours plus tard. On avait aussi obtenu,
+à force de réclamations, qu'on remplace la lourde porte du CDI par une porte
+automatique, à bouton. Un petit bouton bleu, à hauteur de fauteuil, avec un
+pictogramme.
+
+Le jour où ça a été installé, Adam a appuyé sur le bouton. La porte s'est ouverte,
+toute seule, en silence. Et il est entré dans la bibliothèque. Seul. Pour la
+première fois de l'année.
+
+Je l'ai suivi. Il roulait lentement entre les rayonnages, en faisant glisser ses
+doigts sur les tranches des livres, comme on caresse quelque chose qu'on aime. Il
+ne disait rien. La documentaliste, madame Roy, le regardait par-dessus son
+comptoir, et elle aussi avait les yeux brillants, parce qu'elle savait, elle,
+depuis le début, combien de fois ce garçon était resté devant sa porte fermée.
+
+— Tu sais ce que je vais faire ? m'a dit Adam.
+— Quoi ?
+— Je vais tous les lire. Tous. Un par un. Toute cette bibliothèque où je pouvais
+pas entrer. Je vais me venger en lisant tout.
+
+Il a pris un livre au hasard. C'était un livre sur l'astronomie, évidemment — le
+hasard fait bien les choses, ou alors il avait visé. Il l'a serré contre lui comme
+un trésor.
+
+Ce jour-là, j'ai compris que l'accessibilité, ce n'est pas du confort. C'est de la
+dignité. C'est le droit d'entrer par la grande porte. Le droit d'aller chercher un
+livre tout seul. Le droit de ne pas dépendre, à chaque instant, de la bonne
+volonté des autres. On nous parle souvent du handicap comme d'un problème de
+santé. Mais bien souvent, ce n'est pas un problème de santé. C'est un problème de
+marches, de portes et de boutons. Et ces problèmes-là, contrairement aux maladies,
+on sait parfaitement les régler. Il suffit de vouloir.
+
+Une rampe. Une porte automatique. Deux fois rien. Et le monde d'Adam venait de
+doubler de taille.
+
+---
+
+## Chapitre 6 — Le mur du fond, encore
 
 Tout n'était pas réglé, bien sûr. La vie n'est pas un conte de fées, même quand
 elle commence à y ressembler.
@@ -280,7 +423,7 @@ voit un dur. La deuxième, on voit un enfant qui a mal.
 
 ---
 
-## Chapitre 5 — Le printemps de Manon
+## Chapitre 7 — Le printemps de Manon
 
 Pendant ce temps, Manon fleurissait.
 
@@ -335,7 +478,73 @@ de Killian. Le sourire de quelqu'un qui vient de faire tomber son propre mur.
 
 ---
 
-## Chapitre 6 — Le voyage
+## Chapitre 8 — Le match
+
+Je voudrais raconter le match, parce que c'est un de mes plus beaux souvenirs, et
+parce qu'il montre quelque chose d'important : que l'inclusion, ce n'est pas
+toujours grave et sérieux. Des fois, c'est juste se marrer ensemble.
+
+En mai, le professeur d'EPS, monsieur Da Silva, a organisé un tournoi de
+basket-fauteuil pour toutes les classes de quatrième. Du basket en fauteuil
+roulant. Pour tout le monde. Les valides comme les autres. Il avait emprunté une
+dizaine de fauteuils de sport à un club de la ville.
+
+L'idée était simple et géniale : tout le monde joue dans les mêmes conditions.
+Tout le monde en fauteuil. Et là, surprise : Adam, qui ne pouvait pas courir au
+foot ou au hand, Adam était le meilleur. De loin. Il maniait son fauteuil comme
+une extension de son corps, il pivotait, il accélérait, il marquait des paniers
+que personne ne voyait venir.
+
+Killian, lui, le grand costaud qui se croyait fort, n'arrêtait pas de tomber, de
+se prendre les roues dans celles des autres, de rater ses tirs. Il était rouge de
+frustration.
+
+— C'est trop dur, ce truc ! il a râlé. On voit rien, on tourne pas, c'est
+n'importe quoi !
+
+Adam a roulé jusqu'à lui, un grand sourire aux lèvres.
+
+— Bienvenue dans mon monde, Killian. C'est dur, hein ? Maintenant imagine que
+c'est pas un jeu d'une heure. Imagine que c'est tout le temps. Que c'est ta vie.
+
+Killian l'a regardé. Et il a éclaté de rire.
+
+— OK. OK, j'ai compris. T'es un génie là-dedans, en fait. Apprends-moi.
+
+Et Adam lui a appris. Le grand caïd du collège, prenant des cours de fauteuil
+auprès du garçon qu'il avait fait tomber dans un escalier six mois plus tôt. La vie
+a parfois de ces ironies qui ressemblent à des réconciliations.
+
+À la fin du tournoi, l'équipe d'Adam a gagné. Évidemment. Et pour la première fois,
+j'ai vu Adam porté en triomphe — pas porté comme un paquet dans un escalier, non :
+porté comme un champion, par des copains qui scandaient son nom. « A-DAM ! A-DAM ! »
+
+Monsieur Da Silva, à la fin, a réuni tout le monde et a dit :
+
+— Vous savez pourquoi je fais ce tournoi tous les ans ? Pas pour faire du sport.
+Pour ça. — Il a montré Adam, hissé sur les épaules des autres. — Pour que vous
+compreniez, une fois dans votre vie, dans votre corps, qu'un handicap, ça dépend
+de la situation. Mettez un valide en fauteuil sur un terrain de basket-fauteuil,
+et c'est lui le maladroit. Mettez Adam dans son élément, et c'est lui le champion.
+Le handicap n'est pas dans la personne. Il est dans le décalage entre la personne
+et un monde qui n'a pas été pensé pour elle. Changez le monde, et le handicap
+change de camp.
+
+Cette phrase a fait le tour du collège. « Le handicap change de camp. » Et ce
+soir-là, en rentrant, j'ai pensé à tous ces gens qu'on appelle « handicapés »
+comme si c'était une nature, une essence, alors que c'est juste une rencontre
+ratée entre quelqu'un et un monde mal fichu. Adam n'était pas « handicapé » sur un
+terrain de basket-fauteuil. Il était le roi. C'est l'escalier qui le rendait
+handicapé. Pas ses jambes.
+
+J'ai gardé une photo de ce jour-là. Adam, les bras levés, porté en triomphe, le
+sourire jusqu'aux oreilles. C'est ma photo préférée de toute cette année. Parce
+que sur celle-là, pour une fois, il n'y a aucun mur. Juste un garçon heureux,
+au-dessus de la foule, plus haut que tout le monde.
+
+---
+
+## Chapitre 9 — Le voyage
 
 Au mois d'avril, il y a eu le voyage scolaire.
 
@@ -415,7 +624,86 @@ pour moi. Il y a des étoiles qu'on ne raconte à personne.
 
 ---
 
-## Chapitre 7 — Ce que coûte un mur
+## Chapitre 10 — Sous les étoiles, loin de chez soi
+
+Le voyage à la cité de l'espace a duré cinq jours, et chacun mériterait un
+chapitre. Mais c'est le troisième soir que je veux raconter. Parce que c'est ce
+soir-là qu'on a tous compris, je crois, qu'on n'était plus seulement une classe.
+On était devenus quelque chose comme une famille.
+
+On logeait dans un centre de vacances, en pleine campagne, loin de toute ville.
+Le soir, après le dîner, monsieur Lemoine nous a emmenés dans un grand pré,
+derrière le bâtiment, avec des couvertures. Il faisait doux. Et là, loin des
+lumières de la ville, le ciel était… je ne sais pas comment décrire ça. Noir et
+plein. Plein à craquer d'étoiles. Des milliers. Des millions. La Voie lactée
+traversait le ciel comme une rivière de lait renversée.
+
+On s'est tous allongés dans l'herbe, en silence. Même Killian. Même les plus
+bavards. On ne peut pas faire le malin sous un ciel pareil. Ça remet à sa place.
+
+Et c'est Adam qui a parlé. Adam, dans son fauteuil, au milieu de nous tous
+allongés, la tête levée vers son royaume.
+
+— Vous voyez l'étoile, là, la plus brillante, vers le sud ? Ce n'est pas une
+étoile. C'est Jupiter. Une planète. La plus grosse du système solaire. On pourrait
+y mettre mille trois cents Terres dedans.
+
+Et il a continué. Il nous a raconté le ciel. Les constellations, leurs noms, leurs
+légendes. Les distances vertigineuses. La lumière des étoiles qui met des milliers
+d'années à nous arriver, si bien que certaines de celles qu'on voyait étaient
+peut-être déjà mortes — « on regarde le passé, là, en ce moment, on regarde des
+fantômes de lumière ». Il nous a parlé des trous noirs, des galaxies, de
+l'immensité. De sa voix grave, dans le noir, c'était comme écouter une histoire au
+coin du feu, sauf que le feu, c'était l'univers entier.
+
+Personne ne l'interrompait. Vingt-huit gamins suspendus aux lèvres d'un garçon en
+fauteuil qui leur offrait le ciel.
+
+Et à un moment, Manon, qui était allongée à côté de moi, a dit, de sa voix
+monocorde, dans le silence :
+
+— Là-haut, tout le monde flotte. Il n'y a pas de haut ni de bas. Il n'y a pas de
+marches. Adam pourrait aller partout.
+
+Personne n'a ri. Au contraire. Il y a eu un silence ému. Parce que Manon, qui ne
+comprenait jamais les sous-entendus, qui disait toujours tout au premier degré,
+venait de dire, sans le vouloir, la chose la plus juste et la plus belle de la
+soirée.
+
+— Exactement, Manon, a dit Adam doucement. Là-haut, je serais comme tout le monde.
+C'est pour ça que je veux y aller. Pas pour fuir. Pour être enfin dans un endroit
+qui a été fait pour des corps comme le mien. L'espace, c'est le seul endroit
+accessible de tout l'univers.
+
+Killian, dans le noir, a dit :
+
+— Bah quand tu construiras ta fusée, tu nous prends avec, hein. Toute la classe.
+On vient.
+
+— Promis, a dit Adam. Toute la classe. Y aura de la place pour tout le monde.
+Surtout pour les emmerdeurs.
+
+On a ri, doucement, sous les étoiles. Et puis on s'est tus, et on a regardé le
+ciel, tous ensemble, ce ciel sans murs ni escaliers, en se tenant un peu les uns
+contre les autres à cause de la fraîcheur de la nuit.
+
+Je n'ai jamais retrouvé, depuis, un moment aussi parfait. Vingt-huit enfants et
+deux profs, allongés dans un pré, sous un milliard d'étoiles, écoutant le plus
+sage d'entre eux leur expliquer l'univers. Si quelqu'un me demandait ce que c'est,
+au fond, l'école — la vraie, la belle —, je crois que je répondrais : c'est ça.
+C'est apprendre des choses immenses de la bouche de quelqu'un qu'on a appris à
+aimer. Le reste, les contrôles, les notes, ce n'est que de l'organisation.
+
+Cette nuit-là, j'ai compris pourquoi Adam regardait toujours vers le haut. Ce
+n'était pas pour fuir le sol et ses escaliers. C'était parce qu'il avait compris,
+avant nous tous, que la vraie mesure d'une personne, ce n'est pas si elle peut
+monter un escalier. C'est jusqu'où elle est capable de regarder.
+
+Et lui, il regardait jusqu'aux étoiles.
+
+---
+
+## Chapitre 11 — Ce que coûte un mur
 
 À notre retour du voyage, une mauvaise nouvelle nous attendait.
 
@@ -477,7 +765,7 @@ venir. J'ai été… insistant.
 
 ---
 
-## Chapitre 8 — Le grand projet
+## Chapitre 12 — Le grand projet
 
 Il restait un mois. Un mois pour transformer la Fête des talents en quelque chose
 qui ferait changer d'avis une élue qui avait dit non.
@@ -529,7 +817,92 @@ un mur d'épaules serrées, debout, ensemble, face à l'injustice.
 
 ---
 
-## Chapitre 9 — Le Parcours
+## Chapitre 13 — Les répétitions
+
+Construire *Le Parcours* a été le mois le plus épuisant et le plus heureux de
+l'année.
+
+On avait transformé une salle inutilisée, au rez-de-chaussée, en atelier. Tous les
+soirs après les cours, tous les mercredis, tous les samedis, on s'y retrouvait.
+Toute la classe. Avec des cartons, de la peinture, des spots empruntés au club
+théâtre de madame Auclair, des planches, des vis, et l'énergie folle des gens qui
+croient à ce qu'ils font.
+
+Et ce n'était pas simple. Rien n'était simple.
+
+La première version de la « marche infranchissable » était trop facile : les gens
+l'enjambaient en riant, ça ne marchait pas. C'est Adam qui a trouvé : il fallait
+attacher une consigne, et surtout, faire *attendre* les gens pour de vrai. « Le
+truc le plus dur à faire ressentir, c'est pas l'obstacle. C'est l'attente.
+L'humiliation d'attendre que quelqu'un veuille bien s'occuper de toi. »
+
+La station des yeux bandés a failli ne jamais marcher, parce que les gens
+trichaient, soulevaient le bandeau. Manon a résolu le problème, naturellement,
+avec une rigueur d'ingénieur : un parcours sonore où il fallait répondre à des
+questions qu'on ne pouvait entendre que dans le noir total. Impossible de tricher.
+
+Et puis il y a eu les disputes. Parce que oui, dans une équipe, même soudée, on se
+dispute. Sofia et Inès se sont accrochées pendant trois jours sur la couleur des
+panneaux. Killian a voulu tout abandonner un soir où rien ne marchait, où la
+peinture coulait, où un panneau était tombé. Il a balancé un pinceau à travers la
+salle en criant « ça sert à rien, on n'y arrivera jamais, c'est nul ! ».
+
+Et là, c'est Manon — Manon ! — qui l'a calmé. Elle s'est plantée devant lui, et de
+sa voix égale, sans une once d'émotion, elle a énoncé un fait, comme elle énonçait
+les horaires de train :
+
+— Tu as dit la même chose il y a trois semaines avant le conseil d'administration.
+Tu as dit « j'y arriverai jamais ». Et tu y es arrivé. C'est donc faux, quand tu
+dis que tu n'y arriveras jamais. Statistiquement, tu y arrives.
+
+Killian l'a fixée. Puis il a éclaté de rire, d'un rire qui a dénoué toute la
+tension de la salle.
+
+— Statistiquement. T'es incroyable, toi. OK. OK. On continue.
+
+Il a ramassé son pinceau.
+
+Madame Auclair venait nous aider, le soir, avec ses écharpes et ses conseils de
+mise en scène. Elle nous a appris des choses sur le rythme, sur le silence, sur la
+façon dont une lumière qui baisse peut serrer un cœur. « Le théâtre, c'est de
+l'émotion organisée », disait-elle. Monsieur Lemoine, lui, restait dans un coin à
+corriger ses copies, mais je voyais bien qu'il ne corrigeait pas grand-chose. Il
+nous regardait. Il veillait. Une fois, je l'ai entendu murmurer, pour lui-même,
+en nous regardant nous démener : « Et voilà. C'est exactement pour ça que je fais
+ce métier. »
+
+Le plus beau, c'est qu'à mesure que *Le Parcours* prenait forme, toute la classe
+changeait. Des élèves qui, en septembre, riaient avec Killian aux dépens d'Adam,
+peignaient maintenant des panneaux pour défendre sa cause, à genoux dans la
+peinture, jusqu'à pas d'heure. Sans même s'en rendre compte, ils étaient devenus
+autres. Parce que c'est ça que personne ne dit sur le respect : on ne le décrète
+pas avec des leçons de morale. On l'apprend en faisant quelque chose ensemble. On
+devient frères d'armes, et après, c'est trop tard pour se moquer : on s'aime.
+
+La veille de la Fête des talents, à minuit, on a fait la dernière répétition. Tout
+fonctionnait. Le Parcours était prêt. On était épuisés, couverts de peinture,
+ivres de fatigue et de fierté. On s'est assis en cercle au milieu de la salle, et
+on s'est regardés, sans rien dire.
+
+C'est Adam qui a brisé le silence.
+
+— Quoi qu'il arrive demain, a-t-il dit, je veux que vous sachiez un truc. Que ça
+marche ou pas avec la présidente du département, qu'on ait l'ascenseur ou pas…
+vous m'avez déjà donné le truc le plus important. Vous m'avez donné une classe.
+Des vrais potes. Pour la première fois depuis que je suis né. Et ça, aucun
+ascenseur au monde vaut ça. Merci.
+
+Personne n'a su quoi répondre. Alors Killian s'est levé, est allé vers Adam, et
+l'a serré dans ses bras. Et puis tout le monde s'y est mis. Un gros câlin
+collectif, ridicule et magnifique, de vingt-huit gamins barbouillés de peinture
+autour d'un fauteuil roulant, à minuit, la veille du grand jour.
+
+On ne le savait pas encore, mais on était déjà allés plus haut que tous les murs.
+Le reste, le spectacle, l'ascenseur, ce n'était que la cerise.
+
+---
+
+## Chapitre 14 — Le Parcours
 
 Le jour de la Fête des talents, le gymnase était plein à craquer.
 
@@ -594,7 +967,7 @@ sur son visage, s'est brisé.
 
 ---
 
-## Chapitre 10 — Ce qui tombe
+## Chapitre 15 — Ce qui tombe
 
 Il y a eu un long silence dans le gymnase.
 
@@ -660,7 +1033,83 @@ plus tôt :
 
 ---
 
-## Chapitre 11 — La rentrée d'après
+## Chapitre 16 — Ce qu'on devient ce soir-là
+
+Le soir de la Fête des talents, après le départ des derniers visiteurs, on est
+restés dans le gymnase, tous, à ranger. Mais on ne rangeait pas vraiment. On
+flottait. On revivait, encore et encore, le moment où le mur de carton était
+tombé, où la présidente avait promis l'ascenseur, où sept cents personnes avaient
+scandé notre slogan.
+
+Il y a des soirs qui vous changent. Celui-là en était un. Et je voudrais raconter
+ce qui s'est passé après, dans les coulisses, parce que c'est souvent là, loin des
+projecteurs, que les choses les plus importantes arrivent.
+
+Naïma, la mère d'Adam, est venue nous voir. Elle pleurait, mais de joie. Elle nous
+a tous embrassés, un par un. Et quand elle est arrivée à Killian, il y a eu un
+moment suspendu. Killian, qui avait fait tomber son fils. Killian, qui avait porté
+le projet sur ses épaules pour réparer. Elle l'a regardé longtemps. Puis elle l'a
+serré dans ses bras, fort, très fort, et elle lui a murmuré quelque chose à
+l'oreille que je n'ai pas entendu, mais qui a fait fondre en larmes ce grand
+gaillard qui, neuf mois plus tôt, faisait trembler tout le collège.
+
+Plus tard, il m'a dit ce qu'elle lui avait murmuré. Elle avait dit :
+« Tu vois, Killian ? Tu n'étais pas un monstre. Tu étais un enfant qui cherchait
+sa lumière. Et ce soir, tu l'as trouvée. »
+
+Il y avait aussi le père de Killian, ce soir-là. C'était la première fois qu'il
+venait à quelque chose, au collège. Il était resté au fond, mal à l'aise dans sa
+veste, les bras croisés. Mais il était venu. Et quand son fils avait pris le
+micro, tout à l'heure, pour guider le Parcours de sa voix grave et sûre, j'avais
+vu cet homme dur décroiser lentement les bras. J'avais vu quelque chose vaciller
+sur son visage fermé. Son fils, le « fainéant », le « bon à rien », celui qui « ne
+savait même pas lire » — son fils tenait sept cents personnes suspendues à sa
+voix.
+
+À la fin, le père s'est approché de Killian. Gauchement. Il ne savait pas faire,
+ça se voyait, les gestes tendres. Il a juste posé sa grosse main sur l'épaule de
+son fils, et il a dit, d'une voix bourrue :
+
+— C'était bien. Ce que t'as fait. C'était… ouais. C'était bien.
+
+Ce n'est pas grand-chose, dit comme ça. Mais pour Killian, qui n'avait jamais
+entendu son père lui dire qu'il était bien à quoi que ce soit, c'était un
+tremblement de terre. Il m'a raconté, après, qu'il avait failli s'évanouir. Ça ne
+réparait pas tout — ces choses-là ne se réparent pas en une phrase. Mais c'était
+une fissure dans le mur. Et par les fissures, on l'a dit, passe la lumière.
+
+Mes parents étaient venus, eux aussi. Tous les deux. Ensemble. Assis côte à côte
+dans le public, pour la première fois depuis juin. Ils ne s'étaient pas remis
+ensemble, non — ce n'est pas ce genre d'histoire, la vie ne se range pas si
+facilement. Mais ils étaient là, tous les deux, pour moi. Et à la fin, ils sont
+venus me voir, et ma mère a dit, en regardant le mur de carton tombé par terre :
+
+— Tu te souviens, à la rentrée, quand tu m'as dit que tu n'avais rien fait ?
+
+— Oui.
+
+— Eh bien voilà ce que tu as fait de ton année, Lina. — Elle a montré le gymnase,
+les panneaux, le mur tombé. — Tu as fait ça. Je n'ai jamais été aussi fière de
+toi de toute ma vie.
+
+Et mon père, à côté, a juste hoché la tête, les yeux brillants, incapable de
+parler.
+
+Ce soir-là, en rangeant un gymnase plein de cartons peints, j'ai compris une chose
+sur l'éducation. La vraie éducation, celle qui compte, elle ne se passe pas que
+dans les salles de classe. Elle se passe aussi dans les gymnases à minuit. Dans
+les couloirs qui puent le désinfectant. Dans les prés sous les étoiles. Elle se
+passe partout où des gens apprennent, ensemble, à devenir meilleurs qu'ils
+n'étaient. Et ce soir-là, on était tous devenus un peu meilleurs. Les enfants
+comme les parents. Killian comme son père. Moi comme les miens.
+
+On avait voulu changer un collège. On avait commencé par changer nous-mêmes.
+
+C'est peut-être toujours dans cet ordre que ça marche.
+
+---
+
+## Chapitre 17 — La rentrée d'après
 
 L'ascenseur a été installé pendant l'été.
 
@@ -704,7 +1153,7 @@ avoir empruntée à une classe particulièrement bornée et particulièrement g�
 
 ---
 
-## Chapitre 12 — Plus haut que les murs
+## Chapitre 18 — Plus haut que les murs
 
 Voilà. C'est presque la fin de mon histoire. Pas la fin de l'histoire — celle-là
 continue, elle continue encore aujourd'hui, dans tous les collèges où il reste
