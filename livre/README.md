@@ -31,6 +31,9 @@ n'est pas juste — et où l'on décide, ensemble, de le rendre un peu meilleur.
 
 ## Au début du livre
 
+- **[Le mot de l'autrice](Le-mot-de-l-autrice.md)** — pourquoi ce livre est né :
+  le témoignage de Lucette, chauffeuse de car que la maladie a obligée à s'arrêter,
+  et dont la force mentale a été plus forte que tout.
 - **[Remerciements](Remerciements.md)** — la dédicace de l'autrice aux Transports
   Bidegain, à Pierre et Martine Bidegain, à tous les collègues chauffeurs et à
   Monsieur Jean-Pierre Bidegain.
