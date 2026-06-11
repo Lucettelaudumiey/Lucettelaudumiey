@@ -102,4 +102,12 @@ style.css    → le thème et la mise en page
 script.js    → la logique du jeu (tirage, cartons, détection des quines)
 ```
 
-Fait avec ❤️ par Lucette Laudumiey — département **64**.
+## Propriété
+
+Application **propriété commune à parts égales (50 % / 50 %)** de
+**Lucette Laudumiey** et **Martine Coubluc** (sœurs jumelles, 64).
+© 2026 — Tous droits réservés. Voir [PROPRIETE.md](PROPRIETE.md).
+
+---
+
+Fait avec ❤️ par Lucette Laudumiey & Martine Coubluc — département **64**.

@@ -1,6 +1,8 @@
 /* ============================================================
-   Loto Bingo Automatique — Lucette Laudumiey du 64
+   Loto Bingo Automatique — du 64
    Jeu de loto traditionnel français (numéros 1 à 90)
+   © 2026 Lucette Laudumiey & Martine Coubluc — propriété commune
+   à parts égales. Tous droits réservés.
    ============================================================ */
 
 "use strict";

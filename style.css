@@ -292,6 +292,7 @@ body.follow-mode .cartons-bar { padding: 0; background: transparent; box-shadow:
 
 /* ---------- Footer ---------- */
 .app-footer { text-align: center; padding: 28px 16px 40px; color: var(--ink-soft); font-size: .9rem; }
+.app-footer .copyright { margin-top: 6px; font-size: .8rem; opacity: .8; }
 
 @media (max-width: 560px) {
   .ball.big { width: 120px; height: 120px; font-size: 3rem; }
