@@ -71,7 +71,10 @@ const el = {
   winClose: $("#winClose"),
   followBar: $("#followBar"),
   followLast: $("#followLast"),
-  followCount: $("#followCount")
+  followCount: $("#followCount"),
+  aboutBtn: $("#aboutBtn"),
+  aboutModal: $("#aboutModal"),
+  aboutClose: $("#aboutClose")
 };
 
 /* ============================================================
@@ -816,6 +819,13 @@ function init() {
   el.winClose.addEventListener("click", () => (el.winBanner.hidden = true));
   el.winBanner.addEventListener("click", (e) => {
     if (e.target === el.winBanner) el.winBanner.hidden = true;
+  });
+
+  // À propos / Acheter
+  el.aboutBtn.addEventListener("click", () => (el.aboutModal.hidden = false));
+  el.aboutClose.addEventListener("click", () => (el.aboutModal.hidden = true));
+  el.aboutModal.addEventListener("click", (e) => {
+    if (e.target === el.aboutModal) el.aboutModal.hidden = true;
   });
 
   // ----- Écran de suivi : on ne fait que refléter la partie -----
