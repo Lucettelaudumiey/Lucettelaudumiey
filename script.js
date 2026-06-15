@@ -1,5 +1,5 @@
 /* ============================================================
-   Loto Bingo Automatique — du 64
+   Loto Bingo de Lulu du 64
    Jeu de loto traditionnel français (numéros 1 à 90)
    © 2026 Lucette Laudumiey & Martine Coubluc — propriété commune
    à parts égales. Tous droits réservés.
@@ -434,7 +434,7 @@ function downloadCartons() {
   ctx.fillStyle = "#0f1437"; ctx.fillRect(0, 0, W, H);
   ctx.fillStyle = "#ffd23f"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
   ctx.font = "700 30px 'Baloo 2', Arial, sans-serif";
-  ctx.fillText("Loto Bingo Automatique — Lucette Laudumiey du 64", W / 2, TITLE / 2);
+  ctx.fillText("Loto Bingo de Lulu du 64", W / 2, TITLE / 2);
 
   // cartons
   state.cartons.forEach((c, i) => {

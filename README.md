@@ -1,4 +1,4 @@
-# 🎱 Loto Bingo Automatique — Lucette Laudumiey du 64
+# 🎱 Loto Bingo de Lulu du 64
 
 Une application web de **loto traditionnel français** (numéros 1 à 90), simple,
 colorée et sans installation. Parfaite pour animer une partie de loto en famille

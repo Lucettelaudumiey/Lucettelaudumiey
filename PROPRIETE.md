@@ -2,7 +2,7 @@
 
 ## Propriétaires
 
-Cette application — **« Loto Bingo Automatique »** — ainsi que son logo, son code
+Cette application — **« Loto Bingo de Lulu du 64 »** — ainsi que son logo, son code
 et l'ensemble de ses fichiers, sont la **propriété commune, à parts égales
 (50 % / 50 %)**, de :
 
