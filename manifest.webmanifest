@@ -1,7 +1,7 @@
 {
-  "name": "Loto Bingo de Lulu du 64",
+  "name": "Loto Bingo Lulu et Titine du 64",
   "short_name": "Loto Bingo",
-  "description": "Loto bingo automatique de Lucette Laudumiey (64) : tirage, cartons, quine et carton plein.",
+  "description": "Loto Bingo Lulu & Titine du 64 : suivi multiple de tous les lotos en ligne, par lien. Tirage, cartons, quine et carton plein.",
   "lang": "fr",
   "start_url": ".",
   "scope": ".",

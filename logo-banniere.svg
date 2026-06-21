@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0"    stop-color="#ffd9e8"/>
+      <stop offset="0.34" stop-color="#e9d4ff"/>
+      <stop offset="0.68" stop-color="#d2ecff"/>
+      <stop offset="1"    stop-color="#d3ffe8"/>
+    </linearGradient>
+    <radialGradient id="ball" cx="36%" cy="30%" r="78%">
+      <stop offset="0"    stop-color="#ffffff"/>
+      <stop offset="40%"  stop-color="#ffe6a8"/>
+      <stop offset="100%" stop-color="#ff9eb5"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="720" rx="60" fill="url(#bg)"/>
+  <circle cx="170" cy="150" r="46" fill="#ffffff" opacity="0.28"/>
+  <circle cx="1140" cy="560" r="60" fill="#ffffff" opacity="0.22"/>
+
+  <!-- boule de loto à gauche -->
+  <circle cx="300" cy="360" r="190" fill="url(#ball)"/>
+  <ellipse cx="248" cy="296" rx="58" ry="38" fill="#ffffff" opacity="0.6"/>
+  <text x="300" y="372" text-anchor="middle" dominant-baseline="central"
+        font-family="'Baloo 2','Arial Rounded MT Bold',Arial,sans-serif"
+        font-weight="700" font-size="190" fill="#7a3f6e">64</text>
+
+  <!-- bloc texte à droite -->
+  <text x="560" y="232" font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
+        font-size="92" letter-spacing="2" fill="#8a5cc7">LOTO BINGO</text>
+  <text x="560" y="330" font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
+        font-size="68" fill="#6c4bb3">Lulu &amp; Titine du 64</text>
+
+  <!-- slogan -->
+  <line x1="560" y1="378" x2="1180" y2="378" stroke="#b58fd6" stroke-width="3"/>
+  <text x="560" y="452" font-family="'Baloo 2',Arial,sans-serif" font-weight="600"
+        font-size="44" fill="#7a3f6e">Suivi multiple de tous les</text>
+  <text x="560" y="512" font-family="'Baloo 2',Arial,sans-serif" font-weight="600"
+        font-size="44" fill="#7a3f6e">lotos en ligne — par lien</text>
+</svg>

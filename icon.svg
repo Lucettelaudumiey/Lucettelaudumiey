@@ -38,10 +38,10 @@
         font-weight="700" font-size="120" fill="#7a3f6e">64</text>
 
   <!-- nom de la marque, sur deux lignes -->
-  <text x="256" y="408" text-anchor="middle"
+  <text x="256" y="405" text-anchor="middle"
         font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
-        font-size="60" fill="#6c4bb3">DE LULU</text>
-  <text x="256" y="466" text-anchor="middle"
+        font-size="46" fill="#6c4bb3">LULU &amp; TITINE</text>
+  <text x="256" y="462" text-anchor="middle"
         font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
-        font-size="54" fill="#6c4bb3">DU 64</text>
+        font-size="46" fill="#6c4bb3">DU 64</text>
 </svg>

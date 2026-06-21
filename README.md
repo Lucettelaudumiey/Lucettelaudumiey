@@ -1,4 +1,6 @@
-# 🎱 Loto Bingo de Lulu du 64
+# 🎱 Loto Bingo Lulu et Titine du 64
+
+> **Suivi multiple de tous les lotos en ligne — par lien.**
 
 Une application web de **loto traditionnel français** (numéros 1 à 90), simple,
 colorée et sans installation. Parfaite pour animer une partie de loto en famille
