@@ -54,7 +54,7 @@ pointez les numéros annoncés et l'appli surveille vos plaques.
 
 ### 👉 Lien pour essayer sur la tablette
 
-**https://lucettelaudumiey.github.io/**
+**https://lucettelaudumiey.github.io/Lucettelaudumiey/**
 
 Ouvrez ce lien dans le navigateur de la tablette, puis ajoutez-le à l'écran
 d'accueil pour l'utiliser comme une vraie application.
