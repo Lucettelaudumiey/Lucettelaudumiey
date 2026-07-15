@@ -52,6 +52,8 @@ const el = {
   cartons: $("#cartons"),
   cartonCount: $("#cartonCount"),
   genBtn: $("#genCartonsBtn"),
+  importBtn: $("#importBtn"),
+  csvImport: $("#csvImport"),
   addPlaqueBtn: $("#addPlaqueBtn"),
   downloadBtn: $("#downloadBtn"),
   csvBtn: $("#csvBtn"),
@@ -365,6 +367,59 @@ function savePlaque() {
   closePlaqueModal();
 }
 
+/* ---------- Import d'une planche CommuPass (fichier CSV) ----------
+   Format d'une ligne :
+   N°851597 - BINGO LOTO - Planche N°71633,4294198070,33-48-50-...-88-
+   -> le dernier champ = 15 numéros (3 lignes de 5) séparés par des tirets */
+function importCommupassText(text) {
+  const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+  let added = 0, skipped = 0;
+  let nextId = state.cartons.reduce((m, c) => Math.max(m, c.id), 0) + 1;
+
+  lines.forEach((line) => {
+    const parts = line.split(",").map((s) => s.trim());
+    // le champ des numéros ne contient que des chiffres et des tirets
+    const numField = parts.find((p) => p.includes("-") && /^[0-9\s-]+$/.test(p));
+    if (!numField) { skipped++; return; }
+    const nums = (numField.match(/\d+/g) || []).map(Number).filter((n) => n >= 1 && n <= 90);
+    if (nums.length !== 15 || new Set(nums).size !== 15) { skipped++; return; }
+
+    const rows = [nums.slice(0, 5), nums.slice(5, 10), nums.slice(10, 15)];
+    const grid = rows.map(rowToCells);
+    if (grid.some((g) => g === null)) { skipped++; return; }
+
+    // référence du carton (ex. N°851597) pour le retrouver
+    const label = parts.find((p) => /[A-Za-z]/.test(p)) || "";
+    const m = label.match(/N°\s*(\d+)/);
+    const ref = m ? "N°" + m[1] : "";
+
+    state.cartons.push({ id: nextId++, grid, achieved: "none", name: "", ref });
+    added++;
+  });
+
+  renderCartons();
+  markCartons(true);
+  if (currentView === "regie") requestAnimationFrame(fitRegie);
+  save();
+  return { added, skipped };
+}
+
+function handleCsvFile(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const res = importCommupassText(String(reader.result));
+    if (res.added === 0) {
+      alert("Aucun carton reconnu dans ce fichier.\nVérifiez qu'il s'agit bien d'un export CommuPass (.csv).");
+    } else {
+      let msg = `✅ ${res.added} carton(s) importé(s) !`;
+      if (res.skipped) msg += `\n(${res.skipped} ligne(s) ignorée(s).)`;
+      alert(msg);
+    }
+  };
+  reader.readAsText(file, "utf-8");
+}
+
 /* ---------- Téléchargement des cartons en image PNG ---------- */
 function roundRect(ctx, x, y, w, h, r) {
   ctx.beginPath();
@@ -488,7 +543,7 @@ function cartonNode(c) {
   head.className = "carton-head";
   head.innerHTML =
     `<input class="carton-name" type="text" placeholder="Nom du joueur" maxlength="24" />` +
-    `<span class="carton-no">n°${c.id}</span>` +
+    `<span class="carton-no">${c.ref ? c.ref : "n°" + c.id}</span>` +
     `<span class="carton-score">·</span>` +
     `<span class="carton-badge">en jeu</span>`;
   const nameInput = head.querySelector(".carton-name");
@@ -842,6 +897,11 @@ function init() {
     if (state.auto) { stopAuto(); toggleAuto(); }
   });
   el.genBtn.addEventListener("click", generateCartons);
+  el.importBtn.addEventListener("click", () => el.csvImport.click());
+  el.csvImport.addEventListener("change", (e) => {
+    handleCsvFile(e.target.files[0]);
+    e.target.value = ""; // permet de ré-importer le même fichier
+  });
   el.addPlaqueBtn.addEventListener("click", openPlaqueModal);
   el.pmSave.addEventListener("click", savePlaque);
   el.pmCancel.addEventListener("click", closePlaqueModal);

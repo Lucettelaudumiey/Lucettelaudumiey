@@ -107,7 +107,9 @@
           Nombre de cartons
           <input type="number" id="cartonCount" min="1" max="24" value="2" />
         </label>
-        <button id="addPlaqueBtn" class="btn btn-primary">➕ Saisir une plaque achetée</button>
+        <button id="importBtn" class="btn btn-primary">📂 Importer une planche (CSV)</button>
+        <input type="file" id="csvImport" accept=".csv,text/csv,text/plain" hidden />
+        <button id="addPlaqueBtn" class="btn btn-ghost">➕ Saisir une plaque à la main</button>
         <button id="genCartonsBtn" class="btn btn-ghost">🎟️ Générer des cartons</button>
         <button id="downloadBtn" class="btn btn-ghost">📥 Télécharger (image)</button>
         <button id="csvBtn" class="btn btn-ghost">📄 CSV (Excel)</button>
