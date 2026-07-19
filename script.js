@@ -389,11 +389,18 @@ function importCommupassText(text) {
     if (grid.some((g) => g === null)) { skipped++; return; }
 
     // référence du carton (ex. N°851597) pour le retrouver
-    const label = parts.find((p) => /[A-Za-z]/.test(p)) || "";
+    const isTechnical = (p) => /bingo|loto|planche|carton/i.test(p);
+    const label = parts.find((p) => /[A-Za-z]/.test(p) && isTechnical(p)) || "";
     const m = label.match(/N°\s*(\d+)/);
     const ref = m ? "N°" + m[1] : "";
 
-    state.cartons.push({ id: nextId++, grid, achieved: "none", name: "", ref });
+    // nom de l'acheteur si le fichier en contient un (champ texte hors étiquette)
+    const nameField = parts.find(
+      (p) => /[A-Za-zÀ-ÿ]/.test(p) && !isTechnical(p) && !/^[0-9\s.-]+$/.test(p)
+    );
+    const name = nameField ? nameField.trim() : "";
+
+    state.cartons.push({ id: nextId++, grid, achieved: "none", name, ref });
     added++;
   });
 
