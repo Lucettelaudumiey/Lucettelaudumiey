@@ -61,6 +61,7 @@
       <button class="tab is-active" data-view="tirage">Tirage</button>
       <button class="tab" data-view="cartons">Mes cartons</button>
       <button class="tab" data-view="regie">Tout-en-un</button>
+      <button class="tab" data-view="multi">Toutes les parties</button>
       <button id="eventBtn" class="theme-tab" title="Infos de la partie">📋</button>
       <button id="themeBtnTop" class="theme-tab" title="Changer les couleurs">🎨</button>
     </nav>
@@ -214,6 +215,13 @@
         </section>
       </div>
     </div>
+  </main>
+
+  <!-- ====================== VUE TOUTES LES PARTIES ====================== -->
+  <main id="view-multi" class="view">
+    <h2 class="section-title">🗂️ Toutes les parties</h2>
+    <p class="board-hint">Suivez toutes vos parties d'un coup d'œil. Cliquez « Ouvrir » pour aller sur l'une d'elles.</p>
+    <div id="multiGrid" class="multi-grid"></div>
   </main>
 
   <!-- Saisie d'une plaque achetée -->

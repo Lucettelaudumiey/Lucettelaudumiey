@@ -114,6 +114,7 @@ const el = {
   partyDup: $("#partyDup"),
   partyDel: $("#partyDel"),
   eventInfo: $("#eventInfo"),
+  multiGrid: $("#multiGrid"),
   eventBtn: $("#eventBtn"),
   eventModal: $("#eventModal"),
   evPartie: $("#evPartie"),
@@ -729,6 +730,7 @@ function markCartons(silent = false) {
 
   // en vue Tout-en-un, on garde les mieux placés en tête
   if (currentView === "regie") { rankCartons(); adaptRegieGrid(); }
+  if (currentView === "multi") renderMultiView();
   save();
 }
 
@@ -1038,6 +1040,7 @@ function activateView(name) {
   document.querySelectorAll(".view").forEach((v) => v.classList.remove("is-active"));
   $("#view-" + name).classList.add("is-active");
   currentView = name;
+  if (name === "multi") renderMultiView();
 }
 
 /* ============================================================
@@ -1187,6 +1190,85 @@ function resetAll() {
     renderAll(); renderPartyBar(); save();
   });
 }
+// Statistiques d'une partie (pour la vue d'ensemble)
+function partyStats(p) {
+  const drawn = new Set(p.drawn || []);
+  let best = 0;
+  const winners = [];
+  (p.cartons || []).forEach((c) => {
+    let br = 0, total = 0, completed = 0;
+    c.grid.forEach((row) => {
+      const nums = row.filter((v) => v !== null);
+      const hits = nums.filter((v) => drawn.has(v)).length;
+      if (hits > br) br = hits;
+      total += hits;
+      if (hits === nums.length) completed++;
+    });
+    if (br > best) best = br;
+    const level = total === 15 ? "plein" : completed >= 2 ? "double" : completed >= 1 ? "quine" : "none";
+    if (level !== "none") winners.push({ c, level });
+  });
+  return { best, winners, tir: (p.drawn || []).length };
+}
+function levelLabel(l) { return l === "plein" ? "Carton plein" : l === "double" ? "Double quine" : "Quine"; }
+
+// Affiche toutes les parties côte à côte
+function renderMultiView() {
+  if (!el.multiGrid) return;
+  el.multiGrid.innerHTML = "";
+  parties.forEach((p) => {
+    const st = partyStats(p);
+    const ev = p.event || {};
+    const evLine = [ev.assoc, ev.date ? formatDate(ev.date) : "", ev.orga].filter(Boolean).join(" · ");
+    const last = (p.drawn && p.drawn.length) ? p.drawn[p.drawn.length - 1] : "—";
+
+    const card = document.createElement("div");
+    card.className = "party-card";
+
+    const head = document.createElement("div");
+    head.className = "pc-head";
+    head.innerHTML = `<span class="pc-name">${p.name || "Partie"}</span>` +
+      (p.id === currentId ? `<span class="pc-current">en cours</span>` : "");
+    card.appendChild(head);
+
+    if (evLine) {
+      const e = document.createElement("div"); e.className = "pc-ev"; e.textContent = evLine; card.appendChild(e);
+    }
+
+    const stats = document.createElement("div");
+    stats.className = "pc-stats";
+    stats.innerHTML = `<span><b>${st.tir}</b>/90 tirés</span><span>dernier&nbsp;: <b>${last}</b></span>` +
+      `<span><b>${(p.cartons || []).length}</b> cartons</span><span>meilleur&nbsp;: <b>${st.best}/5</b></span>`;
+    card.appendChild(stats);
+
+    const board = document.createElement("div");
+    board.className = "pc-board";
+    const ds = new Set(p.drawn || []);
+    for (let n = 1; n <= 90; n++) {
+      const c = document.createElement("div");
+      c.className = "pc-cell" + (ds.has(n) ? " on" : "");
+      board.appendChild(c);
+    }
+    card.appendChild(board);
+
+    const win = document.createElement("div");
+    win.className = "pc-winners" + (st.winners.length ? " has" : "");
+    win.innerHTML = st.winners.length
+      ? "🏆 " + st.winners.map((w) => `${levelLabel(w.level)} ${w.c.ref || ("n°" + w.c.id)}` +
+          (w.c.name && w.c.name.trim() ? " (" + w.c.name.trim() + ")" : "")).join("<br>🏆 ")
+      : "Aucun gagnant pour l'instant";
+    card.appendChild(win);
+
+    const btn = document.createElement("button");
+    btn.className = "btn btn-primary pc-open";
+    btn.textContent = "Ouvrir cette partie ▸";
+    btn.addEventListener("click", () => { switchParty(p.id); activateView("tirage"); });
+    card.appendChild(btn);
+
+    el.multiGrid.appendChild(card);
+  });
+}
+
 function setupParties() {
   renderPartyBar();
   el.partySelect.addEventListener("change", () => switchParty(el.partySelect.value));
