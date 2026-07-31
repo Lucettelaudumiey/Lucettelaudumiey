@@ -108,9 +108,10 @@ body {
 .objective-bar { margin-top: 18px; display: flex; flex-direction: column; gap: 12px; align-items: center; }
 .obj-steps { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
 .obj-step {
-  padding: 7px 14px; border-radius: 999px; font-weight: 700; font-size: .9rem;
-  background: rgba(255,255,255,.10); color: var(--ink-soft);
+  padding: 7px 14px; border-radius: 999px; font-weight: 700; font-size: .9rem; cursor: pointer;
+  background: rgba(255,255,255,.10); color: var(--ink-soft); transition: .15s; user-select: none;
 }
+.obj-step:hover { background: rgba(255,255,255,.22); }
 .obj-step.is-done { background: var(--plein); color: #062c16; opacity: .8; }
 .obj-step.is-current { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #2a1a00; transform: scale(1.06); }
 .obj-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }

@@ -1277,11 +1277,15 @@ function renderObjective() {
   }
 }
 function nextObjective() {
-  const p = currentParty();
-  const cur = objectiveOf(p);
-  p.objective = cur === "quine" ? "double" : cur === "double" ? "plein" : "plein";
+  const cur = objectiveOf(currentParty());
+  setObjective(cur === "quine" ? "double" : "plein");
+}
+// choisir directement un objectif (corrige un « Suivant » cliqué par erreur)
+function setObjective(level) {
+  if (!OBJ_RANK[level]) return;
+  currentParty().objective = level;
   renderObjective();
-  markCartons();       // annonce les cartons qui remplissent déjà le nouvel objectif
+  markCartons();       // annonce les cartons qui remplissent déjà l'objectif choisi
   save();
 }
 function clearGame() {
@@ -1661,6 +1665,9 @@ function init() {
   el.resetAllBtn.addEventListener("click", resetAll);
   el.objNext.addEventListener("click", nextObjective);
   el.objClear.addEventListener("click", clearGame);
+  document.querySelectorAll(".obj-step").forEach((s) => {
+    s.addEventListener("click", () => setObjective(s.dataset.lvl));
+  });
   el.drawBtn.addEventListener("click", drawNumber);
   el.autoBtn.addEventListener("click", toggleAuto);
   el.resetBtn.addEventListener("click", newGame);
