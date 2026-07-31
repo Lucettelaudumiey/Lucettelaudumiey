@@ -202,12 +202,13 @@ body {
   background: linear-gradient(160deg, #fff8e6, #ffe9c7); border-radius: 16px; padding: 14px;
   box-shadow: var(--shadow); color: #3a2400;
 }
-.carton-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
+.carton-head { display: flex; flex-direction: column; align-items: stretch; gap: 8px; margin-bottom: 10px; }
+.carton-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .carton-title { font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 1.1rem; }
 .carton-name {
-  flex: 1; min-width: 0; font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 1.05rem;
-  color: #3a2400; background: rgba(255,255,255,.55); border: 1px dashed #c8a96a;
-  border-radius: 8px; padding: 6px 10px;
+  width: 100%; box-sizing: border-box; font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 1.05rem;
+  color: #3a2400; background: #fffdf7; border: 2px dashed #c8a96a;
+  border-radius: 10px; padding: 10px 12px;
 }
 .carton-name:focus { outline: none; border-style: solid; border-color: #b9821b; background: #fff; }
 .carton-name::placeholder { color: #b08a4a; font-weight: 600; }
@@ -1442,11 +1443,13 @@ function cartonNode(c) {
     ? `<button class="carton-apply" title="Donner ce nom à tous les cartons de la planche N°${c.planche}">👥 toute la planche</button>`
     : "";
   head.innerHTML =
-    `<input class="carton-name" type="text" placeholder="Nom du joueur" maxlength="24" />` +
-    applyBtn +
-    `<span class="carton-no">${c.ref ? c.ref : "n°" + c.id}</span>` +
-    `<span class="carton-score">·</span>` +
-    `<span class="carton-badge">en jeu</span>`;
+    `<input class="carton-name" type="text" placeholder="✍️ Nom du joueur…" maxlength="24" />` +
+    `<div class="carton-meta">` +
+      applyBtn +
+      `<span class="carton-no">${c.ref ? c.ref : "n°" + c.id}</span>` +
+      `<span class="carton-score">·</span>` +
+      `<span class="carton-badge">en jeu</span>` +
+    `</div>`;
   const nameInput = head.querySelector(".carton-name");
   nameInput.value = c.name || "";
   if (FOLLOW) {
