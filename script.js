@@ -928,10 +928,32 @@ let currentView = "tirage";
 // La vue « Tout-en-un » réutilise les vrais blocs (tirage + tableau + cartons)
 // en les déplaçant : on les sort de leur vue d'origine, puis on les y remet.
 function enterRegie() {
-  $("#regieDraw").append($(".draw-stage"), $(".stats"), $(".board-wrap"));
+  $("#regieDraw").append($(".draw-stage"), $(".stats"));
+  $("#regieBoardSlot").append($(".board-wrap"));
   $("#regieCartons").append($("#cartons"));
+  applyRegieOrder();
   rankCartons();
   adaptRegieGrid();
+  requestAnimationFrame(fitRegie);
+}
+// Ordre des blocs (déplaçable par l'utilisateur)
+function applyRegieOrder() {
+  const flow = $("#regieFlow");
+  if (!flow) return;
+  let order = [];
+  try { order = JSON.parse(localStorage.getItem("loto64-regie-order")) || []; } catch (e) { /* ignore */ }
+  order.forEach((name) => {
+    const item = flow.querySelector(`.regie-item[data-item="${name}"]`);
+    if (item) flow.appendChild(item);
+  });
+}
+function moveRegieItem(item, dir) {
+  const flow = $("#regieFlow");
+  if (!flow || !item) return;
+  if (dir < 0 && item.previousElementSibling) flow.insertBefore(item, item.previousElementSibling);
+  else if (dir > 0 && item.nextElementSibling) flow.insertBefore(item.nextElementSibling, item);
+  const order = [...flow.querySelectorAll(".regie-item")].map((s) => s.dataset.item);
+  try { localStorage.setItem("loto64-regie-order", JSON.stringify(order)); } catch (e) { /* ignore */ }
   requestAnimationFrame(fitRegie);
 }
 function exitRegie() {
@@ -1742,6 +1764,9 @@ function init() {
   el.objClear.addEventListener("click", clearGame);
   document.querySelectorAll(".obj-step").forEach((s) => {
     s.addEventListener("click", () => setObjective(s.dataset.lvl));
+  });
+  document.querySelectorAll(".ri-btn").forEach((btn) => {
+    btn.addEventListener("click", () => moveRegieItem(btn.closest(".regie-item"), Number(btn.dataset.dir)));
   });
   el.drawBtn.addEventListener("click", drawNumber);
   el.autoBtn.addEventListener("click", toggleAuto);

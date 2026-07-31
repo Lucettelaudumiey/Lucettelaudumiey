@@ -227,14 +227,19 @@
 
   <!-- ====================== VUE TOUT-EN-UN (régie) ====================== -->
   <main id="view-regie" class="view">
+    <p class="board-hint" style="text-align:center">↔️ Déplacez les blocs avec les flèches <strong>◀ ▶</strong> pour arranger l'écran comme vous voulez.</p>
     <div id="regieStage" class="regie-stage">
-      <div class="regie-layout">
-        <section class="regie-col regie-col-draw">
-          <h2 class="section-title">🎤 Tirage</h2>
+      <div id="regieFlow" class="regie-flow">
+        <section class="regie-item" data-item="draw">
+          <div class="ri-head"><span>🎤 Tirage</span><span class="ri-move"><button class="ri-btn" data-dir="-1" title="Déplacer avant">◀</button><button class="ri-btn" data-dir="1" title="Déplacer après">▶</button></span></div>
           <div id="regieDraw" class="regie-slot"></div>
         </section>
-        <section class="regie-col">
-          <h2 class="section-title">🎟️ Cartons — les 12 mieux placés</h2>
+        <section class="regie-item" data-item="board">
+          <div class="ri-head"><span>🔢 Tableau des 90 numéros</span><span class="ri-move"><button class="ri-btn" data-dir="-1" title="Déplacer avant">◀</button><button class="ri-btn" data-dir="1" title="Déplacer après">▶</button></span></div>
+          <div id="regieBoardSlot" class="regie-slot"></div>
+        </section>
+        <section class="regie-item" data-item="cartons">
+          <div class="ri-head"><span>🎟️ Cartons — les 12 mieux placés</span><span class="ri-move"><button class="ri-btn" data-dir="-1" title="Déplacer avant">◀</button><button class="ri-btn" data-dir="1" title="Déplacer après">▶</button></span></div>
           <div id="regieCartons" class="regie-slot"></div>
         </section>
       </div>

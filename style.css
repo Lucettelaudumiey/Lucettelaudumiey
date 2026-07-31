@@ -273,20 +273,21 @@ body {
 /* la scène a une taille fixe ; le JS la redimensionne pour remplir l'écran */
 #view-regie { max-width: none; padding: 8px; overflow: auto; }
 .regie-stage { width: 1280px; margin: 0 auto; transform-origin: top left; }
-.regie-layout { display: flex; flex-direction: column; gap: 14px; }
-.regie-col { min-width: 0; }
-.regie-col .section-title { margin: 2px 0 8px; }
 
-/* bande du haut : tirage à gauche, tableau des 90 numéros à droite */
-#regieDraw {
-  display: grid; grid-template-columns: 320px 1fr;
-  grid-template-areas: "draw board" "stats board"; gap: 16px; align-items: start;
-}
-#regieDraw .draw-stage { grid-area: draw; padding: 16px; }
-#regieDraw .stats { grid-area: stats; margin: 12px 0 0; }
-#regieDraw .board-wrap { grid-area: board; max-width: 560px; margin: 0; }
-#regieDraw .board { grid-template-rows: none; gap: 7px; padding: 14px; }
-#regieDraw .cell { font-size: clamp(1rem, 2.2vw, 1.6rem); }
+/* blocs déplaçables (Tirage / Tableau / Cartons) */
+.regie-flow { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+.regie-item { min-width: 0; }
+.regie-item[data-item="draw"] { flex: 0 0 auto; width: 340px; }
+.regie-item[data-item="board"] { flex: 0 0 auto; width: 560px; }
+.regie-item[data-item="cartons"] { flex: 1 1 100%; }
+.ri-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 2px 0 8px; font-family: "Baloo 2", sans-serif; font-weight: 700; color: var(--ink-soft); }
+.ri-move { display: flex; gap: 6px; }
+.ri-btn { border: 0; cursor: pointer; background: rgba(255,255,255,.14); color: var(--ink); border-radius: 8px; padding: 4px 12px; font-size: 1rem; line-height: 1; }
+.ri-btn:hover { background: rgba(255,255,255,.28); }
+.regie-item .board-wrap { margin: 0; }
+.regie-item .board { grid-template-rows: none; gap: 7px; padding: 14px; }
+.regie-item .cell { font-size: clamp(1rem, 2.2vw, 1.6rem); }
+.regie-slot .stats { margin: 12px 0 0; }
 .regie-slot .ball.big { width: 92px; height: 92px; font-size: 2.3rem; }
 .regie-slot .ball.big.empty { font-size: 1.5rem; }
 .regie-slot .current-label { font-size: .95rem; }
