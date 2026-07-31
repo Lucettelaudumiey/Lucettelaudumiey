@@ -42,6 +42,11 @@ function makeParty(name) {
 let parties = [];
 let currentId = null;
 function currentParty() { return parties.find((p) => p.id === currentId) || parties[0]; }
+// une couleur par partie (pour les distinguer)
+const PARTY_COLORS = ["#4cc9f0", "#ff8a3d", "#2ecc71", "#b15bff", "#ff5d99", "#ffd23f", "#33d1c9", "#ff5d73", "#8ede5a", "#ff6ec7"];
+function ensurePartyColors() {
+  parties.forEach((p, i) => { if (!p.color) p.color = PARTY_COLORS[i % PARTY_COLORS.length]; });
+}
 // l'état de travail (state) pointe directement sur les tableaux de la partie
 function stateFromParty(p) {
   if (!p.event) p.event = { assoc: "", orga: "", date: "" };
@@ -114,6 +119,8 @@ const el = {
   partyDup: $("#partyDup"),
   partyDel: $("#partyDel"),
   eventInfo: $("#eventInfo"),
+  partyDot: $("#partyDot"),
+  evColors: $("#evColors"),
   multiGrid: $("#multiGrid"),
   eventBtn: $("#eventBtn"),
   eventModal: $("#eventModal"),
@@ -1143,6 +1150,7 @@ function renderEventInfo() {
 }
 function renderPartyBar() {
   if (!el.partySelect) return;
+  ensurePartyColors();
   el.partySelect.innerHTML = "";
   parties.forEach((p) => {
     const o = document.createElement("option");
@@ -1150,6 +1158,7 @@ function renderPartyBar() {
     if (p.id === currentId) o.selected = true;
     el.partySelect.appendChild(o);
   });
+  if (el.partyDot) el.partyDot.style.background = (currentParty() && currentParty().color) || "var(--accent)";
   renderEventInfo();
 }
 function switchParty(id) {
@@ -1215,6 +1224,7 @@ function levelLabel(l) { return l === "plein" ? "Carton plein" : l === "double" 
 // Affiche toutes les parties côte à côte
 function renderMultiView() {
   if (!el.multiGrid) return;
+  ensurePartyColors();
   el.multiGrid.innerHTML = "";
   parties.forEach((p) => {
     const st = partyStats(p);
@@ -1224,10 +1234,11 @@ function renderMultiView() {
 
     const card = document.createElement("div");
     card.className = "party-card";
+    card.style.borderLeftColor = p.color || "var(--accent)";
 
     const head = document.createElement("div");
     head.className = "pc-head";
-    head.innerHTML = `<span class="pc-name">${p.name || "Partie"}</span>` +
+    head.innerHTML = `<span class="pc-name" style="color:${p.color}">${p.name || "Partie"}</span>` +
       (p.id === currentId ? `<span class="pc-current">en cours</span>` : "");
     card.appendChild(head);
 
@@ -1247,6 +1258,7 @@ function renderMultiView() {
     for (let n = 1; n <= 90; n++) {
       const c = document.createElement("div");
       c.className = "pc-cell" + (ds.has(n) ? " on" : "");
+      if (ds.has(n)) c.style.background = p.color;
       board.appendChild(c);
     }
     card.appendChild(board);
@@ -1276,12 +1288,32 @@ function setupParties() {
   el.partyDup.addEventListener("click", duplicateParty);
   el.partyDel.addEventListener("click", deleteParty);
 }
+function buildEventColors() {
+  if (!el.evColors) return;
+  ensurePartyColors();
+  el.evColors.innerHTML = "";
+  PARTY_COLORS.forEach((col) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "ev-color" + (currentParty().color === col ? " sel" : "");
+    b.style.background = col;
+    b.addEventListener("click", () => {
+      currentParty().color = col;
+      buildEventColors();
+      renderPartyBar();
+      if (currentView === "multi") renderMultiView();
+      save();
+    });
+    el.evColors.appendChild(b);
+  });
+}
 function setupEvent() {
   const open = () => {
     el.evPartie.value = currentParty().name || "";
     el.evAssoc.value = state.event.assoc || "";
     el.evOrga.value = state.event.orga || "";
     el.evDate.value = state.event.date || "";
+    buildEventColors();
     el.eventModal.hidden = false;
   };
   el.eventBtn.addEventListener("click", open);

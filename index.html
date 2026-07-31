@@ -79,6 +79,7 @@
   <div id="eventBar" class="event-bar">
     <div class="party-ctrls">
       <span class="party-label">🎯 Partie</span>
+      <span id="partyDot" class="party-dot"></span>
       <select id="partySelect"></select>
       <button id="partyNew" class="mini-btn" title="Nouvelle partie">➕</button>
       <button id="partyDup" class="mini-btn" title="Dupliquer la partie">⧉</button>
@@ -104,6 +105,9 @@
       <label class="modal-field">Date
         <input id="evDate" type="date" />
       </label>
+      <div class="modal-field">Couleur de la partie
+        <div id="evColors" class="ev-colors"></div>
+      </div>
       <div class="modal-actions">
         <button id="eventClear" class="btn btn-ghost">Effacer</button>
         <button id="eventClose" class="btn btn-primary">OK</button>

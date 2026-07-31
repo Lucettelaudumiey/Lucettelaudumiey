@@ -357,7 +357,7 @@ body {
 
 /* ---------- Vue « Toutes les parties » ---------- */
 .multi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.party-card { background: var(--card); border-radius: 16px; padding: 14px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 8px; }
+.party-card { background: var(--card); border-radius: 16px; padding: 14px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 8px; border-left: 7px solid var(--accent); }
 .pc-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .pc-name { font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 1.1rem; }
 .pc-current { font-size: .7rem; background: var(--accent); color: #2a1a00; padding: 2px 8px; border-radius: 999px; font-weight: 700; white-space: nowrap; }
@@ -379,6 +379,10 @@ body {
 }
 .party-ctrls { display: flex; align-items: center; gap: 6px; }
 .party-label { color: var(--ink-soft); font-weight: 600; font-size: .9rem; }
+.party-dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; background: var(--accent); box-shadow: 0 0 0 2px rgba(255,255,255,.2); }
+.ev-colors { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.ev-color { width: 30px; height: 30px; border-radius: 50%; border: 3px solid transparent; cursor: pointer; padding: 0; }
+.ev-color.sel { border-color: #fff; }
 #partySelect {
   font-family: inherit; font-weight: 600; font-size: .95rem; color: var(--ink);
   background: var(--card-2); border: 1px solid rgba(255,255,255,.15);
