@@ -37,7 +37,7 @@ function fullPool() { return Array.from({ length: 90 }, (_, i) => i + 1); }
 function uid() { return "p" + Date.now().toString(36) + Math.floor(Math.random() * 1e6).toString(36); }
 function makeParty(name) {
   return { id: uid(), name: name || "Partie 1", drawn: [], pool: fullPool(),
-           cartons: [], event: { assoc: "", orga: "", date: "" } };
+           cartons: [], event: { assoc: "", orga: "", date: "" }, objective: "quine" };
 }
 let parties = [];
 let currentId = null;
@@ -66,6 +66,7 @@ const $ = (sel) => document.querySelector(sel);
 const el = {
   ball: $("#currentBall"),
   label: $("#currentLabel"),
+  awaitedBox: $("#awaitedBox"),
   drawBtn: $("#drawBtn"),
   autoBtn: $("#autoBtn"),
   resetBtn: $("#resetBtn"),
@@ -114,6 +115,10 @@ const el = {
   themeClose: $("#themeClose"),
   winNewGame: $("#winNewGame"),
   resetAllBtn: $("#resetAllBtn"),
+  objNext: $("#objNext"),
+  objClear: $("#objClear"),
+  zoomOut: $("#zoomOut"),
+  zoomIn: $("#zoomIn"),
   partySelect: $("#partySelect"),
   partyNew: $("#partyNew"),
   partyDup: $("#partyDup"),
@@ -290,7 +295,9 @@ function newGame() {
   updateStats();
   refreshBoard();
   // on garde les cartons mais on remet les marquages à zéro
-  state.cartons.forEach((c) => (c.achieved = "none"));
+  const cp = currentParty(); if (cp) cp.objective = "quine";
+  state.cartons.forEach((c) => { c.achieved = "none"; c.annObj = 0; });
+  renderObjective();
   renderCartons();
   save();
 }
@@ -733,19 +740,22 @@ function markCartons(silent = false) {
     const scoreEl = node.querySelector(".carton-score");
     if (scoreEl) scoreEl.textContent = isPlein ? "15/15" : bestRow + "/5";
 
-    // collecte les nouveaux gagnants
-    if (!silent && rank[level] > rank[c.achieved]) {
-      winners.push({ c, level });
+    // collecte les gagnants qui remplissent l'objectif en cours
+    const objRank = OBJ_RANK[objectiveOf(currentParty())];
+    if (!silent && rank[level] >= objRank && (c.annObj || 0) < objRank) {
+      winners.push({ c, level: objectiveOf(currentParty()) });
+      c.annObj = objRank;
     }
     c.achieved = level;
   });
 
-  // numéros « en attente » (clignotants) sur le tableau
+  // numéros « en attente » (clignotants) sur le tableau + affichage en gros
   const awaited = computeAwaited();
   document.querySelectorAll(".cell").forEach((cell) => {
     const n = Number(cell.dataset.n);
     cell.classList.toggle("awaited", awaited.has(n) && !drawnSet.has(n));
   });
+  renderAwaited(awaited, drawnSet);
 
   // annonce des gagnants (tous ceux qui viennent de gagner)
   if (winners.length) showWinners(winners);
@@ -797,6 +807,17 @@ function computeAwaited() {
   return res;
 }
 
+// Affiche en gros les numéros manquants pour gagner
+function renderAwaited(awaited, drawnSet) {
+  if (!el.awaitedBox) return;
+  const nums = [...awaited].filter((n) => !drawnSet.has(n)).sort((a, b) => a - b);
+  if (!nums.length) { el.awaitedBox.hidden = true; el.awaitedBox.innerHTML = ""; return; }
+  el.awaitedBox.hidden = false;
+  el.awaitedBox.innerHTML =
+    `<div class="aw-label">🔴 Il ne manque plus que&nbsp;:</div>` +
+    `<div class="awaited-nums">` + nums.map((n) => `<span class="aw-num">${n}</span>`).join("") + `</div>`;
+}
+
 /* ---------- Bannière de victoire : cartons gagnants en grand ---------- */
 function winnerCard(c, level, drawnSet) {
   const labels = { quine: "Quine", double: "Double quine", plein: "Carton plein" };
@@ -807,7 +828,8 @@ function winnerCard(c, level, drawnSet) {
   const head = document.createElement("div");
   head.className = "winner-head";
   head.innerHTML = `<span class="winner-level">${labels[level]}</span>` +
-    `<span class="winner-id">${ref}${name ? " · " + name : ""}</span>`;
+    `<span class="winner-who">${name || ref}</span>` +
+    `<span class="winner-ref">${ref}</span>`;
   wrap.appendChild(head);
   const grid = document.createElement("div");
   grid.className = "winner-grid";
@@ -1067,6 +1089,26 @@ function activateView(name) {
   $("#view-" + name).classList.add("is-active");
   currentView = name;
   if (name === "multi") renderMultiView();
+  applyZoom();
+}
+
+/* ---------- Agrandir / rétrécir l'affichage ---------- */
+const ZKEY = "loto64-zoom";
+let uiZoom = 1;
+(function () { try { const z = parseFloat(localStorage.getItem(ZKEY)); if (z >= 0.7 && z <= 1.8) uiZoom = z; } catch (e) { /* ignore */ } })();
+function applyZoom() {
+  // la vue Tout-en-un s'ajuste toute seule : on n'y applique pas le zoom manuel
+  document.documentElement.style.zoom = (currentView === "regie") ? 1 : uiZoom;
+}
+function setZoom(z) {
+  uiZoom = Math.round(Math.max(0.7, Math.min(1.8, z)) * 100) / 100;
+  try { localStorage.setItem(ZKEY, String(uiZoom)); } catch (e) { /* ignore */ }
+  applyZoom();
+}
+function setupZoom() {
+  if (el.zoomOut) el.zoomOut.addEventListener("click", () => setZoom(uiZoom - 0.1));
+  if (el.zoomIn) el.zoomIn.addEventListener("click", () => setZoom(uiZoom + 0.1));
+  applyZoom();
 }
 
 /* ============================================================
@@ -1218,6 +1260,39 @@ function resetAll() {
     renderAll(); renderPartyBar(); save();
   });
 }
+/* ---------- Objectif de la partie (quine -> double -> plein) ---------- */
+const OBJ_RANK = { quine: 1, double: 2, plein: 3 };
+function objectiveOf(p) { return (p && p.objective) || "quine"; }
+function renderObjective() {
+  const cur = objectiveOf(currentParty());
+  document.querySelectorAll(".obj-step").forEach((s) => {
+    s.classList.toggle("is-current", s.dataset.lvl === cur);
+    s.classList.toggle("is-done", OBJ_RANK[s.dataset.lvl] < OBJ_RANK[cur]);
+  });
+  if (el.objNext) {
+    el.objNext.disabled = cur === "plein";
+    el.objNext.textContent = cur === "quine" ? "▶ Passer à la double quine"
+      : cur === "double" ? "▶ Passer au carton plein"
+      : "Carton plein atteint";
+  }
+}
+function nextObjective() {
+  const p = currentParty();
+  const cur = objectiveOf(p);
+  p.objective = cur === "quine" ? "double" : cur === "double" ? "plein" : "plein";
+  renderObjective();
+  markCartons();       // annonce les cartons qui remplissent déjà le nouvel objectif
+  save();
+}
+function clearGame() {
+  const p = currentParty();
+  p.drawn = []; p.pool = fullPool(); p.objective = "quine";
+  (p.cartons || []).forEach((c) => { c.achieved = "none"; c.annObj = 0; });
+  stopAuto();
+  stateFromParty(p);
+  renderAll(); renderObjective(); renderPartyBar(); save();
+}
+
 // Recalcule les paliers des cartons d'une partie et renvoie les nouveaux gagnants
 function markPartyCartons(p) {
   const drawn = new Set(p.drawn || []);
@@ -1232,7 +1307,8 @@ function markPartyCartons(p) {
       if (hits === nums.length) completed++;
     });
     const level = total === 15 ? "plein" : completed >= 2 ? "double" : completed >= 1 ? "quine" : "none";
-    if (rank[level] > rank[c.achieved || "none"]) winners.push({ c, level });
+    const objRank = OBJ_RANK[objectiveOf(p)];
+    if (rank[level] >= objRank && (c.annObj || 0) < objRank) { winners.push({ c, level: objectiveOf(p) }); c.annObj = objRank; }
     c.achieved = level;
   });
   return winners;
@@ -1445,8 +1521,8 @@ function setupEvent() {
 function adaptRegieGrid() {
   const grid = $("#cartons");
   if (!grid) return;
-  const n = Math.min(state.cartons.length, 24);
-  const cols = n <= 1 ? 1 : n <= 2 ? 2 : n <= 6 ? 3 : n <= 12 ? 4 : n <= 18 ? 5 : 6;
+  const n = Math.min(state.cartons.length, 12);
+  const cols = n <= 1 ? 1 : n <= 2 ? 2 : n <= 6 ? 3 : 4;
   grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
 }
 
@@ -1483,6 +1559,7 @@ function renderAll() {
   refreshHeadline();
   renderCartons();
   markCartons(true);
+  renderObjective();
 }
 
 /* ============================================================
@@ -1551,6 +1628,7 @@ function init() {
   buildBoard();
   setupTabs();
   setupTheme();
+  setupZoom();
 
   load();
   renderAll();
@@ -1581,6 +1659,8 @@ function init() {
   setupEvent();
   el.winNewGame.addEventListener("click", () => { el.winBanner.hidden = true; newGame(); });
   el.resetAllBtn.addEventListener("click", resetAll);
+  el.objNext.addEventListener("click", nextObjective);
+  el.objClear.addEventListener("click", clearGame);
   el.drawBtn.addEventListener("click", drawNumber);
   el.autoBtn.addEventListener("click", toggleAuto);
   el.resetBtn.addEventListener("click", newGame);

@@ -64,6 +64,8 @@
       <button class="tab" data-view="multi">Toutes les parties</button>
       <button id="eventBtn" class="theme-tab" title="Infos de la partie">📋</button>
       <button id="themeBtnTop" class="theme-tab" title="Changer les couleurs">🎨</button>
+      <button id="zoomOut" class="theme-tab" title="Rétrécir l'affichage">🔍−</button>
+      <button id="zoomIn" class="theme-tab" title="Agrandir l'affichage">🔍+</button>
     </nav>
   </header>
 
@@ -121,6 +123,20 @@
       <div class="current-ball-wrap">
         <div id="currentBall" class="ball big empty">--</div>
         <p id="currentLabel" class="current-label">Prêt à jouer&nbsp;?</p>
+      </div>
+
+      <div id="awaitedBox" class="awaited-box" hidden></div>
+
+      <div class="objective-bar">
+        <div class="obj-steps">
+          <span class="obj-step" data-lvl="quine">Quine</span>
+          <span class="obj-step" data-lvl="double">Double quine</span>
+          <span class="obj-step" data-lvl="plein">Carton plein</span>
+        </div>
+        <div class="obj-actions">
+          <button id="objNext" class="btn btn-primary">Objectif suivant ▶</button>
+          <button id="objClear" class="btn btn-ghost">🧽 Effacer (nouvelle partie)</button>
+        </div>
       </div>
 
       <div class="controls">
@@ -214,7 +230,7 @@
           <div id="regieDraw" class="regie-slot"></div>
         </section>
         <section class="regie-col">
-          <h2 class="section-title">🎟️ Cartons — les 24 mieux placés</h2>
+          <h2 class="section-title">🎟️ Cartons — les 12 mieux placés</h2>
           <div id="regieCartons" class="regie-slot"></div>
         </section>
       </div>
