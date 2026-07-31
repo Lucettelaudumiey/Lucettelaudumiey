@@ -1046,21 +1046,32 @@ const OWNER_PWD = "LULU638";              // mot de passe propriétaire
 function normName(s) {
   return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
 }
-function makeCode(name) {
-  const str = SECRET + "|" + normName(name);
+function normCode(code) { return (code || "").toUpperCase().replace(/[^A-Z0-9]/g, ""); }
+function hashStr(str) {
   let h = 2166136261;
   for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
-  h = h >>> 0;
-  return "LU" + (h.toString(36).toUpperCase() + "0000").slice(0, 4);
+  return h >>> 0;
+}
+// clé de contrôle (4 caractères) d'un préfixe de 4 caractères
+function checkOf(base) { return (hashStr(SECRET + "|" + base).toString(36).toUpperCase() + "0000").slice(0, 4); }
+// code à 8 caractères : 4 lettres du prénom + 4 de contrôle (ex. MART3F9A)
+function codeFor(name) {
+  const base = (normName(name).toUpperCase() + "XXXX").slice(0, 4);
+  return base + checkOf(base);
+}
+// un code est valable si sa clé de contrôle correspond (vérification autonome)
+function codeValid(code) {
+  const c = normCode(code);
+  return c.length === 8 && c.slice(4, 8) === checkOf(c.slice(0, 4));
 }
 function isUnlocked() {
   try {
     const a = JSON.parse(localStorage.getItem(AKEY));
-    return !!(a && a.name && a.code === makeCode(a.name));
+    return !!(a && a.code && codeValid(a.code));
   } catch (e) { return false; }
 }
-function doUnlock(name) {
-  try { localStorage.setItem(AKEY, JSON.stringify({ name, code: makeCode(name) })); } catch (e) { /* ignore */ }
+function doUnlock(code) {
+  try { localStorage.setItem(AKEY, JSON.stringify({ code: normCode(code) })); } catch (e) { /* ignore */ }
   el.lockScreen.hidden = true;
 }
 function setupLock() {
@@ -1068,14 +1079,13 @@ function setupLock() {
   if (FOLLOW || isUnlocked()) { el.lockScreen.hidden = true; return true; }
   el.lockScreen.hidden = false;
 
-  el.lockGo.addEventListener("click", () => {
-    const name = el.lockName.value.trim();
-    const code = el.lockCode.value.trim().toUpperCase();
-    if (!name) { el.lockError.textContent = "Entrez votre prénom."; return; }
-    if (code === makeCode(name)) { doUnlock(name); }
+  const tryUnlock = () => {
+    const code = normCode(el.lockCode.value);
+    if (codeValid(code)) { doUnlock(code); }
     else { el.lockError.textContent = "Code incorrect. Demandez votre code à Lucette."; }
-  });
-  el.lockCode.addEventListener("keydown", (e) => { if (e.key === "Enter") el.lockGo.click(); });
+  };
+  el.lockGo.addEventListener("click", tryUnlock);
+  el.lockCode.addEventListener("keydown", (e) => { if (e.key === "Enter") tryUnlock(); });
 
   el.lockOwnerLink.addEventListener("click", () => { el.ownerPanel.hidden = !el.ownerPanel.hidden; });
   el.ownerGo.addEventListener("click", () => {
@@ -1084,9 +1094,9 @@ function setupLock() {
   });
   el.genGo.addEventListener("click", () => {
     const n = el.genName.value.trim();
-    el.genResult.textContent = n ? `Code de ${n} : ${makeCode(n)}` : "";
+    el.genResult.textContent = n ? `Code de ${n} : ${codeFor(n)}` : "Entrez un prénom.";
   });
-  el.ownerUnlock.addEventListener("click", () => doUnlock("Lucette (propriétaire)"));
+  el.ownerUnlock.addEventListener("click", () => doUnlock(codeFor("proprietaire")));
   return false;
 }
 
