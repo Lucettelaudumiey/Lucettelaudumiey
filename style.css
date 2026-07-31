@@ -271,8 +271,8 @@ body {
 
 /* ---------- Vue Tout-en-un (régie) ---------- */
 /* la scène a une taille fixe ; le JS la redimensionne pour remplir l'écran */
-#view-regie { max-width: none; padding: 8px; overflow: hidden; }
-.regie-stage { width: 1280px; transform-origin: top left; }
+#view-regie { max-width: none; padding: 8px; overflow: auto; }
+.regie-stage { width: 1280px; margin: 0 auto; transform-origin: top left; }
 .regie-layout { display: flex; flex-direction: column; gap: 14px; }
 .regie-col { min-width: 0; }
 .regie-col .section-title { margin: 2px 0 8px; }
@@ -448,6 +448,13 @@ body {
 
 /* masque les commandes de partie sur l'écran de suivi */
 body.follow-mode .party-ctrls, body.follow-mode #resetAllBtn, body.follow-mode #winNewGame { display: none !important; }
+
+/* ---------- Bandeau essai gratuit ---------- */
+.trial-banner {
+  display: block; text-align: center; padding: 9px 16px; font-size: .95rem;
+  background: linear-gradient(90deg, #2ecc71, #33d1c9); color: #05261a; font-weight: 600;
+}
+.trial-banner[hidden] { display: none; }
 
 /* ---------- Mode deux écrans / suivi ---------- */
 .follow-bar {

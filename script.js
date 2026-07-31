@@ -144,6 +144,8 @@ const el = {
   lockCode: $("#lockCode"),
   lockError: $("#lockError"),
   lockGo: $("#lockGo"),
+  trialBtn: $("#trialBtn"),
+  trialBanner: $("#trialBanner"),
   lockOwnerLink: $("#lockOwnerLink"),
   ownerPanel: $("#ownerPanel"),
   ownerPwd: $("#ownerPwd"),
@@ -286,6 +288,7 @@ function stopAuto() {
 
 /* ---------- Nouvelle partie ---------- */
 function newGame() {
+  if (TRIAL) { consumeTrial(); return; }
   stopAuto();
   resetPool();
   el.ball.classList.add("empty");
@@ -948,14 +951,15 @@ function fitRegie() {
   const view = $("#view-regie"), stage = $("#regieStage");
   if (!view || !stage) return;
   stage.style.transform = "none";
+  stage.style.marginLeft = "";
+  stage.style.zoom = "1"; // mesure la taille naturelle
   const natW = stage.offsetWidth, natH = stage.offsetHeight;
   if (!natW || !natH) return;
   const availW = view.clientWidth - 4;
   const availH = window.innerHeight - view.getBoundingClientRect().top - 12;
-  const scale = Math.min(availW / natW, availH / natH, 1);
-  stage.style.transform = `scale(${scale})`;
-  stage.style.marginLeft = Math.max(0, (availW - natW * scale) / 2) + "px";
-  view.style.height = natH * scale + "px";
+  const fit = Math.min(availW / natW, availH / natH, 1);
+  stage.style.zoom = (fit * uiZoom).toFixed(3); // − / + agrandissent/rétrécissent
+  view.style.height = "";
 }
 
 // Réordonne les cartons dans le DOM selon un comparateur
@@ -1117,8 +1121,12 @@ const ZKEY = "loto64-zoom";
 let uiZoom = 1;
 (function () { try { const z = parseFloat(localStorage.getItem(ZKEY)); if (z >= 0.7 && z <= 1.8) uiZoom = z; } catch (e) { /* ignore */ } })();
 function applyZoom() {
-  // la vue Tout-en-un s'ajuste toute seule : on n'y applique pas le zoom manuel
-  document.documentElement.style.zoom = (currentView === "regie") ? 1 : uiZoom;
+  if (currentView === "regie") {
+    document.documentElement.style.zoom = 1; // le zoom s'applique à la scène régie
+    fitRegie();
+  } else {
+    document.documentElement.style.zoom = uiZoom;
+  }
 }
 function setZoom(z) {
   uiZoom = Math.round(Math.max(0.7, Math.min(1.8, z)) * 100) / 100;
@@ -1159,20 +1167,52 @@ function codeValid(code) {
   const c = normCode(code);
   return c.length === 8 && c.slice(4, 8) === checkOf(c.slice(0, 4));
 }
+/* ---------- Essai gratuit (1 loto) ---------- */
+const TRKEY = "loto64-trial";
+let TRIAL = false;
+function trialState() { try { return localStorage.getItem(TRKEY); } catch (e) { return null; } }
+function startTrial() {
+  try { localStorage.setItem(TRKEY, "active"); } catch (e) { /* ignore */ }
+  TRIAL = true;
+  el.lockScreen.hidden = true;
+  if (el.trialBanner) el.trialBanner.hidden = false;
+}
+function consumeTrial() {
+  try { localStorage.setItem(TRKEY, "used"); } catch (e) { /* ignore */ }
+  TRIAL = false;
+  if (el.trialBanner) el.trialBanner.hidden = true;
+  el.lockScreen.hidden = false;
+  refreshTrialBtn();
+  el.lockError.textContent = "🎁 Essai gratuit terminé (1 loto). Entrez un code pour continuer.";
+}
+function refreshTrialBtn() {
+  if (el.trialBtn) el.trialBtn.style.display = (trialState() === "used") ? "none" : "";
+}
+
 function isUnlocked() {
   try {
     const a = JSON.parse(localStorage.getItem(AKEY));
-    return !!(a && a.code && codeValid(a.code));
-  } catch (e) { return false; }
+    if (a && a.code && codeValid(a.code)) return true;
+  } catch (e) { /* ignore */ }
+  if (trialState() === "active") { TRIAL = true; return true; }
+  return false;
 }
 function doUnlock(code) {
   try { localStorage.setItem(AKEY, JSON.stringify({ code: normCode(code) })); } catch (e) { /* ignore */ }
+  TRIAL = false;
+  if (el.trialBanner) el.trialBanner.hidden = true;
   el.lockScreen.hidden = true;
 }
 function setupLock() {
   // l'écran de suivi et une session déjà déverrouillée passent directement
-  if (FOLLOW || isUnlocked()) { el.lockScreen.hidden = true; return true; }
+  if (FOLLOW || isUnlocked()) {
+    el.lockScreen.hidden = true;
+    if (TRIAL && el.trialBanner) el.trialBanner.hidden = false;
+    return true;
+  }
   el.lockScreen.hidden = false;
+  refreshTrialBtn();
+  if (el.trialBtn) el.trialBtn.addEventListener("click", startTrial);
 
   const tryUnlock = () => {
     const code = normCode(el.lockCode.value);
@@ -1249,6 +1289,7 @@ function switchParty(id) {
   renderAll(); renderPartyBar();
 }
 function addParty() {
+  if (TRIAL) { consumeTrial(); return; }
   save();
   const p = makeParty("Partie " + (parties.length + 1));
   parties.push(p); currentId = p.id;
@@ -1309,6 +1350,7 @@ function setObjective(level) {
   save();
 }
 function clearGame() {
+  if (TRIAL) { consumeTrial(); return; }
   const p = currentParty();
   p.drawn = []; p.pool = fullPool(); p.objective = "quine";
   (p.cartons || []).forEach((c) => { c.achieved = "none"; c.annObj = 0; });

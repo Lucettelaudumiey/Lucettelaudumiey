@@ -39,9 +39,14 @@ Pensée pour être **facile même sans être à l'aise avec l'informatique**.
 
 ---
 
+## 🎁 Essai gratuit
+
+Testez l'application **gratuitement sur 1 loto** avant d'acheter — pour vous
+convaincre par vous-même !
+
 ## 💶 Tarif
 
-**8 €** — une adresse e-mail, utilisable sur **3 appareils**.
+**10 €** — une adresse e-mail, utilisable sur **3 appareils**.
 Renouvellement **5 €/an** (avec les mises à jour si nécessaire).
 
 Après votre achat, vous recevez votre **code d'accès personnel** pour déverrouiller
