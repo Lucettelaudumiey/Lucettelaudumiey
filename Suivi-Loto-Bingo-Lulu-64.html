@@ -78,6 +78,8 @@ body {
   font-size: 1rem; font-weight: 600; transition: .2s;
 }
 .tab.is-active { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #2a1a00; }
+.theme-tab { border: 0; cursor: pointer; padding: 9px 14px; border-radius: 999px; background: transparent; font-size: 1.15rem; line-height: 1; transition: .2s; }
+.theme-tab:hover { background: rgba(255,255,255,.14); }
 
 /* ---------- Views ---------- */
 .view { display: none; padding: clamp(16px, 4vw, 40px); max-width: 1100px; margin: 0 auto; }
@@ -367,6 +369,7 @@ body.follow-mode .cartons-bar { padding: 0; background: transparent; box-shadow:
       <button class="tab is-active" data-view="tirage">Tirage</button>
       <button class="tab" data-view="cartons">Mes cartons</button>
       <button class="tab" data-view="regie">Tout-en-un</button>
+      <button id="themeBtnTop" class="theme-tab" title="Changer les couleurs">🎨</button>
     </nav>
   </header>
 
@@ -651,6 +654,7 @@ const el = {
   aboutModal: $("#aboutModal"),
   aboutClose: $("#aboutClose"),
   themeBtn: $("#themeBtn"),
+  themeBtnTop: $("#themeBtnTop"),
   themeModal: $("#themeModal"),
   themePresets: $("#themePresets"),
   accentPick: $("#accentPick"),
@@ -1370,7 +1374,13 @@ const THEMES = [
   { name: "Océan", v: { bg: "#07223a", bg2: "#0a2f4d", card: "#0e3a5e", card2: "#12496f", ink: "#eaf6ff", inkSoft: "#a9c8dd", accent: "#33d1c9", accent2: "#2b8fd0" } },
   { name: "Forêt", v: { bg: "#0e2417", bg2: "#123020", card: "#163d29", card2: "#1c4c33", ink: "#eafaf0", inkSoft: "#a9d0b8", accent: "#8ede5a", accent2: "#2ecc71" } },
   { name: "Coucher de soleil", v: { bg: "#2a0f2e", bg2: "#3d143a", card: "#4d1a3f", card2: "#66214a", ink: "#fff0f6", inkSoft: "#e0b3c9", accent: "#ffcf3f", accent2: "#ff5d73" } },
-  { name: "Rose bonbon", v: { bg: "#3a0f2a", bg2: "#4d1438", card: "#5e1a45", card2: "#742155", ink: "#fff0f7", inkSoft: "#e6b8d2", accent: "#ff8ac4", accent2: "#ff5d99" } }
+  { name: "Rose bonbon", v: { bg: "#3a0f2a", bg2: "#4d1438", card: "#5e1a45", card2: "#742155", ink: "#fff0f7", inkSoft: "#e6b8d2", accent: "#ff8ac4", accent2: "#ff5d99" } },
+  { name: "Noël", v: { bg: "#0e2a1a", bg2: "#123a24", card: "#17492e", card2: "#1e5c39", ink: "#fff5ec", inkSoft: "#cfe6d6", accent: "#ffd23f", accent2: "#e63946" } },
+  { name: "Bleu-blanc-rouge", v: { bg: "#0a1a3a", bg2: "#0e2350", card: "#132c66", card2: "#18387d", ink: "#ffffff", inkSoft: "#bcccf0", accent: "#ef3d4e", accent2: "#f4f7ff" } },
+  { name: "Doux bébé", v: { bg: "#eaf3ff", bg2: "#f2f8ff", card: "#ffffff", card2: "#eef5ff", ink: "#3a4a63", inkSoft: "#6f83a0", accent: "#7cc4ff", accent2: "#ffb3d1" } },
+  { name: "Lavande", v: { bg: "#efe9ff", bg2: "#f5f0ff", card: "#ffffff", card2: "#f2eeff", ink: "#443a63", inkSoft: "#756b93", accent: "#9b7bff", accent2: "#c58bff" } },
+  { name: "Menthe", v: { bg: "#e4f7f0", bg2: "#eefaf5", card: "#ffffff", card2: "#e9faf3", ink: "#2c4a40", inkSoft: "#5f8377", accent: "#2ecca0", accent2: "#4bd0c0" } },
+  { name: "Or & Noir", v: { bg: "#14120c", bg2: "#1c1a12", card: "#241f14", card2: "#2f291a", ink: "#fbf6e9", inkSoft: "#cbbf9d", accent: "#ffd23f", accent2: "#d4a534" } }
 ];
 
 // éclaircit (p>0) ou assombrit (p<0) une couleur hex
@@ -1440,7 +1450,9 @@ function setupTheme() {
     });
   });
   el.themeReset.addEventListener("click", () => applyTheme(DEFAULT_THEME));
-  el.themeBtn.addEventListener("click", () => (el.themeModal.hidden = false));
+  const openTheme = () => (el.themeModal.hidden = false);
+  el.themeBtn.addEventListener("click", openTheme);
+  if (el.themeBtnTop) el.themeBtnTop.addEventListener("click", openTheme);
   el.themeClose.addEventListener("click", () => (el.themeModal.hidden = true));
   el.themeModal.addEventListener("click", (e) => {
     if (e.target === el.themeModal) el.themeModal.hidden = true;
