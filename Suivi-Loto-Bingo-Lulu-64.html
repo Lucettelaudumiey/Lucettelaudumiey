@@ -291,20 +291,21 @@ body {
 /* la scène a une taille fixe ; le JS la redimensionne pour remplir l'écran */
 #view-regie { max-width: none; padding: 8px; overflow: auto; }
 .regie-stage { width: 1280px; margin: 0 auto; transform-origin: top left; }
-.regie-layout { display: flex; flex-direction: column; gap: 14px; }
-.regie-col { min-width: 0; }
-.regie-col .section-title { margin: 2px 0 8px; }
 
-/* bande du haut : tirage à gauche, tableau des 90 numéros à droite */
-#regieDraw {
-  display: grid; grid-template-columns: 320px 1fr;
-  grid-template-areas: "draw board" "stats board"; gap: 16px; align-items: start;
-}
-#regieDraw .draw-stage { grid-area: draw; padding: 16px; }
-#regieDraw .stats { grid-area: stats; margin: 12px 0 0; }
-#regieDraw .board-wrap { grid-area: board; max-width: 560px; margin: 0; }
-#regieDraw .board { grid-template-rows: none; gap: 7px; padding: 14px; }
-#regieDraw .cell { font-size: clamp(1rem, 2.2vw, 1.6rem); }
+/* blocs déplaçables (Tirage / Tableau / Cartons) */
+.regie-flow { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+.regie-item { min-width: 0; }
+.regie-item[data-item="draw"] { flex: 0 0 auto; width: 340px; }
+.regie-item[data-item="board"] { flex: 0 0 auto; width: 560px; }
+.regie-item[data-item="cartons"] { flex: 1 1 100%; }
+.ri-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 2px 0 8px; font-family: "Baloo 2", sans-serif; font-weight: 700; color: var(--ink-soft); }
+.ri-move { display: flex; gap: 6px; }
+.ri-btn { border: 0; cursor: pointer; background: rgba(255,255,255,.14); color: var(--ink); border-radius: 8px; padding: 4px 12px; font-size: 1rem; line-height: 1; }
+.ri-btn:hover { background: rgba(255,255,255,.28); }
+.regie-item .board-wrap { margin: 0; }
+.regie-item .board { grid-template-rows: none; gap: 7px; padding: 14px; }
+.regie-item .cell { font-size: clamp(1rem, 2.2vw, 1.6rem); }
+.regie-slot .stats { margin: 12px 0 0; }
 .regie-slot .ball.big { width: 92px; height: 92px; font-size: 2.3rem; }
 .regie-slot .ball.big.empty { font-size: 1.5rem; }
 .regie-slot .current-label { font-size: .95rem; }
@@ -728,14 +729,19 @@ body.follow-mode .cartons-bar { padding: 0; background: transparent; box-shadow:
 
   <!-- ====================== VUE TOUT-EN-UN (régie) ====================== -->
   <main id="view-regie" class="view">
+    <p class="board-hint" style="text-align:center">↔️ Déplacez les blocs avec les flèches <strong>◀ ▶</strong> pour arranger l'écran comme vous voulez.</p>
     <div id="regieStage" class="regie-stage">
-      <div class="regie-layout">
-        <section class="regie-col regie-col-draw">
-          <h2 class="section-title">🎤 Tirage</h2>
+      <div id="regieFlow" class="regie-flow">
+        <section class="regie-item" data-item="draw">
+          <div class="ri-head"><span>🎤 Tirage</span><span class="ri-move"><button class="ri-btn" data-dir="-1" title="Déplacer avant">◀</button><button class="ri-btn" data-dir="1" title="Déplacer après">▶</button></span></div>
           <div id="regieDraw" class="regie-slot"></div>
         </section>
-        <section class="regie-col">
-          <h2 class="section-title">🎟️ Cartons — les 12 mieux placés</h2>
+        <section class="regie-item" data-item="board">
+          <div class="ri-head"><span>🔢 Tableau des 90 numéros</span><span class="ri-move"><button class="ri-btn" data-dir="-1" title="Déplacer avant">◀</button><button class="ri-btn" data-dir="1" title="Déplacer après">▶</button></span></div>
+          <div id="regieBoardSlot" class="regie-slot"></div>
+        </section>
+        <section class="regie-item" data-item="cartons">
+          <div class="ri-head"><span>🎟️ Cartons — les 12 mieux placés</span><span class="ri-move"><button class="ri-btn" data-dir="-1" title="Déplacer avant">◀</button><button class="ri-btn" data-dir="1" title="Déplacer après">▶</button></span></div>
           <div id="regieCartons" class="regie-slot"></div>
         </section>
       </div>
@@ -1786,10 +1792,32 @@ let currentView = "tirage";
 // La vue « Tout-en-un » réutilise les vrais blocs (tirage + tableau + cartons)
 // en les déplaçant : on les sort de leur vue d'origine, puis on les y remet.
 function enterRegie() {
-  $("#regieDraw").append($(".draw-stage"), $(".stats"), $(".board-wrap"));
+  $("#regieDraw").append($(".draw-stage"), $(".stats"));
+  $("#regieBoardSlot").append($(".board-wrap"));
   $("#regieCartons").append($("#cartons"));
+  applyRegieOrder();
   rankCartons();
   adaptRegieGrid();
+  requestAnimationFrame(fitRegie);
+}
+// Ordre des blocs (déplaçable par l'utilisateur)
+function applyRegieOrder() {
+  const flow = $("#regieFlow");
+  if (!flow) return;
+  let order = [];
+  try { order = JSON.parse(localStorage.getItem("loto64-regie-order")) || []; } catch (e) { /* ignore */ }
+  order.forEach((name) => {
+    const item = flow.querySelector(`.regie-item[data-item="${name}"]`);
+    if (item) flow.appendChild(item);
+  });
+}
+function moveRegieItem(item, dir) {
+  const flow = $("#regieFlow");
+  if (!flow || !item) return;
+  if (dir < 0 && item.previousElementSibling) flow.insertBefore(item, item.previousElementSibling);
+  else if (dir > 0 && item.nextElementSibling) flow.insertBefore(item.nextElementSibling, item);
+  const order = [...flow.querySelectorAll(".regie-item")].map((s) => s.dataset.item);
+  try { localStorage.setItem("loto64-regie-order", JSON.stringify(order)); } catch (e) { /* ignore */ }
   requestAnimationFrame(fitRegie);
 }
 function exitRegie() {
@@ -2600,6 +2628,9 @@ function init() {
   el.objClear.addEventListener("click", clearGame);
   document.querySelectorAll(".obj-step").forEach((s) => {
     s.addEventListener("click", () => setObjective(s.dataset.lvl));
+  });
+  document.querySelectorAll(".ri-btn").forEach((btn) => {
+    btn.addEventListener("click", () => moveRegieItem(btn.closest(".regie-item"), Number(btn.dataset.dir)));
   });
   el.drawBtn.addEventListener("click", drawNumber);
   el.autoBtn.addEventListener("click", toggleAuto);
