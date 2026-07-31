@@ -254,8 +254,8 @@ body {
 .regie-slot .carton-badge { font-size: .55rem; padding: 2px 6px; }
 .regie-slot .carton-grid { gap: 3px; }
 .regie-slot .carton-cell { font-size: 13px; border-radius: 5px; }
-/* on n'affiche que les 12 cartons les mieux placés */
-#regieCartons .carton:nth-child(n+13) { display: none; }
+/* on n'affiche que les 24 cartons les mieux placés */
+#regieCartons .carton:nth-child(n+25) { display: none; }
 
 /* score « 4/5 » sur chaque carton */
 .carton-score {
@@ -313,6 +313,32 @@ body {
 .theme-custom { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; color: var(--ink-soft); font-size: .9rem; margin-bottom: 14px; text-align: center; }
 .theme-custom input[type="color"] { width: 60px; height: 38px; border: 1px solid rgba(255,255,255,.2); border-radius: 8px; background: none; cursor: pointer; margin-top: 6px; }
 .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+
+/* ---------- Écran de verrouillage ---------- */
+.lock {
+  position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center;
+  padding: 16px; background:
+    radial-gradient(1000px 600px at 20% -10%, #2a3390 0%, transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, #6a2d8f 0%, transparent 55%), #0f1437;
+  overflow: auto;
+}
+.lock[hidden] { display: none; }
+.lock-card {
+  background: linear-gradient(160deg, #1d2560, #161c4d); border-radius: 22px; padding: 26px;
+  box-shadow: var(--shadow); width: min(440px, 96vw); max-height: 94vh; overflow: auto; text-align: center; color: #f5f7ff;
+}
+.lock-logo { width: 100%; border-radius: 12px; margin-bottom: 14px; }
+.lock-card h2 { font-family: "Baloo 2", sans-serif; margin: 0 0 8px; }
+.lock-hint { color: #b9c0e8; font-size: .92rem; margin: 0 0 16px; }
+.lock-card .modal-field { color: #b9c0e8; }
+.lock-card .modal-field input {
+  font-family: inherit; font-size: 1.1rem; padding: 12px 14px; border-radius: 12px; width: 100%;
+  background: #232c75; color: #f5f7ff; border: 1px solid rgba(255,255,255,.15); box-sizing: border-box;
+}
+.lock-card .btn-primary { width: 100%; margin-top: 4px; }
+.link-btn { background: none; border: 0; color: #ffd23f; cursor: pointer; font-family: inherit; font-size: .9rem; margin-top: 14px; text-decoration: underline; }
+.owner-sep { border: 0; border-top: 1px solid rgba(255,255,255,.15); margin: 16px 0; }
+.gen-result { font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 1.2rem; color: #ffd23f; min-height: 1.4em; margin: 10px 0; }
 
 /* ---------- Barre des parties + infos ---------- */
 .event-bar {

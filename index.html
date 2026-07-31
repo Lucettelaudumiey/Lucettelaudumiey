@@ -18,6 +18,40 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Écran de verrouillage (accès réservé) -->
+  <div id="lockScreen" class="lock" hidden>
+    <div class="lock-card">
+      <img class="lock-logo" src="logo-banniere.png" alt="Suivi Loto Bingo Lulu du 64" />
+      <h2>🔒 Accès réservé</h2>
+      <p class="lock-hint">Application réservée aux personnes autorisées par Lucette. Entrez votre prénom et le code qu'elle vous a donné.</p>
+      <label class="modal-field">Votre prénom
+        <input id="lockName" type="text" maxlength="30" autocomplete="off" placeholder="ex. Marie" />
+      </label>
+      <label class="modal-field">Code d'accès
+        <input id="lockCode" type="text" maxlength="12" autocomplete="off" placeholder="ex. LU3F9A" />
+      </label>
+      <p id="lockError" class="modal-error"></p>
+      <button id="lockGo" class="btn btn-primary">Déverrouiller</button>
+      <button id="lockOwnerLink" type="button" class="link-btn">Je suis Lucette (propriétaire)</button>
+      <div id="ownerPanel" hidden>
+        <label class="modal-field">Mot de passe propriétaire
+          <input id="ownerPwd" type="password" autocomplete="off" />
+        </label>
+        <button id="ownerGo" type="button" class="btn btn-ghost">Entrer</button>
+        <div id="ownerTools" hidden>
+          <hr class="owner-sep" />
+          <p class="lock-hint">Générer un code à donner à un ami (gratuit) ou à un acheteur :</p>
+          <label class="modal-field">Prénom de la personne
+            <input id="genName" type="text" maxlength="30" autocomplete="off" />
+          </label>
+          <button id="genGo" type="button" class="btn btn-primary">Obtenir le code</button>
+          <p id="genResult" class="gen-result"></p>
+          <button id="ownerUnlock" type="button" class="btn btn-primary">Déverrouiller pour moi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <header class="app-header">
     <div class="brand">
       <span class="brand-emoji">🎱</span>
@@ -178,7 +212,7 @@
           <div id="regieDraw" class="regie-slot"></div>
         </section>
         <section class="regie-col">
-          <h2 class="section-title">🎟️ Cartons — les 12 mieux placés</h2>
+          <h2 class="section-title">🎟️ Cartons — les 24 mieux placés</h2>
           <div id="regieCartons" class="regie-slot"></div>
         </section>
       </div>

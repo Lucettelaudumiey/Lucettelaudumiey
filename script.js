@@ -121,7 +121,21 @@ const el = {
   evOrga: $("#evOrga"),
   evDate: $("#evDate"),
   eventClear: $("#eventClear"),
-  eventClose: $("#eventClose")
+  eventClose: $("#eventClose"),
+  lockScreen: $("#lockScreen"),
+  lockName: $("#lockName"),
+  lockCode: $("#lockCode"),
+  lockError: $("#lockError"),
+  lockGo: $("#lockGo"),
+  lockOwnerLink: $("#lockOwnerLink"),
+  ownerPanel: $("#ownerPanel"),
+  ownerPwd: $("#ownerPwd"),
+  ownerGo: $("#ownerGo"),
+  ownerTools: $("#ownerTools"),
+  genName: $("#genName"),
+  genGo: $("#genGo"),
+  genResult: $("#genResult"),
+  ownerUnlock: $("#ownerUnlock")
 };
 
 /* ============================================================
@@ -864,7 +878,13 @@ const THEMES = [
   { name: "Doux bébé", v: { bg: "#eaf3ff", bg2: "#f2f8ff", card: "#ffffff", card2: "#eef5ff", ink: "#3a4a63", inkSoft: "#6f83a0", accent: "#7cc4ff", accent2: "#ffb3d1" } },
   { name: "Lavande", v: { bg: "#efe9ff", bg2: "#f5f0ff", card: "#ffffff", card2: "#f2eeff", ink: "#443a63", inkSoft: "#756b93", accent: "#9b7bff", accent2: "#c58bff" } },
   { name: "Menthe", v: { bg: "#e4f7f0", bg2: "#eefaf5", card: "#ffffff", card2: "#e9faf3", ink: "#2c4a40", inkSoft: "#5f8377", accent: "#2ecca0", accent2: "#4bd0c0" } },
-  { name: "Or & Noir", v: { bg: "#14120c", bg2: "#1c1a12", card: "#241f14", card2: "#2f291a", ink: "#fbf6e9", inkSoft: "#cbbf9d", accent: "#ffd23f", accent2: "#d4a534" } }
+  { name: "Or & Noir", v: { bg: "#14120c", bg2: "#1c1a12", card: "#241f14", card2: "#2f291a", ink: "#fbf6e9", inkSoft: "#cbbf9d", accent: "#ffd23f", accent2: "#d4a534" } },
+  { name: "Pâques", v: { bg: "#eafaf0", bg2: "#f3fbf6", card: "#ffffff", card2: "#eefaf3", ink: "#3a5a44", inkSoft: "#6f9080", accent: "#ff9ec7", accent2: "#a8e06a" } },
+  { name: "Halloween", v: { bg: "#1a0f22", bg2: "#241533", card: "#2e1a3f", card2: "#3a214f", ink: "#ffece0", inkSoft: "#d8b8c8", accent: "#ff8a2b", accent2: "#8a2be2" } },
+  { name: "Nouvel An", v: { bg: "#0a0e1f", bg2: "#12172e", card: "#1a2140", card2: "#232c55", ink: "#fff8e6", inkSoft: "#cbc4a8", accent: "#ffd700", accent2: "#b9c0e8" } },
+  { name: "Anniversaire", v: { bg: "#241040", bg2: "#33174d", card: "#42205e", card2: "#552970", ink: "#fff0fb", inkSoft: "#e0b8e6", accent: "#ff5db1", accent2: "#ffd23f" } },
+  { name: "Automne", v: { bg: "#241206", bg2: "#2f1808", card: "#3a2010", card2: "#4a2914", ink: "#fff2e6", inkSoft: "#e0c3a6", accent: "#ff9a3d", accent2: "#e0542b" } },
+  { name: "Saint-Valentin", v: { bg: "#2e0f1c", bg2: "#3f1428", card: "#521a34", card2: "#6a2144", ink: "#fff0f4", inkSoft: "#eab8c6", accent: "#ff4d79", accent2: "#ff9ec7" } }
 ];
 
 // éclaircit (p>0) ou assombrit (p<0) une couleur hex
@@ -952,6 +972,60 @@ function activateView(name) {
   document.querySelectorAll(".view").forEach((v) => v.classList.remove("is-active"));
   $("#view-" + name).classList.add("is-active");
   currentView = name;
+}
+
+/* ============================================================
+   ACCÈS RÉSERVÉ (code d'accès distribué par la propriétaire)
+   ============================================================ */
+const AKEY = "loto64-access";
+const SECRET = "Lulu64!zephyr-2026";     // graine des codes
+const OWNER_PWD = "LULU-MAITRE-64";       // mot de passe propriétaire
+
+function normName(s) {
+  return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
+}
+function makeCode(name) {
+  const str = SECRET + "|" + normName(name);
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+  h = h >>> 0;
+  return "LU" + (h.toString(36).toUpperCase() + "0000").slice(0, 4);
+}
+function isUnlocked() {
+  try {
+    const a = JSON.parse(localStorage.getItem(AKEY));
+    return !!(a && a.name && a.code === makeCode(a.name));
+  } catch (e) { return false; }
+}
+function doUnlock(name) {
+  try { localStorage.setItem(AKEY, JSON.stringify({ name, code: makeCode(name) })); } catch (e) { /* ignore */ }
+  el.lockScreen.hidden = true;
+}
+function setupLock() {
+  // l'écran de suivi et une session déjà déverrouillée passent directement
+  if (FOLLOW || isUnlocked()) { el.lockScreen.hidden = true; return true; }
+  el.lockScreen.hidden = false;
+
+  el.lockGo.addEventListener("click", () => {
+    const name = el.lockName.value.trim();
+    const code = el.lockCode.value.trim().toUpperCase();
+    if (!name) { el.lockError.textContent = "Entrez votre prénom."; return; }
+    if (code === makeCode(name)) { doUnlock(name); }
+    else { el.lockError.textContent = "Code incorrect. Demandez votre code à Lucette."; }
+  });
+  el.lockCode.addEventListener("keydown", (e) => { if (e.key === "Enter") el.lockGo.click(); });
+
+  el.lockOwnerLink.addEventListener("click", () => { el.ownerPanel.hidden = !el.ownerPanel.hidden; });
+  el.ownerGo.addEventListener("click", () => {
+    if (el.ownerPwd.value === OWNER_PWD) { el.ownerTools.hidden = false; el.lockError.textContent = ""; }
+    else { el.lockError.textContent = "Mot de passe propriétaire incorrect."; }
+  });
+  el.genGo.addEventListener("click", () => {
+    const n = el.genName.value.trim();
+    el.genResult.textContent = n ? `Code de ${n} : ${makeCode(n)}` : "";
+  });
+  el.ownerUnlock.addEventListener("click", () => doUnlock("Lucette (propriétaire)"));
+  return false;
 }
 
 /* ============================================================
@@ -1051,8 +1125,8 @@ function setupEvent() {
 function adaptRegieGrid() {
   const grid = $("#cartons");
   if (!grid) return;
-  const n = Math.min(state.cartons.length, 12);
-  const cols = n <= 1 ? 1 : n <= 2 ? 2 : n <= 6 ? 3 : 4;
+  const n = Math.min(state.cartons.length, 24);
+  const cols = n <= 1 ? 1 : n <= 2 ? 2 : n <= 6 ? 3 : n <= 12 ? 4 : n <= 18 ? 5 : 6;
   grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
 }
 
@@ -1151,6 +1225,7 @@ function startFollowMode() {
    INITIALISATION
    ============================================================ */
 function init() {
+  setupLock();
   buildBoard();
   setupTabs();
   setupTheme();
