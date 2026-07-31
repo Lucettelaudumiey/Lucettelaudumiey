@@ -177,18 +177,18 @@ body {
 @keyframes awaitPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
 @media (prefers-reduced-motion: reduce) { .cell.awaited { animation: none; } }
 
-/* Écran large : tirage à gauche, grand tableau à droite (meilleur usage de l'espace) */
-@media (min-width: 900px) {
+/* Tableau des 90 numéros TOUJOURS à droite du dernier numéro dès qu'il y a la place */
+@media (min-width: 760px) {
   #view-tirage.is-active {
     display: grid;
-    grid-template-columns: minmax(320px, 440px) 1fr;
+    grid-template-columns: minmax(300px, 380px) 1fr;
     grid-template-areas: "draw board" "stats board";
-    gap: 22px; align-items: start;
+    gap: 18px; align-items: start;
   }
   #view-tirage .draw-stage { grid-area: draw; margin: 0; }
-  #view-tirage .stats { grid-area: stats; margin: 18px 0 0; }
+  #view-tirage .stats { grid-area: stats; margin: 16px 0 0; }
   #view-tirage .board-wrap { grid-area: board; margin: 0; }
-  #view-tirage .board { gap: 9px; padding: 20px; }
+  #view-tirage .board { gap: 8px; padding: 16px; }
   #view-tirage .cell { font-size: clamp(1rem, 2.2vw, 1.5rem); }
 }
 
