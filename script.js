@@ -195,6 +195,7 @@ function toggleMark(n) {
   updateStats();
   refreshBoard();
   markCartons();
+  if (i < 0) trialTick(); // on ne compte que l'ajout d'un numéro
 }
 
 function refreshBoard() {
@@ -237,6 +238,7 @@ function drawNumber() {
   refreshBoard();
   pushHistory(n);
   markCartons();
+  trialTick();
 }
 
 function pushHistory(n) {
@@ -1171,11 +1173,21 @@ function codeValid(code) {
 const TRKEY = "loto64-trial";
 let TRIAL = false;
 function trialState() { try { return localStorage.getItem(TRKEY); } catch (e) { return null; } }
+const TRDRAWS = "loto64-trial-draws";
 function startTrial() {
-  try { localStorage.setItem(TRKEY, "active"); } catch (e) { /* ignore */ }
+  try { localStorage.setItem(TRKEY, "active"); localStorage.setItem(TRDRAWS, "0"); } catch (e) { /* ignore */ }
   TRIAL = true;
   el.lockScreen.hidden = true;
   if (el.trialBanner) el.trialBanner.hidden = false;
+}
+// compte les numéros pointés pendant l'essai ; au-delà d'un loto complet, on bloque
+function trialTick() {
+  if (!TRIAL) return;
+  let n = 0;
+  try { n = parseInt(localStorage.getItem(TRDRAWS)) || 0; } catch (e) { /* ignore */ }
+  n++;
+  try { localStorage.setItem(TRDRAWS, String(n)); } catch (e) { /* ignore */ }
+  if (n >= 90) consumeTrial();
 }
 function consumeTrial() {
   try { localStorage.setItem(TRKEY, "used"); } catch (e) { /* ignore */ }
@@ -1398,6 +1410,7 @@ function toggleMarkParty(p, n) {
   renderMultiView();
   save();
   if (winners.length) showWinners(winners, new Set(p.drawn));
+  if (i < 0) trialTick();
 }
 
 // Statistiques d'une partie (pour la vue d'ensemble)
