@@ -641,11 +641,13 @@ function cartonNode(c) {
     ? `<button class="carton-apply" title="Donner ce nom à tous les cartons de la planche N°${c.planche}">👥 toute la planche</button>`
     : "";
   head.innerHTML =
-    `<input class="carton-name" type="text" placeholder="Nom du joueur" maxlength="24" />` +
-    applyBtn +
-    `<span class="carton-no">${c.ref ? c.ref : "n°" + c.id}</span>` +
-    `<span class="carton-score">·</span>` +
-    `<span class="carton-badge">en jeu</span>`;
+    `<input class="carton-name" type="text" placeholder="✍️ Nom du joueur…" maxlength="24" />` +
+    `<div class="carton-meta">` +
+      applyBtn +
+      `<span class="carton-no">${c.ref ? c.ref : "n°" + c.id}</span>` +
+      `<span class="carton-score">·</span>` +
+      `<span class="carton-badge">en jeu</span>` +
+    `</div>`;
   const nameInput = head.querySelector(".carton-name");
   nameInput.value = c.name || "";
   if (FOLLOW) {
