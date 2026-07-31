@@ -661,6 +661,26 @@ function cartonNode(c) {
     nameInput.readOnly = true; // l'écran de suivi ne modifie rien
   } else {
     nameInput.addEventListener("input", () => { c.name = nameInput.value; save(); });
+    // propagation automatique : nommer le 1er carton nomme les suivants de la même plaque
+    nameInput.addEventListener("change", () => {
+      if (!c.planche) return;
+      const def = "Planche N°" + c.planche;
+      const nm = nameInput.value.trim();
+      let changed = false;
+      state.cartons.forEach((x) => {
+        if (x !== c && x.planche === c.planche) {
+          const cur = (x.name || "").trim();
+          if (cur === "" || cur === def) { x.name = nm; changed = true; } // seulement ceux pas encore nommés à la main
+        }
+      });
+      if (changed) {
+        renderCartons();
+        markCartons(true);
+        if (currentView === "regie") { rankCartons(); adaptRegieGrid(); requestAnimationFrame(fitRegie); }
+        save();
+      }
+    });
+    // bouton : forcer le nom sur TOUS les cartons de la plaque
     const applyEl = head.querySelector(".carton-apply");
     if (applyEl) applyEl.addEventListener("click", () => {
       const nm = nameInput.value;
