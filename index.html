@@ -210,8 +210,28 @@
   <footer class="app-footer">
     <p>Fait avec ❤️ par <strong>Lucette Laudumiey</strong> — Pyrénées-Atlantiques (64)</p>
     <p class="copyright">© 2026 Lucette Laudumiey — Propriété de Lucette Laudumiey. Tous droits réservés.</p>
-    <button id="aboutBtn" class="btn btn-ghost">ℹ️ À propos · Acheter (10 €)</button>
+    <div class="footer-btns">
+      <button id="themeBtn" class="btn btn-ghost">🎨 Couleurs</button>
+      <button id="aboutBtn" class="btn btn-ghost">ℹ️ À propos · Acheter (10 €)</button>
+    </div>
   </footer>
+
+  <!-- Choix des couleurs (thème) -->
+  <div id="themeModal" class="modal" hidden>
+    <div class="modal-card theme-card">
+      <h2>🎨 Couleurs de l'application</h2>
+      <p class="modal-hint">Choisissez une ambiance, ou vos propres couleurs. Le choix est gardé pour la prochaine fois.</p>
+      <div id="themePresets" class="theme-presets"></div>
+      <div class="theme-custom">
+        <label>Couleur principale<br /><input type="color" id="accentPick" /></label>
+        <label>Couleur du fond<br /><input type="color" id="bgPick" /></label>
+      </div>
+      <div class="modal-actions">
+        <button id="themeReset" class="btn btn-ghost">↺ Réinitialiser</button>
+        <button id="themeClose" class="btn btn-primary">Fermer</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

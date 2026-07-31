@@ -76,7 +76,14 @@ const el = {
   followCount: $("#followCount"),
   aboutBtn: $("#aboutBtn"),
   aboutModal: $("#aboutModal"),
-  aboutClose: $("#aboutClose")
+  aboutClose: $("#aboutClose"),
+  themeBtn: $("#themeBtn"),
+  themeModal: $("#themeModal"),
+  themePresets: $("#themePresets"),
+  accentPick: $("#accentPick"),
+  bgPick: $("#bgPick"),
+  themeReset: $("#themeReset"),
+  themeClose: $("#themeClose")
 };
 
 /* ============================================================
@@ -777,6 +784,96 @@ function restoreCartonOrder() {
   orderCartons((x, y) => Number(x.dataset.id) - Number(y.dataset.id));
 }
 
+/* ============================================================
+   COULEURS / THÈMES
+   ============================================================ */
+const DEFAULT_THEME = {
+  bg: "#0f1437", bg2: "#161c4d", card: "#1d2560", card2: "#232c75",
+  ink: "#f5f7ff", inkSoft: "#b9c0e8", accent: "#ffd23f", accent2: "#ff8a3d"
+};
+const THEMES = [
+  { name: "Nuit dorée", v: { ...DEFAULT_THEME } },
+  { name: "Pastel", v: { bg: "#e7d9ff", bg2: "#efe6ff", card: "#ffffff", card2: "#f3ecff", ink: "#3c2b57", inkSoft: "#6f5f8c", accent: "#b15bff", accent2: "#ff8ac4" } },
+  { name: "Océan", v: { bg: "#07223a", bg2: "#0a2f4d", card: "#0e3a5e", card2: "#12496f", ink: "#eaf6ff", inkSoft: "#a9c8dd", accent: "#33d1c9", accent2: "#2b8fd0" } },
+  { name: "Forêt", v: { bg: "#0e2417", bg2: "#123020", card: "#163d29", card2: "#1c4c33", ink: "#eafaf0", inkSoft: "#a9d0b8", accent: "#8ede5a", accent2: "#2ecc71" } },
+  { name: "Coucher de soleil", v: { bg: "#2a0f2e", bg2: "#3d143a", card: "#4d1a3f", card2: "#66214a", ink: "#fff0f6", inkSoft: "#e0b3c9", accent: "#ffcf3f", accent2: "#ff5d73" } },
+  { name: "Rose bonbon", v: { bg: "#3a0f2a", bg2: "#4d1438", card: "#5e1a45", card2: "#742155", ink: "#fff0f7", inkSoft: "#e6b8d2", accent: "#ff8ac4", accent2: "#ff5d99" } }
+];
+
+// éclaircit (p>0) ou assombrit (p<0) une couleur hex
+function shade(hex, p) {
+  const n = parseInt(hex.slice(1), 16);
+  let r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+  const t = p < 0 ? 0 : 255, a = Math.abs(p);
+  r = Math.round((t - r) * a) + r;
+  g = Math.round((t - g) * a) + g;
+  b = Math.round((t - b) * a) + b;
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+function isLight(hex) {
+  const n = parseInt(hex.slice(1), 16);
+  const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+  return (0.299 * r + 0.587 * g + 0.114 * b) > 150;
+}
+
+function applyTheme(v) {
+  const r = document.documentElement.style;
+  r.setProperty("--bg", v.bg); r.setProperty("--bg-2", v.bg2);
+  r.setProperty("--card", v.card); r.setProperty("--card-2", v.card2);
+  r.setProperty("--ink", v.ink); r.setProperty("--ink-soft", v.inkSoft);
+  r.setProperty("--accent", v.accent); r.setProperty("--accent-2", v.accent2);
+  state.theme = { ...v };
+  if (el.accentPick) el.accentPick.value = v.accent;
+  if (el.bgPick) el.bgPick.value = v.bg;
+  markActiveSwatch();
+  try { localStorage.setItem("loto64-theme", JSON.stringify(v)); } catch (e) { /* ignore */ }
+}
+function markActiveSwatch() {
+  document.querySelectorAll(".theme-swatch").forEach((s) => {
+    const same = s.dataset.accent === state.theme.accent && s.dataset.bg === state.theme.bg;
+    s.classList.toggle("is-active", same);
+  });
+}
+function buildThemeSwatches() {
+  el.themePresets.innerHTML = "";
+  THEMES.forEach((t) => {
+    const b = document.createElement("button");
+    b.className = "theme-swatch";
+    b.dataset.accent = t.v.accent; b.dataset.bg = t.v.bg;
+    b.style.background = t.v.bg2; b.style.color = t.v.ink;
+    b.innerHTML = `<span class="sw-bar" style="background:linear-gradient(90deg,${t.v.accent},${t.v.accent2})"></span>${t.name}`;
+    b.addEventListener("click", () => applyTheme(t.v));
+    el.themePresets.appendChild(b);
+  });
+}
+function setupTheme() {
+  buildThemeSwatches();
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem("loto64-theme")); } catch (e) { /* ignore */ }
+  applyTheme(saved && saved.bg ? saved : DEFAULT_THEME);
+
+  el.accentPick.addEventListener("input", () => {
+    applyTheme({ ...state.theme, accent: el.accentPick.value, accent2: shade(el.accentPick.value, -0.18) });
+  });
+  el.bgPick.addEventListener("input", () => {
+    const base = el.bgPick.value, light = isLight(base);
+    applyTheme({
+      ...state.theme, bg: base,
+      bg2: shade(base, light ? -0.05 : 0.08),
+      card: shade(base, light ? -0.10 : 0.14),
+      card2: shade(base, light ? -0.16 : 0.22),
+      ink: light ? "#2a2340" : "#f5f7ff",
+      inkSoft: light ? "#5c5578" : "#c2c9ec"
+    });
+  });
+  el.themeReset.addEventListener("click", () => applyTheme(DEFAULT_THEME));
+  el.themeBtn.addEventListener("click", () => (el.themeModal.hidden = false));
+  el.themeClose.addEventListener("click", () => (el.themeModal.hidden = true));
+  el.themeModal.addEventListener("click", (e) => {
+    if (e.target === el.themeModal) el.themeModal.hidden = true;
+  });
+}
+
 function activateView(name) {
   if (name === "regie" && currentView !== "regie") enterRegie();
   else if (name !== "regie" && currentView === "regie") exitRegie();
@@ -880,6 +977,7 @@ function startFollowMode() {
 function init() {
   buildBoard();
   setupTabs();
+  setupTheme();
 
   if (!load()) resetPool();
   renderAll();
