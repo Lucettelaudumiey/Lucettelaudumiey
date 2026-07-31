@@ -110,6 +110,29 @@ body {
 
 .current-label { margin: 0; min-height: 1.4em; color: var(--accent); font-size: 1.25rem; font-weight: 600; }
 
+/* numéros manquants (en gros) */
+.awaited-box { margin-top: 14px; text-align: center; }
+.awaited-box[hidden] { display: none; }
+.aw-label { color: var(--danger); font-weight: 700; font-size: .95rem; }
+.awaited-nums { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 10px; }
+.aw-num {
+  font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 2.4rem; min-width: 1.8em; padding: 8px 14px;
+  border-radius: 16px; color: #2a1a00;
+  background: radial-gradient(circle at 32% 28%, #fff, var(--accent) 45%, var(--accent-2));
+  box-shadow: 0 6px 16px rgba(0,0,0,.25); animation: awaitPulse 1.1s ease-in-out infinite;
+}
+
+/* barre d'objectif : quine -> double quine -> carton plein */
+.objective-bar { margin-top: 18px; display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.obj-steps { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.obj-step {
+  padding: 7px 14px; border-radius: 999px; font-weight: 700; font-size: .9rem;
+  background: rgba(255,255,255,.10); color: var(--ink-soft);
+}
+.obj-step.is-done { background: var(--plein); color: #062c16; opacity: .8; }
+.obj-step.is-current { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #2a1a00; transform: scale(1.06); }
+.obj-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+
 .controls { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 24px; }
 .btn {
   border: 0; cursor: pointer; font-family: inherit; font-size: 1.05rem; font-weight: 600;
@@ -246,17 +269,18 @@ body {
   text-align: center; box-shadow: var(--shadow); animation: pop .4s cubic-bezier(.2,1.4,.4,1); max-width: 90vw;
 }
 .win-emoji { font-size: 4rem; }
-.win-card { width: min(560px, 94vw); }
-.win-card h2 { font-family: "Baloo 2", sans-serif; margin: 8px 0; font-size: 2.2rem; color: var(--accent); }
-.win-list { display: flex; flex-direction: column; gap: 14px; max-height: 56vh; overflow: auto; margin: 6px 0 18px; }
-.winner { background: #fff8e6; border-radius: 14px; padding: 12px; color: #3a2400; }
-.winner-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }
-.winner-level { padding: 3px 12px; border-radius: 999px; font-size: .9rem; font-weight: 700; background: var(--quine); color: #042c3a; }
+.win-card { width: min(1000px, 97vw); max-height: 96vh; overflow: auto; }
+.win-card h2 { font-family: "Baloo 2", sans-serif; margin: 8px 0; font-size: clamp(2rem, 6vw, 3rem); color: var(--accent); }
+.win-list { display: flex; flex-direction: column; gap: 16px; max-height: 74vh; overflow: auto; margin: 6px 0 18px; }
+.winner { background: #fff8e6; border-radius: 16px; padding: 16px; color: #3a2400; }
+.winner-head { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.winner-level { padding: 5px 16px; border-radius: 999px; font-size: 1.05rem; font-weight: 700; background: var(--quine); color: #042c3a; }
 .winner.double .winner-level { background: var(--double); color: #fff; }
 .winner.plein .winner-level { background: var(--plein); color: #062c16; }
-.winner-id { font-family: "Baloo 2", sans-serif; font-weight: 700; }
-.winner-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 5px; }
-.winner-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: 700; font-size: clamp(.85rem, 3.4vw, 1.4rem); background: #fffdf7; border: 1px solid #e3cf9e; color: #3a2400; }
+.winner-who { font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: clamp(1.6rem, 5vw, 2.6rem); color: #3a2400; }
+.winner-ref { font-weight: 700; color: #8a6a2a; font-size: 1rem; }
+.winner-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 7px; }
+.winner-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-weight: 700; font-size: clamp(1.1rem, 4.5vw, 2.4rem); background: #fffdf7; border: 1px solid #e3cf9e; color: #3a2400; }
 .winner-cell.blank { background: transparent; border: 0; }
 .winner-cell.marked { background: var(--accent); color: #3a2400; box-shadow: inset 0 0 0 2px #b9821b; }
 .winner.plein .winner-cell:not(.blank) { background: var(--plein); color: #062c16; }
@@ -274,8 +298,9 @@ body {
 #regieDraw { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
 #regieDraw .draw-stage { flex: 0 0 300px; padding: 16px; }
 #regieDraw .stats { flex: 0 0 auto; margin: 0; }
-#regieDraw .board-wrap { flex: 0 0 340px; margin: 0; }
-#regieDraw .board { grid-template-rows: none; }
+#regieDraw .board-wrap { flex: 0 0 480px; margin: 0; }
+#regieDraw .board { grid-template-rows: none; gap: 7px; padding: 14px; }
+#regieDraw .cell { font-size: clamp(1rem, 2.2vw, 1.6rem); }
 .regie-slot .ball.big { width: 92px; height: 92px; font-size: 2.3rem; }
 .regie-slot .ball.big.empty { font-size: 1.5rem; }
 .regie-slot .current-label { font-size: .95rem; }
@@ -294,8 +319,8 @@ body {
 .regie-slot .carton-badge { font-size: .55rem; padding: 2px 6px; }
 .regie-slot .carton-grid { gap: 3px; }
 .regie-slot .carton-cell { font-size: 13px; border-radius: 5px; }
-/* on n'affiche que les 24 cartons les mieux placés */
-#regieCartons .carton:nth-child(n+25) { display: none; }
+/* on n'affiche que les 12 cartons les mieux placés */
+#regieCartons .carton:nth-child(n+13) { display: none; }
 
 /* score « 4/5 » sur chaque carton */
 .carton-score {
@@ -529,6 +554,8 @@ body.follow-mode .cartons-bar { padding: 0; background: transparent; box-shadow:
       <button class="tab" data-view="multi">Toutes les parties</button>
       <button id="eventBtn" class="theme-tab" title="Infos de la partie">📋</button>
       <button id="themeBtnTop" class="theme-tab" title="Changer les couleurs">🎨</button>
+      <button id="zoomOut" class="theme-tab" title="Rétrécir l'affichage">🔍−</button>
+      <button id="zoomIn" class="theme-tab" title="Agrandir l'affichage">🔍+</button>
     </nav>
   </header>
 
@@ -586,6 +613,20 @@ body.follow-mode .cartons-bar { padding: 0; background: transparent; box-shadow:
       <div class="current-ball-wrap">
         <div id="currentBall" class="ball big empty">--</div>
         <p id="currentLabel" class="current-label">Prêt à jouer&nbsp;?</p>
+      </div>
+
+      <div id="awaitedBox" class="awaited-box" hidden></div>
+
+      <div class="objective-bar">
+        <div class="obj-steps">
+          <span class="obj-step" data-lvl="quine">Quine</span>
+          <span class="obj-step" data-lvl="double">Double quine</span>
+          <span class="obj-step" data-lvl="plein">Carton plein</span>
+        </div>
+        <div class="obj-actions">
+          <button id="objNext" class="btn btn-primary">Objectif suivant ▶</button>
+          <button id="objClear" class="btn btn-ghost">🧽 Effacer (nouvelle partie)</button>
+        </div>
       </div>
 
       <div class="controls">
@@ -679,7 +720,7 @@ body.follow-mode .cartons-bar { padding: 0; background: transparent; box-shadow:
           <div id="regieDraw" class="regie-slot"></div>
         </section>
         <section class="regie-col">
-          <h2 class="section-title">🎟️ Cartons — les 24 mieux placés</h2>
+          <h2 class="section-title">🎟️ Cartons — les 12 mieux placés</h2>
           <div id="regieCartons" class="regie-slot"></div>
         </section>
       </div>
@@ -839,7 +880,7 @@ function fullPool() { return Array.from({ length: 90 }, (_, i) => i + 1); }
 function uid() { return "p" + Date.now().toString(36) + Math.floor(Math.random() * 1e6).toString(36); }
 function makeParty(name) {
   return { id: uid(), name: name || "Partie 1", drawn: [], pool: fullPool(),
-           cartons: [], event: { assoc: "", orga: "", date: "" } };
+           cartons: [], event: { assoc: "", orga: "", date: "" }, objective: "quine" };
 }
 let parties = [];
 let currentId = null;
@@ -868,6 +909,7 @@ const $ = (sel) => document.querySelector(sel);
 const el = {
   ball: $("#currentBall"),
   label: $("#currentLabel"),
+  awaitedBox: $("#awaitedBox"),
   drawBtn: $("#drawBtn"),
   autoBtn: $("#autoBtn"),
   resetBtn: $("#resetBtn"),
@@ -916,6 +958,10 @@ const el = {
   themeClose: $("#themeClose"),
   winNewGame: $("#winNewGame"),
   resetAllBtn: $("#resetAllBtn"),
+  objNext: $("#objNext"),
+  objClear: $("#objClear"),
+  zoomOut: $("#zoomOut"),
+  zoomIn: $("#zoomIn"),
   partySelect: $("#partySelect"),
   partyNew: $("#partyNew"),
   partyDup: $("#partyDup"),
@@ -1092,7 +1138,9 @@ function newGame() {
   updateStats();
   refreshBoard();
   // on garde les cartons mais on remet les marquages à zéro
-  state.cartons.forEach((c) => (c.achieved = "none"));
+  const cp = currentParty(); if (cp) cp.objective = "quine";
+  state.cartons.forEach((c) => { c.achieved = "none"; c.annObj = 0; });
+  renderObjective();
   renderCartons();
   save();
 }
@@ -1535,19 +1583,22 @@ function markCartons(silent = false) {
     const scoreEl = node.querySelector(".carton-score");
     if (scoreEl) scoreEl.textContent = isPlein ? "15/15" : bestRow + "/5";
 
-    // collecte les nouveaux gagnants
-    if (!silent && rank[level] > rank[c.achieved]) {
-      winners.push({ c, level });
+    // collecte les gagnants qui remplissent l'objectif en cours
+    const objRank = OBJ_RANK[objectiveOf(currentParty())];
+    if (!silent && rank[level] >= objRank && (c.annObj || 0) < objRank) {
+      winners.push({ c, level: objectiveOf(currentParty()) });
+      c.annObj = objRank;
     }
     c.achieved = level;
   });
 
-  // numéros « en attente » (clignotants) sur le tableau
+  // numéros « en attente » (clignotants) sur le tableau + affichage en gros
   const awaited = computeAwaited();
   document.querySelectorAll(".cell").forEach((cell) => {
     const n = Number(cell.dataset.n);
     cell.classList.toggle("awaited", awaited.has(n) && !drawnSet.has(n));
   });
+  renderAwaited(awaited, drawnSet);
 
   // annonce des gagnants (tous ceux qui viennent de gagner)
   if (winners.length) showWinners(winners);
@@ -1599,6 +1650,17 @@ function computeAwaited() {
   return res;
 }
 
+// Affiche en gros les numéros manquants pour gagner
+function renderAwaited(awaited, drawnSet) {
+  if (!el.awaitedBox) return;
+  const nums = [...awaited].filter((n) => !drawnSet.has(n)).sort((a, b) => a - b);
+  if (!nums.length) { el.awaitedBox.hidden = true; el.awaitedBox.innerHTML = ""; return; }
+  el.awaitedBox.hidden = false;
+  el.awaitedBox.innerHTML =
+    `<div class="aw-label">🔴 Il ne manque plus que&nbsp;:</div>` +
+    `<div class="awaited-nums">` + nums.map((n) => `<span class="aw-num">${n}</span>`).join("") + `</div>`;
+}
+
 /* ---------- Bannière de victoire : cartons gagnants en grand ---------- */
 function winnerCard(c, level, drawnSet) {
   const labels = { quine: "Quine", double: "Double quine", plein: "Carton plein" };
@@ -1609,7 +1671,8 @@ function winnerCard(c, level, drawnSet) {
   const head = document.createElement("div");
   head.className = "winner-head";
   head.innerHTML = `<span class="winner-level">${labels[level]}</span>` +
-    `<span class="winner-id">${ref}${name ? " · " + name : ""}</span>`;
+    `<span class="winner-who">${name || ref}</span>` +
+    `<span class="winner-ref">${ref}</span>`;
   wrap.appendChild(head);
   const grid = document.createElement("div");
   grid.className = "winner-grid";
@@ -1869,6 +1932,26 @@ function activateView(name) {
   $("#view-" + name).classList.add("is-active");
   currentView = name;
   if (name === "multi") renderMultiView();
+  applyZoom();
+}
+
+/* ---------- Agrandir / rétrécir l'affichage ---------- */
+const ZKEY = "loto64-zoom";
+let uiZoom = 1;
+(function () { try { const z = parseFloat(localStorage.getItem(ZKEY)); if (z >= 0.7 && z <= 1.8) uiZoom = z; } catch (e) { /* ignore */ } })();
+function applyZoom() {
+  // la vue Tout-en-un s'ajuste toute seule : on n'y applique pas le zoom manuel
+  document.documentElement.style.zoom = (currentView === "regie") ? 1 : uiZoom;
+}
+function setZoom(z) {
+  uiZoom = Math.round(Math.max(0.7, Math.min(1.8, z)) * 100) / 100;
+  try { localStorage.setItem(ZKEY, String(uiZoom)); } catch (e) { /* ignore */ }
+  applyZoom();
+}
+function setupZoom() {
+  if (el.zoomOut) el.zoomOut.addEventListener("click", () => setZoom(uiZoom - 0.1));
+  if (el.zoomIn) el.zoomIn.addEventListener("click", () => setZoom(uiZoom + 0.1));
+  applyZoom();
 }
 
 /* ============================================================
@@ -2020,6 +2103,39 @@ function resetAll() {
     renderAll(); renderPartyBar(); save();
   });
 }
+/* ---------- Objectif de la partie (quine -> double -> plein) ---------- */
+const OBJ_RANK = { quine: 1, double: 2, plein: 3 };
+function objectiveOf(p) { return (p && p.objective) || "quine"; }
+function renderObjective() {
+  const cur = objectiveOf(currentParty());
+  document.querySelectorAll(".obj-step").forEach((s) => {
+    s.classList.toggle("is-current", s.dataset.lvl === cur);
+    s.classList.toggle("is-done", OBJ_RANK[s.dataset.lvl] < OBJ_RANK[cur]);
+  });
+  if (el.objNext) {
+    el.objNext.disabled = cur === "plein";
+    el.objNext.textContent = cur === "quine" ? "▶ Passer à la double quine"
+      : cur === "double" ? "▶ Passer au carton plein"
+      : "Carton plein atteint";
+  }
+}
+function nextObjective() {
+  const p = currentParty();
+  const cur = objectiveOf(p);
+  p.objective = cur === "quine" ? "double" : cur === "double" ? "plein" : "plein";
+  renderObjective();
+  markCartons();       // annonce les cartons qui remplissent déjà le nouvel objectif
+  save();
+}
+function clearGame() {
+  const p = currentParty();
+  p.drawn = []; p.pool = fullPool(); p.objective = "quine";
+  (p.cartons || []).forEach((c) => { c.achieved = "none"; c.annObj = 0; });
+  stopAuto();
+  stateFromParty(p);
+  renderAll(); renderObjective(); renderPartyBar(); save();
+}
+
 // Recalcule les paliers des cartons d'une partie et renvoie les nouveaux gagnants
 function markPartyCartons(p) {
   const drawn = new Set(p.drawn || []);
@@ -2034,7 +2150,8 @@ function markPartyCartons(p) {
       if (hits === nums.length) completed++;
     });
     const level = total === 15 ? "plein" : completed >= 2 ? "double" : completed >= 1 ? "quine" : "none";
-    if (rank[level] > rank[c.achieved || "none"]) winners.push({ c, level });
+    const objRank = OBJ_RANK[objectiveOf(p)];
+    if (rank[level] >= objRank && (c.annObj || 0) < objRank) { winners.push({ c, level: objectiveOf(p) }); c.annObj = objRank; }
     c.achieved = level;
   });
   return winners;
@@ -2247,8 +2364,8 @@ function setupEvent() {
 function adaptRegieGrid() {
   const grid = $("#cartons");
   if (!grid) return;
-  const n = Math.min(state.cartons.length, 24);
-  const cols = n <= 1 ? 1 : n <= 2 ? 2 : n <= 6 ? 3 : n <= 12 ? 4 : n <= 18 ? 5 : 6;
+  const n = Math.min(state.cartons.length, 12);
+  const cols = n <= 1 ? 1 : n <= 2 ? 2 : n <= 6 ? 3 : 4;
   grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
 }
 
@@ -2285,6 +2402,7 @@ function renderAll() {
   refreshHeadline();
   renderCartons();
   markCartons(true);
+  renderObjective();
 }
 
 /* ============================================================
@@ -2353,6 +2471,7 @@ function init() {
   buildBoard();
   setupTabs();
   setupTheme();
+  setupZoom();
 
   load();
   renderAll();
@@ -2383,6 +2502,8 @@ function init() {
   setupEvent();
   el.winNewGame.addEventListener("click", () => { el.winBanner.hidden = true; newGame(); });
   el.resetAllBtn.addEventListener("click", resetAll);
+  el.objNext.addEventListener("click", nextObjective);
+  el.objClear.addEventListener("click", clearGame);
   el.drawBtn.addEventListener("click", drawNumber);
   el.autoBtn.addEventListener("click", toggleAuto);
   el.resetBtn.addEventListener("click", newGame);
