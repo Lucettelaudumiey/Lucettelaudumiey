@@ -637,8 +637,12 @@ function cartonNode(c) {
 
   const head = document.createElement("div");
   head.className = "carton-head";
+  const applyBtn = (!FOLLOW && c.planche)
+    ? `<button class="carton-apply" title="Donner ce nom à tous les cartons de la planche N°${c.planche}">👥 toute la planche</button>`
+    : "";
   head.innerHTML =
     `<input class="carton-name" type="text" placeholder="Nom du joueur" maxlength="24" />` +
+    applyBtn +
     `<span class="carton-no">${c.ref ? c.ref : "n°" + c.id}</span>` +
     `<span class="carton-score">·</span>` +
     `<span class="carton-badge">en jeu</span>`;
@@ -648,6 +652,15 @@ function cartonNode(c) {
     nameInput.readOnly = true; // l'écran de suivi ne modifie rien
   } else {
     nameInput.addEventListener("input", () => { c.name = nameInput.value; save(); });
+    const applyEl = head.querySelector(".carton-apply");
+    if (applyEl) applyEl.addEventListener("click", () => {
+      const nm = nameInput.value;
+      state.cartons.forEach((x) => { if (x.planche === c.planche) x.name = nm; });
+      renderCartons();
+      markCartons(true);
+      if (currentView === "regie") { rankCartons(); adaptRegieGrid(); requestAnimationFrame(fitRegie); }
+      save();
+    });
   }
   wrap.appendChild(head);
 
@@ -1261,6 +1274,38 @@ function partyStats(p) {
 }
 function levelLabel(l) { return l === "plein" ? "Carton plein" : l === "double" ? "Double quine" : "Quine"; }
 
+// Un carton compact (pour la vue « Toutes les parties »)
+function miniCarton(c, drawn, color) {
+  let best = 0, total = 0;
+  c.grid.forEach((row) => {
+    let h = 0;
+    row.forEach((v) => { if (v !== null && drawn.has(v)) h++; });
+    if (h > best) best = h;
+    total += h;
+  });
+  const w = document.createElement("div");
+  w.className = "mini-carton";
+  const label = (c.name && c.name.trim()) ? c.name.trim() : (c.ref || ("n°" + c.id));
+  const head = document.createElement("div");
+  head.className = "mini-head";
+  head.innerHTML = `<span class="mini-label">${label}</span><span class="mini-score">${total === 15 ? "15/15" : best + "/5"}</span>`;
+  w.appendChild(head);
+  const g = document.createElement("div");
+  g.className = "mini-grid";
+  c.grid.forEach((row) => row.forEach((v) => {
+    const cell = document.createElement("div");
+    if (v === null) { cell.className = "mini-cell blank"; }
+    else {
+      cell.className = "mini-cell" + (drawn.has(v) ? " on" : "");
+      cell.textContent = v;
+      if (drawn.has(v)) cell.style.background = color;
+    }
+    g.appendChild(cell);
+  }));
+  w.appendChild(g);
+  return { node: w, best, total };
+}
+
 // Affiche toutes les parties côte à côte
 function renderMultiView() {
   if (!el.multiGrid) return;
@@ -1305,6 +1350,23 @@ function renderMultiView() {
       board.appendChild(c);
     }
     card.appendChild(board);
+
+    // 12 meilleurs cartons de la partie
+    if ((p.cartons || []).length) {
+      const ttl = document.createElement("div");
+      ttl.className = "pc-cartons-title";
+      ttl.textContent = "🎟️ " + Math.min(p.cartons.length, 12) + " meilleurs cartons";
+      card.appendChild(ttl);
+      const cg = document.createElement("div");
+      cg.className = "pc-cartons";
+      const dset = new Set(p.drawn || []);
+      p.cartons
+        .map((c) => miniCarton(c, dset, p.color))
+        .sort((a, b) => b.best - a.best || b.total - a.total)
+        .slice(0, 12)
+        .forEach((m) => cg.appendChild(m.node));
+      card.appendChild(cg);
+    }
 
     const win = document.createElement("div");
     win.className = "pc-winners" + (st.winners.length ? " has" : "");

@@ -194,6 +194,12 @@ body {
 .carton-name:focus { outline: none; border-style: solid; border-color: #b9821b; background: #fff; }
 .carton-name::placeholder { color: #b08a4a; font-weight: 600; }
 .carton-no { font-size: .8rem; font-weight: 700; color: #8a6a2a; white-space: nowrap; }
+.carton-apply {
+  border: 0; cursor: pointer; background: #e7d4a8; color: #3a2400; border-radius: 8px;
+  padding: 4px 8px; font-family: inherit; font-size: .72rem; font-weight: 700; white-space: nowrap;
+}
+.carton-apply:hover { background: #dcc48c; }
+.regie-slot .carton-apply { display: none; }
 .carton-badge { font-size: .8rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #e7d4a8; }
 .carton-badge.quine { background: var(--quine); color: #08122a; }
 .carton-badge.double { background: var(--double); color: #fff; }
@@ -372,6 +378,16 @@ body {
 }
 .pc-cell:active { transform: scale(.9); }
 .pc-cell.on { color: #08122a; font-weight: 700; }
+.pc-cartons-title { font-size: .82rem; font-weight: 700; color: var(--ink-soft); margin-top: 4px; }
+.pc-cartons { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+.mini-carton { background: #fff8e6; border-radius: 8px; padding: 5px; }
+.mini-head { display: flex; justify-content: space-between; align-items: center; gap: 4px; margin-bottom: 3px; }
+.mini-label { font-size: .62rem; font-weight: 700; color: #3a2400; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mini-score { font-size: .58rem; font-weight: 700; color: #7a3f6e; background: #ffe9c7; border-radius: 999px; padding: 0 5px; white-space: nowrap; }
+.mini-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 1px; }
+.mini-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 2px; background: #fffdf7; color: #3a2400; font-size: clamp(.42rem, 1vw, .7rem); font-weight: 700; }
+.mini-cell.blank { background: transparent; }
+.mini-cell.on { color: #08122a; }
 .pc-winners { font-size: .82rem; color: var(--ink-soft); min-height: 1.2em; }
 .pc-winners.has { color: var(--plein); font-weight: 600; }
 .pc-open { margin-top: auto; }
