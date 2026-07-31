@@ -259,29 +259,27 @@ body {
 /* la scène a une taille fixe ; le JS la redimensionne pour remplir l'écran */
 #view-regie { max-width: none; padding: 8px; overflow: hidden; }
 .regie-stage { width: 1280px; transform-origin: top left; }
-.regie-layout {
-  display: grid; grid-template-columns: 332px 1fr; gap: 18px; align-items: start;
-}
+.regie-layout { display: flex; flex-direction: column; gap: 14px; }
 .regie-col { min-width: 0; }
-.regie-col .section-title { margin: 4px 0 10px; }
+.regie-col .section-title { margin: 2px 0 8px; }
 
-/* tirage compact dans la régie */
-.regie-slot .draw-stage { padding: 18px; }
-.regie-slot .ball.big { width: 104px; height: 104px; font-size: 2.6rem; }
-.regie-slot .ball.big.empty { font-size: 1.6rem; }
-.regie-slot .current-label { font-size: 1rem; }
-.regie-slot .controls { margin-top: 16px; gap: 8px; }
-.regie-slot .btn { padding: 11px 16px; font-size: .95rem; }
-.regie-slot .options { margin-top: 14px; gap: 12px; font-size: .85rem; }
-.regie-slot .stats { margin: 14px 0 0; }
-
-/* tableau des 90 numéros, compact, sous le tirage */
-.regie-slot .board-wrap { margin-top: 16px; }
+/* bande du haut : tirage + tableau côte à côte, pleine largeur */
+#regieDraw { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+#regieDraw .draw-stage { flex: 0 0 300px; padding: 16px; }
+#regieDraw .stats { flex: 0 0 auto; margin: 0; }
+#regieDraw .board-wrap { flex: 0 0 340px; margin: 0; }
+#regieDraw .board { grid-template-rows: none; }
+.regie-slot .ball.big { width: 92px; height: 92px; font-size: 2.3rem; }
+.regie-slot .ball.big.empty { font-size: 1.5rem; }
+.regie-slot .current-label { font-size: .95rem; }
+.regie-slot .controls { margin-top: 12px; gap: 8px; }
+.regie-slot .btn { padding: 10px 14px; font-size: .9rem; }
+.regie-slot .options { margin-top: 12px; gap: 12px; font-size: .82rem; }
 .regie-slot .board { padding: 10px; gap: 5px; }
 .regie-slot .board-hint { display: none; }
 
-/* 12 cartons en grille 4×3, compacts */
-.regie-slot .cartons-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+/* cartons en grille pleine largeur (nb de colonnes réglé par le JS) */
+.regie-slot .cartons-grid { grid-template-columns: repeat(6, 1fr); gap: 10px; }
 .regie-slot .carton { padding: 7px; border-radius: 12px; }
 .regie-slot .carton-head { margin-bottom: 6px; gap: 4px; }
 .regie-slot .carton-name { font-size: .72rem; padding: 3px 6px; }
@@ -696,6 +694,17 @@ body.follow-mode .cartons-bar { padding: 0; background: transparent; box-shadow:
     </div>
   </div>
 
+  <!-- Confirmation / message (remplace les boîtes du navigateur, bloquées en ligne) -->
+  <div id="confirmModal" class="modal" hidden>
+    <div class="modal-card confirm-card">
+      <p id="confirmText"></p>
+      <div class="modal-actions">
+        <button id="confirmNo" class="btn btn-ghost">Annuler</button>
+        <button id="confirmYes" class="btn btn-primary">Confirmer</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Bannière de victoire -->
   <div id="winBanner" class="win-banner" hidden>
     <div class="win-card">
@@ -861,6 +870,10 @@ const el = {
   evDate: $("#evDate"),
   eventClear: $("#eventClear"),
   eventClose: $("#eventClose"),
+  confirmModal: $("#confirmModal"),
+  confirmText: $("#confirmText"),
+  confirmYes: $("#confirmYes"),
+  confirmNo: $("#confirmNo"),
   lockScreen: $("#lockScreen"),
   lockName: $("#lockName"),
   lockCode: $("#lockCode"),
@@ -1220,14 +1233,14 @@ function handleCsvFile(file) {
   reader.onload = () => {
     const res = importCommupassText(String(reader.result));
     if (res.added === 0) {
-      alert("Aucun carton reconnu dans ce fichier.\nVérifiez qu'il s'agit bien d'un export CommuPass (.csv).");
+      uiAlert("Aucun carton reconnu dans ce fichier.\nVérifiez qu'il s'agit bien d'un export CommuPass (.csv).");
       return;
     }
     const planches = [...new Set(res.cartons.map((c) => c.planche).filter(Boolean))];
     let msg = `✅ ${res.added} carton(s) importé(s) sur ${planches.length || 1} planche(s) !\n`
             + `Le numéro de plaque est déjà inscrit sur chaque carton — vous pouvez le remplacer par un nom de joueur si vous voulez.`;
     if (res.skipped) msg += `\n(${res.skipped} ligne(s) ignorée(s).)`;
-    alert(msg);
+    uiAlert(msg);
   };
   reader.readAsText(file, "utf-8");
 }
@@ -1278,7 +1291,7 @@ function drawCarton(ctx, x, y, w, h, c, d) {
 
 function downloadCartons() {
   if (!state.cartons.length) {
-    alert("Générez d'abord vos cartons !");
+    uiAlert("Générez d'abord vos cartons !");
     return;
   }
   const D = { CELL: 54, GAP: 4, PAD: 16, HEAD: 46 };
@@ -1327,7 +1340,7 @@ function downloadCartons() {
 /* ---------- Téléchargement des cartons en CSV (Excel) ---------- */
 function downloadCSV() {
   if (!state.cartons.length) {
-    alert("Générez d'abord vos cartons !");
+    uiAlert("Générez d'abord vos cartons !");
     return;
   }
   const SEP = ";"; // séparateur attendu par Excel en français
@@ -1839,6 +1852,23 @@ function setupLock() {
   return false;
 }
 
+/* ---------- Confirmation / message intégrés (dialogues navigateur bloqués en ligne) ---------- */
+function uiConfirm(msg, onYes) {
+  el.confirmText.textContent = msg;
+  el.confirmNo.style.display = "";
+  el.confirmYes.textContent = "Confirmer";
+  el.confirmModal.hidden = false;
+  el.confirmYes.onclick = () => { el.confirmModal.hidden = true; if (onYes) onYes(); };
+  el.confirmNo.onclick = () => { el.confirmModal.hidden = true; };
+}
+function uiAlert(msg) {
+  el.confirmText.textContent = msg;
+  el.confirmNo.style.display = "none";
+  el.confirmYes.textContent = "OK";
+  el.confirmModal.hidden = false;
+  el.confirmYes.onclick = () => { el.confirmModal.hidden = true; };
+}
+
 /* ============================================================
    PARTIES + INFOS DE LA PARTIE
    ============================================================ */
@@ -1889,19 +1919,21 @@ function duplicateParty() {
   stateFromParty(copy); renderAll(); renderPartyBar(); save();
 }
 function deleteParty() {
-  if (parties.length <= 1) { alert("Il faut garder au moins une partie."); return; }
-  if (!confirm(`Supprimer la partie « ${currentParty().name || ""} » ?`)) return;
-  parties = parties.filter((p) => p.id !== currentId);
-  currentId = parties[0].id;
-  stateFromParty(currentParty()); renderAll(); renderPartyBar(); save();
+  if (parties.length <= 1) { uiAlert("Il faut garder au moins une partie."); return; }
+  uiConfirm(`Supprimer la partie « ${currentParty().name || ""} » ?`, () => {
+    parties = parties.filter((p) => p.id !== currentId);
+    currentId = parties[0].id;
+    stateFromParty(currentParty()); renderAll(); renderPartyBar(); save();
+  });
 }
 function resetAll() {
-  if (!confirm("Tout effacer pour cette partie : numéros tirés, cartons et infos ?")) return;
-  stopAuto();
-  const p = currentParty();
-  p.drawn = []; p.pool = fullPool(); p.cartons = []; p.event = { assoc: "", orga: "", date: "" };
-  stateFromParty(p);
-  renderAll(); renderPartyBar(); save();
+  uiConfirm("Tout effacer pour cette partie : numéros tirés, cartons et infos ?", () => {
+    stopAuto();
+    const p = currentParty();
+    p.drawn = []; p.pool = fullPool(); p.cartons = []; p.event = { assoc: "", orga: "", date: "" };
+    stateFromParty(p);
+    renderAll(); renderPartyBar(); save();
+  });
 }
 function setupParties() {
   renderPartyBar();
