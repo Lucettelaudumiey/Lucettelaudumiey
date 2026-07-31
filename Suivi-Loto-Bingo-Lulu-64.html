@@ -212,6 +212,12 @@ body {
 .carton-name:focus { outline: none; border-style: solid; border-color: #b9821b; background: #fff; }
 .carton-name::placeholder { color: #b08a4a; font-weight: 600; }
 .carton-no { font-size: .8rem; font-weight: 700; color: #8a6a2a; white-space: nowrap; }
+.carton-apply {
+  border: 0; cursor: pointer; background: #e7d4a8; color: #3a2400; border-radius: 8px;
+  padding: 4px 8px; font-family: inherit; font-size: .72rem; font-weight: 700; white-space: nowrap;
+}
+.carton-apply:hover { background: #dcc48c; }
+.regie-slot .carton-apply { display: none; }
 .carton-badge { font-size: .8rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #e7d4a8; }
 .carton-badge.quine { background: var(--quine); color: #08122a; }
 .carton-badge.double { background: var(--double); color: #fff; }
@@ -390,6 +396,16 @@ body {
 }
 .pc-cell:active { transform: scale(.9); }
 .pc-cell.on { color: #08122a; font-weight: 700; }
+.pc-cartons-title { font-size: .82rem; font-weight: 700; color: var(--ink-soft); margin-top: 4px; }
+.pc-cartons { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+.mini-carton { background: #fff8e6; border-radius: 8px; padding: 5px; }
+.mini-head { display: flex; justify-content: space-between; align-items: center; gap: 4px; margin-bottom: 3px; }
+.mini-label { font-size: .62rem; font-weight: 700; color: #3a2400; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mini-score { font-size: .58rem; font-weight: 700; color: #7a3f6e; background: #ffe9c7; border-radius: 999px; padding: 0 5px; white-space: nowrap; }
+.mini-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 1px; }
+.mini-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 2px; background: #fffdf7; color: #3a2400; font-size: clamp(.42rem, 1vw, .7rem); font-weight: 700; }
+.mini-cell.blank { background: transparent; }
+.mini-cell.on { color: #08122a; }
 .pc-winners { font-size: .82rem; color: var(--ink-soft); min-height: 1.2em; }
 .pc-winners.has { color: var(--plein); font-weight: 600; }
 .pc-open { margin-top: auto; }
@@ -1422,8 +1438,12 @@ function cartonNode(c) {
 
   const head = document.createElement("div");
   head.className = "carton-head";
+  const applyBtn = (!FOLLOW && c.planche)
+    ? `<button class="carton-apply" title="Donner ce nom à tous les cartons de la planche N°${c.planche}">👥 toute la planche</button>`
+    : "";
   head.innerHTML =
     `<input class="carton-name" type="text" placeholder="Nom du joueur" maxlength="24" />` +
+    applyBtn +
     `<span class="carton-no">${c.ref ? c.ref : "n°" + c.id}</span>` +
     `<span class="carton-score">·</span>` +
     `<span class="carton-badge">en jeu</span>`;
@@ -1433,6 +1453,15 @@ function cartonNode(c) {
     nameInput.readOnly = true; // l'écran de suivi ne modifie rien
   } else {
     nameInput.addEventListener("input", () => { c.name = nameInput.value; save(); });
+    const applyEl = head.querySelector(".carton-apply");
+    if (applyEl) applyEl.addEventListener("click", () => {
+      const nm = nameInput.value;
+      state.cartons.forEach((x) => { if (x.planche === c.planche) x.name = nm; });
+      renderCartons();
+      markCartons(true);
+      if (currentView === "regie") { rankCartons(); adaptRegieGrid(); requestAnimationFrame(fitRegie); }
+      save();
+    });
   }
   wrap.appendChild(head);
 
@@ -2046,6 +2075,38 @@ function partyStats(p) {
 }
 function levelLabel(l) { return l === "plein" ? "Carton plein" : l === "double" ? "Double quine" : "Quine"; }
 
+// Un carton compact (pour la vue « Toutes les parties »)
+function miniCarton(c, drawn, color) {
+  let best = 0, total = 0;
+  c.grid.forEach((row) => {
+    let h = 0;
+    row.forEach((v) => { if (v !== null && drawn.has(v)) h++; });
+    if (h > best) best = h;
+    total += h;
+  });
+  const w = document.createElement("div");
+  w.className = "mini-carton";
+  const label = (c.name && c.name.trim()) ? c.name.trim() : (c.ref || ("n°" + c.id));
+  const head = document.createElement("div");
+  head.className = "mini-head";
+  head.innerHTML = `<span class="mini-label">${label}</span><span class="mini-score">${total === 15 ? "15/15" : best + "/5"}</span>`;
+  w.appendChild(head);
+  const g = document.createElement("div");
+  g.className = "mini-grid";
+  c.grid.forEach((row) => row.forEach((v) => {
+    const cell = document.createElement("div");
+    if (v === null) { cell.className = "mini-cell blank"; }
+    else {
+      cell.className = "mini-cell" + (drawn.has(v) ? " on" : "");
+      cell.textContent = v;
+      if (drawn.has(v)) cell.style.background = color;
+    }
+    g.appendChild(cell);
+  }));
+  w.appendChild(g);
+  return { node: w, best, total };
+}
+
 // Affiche toutes les parties côte à côte
 function renderMultiView() {
   if (!el.multiGrid) return;
@@ -2090,6 +2151,23 @@ function renderMultiView() {
       board.appendChild(c);
     }
     card.appendChild(board);
+
+    // 12 meilleurs cartons de la partie
+    if ((p.cartons || []).length) {
+      const ttl = document.createElement("div");
+      ttl.className = "pc-cartons-title";
+      ttl.textContent = "🎟️ " + Math.min(p.cartons.length, 12) + " meilleurs cartons";
+      card.appendChild(ttl);
+      const cg = document.createElement("div");
+      cg.className = "pc-cartons";
+      const dset = new Set(p.drawn || []);
+      p.cartons
+        .map((c) => miniCarton(c, dset, p.color))
+        .sort((a, b) => b.best - a.best || b.total - a.total)
+        .slice(0, 12)
+        .forEach((m) => cg.appendChild(m.node));
+      card.appendChild(cg);
+    }
 
     const win = document.createElement("div");
     win.className = "pc-winners" + (st.winners.length ? " has" : "");
