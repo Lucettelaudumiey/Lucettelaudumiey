@@ -166,6 +166,10 @@ body {
   color: #2a1a00; transform: scale(1.04); box-shadow: 0 4px 12px rgba(255,138,61,.4);
 }
 .cell.latest { outline: 3px solid #fff; outline-offset: 1px; }
+/* numéro attendu (un carton à 1 numéro de la quine) */
+.cell.awaited { box-shadow: inset 0 0 0 3px var(--accent); color: var(--ink); font-weight: 700; animation: awaitPulse 1.1s ease-in-out infinite; }
+@keyframes awaitPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+@media (prefers-reduced-motion: reduce) { .cell.awaited { animation: none; } }
 
 /* Écran large : tirage à gauche, grand tableau à droite (meilleur usage de l'espace) */
 @media (min-width: 900px) {
@@ -235,7 +239,20 @@ body {
   text-align: center; box-shadow: var(--shadow); animation: pop .4s cubic-bezier(.2,1.4,.4,1); max-width: 90vw;
 }
 .win-emoji { font-size: 4rem; }
+.win-card { width: min(560px, 94vw); }
 .win-card h2 { font-family: "Baloo 2", sans-serif; margin: 8px 0; font-size: 2.2rem; color: var(--accent); }
+.win-list { display: flex; flex-direction: column; gap: 14px; max-height: 56vh; overflow: auto; margin: 6px 0 18px; }
+.winner { background: #fff8e6; border-radius: 14px; padding: 12px; color: #3a2400; }
+.winner-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }
+.winner-level { padding: 3px 12px; border-radius: 999px; font-size: .9rem; font-weight: 700; background: var(--quine); color: #042c3a; }
+.winner.double .winner-level { background: var(--double); color: #fff; }
+.winner.plein .winner-level { background: var(--plein); color: #062c16; }
+.winner-id { font-family: "Baloo 2", sans-serif; font-weight: 700; }
+.winner-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 5px; }
+.winner-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: 700; font-size: clamp(.85rem, 3.4vw, 1.4rem); background: #fffdf7; border: 1px solid #e3cf9e; color: #3a2400; }
+.winner-cell.blank { background: transparent; border: 0; }
+.winner-cell.marked { background: var(--accent); color: #3a2400; box-shadow: inset 0 0 0 2px #b9821b; }
+.winner.plein .winner-cell:not(.blank) { background: var(--plein); color: #062c16; }
 .win-card p { color: var(--ink-soft); margin: 0 0 20px; font-size: 1.1rem; }
 
 /* ---------- Vue Tout-en-un (régie) ---------- */
@@ -687,7 +704,7 @@ body.follow-mode .cartons-bar { padding: 0; background: transparent; box-shadow:
     <div class="win-card">
       <div class="win-emoji">🎉</div>
       <h2 id="winTitle">Quine&nbsp;!</h2>
-      <p id="winText">Carton n°1</p>
+      <div id="winList" class="win-list"></div>
       <div class="win-actions">
         <button id="winClose" class="btn btn-primary">Suivant ▶</button>
         <button id="winNewGame" class="btn btn-ghost">↺ Nouvelle partie</button>
@@ -816,7 +833,7 @@ const el = {
   pmSave: $("#pmSave"),
   winBanner: $("#winBanner"),
   winTitle: $("#winTitle"),
-  winText: $("#winText"),
+  winList: $("#winList"),
   winClose: $("#winClose"),
   followBar: $("#followBar"),
   followLast: $("#followLast"),
@@ -1390,6 +1407,8 @@ function cartonNode(c) {
 /* ---------- Marquage + détection quine / double / plein ---------- */
 function markCartons(silent = false) {
   const drawnSet = new Set(state.drawn);
+  const winners = [];
+  const rank = { none: 0, quine: 1, double: 2, plein: 3 };
 
   state.cartons.forEach((c) => {
     const node = el.cartons.querySelector(`.carton[data-id="${c.id}"]`);
@@ -1429,13 +1448,23 @@ function markCartons(silent = false) {
     const scoreEl = node.querySelector(".carton-score");
     if (scoreEl) scoreEl.textContent = isPlein ? "15/15" : bestRow + "/5";
 
-    // bannière si nouveau palier atteint
-    const rank = { none: 0, quine: 1, double: 2, plein: 3 };
+    // collecte les nouveaux gagnants
     if (!silent && rank[level] > rank[c.achieved]) {
-      celebrate(level, c.id);
+      winners.push({ c, level });
     }
     c.achieved = level;
   });
+
+  // numéros « en attente » (clignotants) sur le tableau
+  const awaited = computeAwaited();
+  document.querySelectorAll(".cell").forEach((cell) => {
+    const n = Number(cell.dataset.n);
+    cell.classList.toggle("awaited", awaited.has(n) && !drawnSet.has(n));
+  });
+
+  // annonce des gagnants (tous ceux qui viennent de gagner)
+  if (winners.length) showWinners(winners);
+
   // en vue Tout-en-un, on garde les mieux placés en tête
   if (currentView === "regie") { rankCartons(); adaptRegieGrid(); }
   save();
@@ -1459,14 +1488,64 @@ function applyCartonLevel(node, level) {
     level === "quine" ? "Quine !" : "en jeu";
 }
 
-/* ---------- Bannière de victoire ---------- */
-function celebrate(level, id) {
+/* ---------- Numéros « en attente » (à 1 numéro de la quine) ---------- */
+function computeAwaited() {
+  const drawn = new Set(state.drawn);
+  const res = new Set();
+  state.cartons.forEach((c) => {
+    let total = 0;
+    c.grid.forEach((row) => {
+      const nums = row.filter((v) => v !== null);
+      const marked = nums.filter((v) => drawn.has(v)).length;
+      total += marked;
+      if (marked === nums.length - 1) {           // ligne à 1 numéro près
+        const miss = nums.find((v) => !drawn.has(v));
+        if (miss) res.add(miss);
+      }
+    });
+    if (total === 14) {                            // carton plein à 1 numéro près
+      const miss = c.grid.flat().find((v) => v !== null && !drawn.has(v));
+      if (miss) res.add(miss);
+    }
+  });
+  return res;
+}
+
+/* ---------- Bannière de victoire : cartons gagnants en grand ---------- */
+function winnerCard(c, level, drawnSet) {
+  const labels = { quine: "Quine", double: "Double quine", plein: "Carton plein" };
+  const wrap = document.createElement("div");
+  wrap.className = "winner " + level;
+  const ref = c.ref || ("Carton n°" + c.id);
+  const name = (c.name && c.name.trim()) ? c.name.trim() : "";
+  const head = document.createElement("div");
+  head.className = "winner-head";
+  head.innerHTML = `<span class="winner-level">${labels[level]}</span>` +
+    `<span class="winner-id">${ref}${name ? " · " + name : ""}</span>`;
+  wrap.appendChild(head);
+  const grid = document.createElement("div");
+  grid.className = "winner-grid";
+  c.grid.forEach((row) => row.forEach((v) => {
+    const cell = document.createElement("div");
+    if (v === null) { cell.className = "winner-cell blank"; }
+    else { cell.className = "winner-cell" + (drawnSet.has(v) ? " marked" : ""); cell.textContent = v; }
+    grid.appendChild(cell);
+  }));
+  wrap.appendChild(grid);
+  return wrap;
+}
+function showWinners(winners) {
+  const rank = { none: 0, quine: 1, double: 2, plein: 3 };
+  winners.sort((a, b) => rank[b.level] - rank[a.level]);
+  const top = winners[0].level;
   const titles = { quine: "Quine ! 🎉", double: "Double quine ! 🎉🎉", plein: "CARTON PLEIN ! 🏆" };
-  el.winTitle.textContent = titles[level];
-  el.winText.textContent = `Carton n°${id}`;
+  el.winTitle.textContent = titles[top] + (winners.length > 1 ? `  (${winners.length} gagnants)` : "");
+  const drawnSet = new Set(state.drawn);
+  el.winList.innerHTML = "";
+  winners.forEach((w) => el.winList.appendChild(winnerCard(w.c, w.level, drawnSet)));
   el.winBanner.hidden = false;
   if (!FOLLOW && el.voice.checked && "speechSynthesis" in window) {
-    const txt = level === "plein" ? "Carton plein !" : level === "double" ? "Double quine !" : "Quine !";
+    const txt = top === "plein" ? "Carton plein !" : top === "double" ? "Double quine !" : "Quine !";
     const u = new SpeechSynthesisUtterance(txt);
     u.lang = "fr-FR"; u.rate = 0.95;
     speechSynthesis.speak(u);
@@ -1928,10 +2007,12 @@ function syncFromStorage() {
   renderEventInfo();
   updateFollowBar();
 
-  // célèbre les nouvelles quines détectées sur l'écran de suivi
+  // affiche les gagnants détectés sur l'écran de suivi
+  const winners = [];
   state.cartons.forEach((c) => {
-    if (rank[c.achieved] > rank[old[c.id] || "none"]) celebrate(c.achieved, c.id);
+    if (rank[c.achieved] > rank[old[c.id] || "none"]) winners.push({ c, level: c.achieved });
   });
+  if (winners.length) showWinners(winners);
 }
 
 function startFollowMode() {
