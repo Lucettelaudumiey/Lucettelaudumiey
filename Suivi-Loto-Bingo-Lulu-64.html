@@ -167,6 +167,21 @@ body {
 }
 .cell.latest { outline: 3px solid #fff; outline-offset: 1px; }
 
+/* Écran large : tirage à gauche, grand tableau à droite (meilleur usage de l'espace) */
+@media (min-width: 900px) {
+  #view-tirage.is-active {
+    display: grid;
+    grid-template-columns: minmax(320px, 440px) 1fr;
+    grid-template-areas: "draw board" "stats board";
+    gap: 22px; align-items: start;
+  }
+  #view-tirage .draw-stage { grid-area: draw; margin: 0; }
+  #view-tirage .stats { grid-area: stats; margin: 18px 0 0; }
+  #view-tirage .board-wrap { grid-area: board; margin: 0; }
+  #view-tirage .board { gap: 9px; padding: 20px; }
+  #view-tirage .cell { font-size: clamp(1rem, 2.2vw, 1.5rem); }
+}
+
 /* ---------- Cartons ---------- */
 .cartons-bar { background: var(--card); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); margin-bottom: 22px; }
 .cartons-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
