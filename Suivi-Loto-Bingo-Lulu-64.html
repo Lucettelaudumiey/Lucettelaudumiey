@@ -295,11 +295,14 @@ body {
 .regie-col { min-width: 0; }
 .regie-col .section-title { margin: 2px 0 8px; }
 
-/* bande du haut : tirage + tableau côte à côte, pleine largeur */
-#regieDraw { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
-#regieDraw .draw-stage { flex: 0 0 300px; padding: 16px; }
-#regieDraw .stats { flex: 0 0 auto; margin: 0; }
-#regieDraw .board-wrap { flex: 0 0 480px; margin: 0; }
+/* bande du haut : tirage à gauche, tableau des 90 numéros à droite */
+#regieDraw {
+  display: grid; grid-template-columns: 320px 1fr;
+  grid-template-areas: "draw board" "stats board"; gap: 16px; align-items: start;
+}
+#regieDraw .draw-stage { grid-area: draw; padding: 16px; }
+#regieDraw .stats { grid-area: stats; margin: 12px 0 0; }
+#regieDraw .board-wrap { grid-area: board; max-width: 560px; margin: 0; }
 #regieDraw .board { grid-template-rows: none; gap: 7px; padding: 14px; }
 #regieDraw .cell { font-size: clamp(1rem, 2.2vw, 1.6rem); }
 .regie-slot .ball.big { width: 92px; height: 92px; font-size: 2.3rem; }
