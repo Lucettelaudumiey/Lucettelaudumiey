@@ -32,7 +32,7 @@ const state = {
 };
 
 /* ---------- Plusieurs parties (suivi de plusieurs lotos) ---------- */
-const PKEY = "loto64-parties-v2"; // v2 : démarrage propre (sans plaques ni numéros)
+const PKEY = "loto64-parties-v3"; // v3 : démarre avec 2 jeux nommés (Normale / Bingo)
 function fullPool() { return Array.from({ length: 90 }, (_, i) => i + 1); }
 function uid() { return "p" + Date.now().toString(36) + Math.floor(Math.random() * 1e6).toString(36); }
 function makeParty(name) {
@@ -854,13 +854,14 @@ function load() {
     // reprise d'une éventuelle ancienne partie unique
     let old = null;
     try { old = JSON.parse(localStorage.getItem("loto64")); } catch (e) { /* ignore */ }
-    const p = makeParty("Partie 1");
+    const p1 = makeParty("Jeu Loto Partie Normale");
+    const p2 = makeParty("Jeu Loto Partie Bingo");
     if (old) {
-      p.drawn = old.drawn || [];
-      p.pool = old.pool || fullPool().filter((n) => !p.drawn.includes(n));
-      p.cartons = old.cartons || [];
+      p1.drawn = old.drawn || [];
+      p1.pool = old.pool || fullPool().filter((n) => !p1.drawn.includes(n));
+      p1.cartons = old.cartons || [];
     }
-    parties = [p]; currentId = p.id;
+    parties = [p1, p2]; currentId = p1.id;
   } else {
     parties = data.parties;
     currentId = (data.current && data.parties.some((p) => p.id === data.current))
