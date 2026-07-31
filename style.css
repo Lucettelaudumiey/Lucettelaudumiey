@@ -364,9 +364,14 @@ body {
 .pc-ev { color: var(--ink-soft); font-size: .8rem; }
 .pc-stats { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; color: var(--ink-soft); }
 .pc-stats b { color: var(--accent); font-family: "Baloo 2", sans-serif; }
-.pc-board { display: grid; grid-template-columns: repeat(10, 1fr); gap: 2px; }
-.pc-cell { aspect-ratio: 1; border-radius: 2px; background: var(--card-2); }
-.pc-cell.on { background: var(--accent); }
+.pc-board { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; }
+.pc-cell {
+  aspect-ratio: 1; border: 0; border-radius: 4px; background: var(--card-2); color: var(--ink-soft);
+  font-family: inherit; font-weight: 600; font-size: clamp(.55rem, 1.4vw, .95rem); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; padding: 0; -webkit-tap-highlight-color: transparent;
+}
+.pc-cell:active { transform: scale(.9); }
+.pc-cell.on { color: #08122a; font-weight: 700; }
 .pc-winners { font-size: .82rem; color: var(--ink-soft); min-height: 1.2em; }
 .pc-winners.has { color: var(--plein); font-weight: 600; }
 .pc-open { margin-top: auto; }

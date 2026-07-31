@@ -805,13 +805,13 @@ function winnerCard(c, level, drawnSet) {
   wrap.appendChild(grid);
   return wrap;
 }
-function showWinners(winners) {
+function showWinners(winners, drawnSet) {
   const rank = { none: 0, quine: 1, double: 2, plein: 3 };
   winners.sort((a, b) => rank[b.level] - rank[a.level]);
   const top = winners[0].level;
   const titles = { quine: "Quine ! 🎉", double: "Double quine ! 🎉🎉", plein: "CARTON PLEIN ! 🏆" };
   el.winTitle.textContent = titles[top] + (winners.length > 1 ? `  (${winners.length} gagnants)` : "");
-  const drawnSet = new Set(state.drawn);
+  drawnSet = drawnSet || new Set(state.drawn);
   el.winList.innerHTML = "";
   winners.forEach((w) => el.winList.appendChild(winnerCard(w.c, w.level, drawnSet)));
   el.winBanner.hidden = false;
@@ -1199,6 +1199,46 @@ function resetAll() {
     renderAll(); renderPartyBar(); save();
   });
 }
+// Recalcule les paliers des cartons d'une partie et renvoie les nouveaux gagnants
+function markPartyCartons(p) {
+  const drawn = new Set(p.drawn || []);
+  const rank = { none: 0, quine: 1, double: 2, plein: 3 };
+  const winners = [];
+  (p.cartons || []).forEach((c) => {
+    let completed = 0, total = 0;
+    c.grid.forEach((row) => {
+      const nums = row.filter((v) => v !== null);
+      const hits = nums.filter((v) => drawn.has(v)).length;
+      total += hits;
+      if (hits === nums.length) completed++;
+    });
+    const level = total === 15 ? "plein" : completed >= 2 ? "double" : completed >= 1 ? "quine" : "none";
+    if (rank[level] > rank[c.achieved || "none"]) winners.push({ c, level });
+    c.achieved = level;
+  });
+  return winners;
+}
+
+// Pointe / retire un numéro sur une partie précise (depuis la vue « Toutes les parties »)
+function toggleMarkParty(p, n) {
+  if (!p.drawn) p.drawn = [];
+  if (!p.pool) p.pool = fullPool().filter((x) => !p.drawn.includes(x));
+  const i = p.drawn.indexOf(n);
+  if (i >= 0) {
+    p.drawn.splice(i, 1);
+    if (!p.pool.includes(n)) p.pool.push(n);
+  } else {
+    p.drawn.push(n);
+    const pi = p.pool.indexOf(n);
+    if (pi >= 0) p.pool.splice(pi, 1);
+  }
+  const winners = markPartyCartons(p);
+  if (p.id === currentId) { refreshBoard(); updateStats(); refreshHeadline(); }
+  renderMultiView();
+  save();
+  if (winners.length) showWinners(winners, new Set(p.drawn));
+}
+
 // Statistiques d'une partie (pour la vue d'ensemble)
 function partyStats(p) {
   const drawn = new Set(p.drawn || []);
@@ -1256,9 +1296,12 @@ function renderMultiView() {
     board.className = "pc-board";
     const ds = new Set(p.drawn || []);
     for (let n = 1; n <= 90; n++) {
-      const c = document.createElement("div");
+      const c = document.createElement("button");
+      c.type = "button";
       c.className = "pc-cell" + (ds.has(n) ? " on" : "");
+      c.textContent = n;
       if (ds.has(n)) c.style.background = p.color;
+      if (!FOLLOW) c.addEventListener("click", () => toggleMarkParty(p, n));
       board.appendChild(c);
     }
     card.appendChild(board);
