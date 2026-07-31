@@ -1,8 +1,8 @@
 /* ============================================================
-   Loto Bingo Lulu et Titine du 64
+   Suivi Loto Bingo Lulu du 64
    Jeu de loto traditionnel français (numéros 1 à 90)
-   © 2026 Lucette Laudumiey & Martine Coubluc — propriété commune
-   à parts égales. Tous droits réservés.
+   © 2026 Lucette Laudumiey — propriété de Lucette Laudumiey.
+   Tous droits réservés.
    ============================================================ */
 
 "use strict";
@@ -397,11 +397,12 @@ function importCommupassText(text) {
     const pm = label.match(/Planche\s*N°\s*(\d+)/i);
     const planche = pm ? pm[1] : "";
 
-    // nom de l'acheteur si le fichier en contient un (champ texte hors étiquette)
+    // nom : celui du fichier s'il existe, sinon on intègre automatiquement
+    // le numéro de plaque sur chaque carton
     const nameField = parts.find(
       (p) => /[A-Za-zÀ-ÿ]/.test(p) && !isTechnical(p) && !/^[0-9\s.-]+$/.test(p)
     );
-    const name = nameField ? nameField.trim() : "";
+    const name = nameField ? nameField.trim() : (planche ? "Planche N°" + planche : "");
 
     const carton = { id: nextId++, grid, achieved: "none", name, ref, planche };
     state.cartons.push(carton);
@@ -424,19 +425,9 @@ function handleCsvFile(file) {
       alert("Aucun carton reconnu dans ce fichier.\nVérifiez qu'il s'agit bien d'un export CommuPass (.csv).");
       return;
     }
-    // demande un nom par planche (une planche = souvent un acheteur)
     const planches = [...new Set(res.cartons.map((c) => c.planche).filter(Boolean))];
-    let named = 0;
-    planches.forEach((p) => {
-      const nom = prompt(`Nom du joueur pour la planche N°${p} ?\n(laisser vide pour remplir plus tard)`);
-      if (nom && nom.trim()) {
-        res.cartons.filter((c) => c.planche === p).forEach((c) => (c.name = nom.trim()));
-        named++;
-      }
-    });
-    if (named) { renderCartons(); markCartons(true); save(); }
-
-    let msg = `✅ ${res.added} carton(s) importé(s) sur ${planches.length || 1} planche(s) !`;
+    let msg = `✅ ${res.added} carton(s) importé(s) sur ${planches.length || 1} planche(s) !\n`
+            + `Le numéro de plaque est déjà inscrit sur chaque carton — vous pouvez le remplacer par un nom de joueur si vous voulez.`;
     if (res.skipped) msg += `\n(${res.skipped} ligne(s) ignorée(s).)`;
     alert(msg);
   };
@@ -512,7 +503,7 @@ function downloadCartons() {
   ctx.fillStyle = "#0f1437"; ctx.fillRect(0, 0, W, H);
   ctx.fillStyle = "#ffd23f"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
   ctx.font = "700 30px 'Baloo 2', Arial, sans-serif";
-  ctx.fillText("Loto Bingo Lulu & Titine du 64", W / 2, TITLE / 2);
+  ctx.fillText("Suivi Loto Bingo Lulu du 64", W / 2, TITLE / 2);
 
   // cartons
   state.cartons.forEach((c, i) => {

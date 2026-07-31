@@ -1,24 +1,18 @@
 # Propriété et droits d'auteur
 
-## Propriétaires
+## Propriétaire
 
-Cette application — **« Loto Bingo Lulu et Titine du 64 »** — ainsi que son logo, son code
-et l'ensemble de ses fichiers, sont la **propriété commune, à parts égales
-(50 % / 50 %)**, de :
+Cette application — **« Suivi Loto Bingo Lulu du 64 »** — ainsi que son logo, son
+code et l'ensemble de ses fichiers, sont la **propriété exclusive** de :
 
-- **Lucette Laudumiey**
-- **Martine Coubluc**
-
-(sœurs jumelles, Pyrénées-Atlantiques — 64)
+- **Lucette Laudumiey** (Pyrénées-Atlantiques — 64)
 
 ## Droits
 
-© 2026 Lucette Laudumiey & Martine Coubluc. Tous droits réservés.
+© 2026 Lucette Laudumiey. Tous droits réservés.
 
-Les deux propriétaires disposent de **droits identiques et indivis** sur
-l'application : utilisation, diffusion, modification et exploitation. Toute
-décision relative à l'application est prise **conjointement et à parts égales**
-par les deux propriétaires.
+La propriétaire dispose de l'ensemble des droits sur l'application :
+utilisation, diffusion, modification et exploitation.
 
 Aucune cession, vente ou licence ne peut être accordée à un tiers sans l'accord
-des **deux** propriétaires.
+de la propriétaire.

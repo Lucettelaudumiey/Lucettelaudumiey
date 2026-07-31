@@ -1,4 +1,4 @@
-# 🎱 Loto Bingo Lulu et Titine du 64
+# 🎱 Suivi Loto Bingo Lulu du 64
 
 > **Suivi multiple de tous les lotos en ligne — par lien.**
 
@@ -106,10 +106,9 @@ script.js    → la logique du jeu (tirage, cartons, détection des quines)
 
 ## Propriété
 
-Application **propriété commune à parts égales (50 % / 50 %)** de
-**Lucette Laudumiey** et **Martine Coubluc** (sœurs jumelles, 64).
+Application **propriété exclusive de Lucette Laudumiey** (64).
 © 2026 — Tous droits réservés. Voir [PROPRIETE.md](PROPRIETE.md).
 
 ---
 
-Fait avec ❤️ par Lucette Laudumiey & Martine Coubluc — département **64**.
+Fait avec ❤️ par Lucette Laudumiey — département **64**.

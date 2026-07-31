@@ -1,7 +1,7 @@
 {
-  "name": "Loto Bingo Lulu et Titine du 64",
-  "short_name": "Loto Bingo",
-  "description": "Loto Bingo Lulu & Titine du 64 : suivi multiple de tous les lotos en ligne, par lien. Tirage, cartons, quine et carton plein.",
+  "name": "Suivi Loto Bingo Lulu du 64",
+  "short_name": "Loto Bingo Lulu",
+  "description": "Suivi Loto Bingo Lulu du 64 : suivi multiple de tous les lotos en ligne, par lien. Tirage, cartons, import CommuPass, quine et carton plein.",
   "lang": "fr",
   "start_url": ".",
   "scope": ".",

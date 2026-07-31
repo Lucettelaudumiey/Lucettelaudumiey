@@ -25,10 +25,10 @@
         font-weight="700" font-size="190" fill="#7a3f6e">64</text>
 
   <!-- bloc texte à droite -->
-  <text x="560" y="232" font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
-        font-size="92" letter-spacing="2" fill="#8a5cc7">LOTO BINGO</text>
-  <text x="560" y="330" font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
-        font-size="68" fill="#6c4bb3">Lulu &amp; Titine du 64</text>
+  <text x="560" y="210" font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
+        font-size="60" letter-spacing="0" fill="#8a5cc7">SUIVI LOTO BINGO</text>
+  <text x="560" y="308" font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
+        font-size="72" fill="#6c4bb3">Lulu du 64</text>
 
   <!-- slogan -->
   <line x1="560" y1="378" x2="1180" y2="378" stroke="#b58fd6" stroke-width="3"/>

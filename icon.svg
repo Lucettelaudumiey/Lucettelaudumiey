@@ -23,10 +23,10 @@
   <circle cx="430" cy="360" r="40" fill="#ffffff" opacity="0.22"/>
   <circle cx="404" cy="92"  r="26" fill="#ffffff" opacity="0.30"/>
 
-  <!-- LOTO BINGO -->
-  <text x="256" y="66" text-anchor="middle"
+  <!-- SUIVI LOTO BINGO -->
+  <text x="256" y="52" text-anchor="middle"
         font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
-        font-size="42" letter-spacing="3" fill="#8a5cc7">LOTO BINGO</text>
+        font-size="34" letter-spacing="2" fill="#8a5cc7">SUIVI LOTO BINGO</text>
 
   <!-- boule de loto -->
   <circle cx="256" cy="232" r="118" fill="url(#ball)"/>
@@ -37,11 +37,8 @@
         font-family="'Baloo 2','Arial Rounded MT Bold',Arial,sans-serif"
         font-weight="700" font-size="120" fill="#7a3f6e">64</text>
 
-  <!-- nom de la marque, sur deux lignes -->
-  <text x="256" y="405" text-anchor="middle"
+  <!-- nom de la marque -->
+  <text x="256" y="452" text-anchor="middle"
         font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
-        font-size="46" fill="#6c4bb3">LULU &amp; TITINE</text>
-  <text x="256" y="462" text-anchor="middle"
-        font-family="'Baloo 2',Arial,sans-serif" font-weight="700"
-        font-size="46" fill="#6c4bb3">DU 64</text>
+        font-size="86" letter-spacing="2" fill="#6c4bb3">LULU 64</text>
 </svg>
