@@ -30,6 +30,7 @@
       <button class="tab is-active" data-view="tirage">Tirage</button>
       <button class="tab" data-view="cartons">Mes cartons</button>
       <button class="tab" data-view="regie">Tout-en-un</button>
+      <button id="eventBtn" class="theme-tab" title="Infos de la partie">📋</button>
       <button id="themeBtnTop" class="theme-tab" title="Changer les couleurs">🎨</button>
     </nav>
   </header>
@@ -40,6 +41,42 @@
     Écran de suivi — Dernier numéro&nbsp;:
     <strong id="followLast">--</strong>
     <span class="follow-count"><span id="followCount">0</span>/90 tirés</span>
+  </div>
+
+  <!-- Barre des parties + infos -->
+  <div id="eventBar" class="event-bar">
+    <div class="party-ctrls">
+      <span class="party-label">🎯 Partie</span>
+      <select id="partySelect"></select>
+      <button id="partyNew" class="mini-btn" title="Nouvelle partie">➕</button>
+      <button id="partyDup" class="mini-btn" title="Dupliquer la partie">⧉</button>
+      <button id="partyDel" class="mini-btn" title="Supprimer la partie">🗑</button>
+    </div>
+    <span id="eventInfo" class="event-info"></span>
+  </div>
+
+  <!-- Infos de la partie -->
+  <div id="eventModal" class="modal" hidden>
+    <div class="modal-card">
+      <h2>📋 Infos de la partie</h2>
+      <p class="modal-hint">Ces informations s'affichent en haut et sur les cartons téléchargés.</p>
+      <label class="modal-field">Loto associatif
+        <input id="evAssoc" type="text" maxlength="60" placeholder="ex. Les Chats du pays d'Ornans" />
+      </label>
+      <label class="modal-field">Organisateur
+        <input id="evOrga" type="text" maxlength="40" placeholder="ex. Comité des fêtes" />
+      </label>
+      <label class="modal-field">Nom de la partie
+        <input id="evPartie" type="text" maxlength="30" placeholder="ex. Partie 1" />
+      </label>
+      <label class="modal-field">Date
+        <input id="evDate" type="date" />
+      </label>
+      <div class="modal-actions">
+        <button id="eventClear" class="btn btn-ghost">Effacer</button>
+        <button id="eventClose" class="btn btn-primary">OK</button>
+      </div>
+    </div>
   </div>
 
   <!-- ====================== VUE TIRAGE ====================== -->
@@ -209,7 +246,10 @@
       <div class="win-emoji">🎉</div>
       <h2 id="winTitle">Quine&nbsp;!</h2>
       <p id="winText">Carton n°1</p>
-      <button id="winClose" class="btn btn-primary">Continuer</button>
+      <div class="win-actions">
+        <button id="winClose" class="btn btn-primary">Suivant ▶</button>
+        <button id="winNewGame" class="btn btn-ghost">↺ Nouvelle partie</button>
+      </div>
     </div>
   </div>
 
@@ -218,6 +258,7 @@
     <p class="copyright">© 2026 Lucette Laudumiey — Propriété de Lucette Laudumiey. Tous droits réservés.</p>
     <div class="footer-btns">
       <button id="themeBtn" class="btn btn-ghost">🎨 Couleurs</button>
+      <button id="resetAllBtn" class="btn btn-ghost">🧹 Tout effacer</button>
       <button id="aboutBtn" class="btn btn-ghost">ℹ️ À propos · Acheter (8 €)</button>
     </div>
   </footer>

@@ -27,8 +27,30 @@ const state = {
   pool: [],        // numéros restants à tirer
   drawn: [],       // numéros déjà tirés (ordre)
   cartons: [],     // cartons générés
+  event: { assoc: "", orga: "", date: "" }, // infos de la partie en cours
   auto: null       // timer du tirage auto
 };
+
+/* ---------- Plusieurs parties (suivi de plusieurs lotos) ---------- */
+const PKEY = "loto64-parties";
+function fullPool() { return Array.from({ length: 90 }, (_, i) => i + 1); }
+function uid() { return "p" + Date.now().toString(36) + Math.floor(Math.random() * 1e6).toString(36); }
+function makeParty(name) {
+  return { id: uid(), name: name || "Partie 1", drawn: [], pool: fullPool(),
+           cartons: [], event: { assoc: "", orga: "", date: "" } };
+}
+let parties = [];
+let currentId = null;
+function currentParty() { return parties.find((p) => p.id === currentId) || parties[0]; }
+// l'état de travail (state) pointe directement sur les tableaux de la partie
+function stateFromParty(p) {
+  if (!p.event) p.event = { assoc: "", orga: "", date: "" };
+  state.drawn = p.drawn; state.pool = p.pool; state.cartons = p.cartons; state.event = p.event;
+}
+function syncStateToParty() {
+  const p = currentParty(); if (!p) return;
+  p.drawn = state.drawn; p.pool = state.pool; p.cartons = state.cartons; p.event = state.event;
+}
 
 /* ---------- Mode « écran de suivi » (deux écrans) ---------- */
 // Une fenêtre ouverte avec ?ecran=suivi ne fait que refléter la partie en direct.
@@ -84,7 +106,22 @@ const el = {
   accentPick: $("#accentPick"),
   bgPick: $("#bgPick"),
   themeReset: $("#themeReset"),
-  themeClose: $("#themeClose")
+  themeClose: $("#themeClose"),
+  winNewGame: $("#winNewGame"),
+  resetAllBtn: $("#resetAllBtn"),
+  partySelect: $("#partySelect"),
+  partyNew: $("#partyNew"),
+  partyDup: $("#partyDup"),
+  partyDel: $("#partyDel"),
+  eventInfo: $("#eventInfo"),
+  eventBtn: $("#eventBtn"),
+  eventModal: $("#eventModal"),
+  evPartie: $("#evPartie"),
+  evAssoc: $("#evAssoc"),
+  evOrga: $("#evOrga"),
+  evDate: $("#evDate"),
+  eventClear: $("#eventClear"),
+  eventClose: $("#eventClose")
 };
 
 /* ============================================================
@@ -510,8 +547,19 @@ function downloadCartons() {
   // fond + titre
   ctx.fillStyle = "#0f1437"; ctx.fillRect(0, 0, W, H);
   ctx.fillStyle = "#ffd23f"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
-  ctx.font = "700 30px 'Baloo 2', Arial, sans-serif";
-  ctx.fillText("Suivi Loto Bingo Lulu du 64", W / 2, TITLE / 2);
+  const ev = state.event || {};
+  const sub = [currentParty() && currentParty().name, ev.assoc, formatDate(ev.date), ev.orga ? "Org. " + ev.orga : ""]
+    .filter(Boolean).join("   ·   ");
+  if (sub) {
+    ctx.font = "700 26px 'Baloo 2', Arial, sans-serif";
+    ctx.fillText("Suivi Loto Bingo Lulu du 64", W / 2, TITLE / 2 - 12);
+    ctx.font = "600 17px 'Fredoka', Arial, sans-serif";
+    ctx.fillStyle = "#e0d4ff";
+    ctx.fillText(sub, W / 2, TITLE / 2 + 16);
+  } else {
+    ctx.font = "700 30px 'Baloo 2', Arial, sans-serif";
+    ctx.fillText("Suivi Loto Bingo Lulu du 64", W / 2, TITLE / 2);
+  }
 
   // cartons
   state.cartons.forEach((c, i) => {
@@ -650,7 +698,7 @@ function markCartons(silent = false) {
     c.achieved = level;
   });
   // en vue Tout-en-un, on garde les mieux placés en tête
-  if (currentView === "regie") rankCartons();
+  if (currentView === "regie") { rankCartons(); adaptRegieGrid(); }
   save();
 }
 
@@ -691,24 +739,33 @@ function celebrate(level, id) {
    ============================================================ */
 function save() {
   if (FOLLOW) return; // l'écran de suivi ne fait que lire, jamais écrire
+  syncStateToParty();
   try {
-    localStorage.setItem("loto64", JSON.stringify({
-      drawn: state.drawn, pool: state.pool, cartons: state.cartons, ts: Date.now()
-    }));
+    localStorage.setItem(PKEY, JSON.stringify({ current: currentId, parties, ts: Date.now() }));
   } catch (e) { /* stockage indisponible : on ignore */ }
 }
 
 function load() {
-  try {
-    const raw = localStorage.getItem("loto64");
-    if (!raw) return false;
-    const data = JSON.parse(raw);
-    state.drawn = data.drawn || [];
-    state.pool = data.pool || Array.from({ length: 90 }, (_, i) => i + 1)
-      .filter((n) => !state.drawn.includes(n));
-    state.cartons = data.cartons || [];
-    return true;
-  } catch (e) { return false; }
+  let data = null;
+  try { data = JSON.parse(localStorage.getItem(PKEY)); } catch (e) { /* ignore */ }
+  if (!data || !Array.isArray(data.parties) || !data.parties.length) {
+    // reprise d'une éventuelle ancienne partie unique
+    let old = null;
+    try { old = JSON.parse(localStorage.getItem("loto64")); } catch (e) { /* ignore */ }
+    const p = makeParty("Partie 1");
+    if (old) {
+      p.drawn = old.drawn || [];
+      p.pool = old.pool || fullPool().filter((n) => !p.drawn.includes(n));
+      p.cartons = old.cartons || [];
+    }
+    parties = [p]; currentId = p.id;
+  } else {
+    parties = data.parties;
+    currentId = (data.current && data.parties.some((p) => p.id === data.current))
+      ? data.current : data.parties[0].id;
+  }
+  stateFromParty(currentParty());
+  return true;
 }
 
 /* ============================================================
@@ -722,6 +779,7 @@ function enterRegie() {
   $("#regieDraw").append($(".draw-stage"), $(".stats"), $(".board-wrap"));
   $("#regieCartons").append($("#cartons"));
   rankCartons();
+  adaptRegieGrid();
   requestAnimationFrame(fitRegie);
 }
 function exitRegie() {
@@ -729,7 +787,9 @@ function exitRegie() {
   tv.prepend($(".stats"));         // ordre rétabli : tirage, stats, tableau
   tv.prepend($(".draw-stage"));
   tv.append($(".board-wrap"));
-  $("#view-cartons").append($("#cartons"));
+  const cartonsEl = $("#cartons");
+  cartonsEl.style.gridTemplateColumns = ""; // retire l'adaptation régie
+  $("#view-cartons").append(cartonsEl);
   restoreCartonOrder();            // remet les cartons dans l'ordre normal
   const view = $("#view-regie");
   if (view) view.style.height = "";
@@ -894,6 +954,108 @@ function activateView(name) {
   currentView = name;
 }
 
+/* ============================================================
+   PARTIES + INFOS DE LA PARTIE
+   ============================================================ */
+function formatDate(iso) {
+  if (!iso) return "";
+  const parts = iso.split("-");
+  return parts.length === 3 ? `${parts[2]}/${parts[1]}/${parts[0]}` : iso;
+}
+function renderEventInfo() {
+  if (!el.eventInfo) return;
+  const ev = state.event || {};
+  const out = [];
+  if (ev.assoc) out.push("🎪 " + ev.assoc);
+  if (ev.date) out.push("📅 " + formatDate(ev.date));
+  if (ev.orga) out.push("👤 " + ev.orga);
+  el.eventInfo.textContent = out.join("   ·   ");
+}
+function renderPartyBar() {
+  if (!el.partySelect) return;
+  el.partySelect.innerHTML = "";
+  parties.forEach((p) => {
+    const o = document.createElement("option");
+    o.value = p.id; o.textContent = p.name || "Partie";
+    if (p.id === currentId) o.selected = true;
+    el.partySelect.appendChild(o);
+  });
+  renderEventInfo();
+}
+function switchParty(id) {
+  save();
+  currentId = id;
+  stateFromParty(currentParty());
+  renderAll(); renderPartyBar();
+}
+function addParty() {
+  save();
+  const p = makeParty("Partie " + (parties.length + 1));
+  parties.push(p); currentId = p.id;
+  stateFromParty(p); renderAll(); renderPartyBar(); save();
+}
+function duplicateParty() {
+  save();
+  const src = currentParty();
+  const copy = JSON.parse(JSON.stringify(src));
+  copy.id = uid();
+  copy.name = (src.name || "Partie") + " (copie)";
+  parties.push(copy); currentId = copy.id;
+  stateFromParty(copy); renderAll(); renderPartyBar(); save();
+}
+function deleteParty() {
+  if (parties.length <= 1) { alert("Il faut garder au moins une partie."); return; }
+  if (!confirm(`Supprimer la partie « ${currentParty().name || ""} » ?`)) return;
+  parties = parties.filter((p) => p.id !== currentId);
+  currentId = parties[0].id;
+  stateFromParty(currentParty()); renderAll(); renderPartyBar(); save();
+}
+function resetAll() {
+  if (!confirm("Tout effacer pour cette partie : numéros tirés, cartons et infos ?")) return;
+  stopAuto();
+  const p = currentParty();
+  p.drawn = []; p.pool = fullPool(); p.cartons = []; p.event = { assoc: "", orga: "", date: "" };
+  stateFromParty(p);
+  renderAll(); renderPartyBar(); save();
+}
+function setupParties() {
+  renderPartyBar();
+  el.partySelect.addEventListener("change", () => switchParty(el.partySelect.value));
+  el.partyNew.addEventListener("click", addParty);
+  el.partyDup.addEventListener("click", duplicateParty);
+  el.partyDel.addEventListener("click", deleteParty);
+}
+function setupEvent() {
+  const open = () => {
+    el.evPartie.value = currentParty().name || "";
+    el.evAssoc.value = state.event.assoc || "";
+    el.evOrga.value = state.event.orga || "";
+    el.evDate.value = state.event.date || "";
+    el.eventModal.hidden = false;
+  };
+  el.eventBtn.addEventListener("click", open);
+  el.evPartie.addEventListener("input", () => { currentParty().name = el.evPartie.value; renderPartyBar(); save(); });
+  el.evAssoc.addEventListener("input", () => { state.event.assoc = el.evAssoc.value; renderEventInfo(); save(); });
+  el.evOrga.addEventListener("input", () => { state.event.orga = el.evOrga.value; renderEventInfo(); save(); });
+  el.evDate.addEventListener("input", () => { state.event.date = el.evDate.value; renderEventInfo(); save(); });
+  el.eventClear.addEventListener("click", () => {
+    state.event.assoc = ""; state.event.orga = ""; state.event.date = "";
+    el.evAssoc.value = ""; el.evOrga.value = ""; el.evDate.value = "";
+    renderEventInfo(); save();
+  });
+  el.eventClose.addEventListener("click", () => (el.eventModal.hidden = true));
+  el.eventModal.addEventListener("click", (e) => { if (e.target === el.eventModal) el.eventModal.hidden = true; });
+}
+
+// Adapte le nombre de colonnes des 12 meilleurs cartons selon leur nombre
+function adaptRegieGrid() {
+  const grid = $("#cartons");
+  if (!grid) return;
+  const n = Math.min(state.cartons.length, 12);
+  const cols = n <= 1 ? 1 : n <= 2 ? 2 : n <= 6 ? 3 : 4;
+  grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+}
+
 function setupTabs() {
   document.querySelectorAll(".tab").forEach((tab) => {
     tab.addEventListener("click", () => activateView(tab.dataset.view));
@@ -947,19 +1109,24 @@ function updateFollowBar() {
 // Recharge l'état depuis localStorage si l'écran de tirage a changé quelque chose
 function syncFromStorage() {
   let data;
-  try { data = JSON.parse(localStorage.getItem("loto64")); } catch (e) { return; }
-  if (!data || data.ts === state._ts) return;
+  try { data = JSON.parse(localStorage.getItem(PKEY)); } catch (e) { return; }
+  if (!data || !data.parties || data.ts === state._ts) return;
   state._ts = data.ts;
+
+  const cur = data.parties.find((p) => p.id === data.current) || data.parties[0];
+  if (!cur) return;
 
   const rank = { none: 0, quine: 1, double: 2, plein: 3 };
   const old = {};
   state.cartons.forEach((c) => (old[c.id] = c.achieved));
 
-  state.drawn = data.drawn || [];
-  state.pool = data.pool || [];
-  state.cartons = data.cartons || [];
+  state.drawn = cur.drawn || [];
+  state.pool = cur.pool || [];
+  state.cartons = cur.cartons || [];
+  state.event = cur.event || { assoc: "", orga: "", date: "" };
 
   renderAll();
+  renderEventInfo();
   updateFollowBar();
 
   // célèbre les nouvelles quines détectées sur l'écran de suivi
@@ -975,7 +1142,7 @@ function startFollowMode() {
   state._ts = null;
   syncFromStorage();
   // mise à jour instantanée quand c'est possible…
-  window.addEventListener("storage", (e) => { if (e.key === "loto64") syncFromStorage(); });
+  window.addEventListener("storage", (e) => { if (e.key === PKEY) syncFromStorage(); });
   // …et sondage régulier (fonctionne aussi en local file:// et hors-ligne)
   setInterval(syncFromStorage, 500);
 }
@@ -988,8 +1155,10 @@ function init() {
   setupTabs();
   setupTheme();
 
-  if (!load()) resetPool();
+  load();
   renderAll();
+  renderPartyBar();
+  renderEventInfo();
 
   // La fenêtre peut toujours fermer la bannière de victoire
   el.winClose.addEventListener("click", () => (el.winBanner.hidden = true));
@@ -1011,6 +1180,10 @@ function init() {
   }
 
   // ----- Écran de tirage (commandes du jeu) -----
+  setupParties();
+  setupEvent();
+  el.winNewGame.addEventListener("click", () => { el.winBanner.hidden = true; newGame(); });
+  el.resetAllBtn.addEventListener("click", resetAll);
   el.drawBtn.addEventListener("click", drawNumber);
   el.autoBtn.addEventListener("click", toggleAuto);
   el.resetBtn.addEventListener("click", newGame);
