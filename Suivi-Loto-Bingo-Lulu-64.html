@@ -382,9 +382,14 @@ body {
 .pc-ev { color: var(--ink-soft); font-size: .8rem; }
 .pc-stats { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; color: var(--ink-soft); }
 .pc-stats b { color: var(--accent); font-family: "Baloo 2", sans-serif; }
-.pc-board { display: grid; grid-template-columns: repeat(10, 1fr); gap: 2px; }
-.pc-cell { aspect-ratio: 1; border-radius: 2px; background: var(--card-2); }
-.pc-cell.on { background: var(--accent); }
+.pc-board { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; }
+.pc-cell {
+  aspect-ratio: 1; border: 0; border-radius: 4px; background: var(--card-2); color: var(--ink-soft);
+  font-family: inherit; font-weight: 600; font-size: clamp(.55rem, 1.4vw, .95rem); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; padding: 0; -webkit-tap-highlight-color: transparent;
+}
+.pc-cell:active { transform: scale(.9); }
+.pc-cell.on { color: #08122a; font-weight: 700; }
 .pc-winners { font-size: .82rem; color: var(--ink-soft); min-height: 1.2em; }
 .pc-winners.has { color: var(--plein); font-weight: 600; }
 .pc-open { margin-top: auto; }
@@ -667,7 +672,7 @@ body.follow-mode .cartons-bar { padding: 0; background: transparent; box-shadow:
   <!-- ====================== VUE TOUTES LES PARTIES ====================== -->
   <main id="view-multi" class="view">
     <h2 class="section-title">🗂️ Toutes les parties</h2>
-    <p class="board-hint">Suivez toutes vos parties d'un coup d'œil. Cliquez « Ouvrir » pour aller sur l'une d'elles.</p>
+    <p class="board-hint">Suivez plusieurs lotos <strong>en même temps</strong> : tapez les numéros directement sur le tableau de chaque partie 👇 (ou « Ouvrir » pour la vue complète).</p>
     <div id="multiGrid" class="multi-grid"></div>
   </main>
 
@@ -1585,13 +1590,13 @@ function winnerCard(c, level, drawnSet) {
   wrap.appendChild(grid);
   return wrap;
 }
-function showWinners(winners) {
+function showWinners(winners, drawnSet) {
   const rank = { none: 0, quine: 1, double: 2, plein: 3 };
   winners.sort((a, b) => rank[b.level] - rank[a.level]);
   const top = winners[0].level;
   const titles = { quine: "Quine ! 🎉", double: "Double quine ! 🎉🎉", plein: "CARTON PLEIN ! 🏆" };
   el.winTitle.textContent = titles[top] + (winners.length > 1 ? `  (${winners.length} gagnants)` : "");
-  const drawnSet = new Set(state.drawn);
+  drawnSet = drawnSet || new Set(state.drawn);
   el.winList.innerHTML = "";
   winners.forEach((w) => el.winList.appendChild(winnerCard(w.c, w.level, drawnSet)));
   el.winBanner.hidden = false;
@@ -1979,6 +1984,46 @@ function resetAll() {
     renderAll(); renderPartyBar(); save();
   });
 }
+// Recalcule les paliers des cartons d'une partie et renvoie les nouveaux gagnants
+function markPartyCartons(p) {
+  const drawn = new Set(p.drawn || []);
+  const rank = { none: 0, quine: 1, double: 2, plein: 3 };
+  const winners = [];
+  (p.cartons || []).forEach((c) => {
+    let completed = 0, total = 0;
+    c.grid.forEach((row) => {
+      const nums = row.filter((v) => v !== null);
+      const hits = nums.filter((v) => drawn.has(v)).length;
+      total += hits;
+      if (hits === nums.length) completed++;
+    });
+    const level = total === 15 ? "plein" : completed >= 2 ? "double" : completed >= 1 ? "quine" : "none";
+    if (rank[level] > rank[c.achieved || "none"]) winners.push({ c, level });
+    c.achieved = level;
+  });
+  return winners;
+}
+
+// Pointe / retire un numéro sur une partie précise (depuis la vue « Toutes les parties »)
+function toggleMarkParty(p, n) {
+  if (!p.drawn) p.drawn = [];
+  if (!p.pool) p.pool = fullPool().filter((x) => !p.drawn.includes(x));
+  const i = p.drawn.indexOf(n);
+  if (i >= 0) {
+    p.drawn.splice(i, 1);
+    if (!p.pool.includes(n)) p.pool.push(n);
+  } else {
+    p.drawn.push(n);
+    const pi = p.pool.indexOf(n);
+    if (pi >= 0) p.pool.splice(pi, 1);
+  }
+  const winners = markPartyCartons(p);
+  if (p.id === currentId) { refreshBoard(); updateStats(); refreshHeadline(); }
+  renderMultiView();
+  save();
+  if (winners.length) showWinners(winners, new Set(p.drawn));
+}
+
 // Statistiques d'une partie (pour la vue d'ensemble)
 function partyStats(p) {
   const drawn = new Set(p.drawn || []);
@@ -2036,9 +2081,12 @@ function renderMultiView() {
     board.className = "pc-board";
     const ds = new Set(p.drawn || []);
     for (let n = 1; n <= 90; n++) {
-      const c = document.createElement("div");
+      const c = document.createElement("button");
+      c.type = "button";
       c.className = "pc-cell" + (ds.has(n) ? " on" : "");
+      c.textContent = n;
       if (ds.has(n)) c.style.background = p.color;
+      if (!FOLLOW) c.addEventListener("click", () => toggleMarkParty(p, n));
       board.appendChild(c);
     }
     card.appendChild(board);
