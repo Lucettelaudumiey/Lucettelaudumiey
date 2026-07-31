@@ -373,7 +373,8 @@ function savePlaque() {
    -> le dernier champ = 15 numéros (3 lignes de 5) séparés par des tirets */
 function importCommupassText(text) {
   const lines = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
-  let added = 0, skipped = 0;
+  const addedCartons = [];
+  let skipped = 0;
   let nextId = state.cartons.reduce((m, c) => Math.max(m, c.id), 0) + 1;
 
   lines.forEach((line) => {
@@ -393,6 +394,8 @@ function importCommupassText(text) {
     const label = parts.find((p) => /[A-Za-z]/.test(p) && isTechnical(p)) || "";
     const m = label.match(/N°\s*(\d+)/);
     const ref = m ? "N°" + m[1] : "";
+    const pm = label.match(/Planche\s*N°\s*(\d+)/i);
+    const planche = pm ? pm[1] : "";
 
     // nom de l'acheteur si le fichier en contient un (champ texte hors étiquette)
     const nameField = parts.find(
@@ -400,15 +403,16 @@ function importCommupassText(text) {
     );
     const name = nameField ? nameField.trim() : "";
 
-    state.cartons.push({ id: nextId++, grid, achieved: "none", name, ref });
-    added++;
+    const carton = { id: nextId++, grid, achieved: "none", name, ref, planche };
+    state.cartons.push(carton);
+    addedCartons.push(carton);
   });
 
   renderCartons();
   markCartons(true);
   if (currentView === "regie") requestAnimationFrame(fitRegie);
   save();
-  return { added, skipped };
+  return { added: addedCartons.length, skipped, cartons: addedCartons };
 }
 
 function handleCsvFile(file) {
@@ -418,11 +422,23 @@ function handleCsvFile(file) {
     const res = importCommupassText(String(reader.result));
     if (res.added === 0) {
       alert("Aucun carton reconnu dans ce fichier.\nVérifiez qu'il s'agit bien d'un export CommuPass (.csv).");
-    } else {
-      let msg = `✅ ${res.added} carton(s) importé(s) !`;
-      if (res.skipped) msg += `\n(${res.skipped} ligne(s) ignorée(s).)`;
-      alert(msg);
+      return;
     }
+    // demande un nom par planche (une planche = souvent un acheteur)
+    const planches = [...new Set(res.cartons.map((c) => c.planche).filter(Boolean))];
+    let named = 0;
+    planches.forEach((p) => {
+      const nom = prompt(`Nom du joueur pour la planche N°${p} ?\n(laisser vide pour remplir plus tard)`);
+      if (nom && nom.trim()) {
+        res.cartons.filter((c) => c.planche === p).forEach((c) => (c.name = nom.trim()));
+        named++;
+      }
+    });
+    if (named) { renderCartons(); markCartons(true); save(); }
+
+    let msg = `✅ ${res.added} carton(s) importé(s) sur ${planches.length || 1} planche(s) !`;
+    if (res.skipped) msg += `\n(${res.skipped} ligne(s) ignorée(s).)`;
+    alert(msg);
   };
   reader.readAsText(file, "utf-8");
 }
