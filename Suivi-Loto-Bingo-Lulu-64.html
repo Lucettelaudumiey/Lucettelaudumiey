@@ -375,7 +375,7 @@ body {
 
 /* ---------- Vue « Toutes les parties » ---------- */
 .multi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-.party-card { background: var(--card); border-radius: 16px; padding: 14px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 8px; }
+.party-card { background: var(--card); border-radius: 16px; padding: 14px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 8px; border-left: 7px solid var(--accent); }
 .pc-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .pc-name { font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 1.1rem; }
 .pc-current { font-size: .7rem; background: var(--accent); color: #2a1a00; padding: 2px 8px; border-radius: 999px; font-weight: 700; white-space: nowrap; }
@@ -397,6 +397,10 @@ body {
 }
 .party-ctrls { display: flex; align-items: center; gap: 6px; }
 .party-label { color: var(--ink-soft); font-weight: 600; font-size: .9rem; }
+.party-dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; background: var(--accent); box-shadow: 0 0 0 2px rgba(255,255,255,.2); }
+.ev-colors { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.ev-color { width: 30px; height: 30px; border-radius: 50%; border: 3px solid transparent; cursor: pointer; padding: 0; }
+.ev-color.sel { border-color: #fff; }
 #partySelect {
   font-family: inherit; font-weight: 600; font-size: .95rem; color: var(--ink);
   background: var(--card-2); border: 1px solid rgba(255,255,255,.15);
@@ -518,6 +522,7 @@ body.follow-mode .cartons-bar { padding: 0; background: transparent; box-shadow:
   <div id="eventBar" class="event-bar">
     <div class="party-ctrls">
       <span class="party-label">🎯 Partie</span>
+      <span id="partyDot" class="party-dot"></span>
       <select id="partySelect"></select>
       <button id="partyNew" class="mini-btn" title="Nouvelle partie">➕</button>
       <button id="partyDup" class="mini-btn" title="Dupliquer la partie">⧉</button>
@@ -543,6 +548,9 @@ body.follow-mode .cartons-bar { padding: 0; background: transparent; box-shadow:
       <label class="modal-field">Date
         <input id="evDate" type="date" />
       </label>
+      <div class="modal-field">Couleur de la partie
+        <div id="evColors" class="ev-colors"></div>
+      </div>
       <div class="modal-actions">
         <button id="eventClear" class="btn btn-ghost">Effacer</button>
         <button id="eventClose" class="btn btn-primary">OK</button>
@@ -814,6 +822,11 @@ function makeParty(name) {
 let parties = [];
 let currentId = null;
 function currentParty() { return parties.find((p) => p.id === currentId) || parties[0]; }
+// une couleur par partie (pour les distinguer)
+const PARTY_COLORS = ["#4cc9f0", "#ff8a3d", "#2ecc71", "#b15bff", "#ff5d99", "#ffd23f", "#33d1c9", "#ff5d73", "#8ede5a", "#ff6ec7"];
+function ensurePartyColors() {
+  parties.forEach((p, i) => { if (!p.color) p.color = PARTY_COLORS[i % PARTY_COLORS.length]; });
+}
 // l'état de travail (state) pointe directement sur les tableaux de la partie
 function stateFromParty(p) {
   if (!p.event) p.event = { assoc: "", orga: "", date: "" };
@@ -886,6 +899,8 @@ const el = {
   partyDup: $("#partyDup"),
   partyDel: $("#partyDel"),
   eventInfo: $("#eventInfo"),
+  partyDot: $("#partyDot"),
+  evColors: $("#evColors"),
   multiGrid: $("#multiGrid"),
   eventBtn: $("#eventBtn"),
   eventModal: $("#eventModal"),
@@ -1915,6 +1930,7 @@ function renderEventInfo() {
 }
 function renderPartyBar() {
   if (!el.partySelect) return;
+  ensurePartyColors();
   el.partySelect.innerHTML = "";
   parties.forEach((p) => {
     const o = document.createElement("option");
@@ -1922,6 +1938,7 @@ function renderPartyBar() {
     if (p.id === currentId) o.selected = true;
     el.partySelect.appendChild(o);
   });
+  if (el.partyDot) el.partyDot.style.background = (currentParty() && currentParty().color) || "var(--accent)";
   renderEventInfo();
 }
 function switchParty(id) {
@@ -1987,6 +2004,7 @@ function levelLabel(l) { return l === "plein" ? "Carton plein" : l === "double" 
 // Affiche toutes les parties côte à côte
 function renderMultiView() {
   if (!el.multiGrid) return;
+  ensurePartyColors();
   el.multiGrid.innerHTML = "";
   parties.forEach((p) => {
     const st = partyStats(p);
@@ -1996,10 +2014,11 @@ function renderMultiView() {
 
     const card = document.createElement("div");
     card.className = "party-card";
+    card.style.borderLeftColor = p.color || "var(--accent)";
 
     const head = document.createElement("div");
     head.className = "pc-head";
-    head.innerHTML = `<span class="pc-name">${p.name || "Partie"}</span>` +
+    head.innerHTML = `<span class="pc-name" style="color:${p.color}">${p.name || "Partie"}</span>` +
       (p.id === currentId ? `<span class="pc-current">en cours</span>` : "");
     card.appendChild(head);
 
@@ -2019,6 +2038,7 @@ function renderMultiView() {
     for (let n = 1; n <= 90; n++) {
       const c = document.createElement("div");
       c.className = "pc-cell" + (ds.has(n) ? " on" : "");
+      if (ds.has(n)) c.style.background = p.color;
       board.appendChild(c);
     }
     card.appendChild(board);
@@ -2048,12 +2068,32 @@ function setupParties() {
   el.partyDup.addEventListener("click", duplicateParty);
   el.partyDel.addEventListener("click", deleteParty);
 }
+function buildEventColors() {
+  if (!el.evColors) return;
+  ensurePartyColors();
+  el.evColors.innerHTML = "";
+  PARTY_COLORS.forEach((col) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "ev-color" + (currentParty().color === col ? " sel" : "");
+    b.style.background = col;
+    b.addEventListener("click", () => {
+      currentParty().color = col;
+      buildEventColors();
+      renderPartyBar();
+      if (currentView === "multi") renderMultiView();
+      save();
+    });
+    el.evColors.appendChild(b);
+  });
+}
 function setupEvent() {
   const open = () => {
     el.evPartie.value = currentParty().name || "";
     el.evAssoc.value = state.event.assoc || "";
     el.evOrga.value = state.event.orga || "";
     el.evDate.value = state.event.date || "";
+    buildEventColors();
     el.eventModal.hidden = false;
   };
   el.eventBtn.addEventListener("click", open);
