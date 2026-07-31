@@ -122,6 +122,10 @@ const el = {
   evDate: $("#evDate"),
   eventClear: $("#eventClear"),
   eventClose: $("#eventClose"),
+  confirmModal: $("#confirmModal"),
+  confirmText: $("#confirmText"),
+  confirmYes: $("#confirmYes"),
+  confirmNo: $("#confirmNo"),
   lockScreen: $("#lockScreen"),
   lockName: $("#lockName"),
   lockCode: $("#lockCode"),
@@ -481,14 +485,14 @@ function handleCsvFile(file) {
   reader.onload = () => {
     const res = importCommupassText(String(reader.result));
     if (res.added === 0) {
-      alert("Aucun carton reconnu dans ce fichier.\nVérifiez qu'il s'agit bien d'un export CommuPass (.csv).");
+      uiAlert("Aucun carton reconnu dans ce fichier.\nVérifiez qu'il s'agit bien d'un export CommuPass (.csv).");
       return;
     }
     const planches = [...new Set(res.cartons.map((c) => c.planche).filter(Boolean))];
     let msg = `✅ ${res.added} carton(s) importé(s) sur ${planches.length || 1} planche(s) !\n`
             + `Le numéro de plaque est déjà inscrit sur chaque carton — vous pouvez le remplacer par un nom de joueur si vous voulez.`;
     if (res.skipped) msg += `\n(${res.skipped} ligne(s) ignorée(s).)`;
-    alert(msg);
+    uiAlert(msg);
   };
   reader.readAsText(file, "utf-8");
 }
@@ -539,7 +543,7 @@ function drawCarton(ctx, x, y, w, h, c, d) {
 
 function downloadCartons() {
   if (!state.cartons.length) {
-    alert("Générez d'abord vos cartons !");
+    uiAlert("Générez d'abord vos cartons !");
     return;
   }
   const D = { CELL: 54, GAP: 4, PAD: 16, HEAD: 46 };
@@ -588,7 +592,7 @@ function downloadCartons() {
 /* ---------- Téléchargement des cartons en CSV (Excel) ---------- */
 function downloadCSV() {
   if (!state.cartons.length) {
-    alert("Générez d'abord vos cartons !");
+    uiAlert("Générez d'abord vos cartons !");
     return;
   }
   const SEP = ";"; // séparateur attendu par Excel en français
@@ -1100,6 +1104,23 @@ function setupLock() {
   return false;
 }
 
+/* ---------- Confirmation / message intégrés (dialogues navigateur bloqués en ligne) ---------- */
+function uiConfirm(msg, onYes) {
+  el.confirmText.textContent = msg;
+  el.confirmNo.style.display = "";
+  el.confirmYes.textContent = "Confirmer";
+  el.confirmModal.hidden = false;
+  el.confirmYes.onclick = () => { el.confirmModal.hidden = true; if (onYes) onYes(); };
+  el.confirmNo.onclick = () => { el.confirmModal.hidden = true; };
+}
+function uiAlert(msg) {
+  el.confirmText.textContent = msg;
+  el.confirmNo.style.display = "none";
+  el.confirmYes.textContent = "OK";
+  el.confirmModal.hidden = false;
+  el.confirmYes.onclick = () => { el.confirmModal.hidden = true; };
+}
+
 /* ============================================================
    PARTIES + INFOS DE LA PARTIE
    ============================================================ */
@@ -1150,19 +1171,21 @@ function duplicateParty() {
   stateFromParty(copy); renderAll(); renderPartyBar(); save();
 }
 function deleteParty() {
-  if (parties.length <= 1) { alert("Il faut garder au moins une partie."); return; }
-  if (!confirm(`Supprimer la partie « ${currentParty().name || ""} » ?`)) return;
-  parties = parties.filter((p) => p.id !== currentId);
-  currentId = parties[0].id;
-  stateFromParty(currentParty()); renderAll(); renderPartyBar(); save();
+  if (parties.length <= 1) { uiAlert("Il faut garder au moins une partie."); return; }
+  uiConfirm(`Supprimer la partie « ${currentParty().name || ""} » ?`, () => {
+    parties = parties.filter((p) => p.id !== currentId);
+    currentId = parties[0].id;
+    stateFromParty(currentParty()); renderAll(); renderPartyBar(); save();
+  });
 }
 function resetAll() {
-  if (!confirm("Tout effacer pour cette partie : numéros tirés, cartons et infos ?")) return;
-  stopAuto();
-  const p = currentParty();
-  p.drawn = []; p.pool = fullPool(); p.cartons = []; p.event = { assoc: "", orga: "", date: "" };
-  stateFromParty(p);
-  renderAll(); renderPartyBar(); save();
+  uiConfirm("Tout effacer pour cette partie : numéros tirés, cartons et infos ?", () => {
+    stopAuto();
+    const p = currentParty();
+    p.drawn = []; p.pool = fullPool(); p.cartons = []; p.event = { assoc: "", orga: "", date: "" };
+    stateFromParty(p);
+    renderAll(); renderPartyBar(); save();
+  });
 }
 function setupParties() {
   renderPartyBar();

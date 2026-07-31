@@ -241,29 +241,27 @@ body {
 /* la scène a une taille fixe ; le JS la redimensionne pour remplir l'écran */
 #view-regie { max-width: none; padding: 8px; overflow: hidden; }
 .regie-stage { width: 1280px; transform-origin: top left; }
-.regie-layout {
-  display: grid; grid-template-columns: 332px 1fr; gap: 18px; align-items: start;
-}
+.regie-layout { display: flex; flex-direction: column; gap: 14px; }
 .regie-col { min-width: 0; }
-.regie-col .section-title { margin: 4px 0 10px; }
+.regie-col .section-title { margin: 2px 0 8px; }
 
-/* tirage compact dans la régie */
-.regie-slot .draw-stage { padding: 18px; }
-.regie-slot .ball.big { width: 104px; height: 104px; font-size: 2.6rem; }
-.regie-slot .ball.big.empty { font-size: 1.6rem; }
-.regie-slot .current-label { font-size: 1rem; }
-.regie-slot .controls { margin-top: 16px; gap: 8px; }
-.regie-slot .btn { padding: 11px 16px; font-size: .95rem; }
-.regie-slot .options { margin-top: 14px; gap: 12px; font-size: .85rem; }
-.regie-slot .stats { margin: 14px 0 0; }
-
-/* tableau des 90 numéros, compact, sous le tirage */
-.regie-slot .board-wrap { margin-top: 16px; }
+/* bande du haut : tirage + tableau côte à côte, pleine largeur */
+#regieDraw { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+#regieDraw .draw-stage { flex: 0 0 300px; padding: 16px; }
+#regieDraw .stats { flex: 0 0 auto; margin: 0; }
+#regieDraw .board-wrap { flex: 0 0 340px; margin: 0; }
+#regieDraw .board { grid-template-rows: none; }
+.regie-slot .ball.big { width: 92px; height: 92px; font-size: 2.3rem; }
+.regie-slot .ball.big.empty { font-size: 1.5rem; }
+.regie-slot .current-label { font-size: .95rem; }
+.regie-slot .controls { margin-top: 12px; gap: 8px; }
+.regie-slot .btn { padding: 10px 14px; font-size: .9rem; }
+.regie-slot .options { margin-top: 12px; gap: 12px; font-size: .82rem; }
 .regie-slot .board { padding: 10px; gap: 5px; }
 .regie-slot .board-hint { display: none; }
 
-/* 12 cartons en grille 4×3, compacts */
-.regie-slot .cartons-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+/* cartons en grille pleine largeur (nb de colonnes réglé par le JS) */
+.regie-slot .cartons-grid { grid-template-columns: repeat(6, 1fr); gap: 10px; }
 .regie-slot .carton { padding: 7px; border-radius: 12px; }
 .regie-slot .carton-head { margin-bottom: 6px; gap: 4px; }
 .regie-slot .carton-name { font-size: .72rem; padding: 3px 6px; }
