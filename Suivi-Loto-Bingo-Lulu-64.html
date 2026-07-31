@@ -833,7 +833,7 @@ const state = {
 };
 
 /* ---------- Plusieurs parties (suivi de plusieurs lotos) ---------- */
-const PKEY = "loto64-parties";
+const PKEY = "loto64-parties-v2"; // v2 : démarrage propre (sans plaques ni numéros)
 function fullPool() { return Array.from({ length: 90 }, (_, i) => i + 1); }
 function uid() { return "p" + Date.now().toString(36) + Math.floor(Math.random() * 1e6).toString(36); }
 function makeParty(name) {
@@ -1751,10 +1751,13 @@ function restoreCartonOrder() {
 /* ============================================================
    COULEURS / THÈMES
    ============================================================ */
+const TKEY = "loto64-theme-v2"; // v2 : couleur de base pastel
 const DEFAULT_THEME = {
   bg: "#0f1437", bg2: "#161c4d", card: "#1d2560", card2: "#232c75",
   ink: "#f5f7ff", inkSoft: "#b9c0e8", accent: "#ffd23f", accent2: "#ff8a3d"
 };
+// couleur de base de l'application (pastel)
+const BASE_THEME = { bg: "#e7d9ff", bg2: "#efe6ff", card: "#ffffff", card2: "#f3ecff", ink: "#3c2b57", inkSoft: "#6f5f8c", accent: "#b15bff", accent2: "#ff8ac4" };
 const THEMES = [
   { name: "Nuit dorée", v: { ...DEFAULT_THEME } },
   { name: "Pastel", v: { bg: "#e7d9ff", bg2: "#efe6ff", card: "#ffffff", card2: "#f3ecff", ink: "#3c2b57", inkSoft: "#6f5f8c", accent: "#b15bff", accent2: "#ff8ac4" } },
@@ -1802,7 +1805,7 @@ function applyTheme(v) {
   if (el.accentPick) el.accentPick.value = v.accent;
   if (el.bgPick) el.bgPick.value = v.bg;
   markActiveSwatch();
-  try { localStorage.setItem("loto64-theme", JSON.stringify(v)); } catch (e) { /* ignore */ }
+  try { localStorage.setItem(TKEY, JSON.stringify(v)); } catch (e) { /* ignore */ }
 }
 function markActiveSwatch() {
   document.querySelectorAll(".theme-swatch").forEach((s) => {
@@ -1825,8 +1828,8 @@ function buildThemeSwatches() {
 function setupTheme() {
   buildThemeSwatches();
   let saved = null;
-  try { saved = JSON.parse(localStorage.getItem("loto64-theme")); } catch (e) { /* ignore */ }
-  applyTheme(saved && saved.bg ? saved : DEFAULT_THEME);
+  try { saved = JSON.parse(localStorage.getItem(TKEY)); } catch (e) { /* ignore */ }
+  applyTheme(saved && saved.bg ? saved : BASE_THEME);
 
   el.accentPick.addEventListener("input", () => {
     applyTheme({ ...state.theme, accent: el.accentPick.value, accent2: shade(el.accentPick.value, -0.18) });
@@ -1842,7 +1845,7 @@ function setupTheme() {
       inkSoft: light ? "#5c5578" : "#c2c9ec"
     });
   });
-  el.themeReset.addEventListener("click", () => applyTheme(DEFAULT_THEME));
+  el.themeReset.addEventListener("click", () => applyTheme(BASE_THEME));
   const openTheme = () => (el.themeModal.hidden = false);
   el.themeBtn.addEventListener("click", openTheme);
   if (el.themeBtnTop) el.themeBtnTop.addEventListener("click", openTheme);
