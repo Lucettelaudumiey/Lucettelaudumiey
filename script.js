@@ -154,7 +154,8 @@ const el = {
   genName: $("#genName"),
   genGo: $("#genGo"),
   genResult: $("#genResult"),
-  ownerUnlock: $("#ownerUnlock")
+  ownerUnlock: $("#ownerUnlock"),
+  trialReset: $("#trialReset")
 };
 
 /* ============================================================
@@ -1266,6 +1267,12 @@ function setupLock() {
     el.genResult.textContent = n ? `Code de ${n} : ${codeFor(n)}` : "Entrez un prénom.";
   });
   el.ownerUnlock.addEventListener("click", () => doUnlock(codeFor("proprietaire")));
+  if (el.trialReset) el.trialReset.addEventListener("click", () => {
+    try { localStorage.removeItem(TRKEY); localStorage.removeItem(TRDRAWS); } catch (e) { /* ignore */ }
+    TRIAL = false;
+    refreshTrialBtn();
+    el.genResult.textContent = "✅ Essai gratuit remis à zéro. Le bouton « Essai gratuit » est de nouveau disponible.";
+  });
   return false;
 }
 
