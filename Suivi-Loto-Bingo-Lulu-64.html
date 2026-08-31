@@ -2118,7 +2118,8 @@ function setupLock() {
 
   const tryUnlock = () => {
     const code = normCode(el.lockCode.value);
-    if (codeValid(code)) { doUnlock(code); }
+    if (code === normCode(OWNER_PWD)) { doUnlock(codeFor("proprietaire")); }  // mot de passe propriétaire accepté ici aussi
+    else if (codeValid(code)) { doUnlock(code); }
     else { el.lockError.textContent = "Code incorrect. Demandez votre code à Lucette."; }
   };
   el.lockGo.addEventListener("click", tryUnlock);
