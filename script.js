@@ -115,6 +115,7 @@ const el = {
   themeClose: $("#themeClose"),
   winNewGame: $("#winNewGame"),
   resetAllBtn: $("#resetAllBtn"),
+  relockBtn: $("#relockBtn"),
   objNext: $("#objNext"),
   objClear: $("#objClear"),
   zoomOut: $("#zoomOut"),
@@ -1169,7 +1170,7 @@ function setupZoom() {
    ============================================================ */
 const AKEY = "loto64-access";
 const SECRET = "Lulu64!zephyr-2026";     // graine des codes
-const OWNER_PWD = "LULU638";              // mot de passe propriétaire
+const OWNER_PWD = "LULU69";               // mot de passe propriétaire
 
 function normName(s) {
   return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
@@ -1767,6 +1768,12 @@ function init() {
   setupEvent();
   el.winNewGame.addEventListener("click", () => { el.winBanner.hidden = true; newGame(); });
   el.resetAllBtn.addEventListener("click", resetAll);
+  el.relockBtn.addEventListener("click", () => {
+    uiConfirm("Verrouiller l'application et réinitialiser l'accès sur cet appareil ? Le code (ou le mot de passe) sera redemandé.", () => {
+      try { localStorage.removeItem(AKEY); localStorage.removeItem(TRKEY); localStorage.removeItem(TRDRAWS); } catch (e) { /* ignore */ }
+      location.reload();
+    });
+  });
   el.objNext.addEventListener("click", nextObjective);
   el.objClear.addEventListener("click", clearGame);
   document.querySelectorAll(".obj-step").forEach((s) => {
