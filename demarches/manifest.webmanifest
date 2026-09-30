@@ -1,0 +1,14 @@
+{
+  "name": "Mes Démarches Facile",
+  "short_name": "Démarches",
+  "description": "Toutes les démarches administratives françaises, les aides, un calendrier des prélèvements et rendez-vous, le suivi des demandes jamais honorées et des astuces pour vivre mieux.",
+  "lang": "fr",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#f6f6f6",
+  "theme_color": "#000091",
+  "icons": [
+    { "src": "icon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ]
+}

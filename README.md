@@ -112,3 +112,19 @@ Application **propriété exclusive de Lucette Laudumiey** (64).
 ---
 
 Fait avec ❤️ par Lucette Laudumiey — département **64**.
+
+---
+
+## 🇫🇷 Mes Démarches Facile
+
+Une seconde application, dans le dossier [`demarches/`](demarches/), pour tous
+les Français : **toutes les démarches administratives par catégorie** (avec les
+liens officiels), **les aides et allocations** filtrées selon votre situation,
+un **calendrier** (prélèvements, rentrées d'argent, sorties, rendez-vous
+médicaux, démarches, dates repères de l'année, export .ics), le **suivi des
+demandes jamais honorées** (administration, entreprise / achat sur internet,
+propriétaire, employeur) avec les étapes de recours, le compteur de jours et
+les courriers prêts à envoyer (relance, mise en demeure, médiateur), et des
+**astuces** pour récupérer de l'argent, dépenser moins et vivre mieux.
+
+Sans installation, hors-ligne, toutes les données restent sur votre appareil.

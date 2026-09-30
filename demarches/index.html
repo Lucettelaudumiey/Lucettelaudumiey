@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mes Démarches Facile</title>
+  <meta name="description" content="Toutes les démarches administratives françaises par catégorie, les aides, un calendrier des prélèvements et rendez-vous, le suivi des demandes jamais honorées et des astuces pour récupérer de l'argent et mieux vivre.">
+  <meta name="theme-color" content="#000091">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="entete">
+    <span class="logo">🇫🇷</span>
+    <h1>Mes Démarches Facile <small>Démarches, aides, calendrier, recours & astuces — pour tous les Français</small></h1>
+  </header>
+
+  <main>
+    <!-- Démarches -->
+    <section id="page-demarches" class="page active">
+      <h2>📋 Démarches administratives</h2>
+      <p class="intro">Toutes les démarches par catégorie, avec les liens officiels. Tapez un mot pour chercher.</p>
+      <div class="recherche"><input id="rech-dem" type="search" placeholder="Ex. : passeport, carte grise, APL, retraite…"></div>
+      <div id="dem-contenu"></div>
+      <p class="notice">Les liens renvoient uniquement vers des sites officiels (service-public.gouv.fr, ANTS, CAF, Ameli…). Les démarches y sont gratuites : méfiez-vous des sites payants.</p>
+    </section>
+
+    <!-- Aides -->
+    <section id="page-aides" class="page">
+      <h2>🤝 Aides & allocations</h2>
+      <p class="intro">Choisissez votre situation pour voir les aides qui vous concernent. Puis simulez-les toutes en 10 minutes.</p>
+      <div class="puces" id="puces-profil"></div>
+      <div class="liens" style="margin-bottom:12px"><a href="https://www.mesdroitssociaux.gouv.fr" target="_blank" rel="noopener">🧮 Simuler toutes mes aides (officiel)</a></div>
+      <div id="aides-contenu"></div>
+    </section>
+
+    <!-- Calendrier -->
+    <section id="page-calendrier" class="page">
+      <h2>📅 Mon calendrier</h2>
+      <p class="intro">Prélèvements, rentrées d'argent, sorties, rendez-vous médicaux, démarches : tout au même endroit. Les données restent sur votre appareil.</p>
+      <div class="bilan" id="bilan"></div>
+      <div class="cal-tete">
+        <button id="cal-prec" aria-label="Mois précédent">‹</button>
+        <b id="cal-titre"></b>
+        <button id="cal-suiv" aria-label="Mois suivant">›</button>
+      </div>
+      <div class="cal-grille" id="cal-grille"></div>
+      <div class="legende">
+        <span><i class="pt t-prelevement"></i> Prélèvement</span>
+        <span><i class="pt t-revenu"></i> Rentrée</span>
+        <span><i class="pt t-sortie"></i> Sortie</span>
+        <span><i class="pt t-medical"></i> Médical</span>
+        <span><i class="pt t-demarche"></i> Démarche</span>
+        <span><i class="pt t-autre"></i> Autre</span>
+      </div>
+      <h3 id="jour-titre"></h3>
+      <div id="jour-evts" class="carte"></div>
+      <div class="form">
+        <b>➕ Ajouter au calendrier</b>
+        <div class="ligne">
+          <div><label>Titre</label><input id="ev-titre" placeholder="Ex. : Loyer, Salaire, Dentiste…"></div>
+          <div><label>Type</label>
+            <select id="ev-type">
+              <option value="prelevement">Prélèvement (sortie automatique)</option>
+              <option value="revenu">Rentrée d'argent</option>
+              <option value="sortie">Sortie / dépense</option>
+              <option value="medical">Rendez-vous médical</option>
+              <option value="demarche">Démarche administrative</option>
+              <option value="autre">Autre</option>
+            </select></div>
+        </div>
+        <div class="ligne">
+          <div><label>Date</label><input id="ev-date" type="date"></div>
+          <div><label>Montant (€, facultatif)</label><input id="ev-montant" type="number" step="0.01" inputmode="decimal"></div>
+        </div>
+        <div class="ligne">
+          <div><label>Répétition</label>
+            <select id="ev-rep">
+              <option value="0">Une seule fois</option>
+              <option value="mensuel">Tous les mois</option>
+              <option value="annuel">Tous les ans</option>
+            </select></div>
+          <div><label>Note (facultatif)</label><input id="ev-note" placeholder="Heure, lieu, référence…"></div>
+        </div>
+        <div class="actions">
+          <button class="btn" id="ev-ajouter">Ajouter</button>
+          <button class="btn sec" id="ev-reperes">📌 Ajouter les dates repères de l'année</button>
+          <button class="btn sec" id="ev-ics">⬇️ Exporter (.ics)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demandes non honorées -->
+    <section id="page-demandes" class="page">
+      <h2>📨 Mes demandes</h2>
+      <p class="intro">Notez ici chaque demande faite à une administration, une entreprise, un site internet, un propriétaire ou un employeur. L'appli compte les jours, vous dit quoi faire à chaque étape et rédige vos courriers quand une demande n'a jamais été honorée.</p>
+      <div id="alerte-demandes"></div>
+      <div class="puces" id="puces-statut"></div>
+      <div id="demandes-contenu"></div>
+      <div class="form">
+        <b>➕ Nouvelle demande</b>
+        <div class="ligne">
+          <div><label>Objet de la demande</label><input id="dm-objet" placeholder="Ex. : Remboursement commande n°…, dossier APL…"></div>
+          <div><label>Organisme / entreprise</label><input id="dm-org" placeholder="Ex. : CAF, Amazon, mon propriétaire…"></div>
+        </div>
+        <div class="ligne">
+          <div><label>Type d'interlocuteur</label>
+            <select id="dm-type">
+              <option value="administration">Administration / service public</option>
+              <option value="entreprise">Entreprise / achat sur internet</option>
+              <option value="logement">Propriétaire / bailleur / syndic</option>
+              <option value="employeur">Employeur</option>
+            </select></div>
+          <div><label>Date de la demande</label><input id="dm-date" type="date"></div>
+        </div>
+        <div class="ligne">
+          <div><label>Référence / n° de dossier</label><input id="dm-ref" placeholder="Facultatif"></div>
+          <div><label>Montant en jeu (€)</label><input id="dm-montant" type="number" step="0.01" inputmode="decimal"></div>
+        </div>
+        <label>Notes (preuves, échanges…)</label><textarea id="dm-note"></textarea>
+        <div class="actions"><button class="btn" id="dm-ajouter">Enregistrer la demande</button></div>
+      </div>
+    </section>
+
+    <!-- Astuces -->
+    <section id="page-astuces" class="page">
+      <h2>💡 Astuces</h2>
+      <p class="intro">Récupérer de l'argent, dépenser moins, être en meilleure santé et vivre mieux.</p>
+      <div class="puces" id="puces-astuces"></div>
+      <div id="astuces-contenu"></div>
+    </section>
+  </main>
+
+  <nav class="onglets">
+    <button data-page="demarches" class="active"><span class="ic">📋</span>Démarches</button>
+    <button data-page="aides"><span class="ic">🤝</span>Aides</button>
+    <button data-page="calendrier"><span class="ic">📅</span>Calendrier</button>
+    <button data-page="demandes"><span class="ic">📨</span>Demandes</button>
+    <button data-page="astuces"><span class="ic">💡</span>Astuces</button>
+  </nav>
+
+  <dialog id="dlg-courrier">
+    <div class="form">
+      <b id="dlg-titre">Courrier</b>
+      <div class="ligne">
+        <div><label>Vos nom et prénom</label><input id="c-nom"></div>
+        <div><label>Votre adresse</label><input id="c-adresse"></div>
+      </div>
+      <pre class="courrier" id="c-texte"></pre>
+      <div class="actions">
+        <button class="btn" id="c-copier">📋 Copier</button>
+        <button class="btn sec" id="c-imprimer">🖨️ Imprimer</button>
+        <button class="btn sec" id="c-fermer">Fermer</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
