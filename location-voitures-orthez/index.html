@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Location Auto Orthez</title>
+<meta name="description" content="Trouver une voiture de location à Orthez pour un mois : boîte automatique, électrique de préférence, au meilleur tarif. Liens pré-remplis vers tous les loueurs et comparateur de coût complet.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Mise en page : un tableau de bord en une colonne, réglages en haut (carte "poste de conduite"),
+   puis la liste des loueurs en grille, puis le comparateur d'offres en tableau. */
+:root{
+  --bg:#f3f4f1;        /* gris très clair, légèrement vert (asphalte mouillé au soleil) */
+  --surface:#ffffff;
+  --surface-2:#e9ebe6;
+  --fg:#1c2128;
+  --muted:#5c6570;
+  --line:#d3d7d0;
+  --accent:#0f7b5f;    /* vert borne de recharge */
+  --accent-fg:#ffffff;
+  --accent-soft:#dff3ea;
+  --warn:#b7791f;
+  --warn-soft:#fbefd6;
+  --bad:#b23a3a;
+  --bad-soft:#f8e1e1;
+  --good:#0f7b5f;
+  --display:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c; --surface:#1f2429; --surface-2:#2a3037; --fg:#e8eae6; --muted:#a3aab2;
+    --line:#3a414a; --accent:#3fc59a; --accent-fg:#0c1d17; --accent-soft:#1c3a30;
+    --warn:#e0a94a; --warn-soft:#3d3018; --bad:#e07070; --bad-soft:#3f2222; --good:#3fc59a;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c; --surface:#1f2429; --surface-2:#2a3037; --fg:#e8eae6; --muted:#a3aab2;
+  --line:#3a414a; --accent:#3fc59a; --accent-fg:#0c1d17; --accent-soft:#1c3a30;
+  --warn:#e0a94a; --warn-soft:#3d3018; --bad:#e07070; --bad-soft:#3f2222; --good:#3fc59a;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.45;padding-inline:16px;padding-block:0 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:28px}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;padding-block:22px 6px;border-bottom:3px solid var(--accent)}
+header.top h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1;margin:0;letter-spacing:.2px;text-wrap:balance}
+header.top h1 small{display:block;font-size:.42em;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+header.top .plate{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1.5px solid var(--line);border-radius:6px;padding:4px 10px;background:var(--surface)}
+h2{font-family:var(--display);font-weight:600;font-size:24px;margin:0 0 4px;line-height:1.1;text-wrap:balance}
+h2 .n{color:var(--accent);margin-right:6px}
+.lead{color:var(--muted);margin:0 0 14px;max-width:70ch}
+section{display:grid;gap:10px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+label{display:grid;gap:4px;font-size:14px;font-weight:600;color:var(--muted)}
+label > span.help{font-weight:400;font-size:12.5px}
+input,select,textarea,button{font:inherit;color:inherit}
+input[type=text],input[type=number],input[type=date],input[type=time],input[type=url],select,textarea{
+  width:100%;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 10px;color:var(--fg);min-width:0}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.grid.tight{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:8px 14px;cursor:pointer;font-weight:600}
+button:hover{border-color:var(--accent)}
+button.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+button.small{padding:4px 9px;font-size:13px}
+button.danger{color:var(--bad)}
+.summary{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.summary .tile{background:var(--surface-2);border-radius:8px;padding:10px 12px}
+.summary .tile b{display:block;font-family:var(--display);font-size:22px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.summary .tile span{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+/* Loueurs */
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:600;background:var(--surface);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.providers{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.prov{display:grid;grid-template-rows:auto 1fr auto;gap:8px;min-width:0;border-left:4px solid var(--line)}
+.prov.elec{border-left-color:var(--accent)}
+.prov h3{margin:0;font-family:var(--display);font-size:19px;font-weight:600;line-height:1.15}
+.prov .meta{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 10px}
+.prov .note{font-size:14px;margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;padding:2px 6px;background:var(--surface-2);color:var(--muted)}
+.tag.ok{background:var(--accent-soft);color:var(--accent)}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.prov a.go{display:inline-block;background:var(--accent);color:var(--accent-fg);text-decoration:none;font-weight:700;border-radius:6px;padding:7px 12px;font-size:14.5px}
+.prov a.alt{font-size:13.5px;color:var(--accent)}
+.contact{font-size:13.5px;color:var(--muted)}
+.contact code{font-family:var(--body);font-weight:700;color:var(--fg);user-select:all}
+/* Offres */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:1100px;font-size:14.5px}
+th:nth-child(2),td:nth-child(2){min-width:260px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);background:var(--surface-2);position:sticky;top:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.best td{background:var(--accent-soft)}
+tr.out td{color:var(--muted)}
+tr.out td .why{color:var(--bad);font-size:12.5px;display:block}
+.rank{font-family:var(--display);font-weight:700;font-size:18px;color:var(--accent)}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;padding:2px 6px;background:var(--surface-2);color:var(--muted);margin-left:4px}
+.badge.ex{background:var(--warn-soft);color:var(--warn)}
+.badge.best{background:var(--accent);color:var(--accent-fg)}
+td .sub{display:block;font-size:12.5px;color:var(--muted)}
+td a{color:var(--accent)}
+details.form{border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+details.form summary{cursor:pointer;padding:12px 16px;font-family:var(--display);font-weight:600;font-size:18px}
+details.form .inner{padding:0 16px 16px;display:grid;gap:12px}
+.status{font-size:14px;color:var(--muted);min-height:1.4em}
+.empty{padding:22px;text-align:center;color:var(--muted)}
+ul.check{margin:0;padding-left:20px;display:grid;gap:6px;max-width:75ch}
+ul.check li b{font-weight:700}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;max-width:80ch}
+.sr{position:absolute;left:-9999px}
+textarea.csv{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;min-height:120px}
+@media (max-width:520px){ .prov{grid-template-rows:auto} header.top .plate{display:none} }
+@media (prefers-reduced-motion:no-preference){ button,.chip,a.go{transition:background .15s,border-color .15s} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1><small>Béarn · Pyrénées-Atlantiques</small>Location auto Orthez, un mois, boîte auto</h1>
+  <div class="plate" aria-hidden="true">64300 · ORTHEZ</div>
+</header>
+
+<section id="reglages">
+  <h2><span class="n">1</span>Ma recherche</h2>
+  <p class="lead">Réglez le lieu, les dates et vos préférences. Les liens vers les loueurs et le classement des offres se mettent à jour tout seuls.</p>
+  <div class="card" style="display:grid;gap:14px">
+    <div class="grid">
+      <label>Lieu de prise en charge<input type="text" id="lieu" value="Orthez"></label>
+      <label>Code postal<input type="text" id="cp" value="64300" inputmode="numeric"></label>
+      <label>Rayon de recherche (km)<input type="number" id="rayon" value="50" min="5" max="200" step="5"></label>
+      <label>Date de début<input type="date" id="debut"></label>
+      <label>Durée (jours)<input type="number" id="jours" value="30" min="1" max="120"></label>
+      <label>Heure de retrait<input type="time" id="heure" value="10:00"></label>
+    </div>
+    <div class="grid">
+      <label>Boîte de vitesses
+        <select id="boite">
+          <option value="auto" selected>Automatique obligatoire</option>
+          <option value="any">Peu importe</option>
+        </select></label>
+      <label>Énergie
+        <select id="energie">
+          <option value="pref" selected>Électrique de préférence</option>
+          <option value="only">Électrique uniquement</option>
+          <option value="any">Peu importe</option>
+        </select></label>
+      <label>Âge du conducteur<input type="number" id="age" value="35" min="18" max="99"></label>
+      <label>Kilomètres prévus sur le mois<span class="help">Sert à estimer les km en supplément et l'énergie.</span><input type="number" id="km" value="1000" min="0" step="50"></label>
+      <label>Carburant (€ / litre)<input type="number" id="prixCarbu" value="1.75" min="0" step="0.01"></label>
+      <label>Électricité (€ / kWh)<span class="help">Environ 0,25 € à la maison, 0,45 € sur borne rapide.</span><input type="number" id="prixKwh" value="0.25" min="0" step="0.01"></label>
+    </div>
+    <div class="summary" id="resume"></div>
+  </div>
+</section>
+
+<section id="loueurs">
+  <h2><span class="n">2</span>Chercher chez tous les loueurs</h2>
+  <p class="lead">Chaque bouton ouvre la recherche du loueur déjà remplie avec vos dates et Orthez (quand le site le permet). Les agences ne publient pas toutes leurs disponibilités : pour un mois complet, un appel donne souvent un tarif mensuel bien meilleur que le prix affiché à la journée.</p>
+  <div class="filters" id="filtres" role="group" aria-label="Filtrer les loueurs">
+    <button class="chip" data-f="all" aria-pressed="true">Tous</button>
+    <button class="chip" data-f="orthez" aria-pressed="false">À Orthez</button>
+    <button class="chip" data-f="particuliers" aria-pressed="false">Entre particuliers</button>
+    <button class="chip" data-f="mois" aria-pressed="false">Formules au mois</button>
+    <button class="chip" data-f="pau" aria-pressed="false">Pau et alentours</button>
+    <button class="chip" data-f="comparateur" aria-pressed="false">Comparateurs</button>
+    <button class="chip" data-f="elec" aria-pressed="false">Électrique confirmé</button>
+  </div>
+  <div class="providers" id="providers"></div>
+  <div class="row">
+    <button id="copierLiens" class="small">Copier tous les liens affichés</button>
+    <span class="status" id="statutLiens"></span>
+  </div>
+</section>
+
+<section id="offres">
+  <h2><span class="n">3</span>Comparer les offres trouvées</h2>
+  <p class="lead">Notez ici chaque proposition reçue (site ou téléphone). L'application calcule le coût complet du mois : loyer + kilomètres en supplément + énergie estimée, puis classe les offres. Les voitures à boîte manuelle sont écartées automatiquement si vous avez demandé une automatique.</p>
+
+  <details class="form" id="formOffre" open>
+    <summary>Ajouter une offre</summary>
+    <div class="inner">
+      <div class="grid">
+        <label>Loueur<input type="text" id="o_loueur" list="listeLoueurs" placeholder="ADA Orthez, Getaround…"><datalist id="listeLoueurs"></datalist></label>
+        <label>Modèle<input type="text" id="o_modele" placeholder="Renault Mégane E-Tech"></label>
+        <label>Boîte<select id="o_boite"><option value="auto">Automatique</option><option value="manuelle">Manuelle</option></select></label>
+        <label>Énergie<select id="o_energie"><option value="electrique">Électrique</option><option value="hybride">Hybride</option><option value="thermique">Essence / diesel</option></select></label>
+      </div>
+      <div class="grid">
+        <label>Prix total pour la période (€)<span class="help">Si connu. Sinon, indiquez le prix par jour.</span><input type="number" id="o_total" min="0" step="1"></label>
+        <label>Prix par jour (€)<input type="number" id="o_jour" min="0" step="0.5"></label>
+        <label>Km inclus sur la période<span class="help">Laissez vide si illimité.</span><input type="number" id="o_km" min="0" step="50"></label>
+        <label>Prix du km en plus (€)<input type="number" id="o_kmsupp" min="0" step="0.01" placeholder="0.25"></label>
+        <label>Caution (€)<input type="number" id="o_caution" min="0" step="10"></label>
+        <label>Franchise en cas de sinistre (€)<input type="number" id="o_franchise" min="0" step="50"></label>
+        <label>Lieu de retrait<input type="text" id="o_lieu" placeholder="Orthez, Pau…"></label>
+        <label>Distance depuis Orthez (km)<input type="number" id="o_dist" min="0" step="1" value="0"></label>
+      </div>
+      <div class="grid">
+        <label>Lien de l'annonce<input type="url" id="o_url" placeholder="https://…"></label>
+        <label>Remarques<input type="text" id="o_note" placeholder="Câble fourni, 2e conducteur inclus…"></label>
+      </div>
+      <div class="row">
+        <button class="primary" id="ajouter">Ajouter cette offre</button>
+        <button id="annulerEdit" hidden>Annuler la modification</button>
+        <span class="status" id="statutOffre"></span>
+      </div>
+    </div>
+  </details>
+
+  <div class="tablewrap">
+    <table id="tableOffres" aria-describedby="statutOffre">
+      <thead><tr>
+        <th>#</th><th>Loueur · modèle</th><th>Boîte</th><th>Énergie</th>
+        <th class="num">Loyer période</th><th class="num">Km en plus</th><th class="num">Énergie estimée</th>
+        <th class="num">Coût complet</th><th class="num">Par jour</th><th>Caution / franchise</th><th>Retrait</th><th>Actions</th>
+      </tr></thead>
+      <tbody id="corpsOffres"></tbody>
+    </table>
+    <div class="empty" id="videOffres" hidden>Aucune offre pour l'instant. Ajoutez la première proposition ci-dessus.</div>
+  </div>
+  <div class="row">
+    <button id="exportCsv" class="small">Télécharger en CSV (Excel)</button>
+    <button id="copierCsv" class="small">Copier le tableau (CSV)</button>
+    <button id="exportJson" class="small">Sauvegarder (fichier JSON)</button>
+    <label class="small" style="display:inline-grid"><span class="sr">Importer un fichier JSON</span><input type="file" id="importJson" accept="application/json,.json"></label>
+    <button id="supprExemples" class="small">Retirer les exemples</button>
+    <button id="toutEffacer" class="small danger">Tout effacer</button>
+  </div>
+  <textarea class="csv" id="zoneCsv" hidden readonly aria-label="Tableau au format CSV"></textarea>
+</section>
+
+<section id="questions">
+  <h2><span class="n">4</span>À demander avant de signer pour un mois</h2>
+  <ul class="check">
+    <li><b>Tarif mensuel :</b> demandez la « location moyenne durée » ou « 30 jours » plutôt que 30 × le prix à la journée. Chez les grandes enseignes, la formule mensuelle est souvent 30 à 50 % moins chère.</li>
+    <li><b>Kilométrage inclus :</b> combien de km pour le mois, et le prix du km au-delà. Sur un mois, c'est souvent ce qui fait la différence.</li>
+    <li><b>Électrique :</b> câble de recharge fourni ? Carte de recharge incluse ? Voiture à rendre chargée à quel niveau ? Autonomie réelle du modèle ?</li>
+    <li><b>Caution et franchise :</b> montant bloqué sur la carte bancaire, franchise en cas d'accident, prix du rachat de franchise pour un mois.</li>
+    <li><b>Conducteur supplémentaire :</b> inclus ou payant ? Conditions d'âge et d'ancienneté du permis (souvent 3 à 5 ans pour une électrique entre particuliers).</li>
+    <li><b>Livraison :</b> les formules au mois (Drivalia, Sixt+, Hertz, Europcar) livrent parfois à domicile : demandez le coût pour Orthez.</li>
+    <li><b>Assurance :</b> votre carte bancaire ou votre assurance auto couvre-t-elle déjà la location ? Cela évite de payer deux fois.</li>
+  </ul>
+</section>
+
+<footer>Les tarifs affichés par les sites changent chaque jour et selon la date de réservation : réservez tôt, un mois à l'avance si possible. Cette page ne collecte rien ; vos offres restent enregistrées dans votre navigateur. Application réalisée pour Lucette Laudumiey, Orthez (64).</footer>
+
+</div>
+
+<script>
+(function(){
+'use strict';
+const $ = (s)=>document.querySelector(s);
+const ORTHEZ = {lat:43.4886, lng:-0.7710};
+const STORE_P = 'locauto-orthez-params-v1';
+const STORE_O = 'locauto-orthez-offres-v1';
+
+/* ---------- utilitaires ---------- */
+function lsGet(k){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):null; }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+function pad(n){ return String(n).padStart(2,'0'); }
+function isoDate(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+function addDays(iso,n){ const d=new Date(iso+'T12:00:00'); d.setDate(d.getDate()+n); return isoDate(d); }
+function frDate(iso){ if(!iso) return ''; const d=new Date(iso+'T12:00:00'); return d.toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'long',year:'numeric'}); }
+function usDate(iso){ const [y,m,d]=iso.split('-'); return m+'/'+d+'/'+y; }
+function eur(n){ if(n==null||isNaN(n)) return '—'; return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); }
+function eur2(n){ if(n==null||isNaN(n)) return '—'; return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:2,maximumFractionDigits:2}).format(n); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function num(v){ const n=parseFloat(String(v).replace(',','.')); return isNaN(n)?null:n; }
+function copyText(txt, fallbackEl, statusEl, okMsg){
+  const done=()=>{ statusEl.textContent=okMsg; setTimeout(()=>statusEl.textContent='',4000); };
+  const fallback=()=>{ if(fallbackEl){ fallbackEl.hidden=false; fallbackEl.value=txt; fallbackEl.focus(); fallbackEl.select(); statusEl.textContent='Copie automatique refusée : le texte est sélectionné ci-dessous, copiez-le avec Ctrl+C.'; } else { statusEl.textContent='Copie refusée par le navigateur.'; } };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done).catch(fallback); } else { fallback(); }
+}
+
+/* ---------- paramètres ---------- */
+const defaults = {lieu:'Orthez',cp:'64300',rayon:50,debut:addDays(isoDate(new Date()),7),jours:30,heure:'10:00',boite:'auto',energie:'pref',age:35,km:1000,prixCarbu:1.75,prixKwh:0.25};
+let P = Object.assign({}, defaults, lsGet(STORE_P)||{});
+const champs = ['lieu','cp','rayon','debut','jours','heure','boite','energie','age','km','prixCarbu','prixKwh'];
+function lireParams(){
+  champs.forEach(k=>{ const el=$('#'+k); if(!el) return; P[k] = (el.type==='number') ? (num(el.value) ?? defaults[k]) : (el.value || defaults[k]); });
+  P.jours = Math.max(1, Math.round(P.jours));
+  P.fin = addDays(P.debut, P.jours);
+  lsSet(STORE_P, P);
+}
+function ecrireParams(){ champs.forEach(k=>{ const el=$('#'+k); if(el) el.value = P[k]; }); }
+function resume(){
+  const mois = (P.jours/30);
+  $('#resume').innerHTML = [
+    ['Retrait', frDate(P.debut)+' à '+P.heure],
+    ['Retour', frDate(P.fin)],
+    ['Durée', P.jours+' jours'],
+    ['Boîte', P.boite==='auto'?'Automatique':'Peu importe'],
+    ['Énergie', {pref:'Électrique de préférence',only:'Électrique uniquement',any:'Peu importe'}[P.energie]],
+    ['Km prévus', Math.round(P.km*mois)+' km'],
+  ].map(([l,v])=>'<div class="tile"><b>'+esc(v)+'</b><span>'+esc(l)+'</span></div>').join('');
+}
+
+/* ---------- loueurs ---------- */
+/* type : orthez (agence sur place) · pau (agences à ~45 km) · particuliers · mois (formules mensuelles, livraison possible) · comparateur
+   elec : électrique confirmé au catalogue · auto : boîte automatique disponible · prefill : le lien reçoit vos dates */
+const PROVIDERS = [
+  {id:'ada', nom:'ADA Orthez', type:'orthez', km:0, elec:true, auto:true, prefill:false,
+   url:()=> 'https://www.ada.fr/location-voiture-orthez',
+   note:'Agence à 50 m de la gare. Propose des automatiques et des électriques. Demandez le forfait 30 jours.',
+   adresse:'1 rue Saint-Gilles, 64300 Orthez', tel:'05 59 67 11 06'},
+  {id:'ulocation', nom:'U Location · Super U Orthez', type:'orthez', km:2, elec:false, auto:true, prefill:false,
+   url:()=> 'https://www.ulocation.com/',
+   note:'Location au magasin Super U, tarifs de supermarché. Formules longue durée disponibles, vérifier la boîte auto.',
+   adresse:'ZI Soarns Soleil, route de Pau (RN117), 64300 Orthez'},
+  {id:'leclerc', nom:'Leclerc Location Orthez', type:'orthez', km:2, elec:true, auto:true, prefill:false,
+   url:()=> 'https://www.leclerclocation.fr/',
+   note:'Choisir l’agence Orthez sur le site. Catalogue avec électriques (selon agence) et tarifs parmi les plus bas.',
+   adresse:'Route de Bayonne, 64300 Orthez'},
+  {id:'renault', nom:'Renault Rent · Edenauto Orthez', type:'orthez', km:2, elec:true, auto:true, prefill:false,
+   url:()=> 'https://www.renault-rent.com/',
+   note:'Concession Renault d’Orthez (rond-point d’Espagne, route de Pau). Mégane E-Tech, R5 et Zoé électriques, offres mensuelles.',
+   adresse:'Rond-point d’Espagne, route de Pau, 64300 Orthez'},
+  {id:'roadstr', nom:'Roadstr · Orthez', type:'particuliers', km:0, elec:true, auto:true, prefill:false,
+   url:()=> 'https://www.roadstr.fr/location-voiture-electrique-orthez',
+   alt:{label:'Toutes les voitures Roadstr à Orthez', url:'https://www.roadstr.fr/location-voiture-orthez'},
+   note:'Plateforme entre particuliers avec page dédiée aux électriques d’Orthez et location au mois. 28 ans et 5 ans de permis pour une électrique.'},
+  {id:'getaround', nom:'Getaround', type:'particuliers', km:0, elec:true, auto:true, prefill:true,
+   url:(p)=> 'https://fr.getaround.com/search?address='+encodeURIComponent(p.lieu+', France')+'&latitude='+ORTHEZ.lat+'&longitude='+ORTHEZ.lng+'&start_date='+p.debut+'&start_time='+encodeURIComponent(p.heure)+'&end_date='+p.fin+'&end_time='+encodeURIComponent(p.heure),
+   note:'Vos dates sont déjà remplies. Sur la page, ouvrez « Filtres » puis cochez Boîte automatique et Électrique. Prix dégressifs pour un mois.'},
+  {id:'turo', nom:'Turo', type:'particuliers', km:0, elec:true, auto:true, prefill:true,
+   url:(p)=> 'https://turo.com/fr/fr/search?country=FR&location='+encodeURIComponent(p.lieu+', France')+'&locationType=CITY&latitude='+ORTHEZ.lat+'&longitude='+ORTHEZ.lng+'&startDate='+encodeURIComponent(usDate(p.debut))+'&startTime='+encodeURIComponent(p.heure)+'&endDate='+encodeURIComponent(usDate(p.fin))+'&endTime='+encodeURIComponent(p.heure)+'&sortType=PRICE_LOW_TO_HIGH&transmission=AUTOMATIC&fuelType=ELECTRIC',
+   note:'Vos dates et le tri par prix sont pré-remplis. Turo applique une remise mensuelle sur la plupart des voitures.'},
+  {id:'ouicar', nom:'OuiCar', type:'particuliers', km:0, elec:false, auto:true, prefill:false,
+   url:()=> 'https://www.ouicar.fr/',
+   note:'Entre particuliers, souvent moins cher hors grandes villes. Tapez Orthez puis vos dates.'},
+  {id:'leboncoin', nom:'Leboncoin (annonces de location)', type:'particuliers', km:0, elec:false, auto:false, prefill:true,
+   url:(p)=> 'https://www.leboncoin.fr/recherche?text='+encodeURIComponent('location voiture automatique')+'&locations='+encodeURIComponent(p.lieu+'__'+ORTHEZ.lat+'_'+ORTHEZ.lng+'_'+(p.rayon*1000)),
+   note:'Petits loueurs et garages locaux qui n’apparaissent nulle part ailleurs. Vérifiez bien l’assurance.'},
+  {id:'drivalia', nom:'Drivalia · location électrique au mois', type:'mois', km:45, elec:true, auto:true, prefill:false,
+   url:()=> 'https://www.drivalia.fr/location-voiture-electrique.html',
+   note:'Formule électrique dès environ 299 € par mois (Fiat 500e, Peugeot e-208…). Retrait en agence Pau ou Bayonne, livraison possible.'},
+  {id:'sixtplus', nom:'Sixt+ · abonnement 1 mois', type:'mois', km:45, elec:true, auto:true, prefill:false,
+   url:()=> 'https://www.sixt.fr/abonnement-voiture/',
+   note:'Abonnement sans engagement à partir d’un mois, automatiques et électriques, kilométrage inclus. Retrait à Pau (gare ou aéroport).'},
+  {id:'hertzmini', nom:'Hertz · location au mois', type:'mois', km:45, elec:true, auto:true, prefill:true,
+   url:(p)=> 'https://www.hertz.fr/p/location-de-voiture/france/pau/pau-pyrenees-airport',
+   note:'Formule « Mini Lease » 1 à 11 mois avec électriques (Tesla, Polestar) et automatiques. Agences Pau gare et aéroport.'},
+  {id:'europcar', nom:'Europcar · location mensuelle', type:'mois', km:45, elec:true, auto:true, prefill:false,
+   url:()=> 'https://www.europcar.fr/',
+   note:'Offre moyenne durée (30 jours et plus) avec électriques. Agences Pau gare (rue Marca) et aéroport.'},
+  {id:'avis', nom:'Avis Pau', type:'pau', km:45, elec:true, auto:true, prefill:false,
+   url:()=> 'https://www.avis.fr/',
+   note:'Agences Pau gare (bd Alsace-Lorraine) et aéroport. Formule Avis Flex pour un mois.'},
+  {id:'rentacar', nom:'Rent A Car Pau', type:'pau', km:45, elec:false, auto:true, prefill:false,
+   url:()=> 'https://www.rentacar.fr/',
+   note:'Enseigne souvent la moins chère des grandes agences. Demander le tarif 30 jours.'},
+  {id:'francecars', nom:'France Cars Pau', type:'pau', km:45, elec:false, auto:true, prefill:false,
+   url:()=> 'https://www.francecars.fr/',
+   note:'Spécialiste de la courte et moyenne durée à Pau.'},
+  {id:'enterprise', nom:'Enterprise Pau', type:'pau', km:45, elec:false, auto:true, prefill:false,
+   url:()=> 'https://www.enterprise.fr/',
+   note:'Agences Pau gare et aéroport, tarifs mensuels sur demande.'},
+  {id:'kayak', nom:'Kayak · comparateur', type:'comparateur', km:45, elec:true, auto:true, prefill:true,
+   url:(p)=> 'https://www.kayak.fr/cars/Pau,France/'+p.debut+'-'+p.heure.slice(0,2)+'h/'+p.fin+'-'+p.heure.slice(0,2)+'h?sort=price_a',
+   note:'Compare Hertz, Avis, Sixt, Europcar, Enterprise à Pau sur vos dates, trié du moins cher au plus cher. Filtre « Automatique » et « Électrique » dans la colonne de gauche.'},
+  {id:'rentalcars', nom:'Rentalcars · comparateur', type:'comparateur', km:45, elec:true, auto:true, prefill:true,
+   url:(p)=>{ const [y,m,d]=p.debut.split('-'); const [y2,m2,d2]=p.fin.split('-'); const h=p.heure.slice(0,2);
+     return 'https://www.rentalcars.com/SearchResults.do?country=France&countryCode=fr&ftsType=C&ftsLocationName='+encodeURIComponent(p.lieu)+'&ftsLat='+ORTHEZ.lat+'&ftsLng='+ORTHEZ.lng+'&puDay='+(+d)+'&puMonth='+(+m)+'&puYear='+y+'&puHour='+(+h)+'&puMinute=0&doDay='+(+d2)+'&doMonth='+(+m2)+'&doYear='+y2+'&doHour='+(+h)+'&doMinute=0&driversAge='+p.age+'&filterAdvanced=true'; },
+   note:'Recherche autour d’Orthez sur vos dates. Filtres Boîte automatique et Électrique à gauche.'},
+  {id:'discovercars', nom:'Discover Cars · comparateur', type:'comparateur', km:45, elec:true, auto:true, prefill:false,
+   url:()=> 'https://www.discovercars.com/fr/france/pau',
+   note:'Compare les agences de Pau, y compris les petits loueurs locaux.'},
+];
+let filtre = 'all';
+function provVisible(pr){
+  if(filtre==='all') return true;
+  if(filtre==='elec') return pr.elec;
+  return pr.type===filtre;
+}
+function rendreProviders(){
+  const cont=$('#providers');
+  const html = PROVIDERS.filter(provVisible).map(pr=>{
+    const tags=[];
+    tags.push('<span class="tag">'+({orthez:'Orthez',pau:'Pau · '+pr.km+' km',particuliers:'Particuliers',mois:'Au mois',comparateur:'Comparateur'}[pr.type])+'</span>');
+    if(pr.elec) tags.push('<span class="tag ok">Électrique</span>');
+    if(pr.auto) tags.push('<span class="tag ok">Boîte auto</span>'); else tags.push('<span class="tag warn">Boîte auto à vérifier</span>');
+    if(pr.prefill) tags.push('<span class="tag">Dates pré-remplies</span>');
+    const contact = (pr.adresse||pr.tel) ? '<div class="contact">'+(pr.adresse?esc(pr.adresse):'')+(pr.tel?' · <code>'+esc(pr.tel)+'</code>':'')+'</div>' : '';
+    const alt = pr.alt ? '<a class="alt" href="'+esc(pr.alt.url)+'" target="_blank" rel="noopener">'+esc(pr.alt.label)+'</a>' : '';
+    return '<article class="card prov'+(pr.elec?' elec':'')+'">'+
+      '<div><h3>'+esc(pr.nom)+'</h3><div class="tags">'+tags.join('')+'</div></div>'+
+      '<div><p class="note">'+esc(pr.note)+'</p>'+contact+'</div>'+
+      '<div class="row"><a class="go" href="'+esc(pr.url(P))+'" target="_blank" rel="noopener">Ouvrir la recherche</a>'+alt+'</div>'+
+      '</article>';
+  }).join('');
+  cont.innerHTML = html || '<div class="empty">Aucun loueur pour ce filtre.</div>';
+  $('#listeLoueurs').innerHTML = PROVIDERS.map(pr=>'<option value="'+esc(pr.nom)+'">').join('');
+}
+$('#filtres').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  filtre=b.dataset.f;
+  document.querySelectorAll('#filtres .chip').forEach(c=>c.setAttribute('aria-pressed', c===b?'true':'false'));
+  rendreProviders();
+});
+$('#copierLiens').addEventListener('click',()=>{
+  const txt = PROVIDERS.filter(provVisible).map(pr=>pr.nom+' : '+pr.url(P)).join('\n');
+  copyText(txt, $('#zoneCsv'), $('#statutLiens'), 'Liens copiés.');
+});
+
+/* ---------- offres ---------- */
+const EXEMPLES = [
+  {id:'ex1', exemple:true, loueur:'Getaround', modele:'Renault Zoé (exemple)', boite:'auto', energie:'electrique', total:790, jour:null, km:1500, kmsupp:0.20, caution:800, franchise:800, lieu:'Orthez', dist:1, url:'', note:'Prix mensuel affiché par un particulier, à vérifier'},
+  {id:'ex2', exemple:true, loueur:'ADA Orthez', modele:'Peugeot 208 essence (exemple)', boite:'auto', energie:'thermique', total:null, jour:34, km:2000, kmsupp:0.25, caution:1000, franchise:1200, lieu:'Orthez', dist:0, url:'', note:'Tarif journée : demander le forfait 30 jours'},
+  {id:'ex3', exemple:true, loueur:'Drivalia', modele:'Fiat 500e (exemple)', boite:'auto', energie:'electrique', total:329, jour:null, km:1000, kmsupp:0.18, caution:500, franchise:900, lieu:'Pau', dist:45, url:'', note:'Formule au mois, livraison à demander'},
+  {id:'ex4', exemple:true, loueur:'Leboncoin', modele:'Clio manuelle (exemple)', boite:'manuelle', energie:'thermique', total:450, jour:null, km:null, kmsupp:0, caution:600, franchise:800, lieu:'Salies-de-Béarn', dist:17, url:'', note:'Annonce d\u2019un particulier à Salies'},
+];
+let O = lsGet(STORE_O); if(!Array.isArray(O)) O = EXEMPLES.slice();
+let editId = null;
+
+function calcul(o){
+  const mois = P.jours/30, kmPrevus = P.km*mois;
+  const loyer = (o.total!=null) ? o.total : (o.jour!=null ? o.jour*P.jours : null);
+  const kmSupp = (o.km!=null && o.kmsupp!=null) ? Math.max(0, kmPrevus-o.km)*o.kmsupp : 0;
+  const conso = {electrique:0.17*P.prixKwh, hybride:0.05*P.prixCarbu, thermique:0.065*P.prixCarbu}[o.energie] ?? 0.065*P.prixCarbu;
+  const energie = kmPrevus*conso;
+  const complet = loyer!=null ? loyer+kmSupp+energie : null;
+  let exclu = null;
+  if(P.boite==='auto' && o.boite!=='auto') exclu='Boîte manuelle';
+  else if(P.energie==='only' && o.energie!=='electrique') exclu='Pas électrique';
+  else if(loyer==null) exclu='Prix manquant';
+  return {loyer,kmSupp,energie,complet,exclu};
+}
+function rendreOffres(){
+  const rows = O.map(o=>Object.assign({o},calcul(o)));
+  const ok = rows.filter(r=>!r.exclu).sort((a,b)=>a.complet-b.complet);
+  const out = rows.filter(r=>r.exclu);
+  const tb=$('#corpsOffres'); let i=0;
+  const ligne=(r,rank)=>{
+    const o=r.o;
+    const bon = rank===1;
+    const prefElec = (P.energie==='pref' && o.energie==='electrique') ? '<span class="badge">préférée</span>' : '';
+    return '<tr class="'+(bon?'best':'')+(r.exclu?' out':'')+'">'+
+      '<td>'+(rank?'<span class="rank">'+rank+'</span>':'—')+'</td>'+
+      '<td>'+esc(o.loueur)+(o.exemple?'<span class="badge ex">exemple</span>':'')+(bon?'<span class="badge best">meilleur coût</span>':'')+'<span class="sub">'+esc(o.modele)+(o.url?' · <a href="'+esc(o.url)+'" target="_blank" rel="noopener">annonce</a>':'')+(o.note?' · '+esc(o.note):'')+'</span>'+(r.exclu?'<span class="why">Écartée : '+r.exclu+'</span>':'')+'</td>'+
+      '<td>'+(o.boite==='auto'?'Auto':'Manuelle')+'</td>'+
+      '<td>'+({electrique:'Électrique',hybride:'Hybride',thermique:'Essence / diesel'}[o.energie]||'')+prefElec+'</td>'+
+      '<td class="num">'+eur(r.loyer)+(o.total==null&&o.jour!=null?'<span class="sub">'+eur2(o.jour)+' × '+P.jours+' j</span>':'')+'</td>'+
+      '<td class="num">'+eur(r.kmSupp)+'<span class="sub">'+(o.km!=null?o.km+' km inclus':'illimité')+'</span></td>'+
+      '<td class="num">'+eur(r.energie)+'</td>'+
+      '<td class="num"><b>'+eur(r.complet)+'</b></td>'+
+      '<td class="num">'+(r.complet!=null?eur2(r.complet/P.jours):'—')+'</td>'+
+      '<td>'+(o.caution!=null?eur(o.caution):'—')+' / '+(o.franchise!=null?eur(o.franchise):'—')+'</td>'+
+      '<td>'+esc(o.lieu||'')+(o.dist!=null?'<span class="sub">'+o.dist+' km d’Orthez</span>':'')+'</td>'+
+      '<td><div class="row"><button class="small" data-edit="'+esc(o.id)+'">Modifier</button><button class="small danger" data-del="'+esc(o.id)+'">Retirer</button></div></td>'+
+      '</tr>';
+  };
+  tb.innerHTML = ok.map(r=>ligne(r,++i)).join('') + out.map(r=>ligne(r,0)).join('');
+  $('#videOffres').hidden = O.length>0;
+  $('#supprExemples').hidden = !O.some(o=>o.exemple);
+  lsSet(STORE_O,O);
+}
+const oChamps = ['loueur','modele','boite','energie','total','jour','km','kmsupp','caution','franchise','lieu','dist','url','note'];
+function lireOffre(){
+  const o={};
+  oChamps.forEach(k=>{ const el=$('#o_'+k); o[k] = (el.type==='number') ? num(el.value) : el.value.trim(); });
+  return o;
+}
+function viderForm(){ oChamps.forEach(k=>{ const el=$('#o_'+k); if(el.type==='number') el.value=''; else if(el.tagName==='SELECT') el.selectedIndex=0; else el.value=''; }); $('#o_dist').value='0'; editId=null; $('#ajouter').textContent='Ajouter cette offre'; $('#annulerEdit').hidden=true; }
+$('#ajouter').addEventListener('click',()=>{
+  const o=lireOffre();
+  if(!o.loueur){ $('#statutOffre').textContent='Indiquez au moins le nom du loueur.'; $('#o_loueur').focus(); return; }
+  if(o.total==null && o.jour==null){ $('#statutOffre').textContent='Indiquez le prix total ou le prix par jour.'; $('#o_total').focus(); return; }
+  if(editId){ const i=O.findIndex(x=>x.id===editId); if(i>=0) O[i]=Object.assign({},O[i],o,{exemple:false}); $('#statutOffre').textContent='Offre modifiée.'; }
+  else { o.id='o'+Date.now(); o.exemple=false; O.push(o); $('#statutOffre').textContent='Offre ajoutée et classée.'; }
+  viderForm(); rendreOffres();
+});
+$('#annulerEdit').addEventListener('click',viderForm);
+$('#corpsOffres').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  if(b.dataset.del){ O=O.filter(x=>x.id!==b.dataset.del); rendreOffres(); return; }
+  if(b.dataset.edit){ const o=O.find(x=>x.id===b.dataset.edit); if(!o) return;
+    oChamps.forEach(k=>{ const el=$('#o_'+k); el.value = (o[k]==null?'':o[k]); });
+    editId=o.id; $('#ajouter').textContent='Enregistrer la modification'; $('#annulerEdit').hidden=false; $('#formOffre').open=true; $('#o_loueur').focus(); }
+});
+$('#supprExemples').addEventListener('click',()=>{ O=O.filter(o=>!o.exemple); rendreOffres(); });
+$('#toutEffacer').addEventListener('click',()=>{
+  const b=$('#toutEffacer');
+  if(b.dataset.confirm){ O=[]; delete b.dataset.confirm; b.textContent='Tout effacer'; rendreOffres(); return; }
+  b.dataset.confirm='1'; b.textContent='Confirmer : tout effacer ?'; setTimeout(()=>{ delete b.dataset.confirm; b.textContent='Tout effacer'; },5000);
+});
+function csv(){
+  const sep=';'; const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"';
+  const head=['Rang','Loueur','Modèle','Boîte','Énergie','Loyer période €','Km en plus €','Énergie estimée €','Coût complet €','Par jour €','Caution €','Franchise €','Km inclus','Prix km supp €','Lieu','Distance km','Lien','Remarques','Exclue'];
+  const rows=O.map(o=>Object.assign({o},calcul(o)));
+  const ok=rows.filter(r=>!r.exclu).sort((a,b)=>a.complet-b.complet), out=rows.filter(r=>r.exclu);
+  const l=(r,rank)=>[rank||'',r.o.loueur,r.o.modele,r.o.boite,r.o.energie,r.loyer!=null?r.loyer.toFixed(2):'',r.kmSupp.toFixed(2),r.energie.toFixed(2),r.complet!=null?r.complet.toFixed(2):'',r.complet!=null?(r.complet/P.jours).toFixed(2):'',r.o.caution??'',r.o.franchise??'',r.o.km??'illimité',r.o.kmsupp??'',r.o.lieu,r.o.dist??'',r.o.url,r.o.note,r.exclu||''].map(q).join(sep);
+  let i=0; return '﻿'+[head.map(q).join(sep)].concat(ok.map(r=>l(r,++i)),out.map(r=>l(r,0))).join('\r\n');
+}
+function telecharger(nom,contenu,type){
+  try{ const blob=new Blob([contenu],{type}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=nom; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();},1000); }catch(e){}
+  $('#statutOffre').textContent='Si rien ne se télécharge, utilisez « Copier le tableau ».';
+}
+$('#exportCsv').addEventListener('click',()=>telecharger('offres-location-orthez-'+P.debut+'.csv',csv(),'text/csv;charset=utf-8'));
+$('#copierCsv').addEventListener('click',()=>copyText(csv().slice(1),$('#zoneCsv'),$('#statutOffre'),'Tableau copié : collez-le dans Excel ou LibreOffice.'));
+$('#exportJson').addEventListener('click',()=>telecharger('offres-location-orthez.json',JSON.stringify({params:P,offres:O},null,2),'application/json'));
+$('#importJson').addEventListener('change',e=>{
+  const f=e.target.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=()=>{ try{ const d=JSON.parse(r.result); const arr=Array.isArray(d)?d:d.offres; if(!Array.isArray(arr)) throw 0;
+    const ids=new Set(O.map(o=>o.id)); arr.forEach(o=>{ if(!o.id||ids.has(o.id)) o.id='i'+Date.now()+Math.random().toString(36).slice(2,6); O.push(o); });
+    if(d.params){ P=Object.assign({},defaults,d.params); ecrireParams(); lireParams(); resume(); rendreProviders(); }
+    $('#statutOffre').textContent=arr.length+' offre(s) importée(s).'; rendreOffres(); }
+    catch(err){ $('#statutOffre').textContent='Fichier illisible : il faut un fichier JSON exporté par cette page.'; } e.target.value=''; };
+  r.readAsText(f);
+});
+
+/* ---------- démarrage ---------- */
+function toutRendre(){ lireParams(); resume(); rendreProviders(); rendreOffres(); }
+ecrireParams();
+champs.forEach(k=>{ const el=$('#'+k); if(el) el.addEventListener('input',toutRendre); if(el) el.addEventListener('change',toutRendre); });
+toutRendre();
+})();
+</script>
+</body>
+</html>

@@ -104,6 +104,16 @@ style.css    → le thème et la mise en page
 script.js    → la logique du jeu (tirage, cartons, détection des quines)
 ```
 
+
+## 🚗 Autre application : Location auto Orthez
+
+Une seconde application, indépendante, aide à trouver **une voiture de location
+à Orthez pour un mois** (boîte automatique, électrique de préférence, meilleur
+tarif) : liens pré-remplis vers 20 loueurs et comparateur de coût complet.
+
+👉 **https://lucettelaudumiey.github.io/Lucettelaudumiey/location-voitures-orthez/**
+(détails dans [location-voitures-orthez/README.md](location-voitures-orthez/README.md))
+
 ## Propriété
 
 Application **propriété exclusive de Lucette Laudumiey** (64).
