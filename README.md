@@ -128,3 +128,27 @@ les courriers prêts à envoyer (relance, mise en demeure, médiateur), et des
 **astuces** pour récupérer de l'argent, dépenser moins et vivre mieux.
 
 Sans installation, hors-ligne, toutes les données restent sur votre appareil.
+
+---
+
+## 🔗 Le Bon Lien
+
+Une troisième application, dans le dossier [`bon-lien/`](bon-lien/), qui
+**dirige chaque Français vers sa demande**. On touche l'une des trois grandes
+demandes, ou on écrit (ou dit au micro) ce que l'on cherche, et le bon site
+officiel s'ouvre :
+
+- 📄 **Faire un dossier administratif** : papiers, famille, logement, travail,
+  santé, impôts, retraite, voiture, handicap, justice…
+- 💶 **Trouver une aide financière** : simulateur officiel, RSA, prime
+  d'activité, APL, chèque énergie, mutuelle gratuite, aides aux familles, aux
+  personnes âgées, aux jeunes, argent oublié…
+- 🤝 **Être aidé pour remplir un document ou s'informer** : France Services,
+  écrivain public, conseiller numérique, numéros de téléphone (39 39, CAF,
+  Ameli…), formulaires Cerfa, modèles de lettres, recours, arnaques.
+
+Plus de 100 liens officiels et gratuits. Si la recherche ne trouve rien,
+l'appli propose toujours une solution : chercher la demande sur
+Service-Public.fr, le simulateur d'aides ou un appel au 39 39.
+
+👉 En ligne : **https://lucettelaudumiey.github.io/Lucettelaudumiey/bon-lien/**

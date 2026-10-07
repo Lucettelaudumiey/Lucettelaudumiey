@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le Bon Lien</title>
+  <meta name="description" content="Dites ce que vous cherchez : un dossier administratif, une aide financière ou quelqu'un pour vous aider. Le Bon Lien vous ouvre directement le bon site officiel.">
+  <meta name="theme-color" content="#000091">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="entete">
+    <a href="#" class="marque" aria-label="Retour à l'accueil">
+      <span class="logo" aria-hidden="true">🔗</span>
+      <span>
+        <strong>Le Bon Lien</strong>
+        <small>Le bon site officiel pour votre demande</small>
+      </span>
+    </a>
+  </header>
+
+  <main id="contenu">
+    <!-- Recherche, toujours visible -->
+    <form class="recherche" id="form-recherche" role="search">
+      <label for="q">Que cherchez-vous ?</label>
+      <div class="champ">
+        <input id="q" type="search" autocomplete="off" enterkeyhint="search"
+               placeholder="Ex. : carte grise, APL, remplir un formulaire…">
+        <button type="button" id="micro" class="micro" hidden aria-label="Dire ma demande à voix haute" title="Dire ma demande">🎤</button>
+        <button type="submit" class="btn-chercher">Chercher</button>
+      </div>
+      <p class="ecoute" id="ecoute" hidden>🎤 Je vous écoute… dites votre demande.</p>
+    </form>
+
+    <!-- Vue dynamique : accueil, demande, thème ou résultats -->
+    <div id="vue" aria-live="polite"></div>
+
+    <aside class="prudence">
+      <b>🛡️ Bon à savoir</b>
+      <p>Les démarches officielles sont presque toujours <b>gratuites</b>. Méfiez-vous des sites qui vous font payer un acte de naissance, une carte grise ou un extrait de casier judiciaire. Les vrais sites de l'État se terminent par <b>.gouv.fr</b>.</p>
+    </aside>
+  </main>
+
+  <footer class="pied">
+    <p>Les liens s'ouvrent dans un nouvel onglet, sur les sites officiels.</p>
+    <p>© 2026 Lucette Laudumiey · Pyrénées-Atlantiques (64)</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

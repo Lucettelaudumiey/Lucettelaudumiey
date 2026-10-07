@@ -1,0 +1,14 @@
+{
+  "name": "Le Bon Lien",
+  "short_name": "Bon Lien",
+  "description": "Le bon site officiel pour chaque demande : dossiers, aides financières, aide pour remplir ou s'informer.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f5fe",
+  "theme_color": "#000091",
+  "lang": "fr",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
